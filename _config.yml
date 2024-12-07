@@ -23,7 +23,7 @@ author:
   # Biographic information
   avatar           : "DSC_3429.png"
   name             : "Enjun Du"
-  pronouns         : 
+  pronouns         : # example: "she/her"  
   bio              : ""
   location         : "Beijing"
   employer         : "Beijing Institude of Technology"
