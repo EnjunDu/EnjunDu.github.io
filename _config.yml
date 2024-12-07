@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Enjun Du"
+title                    : "Homepage"
 title_separator          : "-"
 name                     : Enjun Du"
 description              : &description "personal description"
