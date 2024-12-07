@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Enjun Du is currently an undergraduate student (Class of 2022) at the School of Cyberspace Science and Technology, Beijing Institute of Technology. His most significant role is serving as a Research Assistant at the [KIMI Lab](https://yzhangee.github.io/group) under the supervision of Professor [Zhang Yongqi](https://yzhangee.github.io/) at the Hong Kong University of Science and Technology (Guangzhou). At Beijing Institute of Technology, he is mentored by Professor [Ronghua Li](https://ronghuali.github.io/) and Professor [Zhida Qin](https://zhidaqin.github.io/). His research interests focus on Graph Neural Networks (GNN), Large Language Models, and Recommendation Systems.
+Enjun Du is currently an undergraduate student (Class of 2022) at the School of Cyberspace Science and Technology, Beijing Institute of Technology. His most significant role is serving as a Research Assistant at the [KIMI Lab](https://yzhangee.github.io/group) under the supervision of Professor [Yongqi Zhang](https://yzhangee.github.io/) at the Hong Kong University of Science and Technology (Guangzhou). At Beijing Institute of Technology, he is mentored by Professor [Ronghua Li](https://ronghuali.github.io/) and Professor [Zhida Qin](https://zhidaqin.github.io/). His research interests focus on Graph Neural Networks (GNN), Large Language Models, and Recommendation Systems.
 
 News
 ======
