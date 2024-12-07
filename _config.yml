@@ -23,8 +23,8 @@ author:
   # Biographic information
   avatar           : "DSC_3429.png"
   name             : "Enjun Du"
-  pronouns         : # example: "she/her"  
-  bio              : #"Short biography for the left-hand sidebar"
+  pronouns         : he# example: "she/her"  
+  bio              : ""https://enjundu.github.io/EnjunDu_daily.github.io/""
   location         : "Beijing"
   employer         : "Beijing Institude of Technology"
   uri              : # URL
@@ -73,7 +73,6 @@ author:
   xing             : # Username
   youtube          : # Username
   zhihu            : # Username
-  daily_homepage   : "https://enjundu.github.io/EnjunDu_daily.github.io/"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
