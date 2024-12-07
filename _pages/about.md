@@ -18,3 +18,4 @@ News
 Notice
 ======
 Due to time constraints, I only made the homepage, please do not click on other pages!
+Here is my [daily homepage](https://enjundu.github.io/EnjunDu_daily.github.io/)
