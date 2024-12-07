@@ -24,7 +24,7 @@ author:
   avatar           : "DSC_3429.png"
   name             : "Enjun Du"
   pronouns         : he# example: "she/her"  
-  bio              : ""https://enjundu.github.io/EnjunDu_daily.github.io/""
+  bio              : ""
   location         : "Beijing"
   employer         : "Beijing Institude of Technology"
   uri              : # URL
@@ -68,7 +68,7 @@ author:
   tumblr           : # Username
   twitter          : # Username for X / Twitter
   vine             : # Username
-  weibo            : # Username
+  weibo            : "https://enjundu.github.io/EnjunDu_daily.github.io/" # Username
   wikipedia        : # Username
   xing             : # Username
   youtube          : # Username
