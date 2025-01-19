@@ -45,7 +45,7 @@ tags:
   - Recommendation System
 
 # Display this page in the Featured widget?
-featured: false
+featured: ture
 
 # Custom links (uncomment lines below)
 # links:
