@@ -118,10 +118,12 @@ languages:
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
   - title: Four times won the second-class scholarship for outstanding students of Beijing Institute of Technology
-    date: '2022-09-06~2025-06-30'
+    date_start: "2022-09-06"
+    date_end: "2025-06-30"
     awarder: Beijing Institute of Technology
   - title: The first-class scholarship for outstanding students of Beijing Institute of Technology
-    date: '2024-09-01~2025-06-30'
+    date_start: "2024-09-01"
+    date_end: "2025-06-30"
     awarder: Beijing Institute of Technology
   - title: First and Second Prizes in Asia-Pacific Mathematical Modeling International
     date: '2024-01-01'
