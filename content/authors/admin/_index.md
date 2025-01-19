@@ -11,7 +11,7 @@ last_name: Du
 
 # Status emoji
 status:
-  icon: ☕️
+  icon: 
 
 # Is this the primary user of the site?
 superuser: true
@@ -31,81 +31,48 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
-    label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
+    url: 'enjundu.cs@gmail.com'
+    label: My Primary Email
+  - icon: at-symbol
+    url: 'enjundu@foxmail.com'
+    label: My Alternative mailbox
   - icon: brands/github
-    url: https://github.com/gcushen
-  - icon: brands/linkedin
-    url: https://www.linkedin.com/
+    url: https://github.com/EnjunDu
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/
+    url: https://scholar.google.com/citations?hl=en&user=PvBvdgQAAAAJ
   - icon: academicons/orcid
-    url: https://orcid.org/
+    url: https://orcid.org/0009-0006-1448-9945
+#  - icon: brands/x
+#    url: https://twitter.com/GetResearchDev
+#  - icon: brands/instagram
+#    url: https://www.instagram.com/
+#  - icon: brands/linkedin
+#    url: https://www.linkedin.com/
+
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Large language model with knowledge integration
+  - Graph Neural Networks
+  - Recommendation System
 
 education:
-  - area: PhD Artificial Intelligence
-    institution: Stanford University
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+  - area: Bachelor of Cyberspace Science and Technology
+    institution: Beijing Institute of Technology
+    date_start: 2022-09-01
+    date_end: 2026-6-30
     summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
+      GPA: 90/100
+      Rank: 8%
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.8/4.0
 
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+  - area: Research Assistant in KiMI lab
+    institution: The Hong Kong University of Science and Technology (Guangzhou)
+    date_start: 2024-08-22
+    date_end: 2026-6-30
     summary: |
-      GPA: 3.4/4.0
-      
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-work:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
-    company_url: ''
-    company_logo: ''
-    date_start: 2021-01-01
-    date_end: ''
-    summary: |2-
-      Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
-    company_url: ''
-    company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      Supervised  by Prof.Yongqi Zhang
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -114,73 +81,62 @@ skills:
     items:
       - name: Python
         description: ''
-        percent: 80
+        percent: 100
         icon: code-bracket
       - name: Data Science
         description: ''
-        percent: 100
+        percent: 60
         icon: chart-bar
-      - name: SQL
-        description: ''
-        percent: 40
-        icon: circle-stack
+
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking
-        description: ''
-        percent: 60
-        icon: person-simple-walk
-      - name: Cats
-        description: ''
-        percent: 100
-        icon: cat
       - name: Photography
         description: ''
-        percent: 80
+        percent: 100
         icon: camera
+      - name: Guitar
+        description: ''
+        percent: 80
+        icon: guitar
+      - name: Cats
+        description: ''
+        percent: 60
+        icon: cat
+
 
 languages:
   - name: English
     percent: 100
   - name: Chinese
-    percent: 75
-  - name: Portuguese
-    percent: 25
+    percent: 85
 
 # Awards.
 #   Add/remove as many awards below as you like.
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Neural Networks and Deep Learning
-    url: https://www.coursera.org/learn/neural-networks-deep-learning
-    date: '2023-11-25'
-    awarder: Coursera
-    icon: coursera
-    summary: |
-      I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
-  - title: Blockchain Fundamentals
-    url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-    date: '2023-07-01'
-    awarder: edX
-    icon: edx
-    summary: |
-      Learned:
-      - Synthesize your own blockchain solutions
-      - Gain an in-depth understanding of the specific mechanics of Bitcoin
-      - Understand Bitcoin’s real-life applications and learn how to attack and destroy Bitcoin, Ethereum, smart contracts and Dapps, and alternatives to Bitcoin’s Proof-of-Work consensus algorithm
-  - title: 'Object-Oriented Programming in R'
-    url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
-    certificate_url: https://www.datacamp.com
-    date: '2023-01-21'
-    awarder: datacamp
-    icon: datacamp
-    summary: |
-      Object-oriented programming (OOP) lets you specify relationships between functions and the objects that they can act on, helping you manage complexity in your code. This is an intermediate level course, providing an introduction to OOP, using the S3 and R6 systems. S3 is a great day-to-day R programming tool that simplifies some of the functions that you write. R6 is especially useful for industry-specific analyses, working with web APIs, and building GUIs.
+  - title: Four times won the second-class scholarship for outstanding students of Beijing Institute of Technology
+    date: '2022-09-06~2025-06-30'
+    awarder: Beijing Institute of Technology
+  - title: The first-class scholarship for outstanding students of Beijing Institute of Technology
+    date: '2024-09-01~2025-06-30'
+    awarder: Beijing Institute of Technology
+  - title: First and Second Prizes in Asia-Pacific Mathematical Modeling International
+    date: '2024-01-01'
+    awarder: APMCM Organizing Committee
+
+  - title: 'ISCC Information Security and Countermeasures Contest'
+    date: '2024-06-30'
+    awarder: China Ordnance Industry Association
+
 ---
 
 ## About Me
 
-I am toooooooo busy to finish the homepage. if you wanna to know more about me, just **download my CV** or contact me through **enjundu.cs@gmail.com**.
+Enjun Du is currently an undergraduate student in the Class of 2022 at the School of Network Science and Technology, Beijing Institute of Technology. His research interests are knowledge-integrated large language models and scientific artificial intelligence. Enjun Du is currently a research assistant at [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), under the supervision of [Prof.Yongqi Zhang](https://yzhangee.github.io/). Previously, Enjun Du conducted research internships in the research groups of [Prof.Zhida Qin](https://zhidaqin.github.io/) and [Prof.Ronghua Li](https://ronghuali.github.io/) at [Beijing Institute of Technology](https://english.bit.edu.cn/). This has given Enjun Du extensive research experience. 
+
+I am always dedicated to discussing problems with people who share the same passion for research. If you are interested in my work or would like to explore interesting research ideas with me, please feel free to contact me via my email!
+
+**Email**: EnjunDu.cs@gmail.com
