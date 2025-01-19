@@ -1,3 +1,5 @@
-<div class="clustrmaps-container" style="width: 300px; margin: 20px auto; position: absolute; left: 50%; transform: translateX(-50%); top: 520px;">
+{{ if eq .Section "authors" }}
+  <div id="clustrmaps-container" style="margin: 20px auto; width: 300px; position: absolute; left: 50%; transform: translateX(-50%); top: 400px;">
     <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script>
-</div>
+  </div>
+{{ end }}
