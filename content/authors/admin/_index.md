@@ -49,9 +49,7 @@ profiles:
 #  - icon: brands/linkedin
 #    url: https://www.linkedin.com/
 
-<div style="margin-top: 20px; width: 300px; margin-left: auto; margin-right: auto;">
-<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script>
-</div>
+
 
 interests:
   - Large language model with knowledge integration
@@ -137,6 +135,8 @@ awards:
     awarder: China Ordnance Industry Association
 
 ---
+
+{{< rawhtml >}} <div style="margin-top: 20px; width: 300px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div> {{< /rawhtml >}}
 
 ## About Me
 
