@@ -1,5 +1,5 @@
 ---
-title: "Causal Disentanglement-Enhanced Diffusion Denoising for Social Recommendation"
+title: "Behavior Habits Enhanced Intention Learning for Session Based Recommendation"
 authors:
   - Wenhao Xue
   - Zhida Qin⋆
