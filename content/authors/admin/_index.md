@@ -59,7 +59,7 @@ education:
   - area: Bachelor of Cyberspace Science and Technology
     institution: Beijing Institute of Technology
     date_start: 2022-09-01
-    date_end: 2026-6-30
+    date_end: 2026-06-30
     summary: |
       GPA: 90/100
       Rank: 8%
@@ -70,7 +70,7 @@ education:
   - area: Research Assistant in KiMI lab
     institution: The Hong Kong University of Science and Technology (Guangzhou)
     date_start: 2024-08-22
-    date_end: 2026-6-30
+    date_end: 2026-06-30
     summary: |
       Supervised  by Prof.Yongqi Zhang
 
