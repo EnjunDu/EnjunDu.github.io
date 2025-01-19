@@ -1,14 +1,15 @@
 ---
 title: "Causal Disentanglement-Enhanced Diffusion Denoising for Social Recommendation"
 authors:
-  - Shixiao Yang
+  - Wenhao Xue
   - Zhida Qin⋆
-  - admin
-  - Haoyan Fu
   - Haoyao Zhang
-  - Pengzhan Zhou
+  - Shixiao Yang
+  - admin
+  - Shuang Li
+  - Haoyan Fu
   - Tianyu Huang
-  - Gangyi Ding
+  - Iohn C.S. Lui
 
 # Author notes (optional)
 author_notes:
@@ -20,11 +21,12 @@ author_notes:
   - ''
   - ''
   - ''
-date: '2024-12-31'
+  - ''
+date: '2024-12-28'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2025-01-19'
+publishDate: '2025-01-18'
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -32,24 +34,23 @@ publishDate: '2025-01-19'
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: In *IEEE Transactions on Intelligent Systems and Technology*
-publication_short: In *TIST*
+publication: In *IEEE Transactions on Knowledge and Data Engineering*
+publication_short: In *TKDE*
 
-abstract: 'In recent years, social recommendation systems have emerged as a pivotal technology for enhancing recommendation accuracy by leveraging user social homophily and influence. Despite that lots of works have been devoted to this area, existing works still struggle to extract the beneficial structural information from social relationships that is beneficial for recommendations and neglect the inherent popularity bias in the social networks, which leads to suboptimal recommendation performances. To address these challenges, we propose a novel framework termed Causal Disentanglement-Enhanced Diffusion Denoising for Social Recommendation (CaDDiSR). This framework first employs causal graphs to disentangle the complexities of social relationships, generating user representations with high-order structures, which are subsequently used as inputs to a diffusion process to effectively denoise social networks and retain social signals beneficial for recommendation tasks. Furthermore, the framework integrates a bidirectional knowledge distillation mechanism, which balances user representations between social and recommendation contexts, thereby facilitating the effective fusion of their respective advantages while simultaneously mitigating noise interference and enhancing overall system performance. Finally, cross-domain contrastive learning is utilized to optimize user and item representations, ensuring consistency in recommendation performance across diverse scenarios. Experimental results on multiple real-world datasets demonstrate that CaDDiSR significantly outperforms existing baseline models, substantiating its superior performance.'
+abstract: 'Multi-behavior Session Based Recommendations (MBSBRs) have achieved remarkable results due to considering behavioral heterogeneity in sessions. Yet most existing works only consider binary or continuous behavior dependencies and aim to predict the next item under the target behavior, neglecting users' inherent behavior habits, resulting in learning inaccurate intentions. To tackle the above issues, we propose a novel Behavior Habits Enhanced Intention Learning framework for Session Based Recommendation (BHSBR) framework. Specifically, we focus on the next item recommendation and design a global item transition graph to learn the behavior-aware semantic relationships between items, in order to mine the underlying similarity between items beyond the session. In addition, we construct a hypergraph to extract the diverse behavior habits of users and break through the limitations of temporal relationships in the session. Compared to the existing works, our behavior habit learning method learns behavior dependencies at the user level, which could capture the user's more accurate long-term intentions and reduce the impact of noise behaviors. Extensive experiments on three datasets demonstrate that the performance of our proposed BHSBR is superior to SOTA. Further ablation experiments fully illustrate the effectiveness of our various modules.'
 
 # Summary. An optional shortened abstract.
 #summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 
 tags:
   - Graph Neural Network
-  - Contrastive Learning
   - Recommendation System
 
 # links:
 # - name: ""
 #   url: ""
 url_pdf: ''
-url_code: 'https://github.com/EnjunDu/CaDDiSR'
+url_code: ''
 url_dataset: ''
 url_poster: ''
 url_project: ''

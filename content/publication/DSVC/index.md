@@ -42,7 +42,7 @@ tags:
 # links:
 # - name: ""
 #   url: ""
-url_pdf: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
+url_pdf: ''
 url_code: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
 url_dataset: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
 url_poster: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
