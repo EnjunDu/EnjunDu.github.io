@@ -6,14 +6,18 @@ title: 'Dual Social View Enhanced Contrastive Learning for Social Recommendation
 # and it will be replaced with their full name and linked to their profile.
 authors:
   - Shixiao Yang
-  - Zhida Qin*
+  - Zhida Qin
   - admin
   - Pengzhan Zhou
   - Tianyu Huang
 
 # Author notes (optional)
 author_notes:
-  - Zhida Qin is the corresponding author.
+  - ''
+  - 'Corresponding Author'
+  - ''
+  - ''
+  - ''
 
 date: '2024-12-31'
 doi: '10.1109/TCSS.2024.3496774'
@@ -30,9 +34,7 @@ publication_types: ['article-journal']
 publication: In *IEEE Transactions on Computational Social Systems*
 publication_short: In *TCSS*
 
-abstract: Social recommendation (SocialRS), which utilizes user social information to improve recommendation performance, has received increasing attention. Graph neural networks (GNNs) facilitate the integration of both user preference and social features in SocialRS. However, existing techniques face two challenges: i) the inherent sparse supervision signals and noise issues in real-world social networks; ii) current social recommendation methods suffer from the neglect of user preference and social attribute heterogeneity, which hinders the extraction of preference-related information from social networks.
-
-Taking inspiration from social enhancement and contrastive learning methods, we propose a social recommendation model DSVC based on dual social view contrastive learning. Specifically, in response to the first challenge, our model derives the consistency factors of users in different augmented social views, which are used to highlight noise-resistant users and jettison preference-independent social relationships in social views. To address the second challenge, we adopt probability vectors generated from consistency factors. These vectors guide the cross-view augmentation process of the interaction graph, which helps supplement social self-supervised signals and effectively avoid noise retained due to indiscriminate augmentation. The baseline model comparison experiment, ablation experiment, parameter adjustment experiment and robustness experiment conducted on three different real-world datasets consistently validated the effectiveness of our model in improving recommendation performance.
+abstract: 'Social recommendation (SocialRS), which utilizes user social information to improve recommendation performance, has received increasing attention. Graph neural networks (GNNs) facilitate the integration of both user preference and social features in SocialRS. However, existing techniques face two challenges: i) the inherent sparse supervision signals and noise issues in real-world social networks; ii) current social recommendation methods suffer from the neglect of user preference and social attribute heterogeneity, which hinders the extraction of preference-related information from social networks. Taking inspiration from social enhancement and contrastive learning methods, we propose a social recommendation model DSVC based on dual social view contrastive learning. Specifically, in response to the first challenge, our model derives the consistency factors of users in different augmented social views, which are used to highlight noise-resistant users and jettison preference-independent social relationships in social views. To address the second challenge, we adopt probability vectors generated from consistency factors. These vectors guide the cross-view augmentation process of the interaction graph, which helps supplement social self-supervised signals and effectively avoid noise retained due to indiscriminate augmentation. The baseline model comparison experiment, ablation experiment, parameter adjustment experiment and robustness experiment conducted on three different real-world datasets consistently validated the effectiveness of our model in improving recommendation performance.'
 
 # Summary. An optional shortened abstract.
 
