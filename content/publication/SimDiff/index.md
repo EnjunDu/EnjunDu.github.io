@@ -3,7 +3,7 @@ title: 'SimDiff: A Simple yet Efficient Diffusion-based Collaborative Filtering 
 
 authors:
   - Xufeng Liang
-  - Zhida Qin⋆
+  - "Zhida Qin†"
   - Haoyan Fu
   - admin
   - Haotian He

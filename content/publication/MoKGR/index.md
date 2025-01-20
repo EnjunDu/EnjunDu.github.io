@@ -3,7 +3,7 @@ title: "Mixture of Length and Pruning Experts for Knowledge Graphs Reasoning"
 authors:
 authors:
   - admin
-  - "Yongqi Zhang⋆"
+  - "Yongqi Zhang†"
 
 author_notes:
   - ''

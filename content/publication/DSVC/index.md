@@ -2,7 +2,7 @@
 title: "Dual Social View Enhanced Contrastive Learning for Social Recommendation"
 authors:
   - Shixiao Yang
-  - Zhida Qin⋆
+  - "Zhida Qin†"
   - admin
   - Pengzhan Zhou
   - Tianyu Huang

@@ -2,7 +2,7 @@
 title: "Causal Disentanglement-Enhanced Diffusion Denoising for Social Recommendation"
 authors:
   - Shixiao Yang
-  - Zhida Qin⋆
+  - "Zhida Qin†"
   - admin
   - Haoyan Fu
   - Haoyao Zhang
