@@ -130,7 +130,7 @@ awards:
     date: '2024-01-01'
     awarder: APMCM Organizing Committee
 
-  - title: 'ISCC Information Security and Countermeasures Contest'
+  - title: 'International Second Prize in ISCC: Information Security and Countermeasures Contest'
     date: '2024-06-30'
     awarder: China Ordnance Industry Association
 
