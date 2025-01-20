@@ -76,6 +76,31 @@ sections:
       title: Recent News
       subtitle: ''
       text: ''
+  - block: resume-experience 
+    id: experience  # 添加 id 便于导航
+    content:
+      title: Experience  # 添加标题
+      username: admin
+    design:
+      date_format: 'January 2006'
+      is_education_first: false
+      
+  - block: resume-skills
+    content: 
+      title: Skills & Hobbies
+      username: admin
+    design:
+      show_skill_percentage: false
+      
+  - block: resume-awards
+    content:
+      title: Awards 
+      username: admin
+      
+  - block: resume-languages
+    content:
+      title: Languages
+      username: admin
       # Page type to display. E.g. post, talk, publication...
       page_type: post
       # Choose how many pages you would like to display (0 = all pages)
@@ -99,10 +124,6 @@ sections:
       # Reduce spacing
       spacing:
         padding: [0, 0, 0, 0]
-  - 
-    
-        # Card background color (CSS class)
-    ​    css_class: "bg-primary-700"
-    ​    css_style: ""
+
 
 ---
