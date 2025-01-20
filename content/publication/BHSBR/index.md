@@ -2,7 +2,7 @@
 title: "Behavior Habits Enhanced Intention Learning for Session Based Recommendation"
 authors:
   - Wenhao Xue
-  - "Zhida Qin†"
+  - "Zhida Qin*"
   - Haoyao Zhang
   - Shixiao Yang
   - admin
