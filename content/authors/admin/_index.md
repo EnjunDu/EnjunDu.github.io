@@ -68,12 +68,28 @@ education:
       text: 'Read Thesis'
       url: 'https://example.com'
 
+  - area: Research Assistant in Zandar Qin's Lab
+    institution: Beijing Institute of Technology
+    date_start: 2023-09-01
+    date_end: 2025-06-30
+    summary: |
+      Supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/)
+
+  - area: Research Assistant in Ronghua Li's Lab
+    institution: Beijing Institute of Technology
+    date_start: 2024-11-01
+    date_end: 2025-12-30
+    summary: |
+      Supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/)
+
+
   - area: Research Assistant in KiMI lab
     institution: The Hong Kong University of Science and Technology (Guangzhou)
     date_start: 2024-08-22
     date_end: 2026-06-30
     summary: |
-      Supervised  by Prof.Yongqi Zhang
+      Supervised  by [Prof.Yongqi Zhang](https://yzhangee.github.io/)
+
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
