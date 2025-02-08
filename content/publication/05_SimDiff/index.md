@@ -26,7 +26,7 @@ publishDate: '2025-01-19'
 
 publication_types: ['paper-conference']
 
-publication: In *ACM Special Interest Group on Information Retrieval*
+publication: In **ACM Special Interest Group on Information Retrieval**
 publication_short: In **SIGIR**
 
 abstract: >-

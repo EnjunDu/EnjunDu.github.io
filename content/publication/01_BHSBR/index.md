@@ -34,7 +34,7 @@ publishDate: '2025-01-18'
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: In *IEEE Transactions on Knowledge and Data Engineering*
+publication: In **IEEE Transactions on Knowledge and Data Engineering**
 publication_short: In **TKDE**
 
 abstract: >

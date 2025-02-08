@@ -26,7 +26,7 @@ publishDate: '2025-02-08'
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: In *Artificial Intelligence Journal*
+publication: In **Artificial Intelligence Journal**
 publication_short: In **AI**
 
 abstract: ''

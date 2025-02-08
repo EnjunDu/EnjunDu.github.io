@@ -43,6 +43,7 @@ sections:
     id: papers
     content:
       title: Featured Publications
+      count: 114514
       filters:
         folders:
           - publication
@@ -52,6 +53,7 @@ sections:
       columns: 2
   - block: collection
     content:
+      count: 114514
       title: Recent Publications
       text: ""
       filters:
