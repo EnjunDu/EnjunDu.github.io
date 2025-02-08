@@ -40,6 +40,13 @@ sections:
     design:
       columns: '1'
   - block: collection
+    id: news
+    content:
+      title: Recent News
+      count: 6
+      subtitle: ''
+      text: ''
+  - block: collection
     id: papers
     content:
       title: Featured Publications
@@ -54,7 +61,7 @@ sections:
   - block: collection
     content:
       count: 114514
-      title: Recent Publications
+      title: Publications
       text: ""
       filters:
         folders:
@@ -65,19 +72,13 @@ sections:
   - block: collection
     id: talks
     content:
-      title: Recent & Upcoming Talks
+      title: Talks
       filters:
         folders:
           - event
     design:
       view: article-grid
       columns: 1
-  - block: collection
-    id: news
-    content:
-      title: Recent News
-      subtitle: ''
-      text: ''
   - block: resume-experience 
     id: experience  # 添加 id 便于导航
     content:
