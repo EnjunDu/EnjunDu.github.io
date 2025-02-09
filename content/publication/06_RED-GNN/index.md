@@ -5,7 +5,7 @@ authors:
   - Haiquan Qiu
   - Shuzhi Liu
   - admin
-  - "Quanming Yao"
+  - "Quanming Yao*"
 
 # Author notes (optional)
 author_notes:
