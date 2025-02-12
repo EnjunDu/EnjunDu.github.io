@@ -41,7 +41,7 @@ sections:
         
         **2. Retrieval-Augmented Generation** (KiMI)  
         
-        **3. Large Language Models Agent-based for Graph Data Synthesis/Augmentation** (Ronghua Li's Lab)
+        **3. Leveraging Agent-based Large Language Models Model for Graph Data Synthesis** (Ronghua Li's Lab)
 
         Here are some of my research works. If you have any questions about them or would like to connect and explore new ideas together, I welcome the discussion. Please reach out to collaborate! 😃
     design:

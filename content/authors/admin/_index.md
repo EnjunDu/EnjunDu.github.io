@@ -62,8 +62,8 @@ education:
     date_start: 2022-09-01
     date_end: 2026-06-30
     summary: |
-      GPA: 90/100
-      Rank: 8%
+      GPA: 91/100
+      Rank: 5%
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
