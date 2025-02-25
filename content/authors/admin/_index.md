@@ -159,6 +159,8 @@ Enjun Du is currently an undergraduate student in the Class of 2022 at the Schoo
 
 I am always dedicated to discussing problems with people who share the same passion for research. If you are interested in my work or would like to explore interesting research ideas with me, please feel free to contact me via my email!
 
+**News**: I will be going to the KiMI Lab at the Hong Kong University of Science and Technology (Guangzhou Campus) as a visiting student for academic exchanges on June 25. I really hope to make friends with HKUSTgz alumni!
+
 **Email**: EnjunDu.cs@gmail.com
 
 <div style="margin-top: 20px; width: 420px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div>
