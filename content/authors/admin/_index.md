@@ -150,6 +150,9 @@ awards:
     date: '2024-06-30'
     awarder: China Ordnance Industry Association
 
+Review experience:
+  - **ICML** 2025 Reviewer
+
 ---
 
 
