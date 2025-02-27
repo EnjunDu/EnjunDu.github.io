@@ -76,6 +76,20 @@ sections:
         exclude_featured: false
     design:
       view: citation
+  - block: markdown
+    content:
+      title: '📝 Reviewer Experience'
+      subtitle: ''
+      text: |-
+        ### Journals
+        - **TIST in 2024**: ACM Transactions on Intelligent Systems and Technology
+
+        
+        ### Conferences
+        - **ICML 2025**: International Conference on Machine Learning
+
+    design:
+      columns: '1'
   - block: collection
     id: talks
     content:

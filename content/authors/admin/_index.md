@@ -150,8 +150,6 @@ awards:
     date: '2024-06-30'
     awarder: China Ordnance Industry Association
 
-Review experience:
-  - **ICML** 2025 Reviewer
 
 ---
 
@@ -162,7 +160,7 @@ Enjun Du is currently an undergraduate student in the Class of 2022 at the Schoo
 
 I am always dedicated to discussing problems with people who share the same passion for research. If you are interested in my work or would like to explore interesting research ideas with me, please feel free to contact me via my email!
 
-**News**: I will be going to the KiMI Lab at the Hong Kong University of Science and Technology (Guangzhou Campus) as a visiting student for academic exchanges on June 25. I really hope to make friends with HKUSTgz alumni!
+**News**: I will be visiting the KiMI Lab at the Hong Kong University of Science and Technology (Guangzhou Campus) as a visiting student for academic exchanges from June 25, 2025 to June 25, 2026. I'm really looking forward to making friends with HKUST-GZ alumni during my stay!
 
 **Email**: EnjunDu.cs@gmail.com
 
