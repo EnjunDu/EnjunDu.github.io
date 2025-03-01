@@ -165,7 +165,7 @@ I am always dedicated to discussing problems with people who share the same pass
 **Email**:
 
 1. enjundu.cs@gmail.com (Primary)
-2. edu719@connect.hkust- gz.edu.cn (optional)
+2. edu719@connect.hkust-gz.edu.cn (optional)
 3. enjun_du@bit.edu.cn (Not recommended, I won't be able to use it after June 2026)
 
 <div style="margin-top: 20px; width: 420px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div>
