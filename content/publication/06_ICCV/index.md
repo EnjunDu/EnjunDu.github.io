@@ -18,7 +18,7 @@ author_notes:
 date: ''
 doi: ''
 
-publishDate: '2025-03-3'
+publishDate: '2025-03-03'
 
 publication_types: ['paper-conference']
 
