@@ -4,8 +4,9 @@ authors:
   - Yongqi Zhang
   - Haiquan Qiu
   - Shuzhi Liu
-  - **Enjun Du (temp)**
+  - admin
   - "Quanming Yao*"
+  - "(temp)"
 
 # Author notes (optional)
 author_notes:
@@ -14,7 +15,7 @@ author_notes:
   - ''
   - ''
   - 'Corresponding Author'
-date: '2025-02-08'
+date: '2025-03-02'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
