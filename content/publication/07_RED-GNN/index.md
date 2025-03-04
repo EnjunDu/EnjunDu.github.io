@@ -4,7 +4,7 @@ authors:
   - Yongqi Zhang
   - Haiquan Qiu
   - Shuzhi Liu
-  - admin
+  - **Enjun Du (temp)**
   - "Quanming Yao*"
 
 # Author notes (optional)
