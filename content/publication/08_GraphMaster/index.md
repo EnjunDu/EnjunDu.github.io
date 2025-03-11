@@ -38,7 +38,8 @@ abstract: ''
 tags:
   - Graph Neural Network
   - Graph Data Synthesis
- 
+
+featured: true
 
 # links:
 # - name: ""
