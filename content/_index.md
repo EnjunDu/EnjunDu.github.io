@@ -39,9 +39,9 @@ sections:
 
         **1. Chiikawa: Cross-domain Hierarchical Inductive Inference for Knowledge graphs And question-answering With meta-learning Architecture** (KiMI)  
         
-        **2. Retrieval-Augmented Generation** (KiMI)  
-        
-        **3. GraphMaster: Automated Graph Synthesis via LLM Agents in Data-Limited Environments** (Ronghua Li's Lab)
+        **2. GraphMaster: Automated Graph Synthesis via LLM Agents in Data-Limited Environments** (Ronghua Li's Lab)
+
+        **3. Multimodal Large Language Model Reasoning and RL&LLM**
 
         Here are some of my research works. If you have any questions about them or would like to connect and explore new ideas together, I welcome the discussion. Please reach out to collaborate! 😃
     design:
