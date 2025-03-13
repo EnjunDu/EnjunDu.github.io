@@ -37,11 +37,11 @@ sections:
       text: |-
         My current research interests are:
 
-        **1. Foundation model for Knowledge Graph Reasoning** (KiMI)  
+        **1. Chiikawa: Cross-domain Hierarchical Inductive Inference for Knowledge graphs And question-answering With meta-learning Architecture** (KiMI)  
         
         **2. Retrieval-Augmented Generation** (KiMI)  
         
-        **3. Leveraging Agent-based Large Language Models Model for Graph Data Synthesis** (Ronghua Li's Lab)
+        **3. GraphMaster: Automated Graph Synthesis via LLM Agents in Data-Limited Environments** (Ronghua Li's Lab)
 
         Here are some of my research works. If you have any questions about them or would like to connect and explore new ideas together, I welcome the discussion. Please reach out to collaborate! 😃
     design:
