@@ -57,6 +57,28 @@ interests:
   - Recommendation System
 
 education:
+
+  - area: Research Assistant in KiMI lab
+    institution: The Hong Kong University of Science and Technology (Guangzhou)
+    date_start: 2024-08-22
+    date_end: 2026-06-30
+    summary: |
+      Supervised  by [Prof.Yongqi Zhang](https://yzhangee.github.io/)
+
+  - area: Research Assistant in Ronghua Li's Lab
+    institution: Beijing Institute of Technology
+    date_start: 2024-11-01
+    date_end: 2026-06-30
+    summary: |
+      Supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/)
+
+  - area: Research Assistant in Zandar Qin's Lab
+    institution: Beijing Institute of Technology
+    date_start: 2023-09-01
+    date_end: 2025-06-30
+    summary: |
+      Supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/)
+
   - area: Bachelor of Cyberspace Science and Technology
     institution: Beijing Institute of Technology
     date_start: 2022-09-01
@@ -67,28 +89,6 @@ education:
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
-
-  - area: Research Assistant in Zandar Qin's Lab
-    institution: Beijing Institute of Technology
-    date_start: 2023-09-01
-    date_end: 2025-06-30
-    summary: |
-      Supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/)
-
-  - area: Research Assistant in Ronghua Li's Lab
-    institution: Beijing Institute of Technology
-    date_start: 2024-11-01
-    date_end: 2025-12-30
-    summary: |
-      Supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/)
-
-
-  - area: Research Assistant in KiMI lab
-    institution: The Hong Kong University of Science and Technology (Guangzhou)
-    date_start: 2024-08-22
-    date_end: 2026-06-30
-    summary: |
-      Supervised  by [Prof.Yongqi Zhang](https://yzhangee.github.io/)
 
 
 # Skills
@@ -156,7 +156,7 @@ awards:
 
 ## About Me
 
-Enjun Du is currently an undergraduate student in the Class of 2022 at the School of Cyberspace Science and Technology, Beijing Institute of Technology. His research interests are knowledge-integrated large language models and scientific artificial intelligence. Enjun Du is currently a research assistant at [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), under the supervision of [Prof.Yongqi Zhang](https://yzhangee.github.io/). Previously, Enjun Du conducted research internships in the research groups of [Prof.Zhida Qin](https://zhidaqin.github.io/) and [Prof.Ronghua Li](https://ronghuali.github.io/) at [Beijing Institute of Technology](https://english.bit.edu.cn/). This has given Enjun Du extensive research experience. 
+Enjun Du is currently an undergraduate student in the Class of 2022 at the School of Cyberspace Science and Technology, Beijing Institute of Technology. His research interests are knowledge-integrated large language models and scientific artificial intelligence. Enjun Du is currently a research assistant at [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), under the supervision of [Prof.Yongqi Zhang](https://yzhangee.github.io/). Previously, Enjun Du conducted research internships in the research groups of [Prof.Ronghua Li](https://ronghuali.github.io/) and [Prof.Zhida Qin](https://zhidaqin.github.io/) at [Beijing Institute of Technology](https://english.bit.edu.cn/). This has given Enjun Du extensive research experience. 
 
 I am always dedicated to discussing problems with people who share the same passion for research. If you are interested in my work or would like to explore interesting research ideas with me, please feel free to contact me via my email!
 
