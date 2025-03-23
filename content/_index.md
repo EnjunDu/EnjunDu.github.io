@@ -87,7 +87,7 @@ sections:
         
         ### Conferences
         - **ICML 2025**: International Conference on Machine Learning
-        - **ARR**: ACL Rolling Review
+        - **ARR 2025**: ACL Rolling Review
 
 
     design:
