@@ -80,7 +80,7 @@ education:
       Supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/)
 
   - area: Bachelor of Cyberspace Science and Technology
-    institution: [Beijing Institute of Technology](https://english.bit.edu.cn/)
+    institution: Beijing Institute of Technology
     date_start: 2022-09-01
     date_end: 2026-06-30
     summary: |
