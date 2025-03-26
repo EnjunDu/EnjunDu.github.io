@@ -37,7 +37,7 @@ sections:
       text: |-
         My current research interests are:
 
-        **1. Chiikawa: Cross-domain Hierarchical Inductive Inference for Knowledge graphs And question-answering With meta-learning Architecture** (KiMI)  
+        **1. GraphOracle: A Foundation Model for Universal Knowledge Graph Reasoning** (KiMI)  
         
         **2. GraphMaster: Automated Graph Synthesis via LLM Agents in Data-Limited Environments** (Ronghua Li's Lab)
 
