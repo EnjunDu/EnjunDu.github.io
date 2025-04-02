@@ -6,6 +6,7 @@ authors:
   - Tian Jin
   - Zhihan Zhang
   - "Ronghua Li*"
+  - Guoren Wang
 
 
 # Author notes (optional)
@@ -15,6 +16,7 @@ author_notes:
   - ''
   - ''
   - 'Corresponding Author'
+  - ''
 date: '2025-03-06'
 doi: ''
 
@@ -44,14 +46,14 @@ featured: true
 # links:
 # - name: ""
 #   url: ""
-url_pdf: ''
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
+url_pdf: 'https://arxiv.org/pdf/2504.00711'
+url_code: 'https://arxiv.org/pdf/2504.00711'
+url_dataset: 'https://arxiv.org/pdf/2504.00711'
+url_poster: 'https://arxiv.org/pdf/2504.00711'
+url_project: 'https://arxiv.org/pdf/2504.00711'
+url_slides: 'https://arxiv.org/pdf/2504.00711'
+url_source: 'https://arxiv.org/pdf/2504.00711'
+url_video: 'https://arxiv.org/pdf/2504.00711'
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
