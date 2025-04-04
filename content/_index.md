@@ -37,7 +37,7 @@ sections:
       text: |-
         My current research interests are:
 
-        1. **AI-Driven Science**: Leveraging advanced artificial intelligence techniques to tackle complex scientific challenges, this research promotes interdisciplinary innovation and discovery by employing data-driven methodologies that unveil novel scientific insights.  
+        1. **AI-Driven Science**: Leveraging advanced artificial intelligence techniques to tackle complex scientific challenges, this research promotes interdisciplinary innovation and discovery that unveil novel scientific insights.  
         
         2. **Data-Centric Learning**: Integrating universal graph models with large language models to significantly enhance data quantity, quality, efficiency, and privacy. This approach aims to optimize the robustness and scalability of machine learning systems for real-world applications. 
 
