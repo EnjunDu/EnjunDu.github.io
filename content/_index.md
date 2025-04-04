@@ -37,11 +37,11 @@ sections:
       text: |-
         My current research interests are:
 
-        **1. GraphOracle: A Foundation Model for Universal Knowledge Graph Reasoning** (KiMI)  
+        1. **AI-Driven Science**: Leveraging advanced artificial intelligence techniques to tackle complex scientific challenges, this research promotes interdisciplinary innovation and discovery by employing data-driven methodologies that unveil novel scientific insights.  
         
-        **2. GraphMaster: Automated Graph Synthesis via LLM Agents in Data-Limited Environments** (Ronghua Li's Lab)
+        2. **Data-Centric Learning**: Integrating universal graph models with large language models to significantly enhance data quantity, quality, efficiency, and privacy. This approach aims to optimize the robustness and scalability of machine learning systems for real-world applications. 
 
-        **3. Multimodal Large Language Model Reasoning and RL&LLM**
+        3. **Knowledge-Integrated LLMs**: Merging domain-specific knowledge with large language models to fortify their reasoning capabilities and adaptability, ultimately striving to develop more efficient and universally applicable intelligent solutions.
 
         Here are some of my research works. If you have any questions about them or would like to connect and explore new ideas together, I welcome the discussion. Please reach out to collaborate! 😃
     design:
