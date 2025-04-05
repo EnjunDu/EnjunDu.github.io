@@ -52,9 +52,9 @@ profiles:
 
 
 interests:
-  - Large language model with knowledge integration
-  - Graph Neural Networks
-  - Recommendation System
+  - AI-Driven Science
+  - Data-Centric Learning
+  - Knowledge-Integrated Large Language Models
 
 education:
 
