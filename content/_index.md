@@ -83,11 +83,13 @@ sections:
       text: |-
         ### Journals
         - **TIST in 2024**: ACM Transactions on Intelligent Systems and Technology
+        - **TCSS in 2025**: IEEE Transactions on Computational Social Systems
 
         
         ### Conferences
         - **ICML 2025**: International Conference on Machine Learning
-        - **ARR 2025**: ACL Rolling Review
+        - **ARR 2025**: Association for Computational Linguistics Rolling Review
+        - **NeurIPS 2025**: Neural Information Processing Systems
 
 
     design:
