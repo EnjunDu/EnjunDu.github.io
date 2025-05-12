@@ -1,2 +1,5 @@
+title: "Enjun Du|(杜恩俊)"
+baseURL: "https://enjundu.com" 
+
 build:
   hugo_version: '0.136.5'
