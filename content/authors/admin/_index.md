@@ -33,21 +33,20 @@ profiles:
   - icon: at-symbol
     url: 'enjundu.cs@gmail.com'
     label: My Primary Email
-  - icon: at-symbol
-    url: 'enjundu@foxmail.com'
-    label: My Alternative mailbox
   - icon: brands/github
     url: https://github.com/EnjunDu
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?hl=en&user=PvBvdgQAAAAJ
   - icon: academicons/orcid
     url: https://orcid.org/0009-0006-1448-9945
-#  - icon: brands/x
-#    url: https://twitter.com/GetResearchDev
-#  - icon: brands/instagram
-#    url: https://www.instagram.com/
-#  - icon: brands/linkedin
-#    url: https://www.linkedin.com/
+  - icon: academicons/dblp
+    url: https://dblp.org/pid/401/9116.html
+  - icon: brands/x
+    url: https://x.com/EnjunDu6673
+  - icon: brands/instagram
+    url: https://www.instagram.com/enjundu.c/
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/enjun-du-49455b35a/
 
 
 
