@@ -2,6 +2,7 @@
 title: "GraphOracle: A Foundation Model for Universal Knowledge Graph Reasoning"
 authors:
   - admin
+  - Siyi Liu
   - "Yongqi Zhang*"
 
 
@@ -14,7 +15,7 @@ date: '2025-03-25'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2025-03-25'
+publishDate: '2025-05-18'
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -39,7 +40,7 @@ featured: true
 # links:
 # - name: ""
 #   url: ""
-url_pdf: ''
+url_pdf: 'https://arxiv.org/abs/2505.11125'
 url_code: ''
 url_dataset: ''
 url_poster: ''
