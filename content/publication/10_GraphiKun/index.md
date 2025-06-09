@@ -1,9 +1,8 @@
 ---
-title: "GraphiKun: Leveraging LLMs for efficient pruning of text attribute graphs"
+title: "M²AGraph: A Comprehensive Benchmark for Evaluating Multimodal Attribute Graphs in Graph Foundation Models"
 authors:
   - admin
   - Xunkai Li
-  - Tian Jin
   - "Rong-Hua Li*"
   - Guoren Wang
 
@@ -13,11 +12,11 @@ authors:
 author_notes:
   - ''
   - 'Corresponding Author'
-date: '2025-03-26'
+date: '2025-05-26'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2025-03-26'
+publishDate: '2025-05-26'
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
