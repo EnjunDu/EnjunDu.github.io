@@ -159,10 +159,10 @@ Enjun Du is currently an undergraduate student in the Class of 2022 at the Schoo
 
 I am always passionate about exploring cutting-edge research topics and actively engaging with the research community. If you’re interested in my work or would like to collaborate on exciting research ideas, please feel free to reach out to me via email!
 
-<div style="border-left: 5px solid #2d78ad; background-color: #f0f8ff; padding: 15px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 16px;">
-  <strong>📢 News:</strong> I am currently a visiting student at <strong>KiMI Lab</strong>, <strong>the Hong Kong University of Science and Technology (Guangzhou Campus)</strong>, for academic exchange until <strong>May 25, 2026</strong>.
-  <br><br>
-  I am genuinely eager to connect and collaborate with fellow students at HKUST-GZ!
+<div style="border: 2px solid #000000; background-color: #99FFFC; color: #000000; padding: 15px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 16px;">
+  <strong style="color: #111111;">📢 News:</strong> I am currently a visiting student at the <strong style="color: #111111;">KiMI Lab</strong>, <strong style="color: #111111;">Hong Kong University of Science and Technology (Guangzhou Campus)</strong>, for academic exchange until <strong style="color: #111111;">May 25, 2026</strong>.
+<br>
+	I am genuinely eager to connect and collaborate with fellow students at <strong style="color: #111111;">HKUST-GZ</strong>!
 </div>
 
 **Email**:
