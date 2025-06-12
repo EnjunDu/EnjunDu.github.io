@@ -155,16 +155,19 @@ awards:
 
 ## About Me
 
-Enjun Du is currently an undergraduate student in the Class of 2022 at the School of Cyberspace Science and Technology, [Beijing Institute of Technology](https://english.bit.edu.cn/). His research interests are knowledge-integrated large language models and scientific artificial intelligence. Enjun Du is currently a research assistant at [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), under the supervision of [Prof.Yongqi Zhang](https://yzhangee.github.io/).  At the same time, Du Enjun is also a research assistant in the lab of [Prof. Ronghua Li](https://ronghuali.github.io/) at [Beijing Institute of Technology](https://www.bit.edu.cn/). Previously, he was a research intern in the group of [Prof. Zhida Qin](https://zhidaqin.github.io/). This has given Enjun Du extensive research experience. 
+Enjun Du is currently an undergraduate student in the Class of 2022 at the School of Cyberspace Science and Technology, [Beijing Institute of Technology](https://english.bit.edu.cn/). His research interests lie in Large Language Models and Data Mining. He is now a Research Assistant at the [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), working under the supervision of [Prof. Yongqi Zhang](https://yzhangee.github.io/). Concurrently, he also serves as a Research Assistant in the lab of [Prof. Ronghua Li](https://ronghuali.github.io/) at [BIT](https://www.bit.edu.cn/). Previously, he was a Research Intern in the group of [Prof. Zhida Qin](https://zhidaqin.github.io/), gaining extensive hands-on experience in AI research.
 
-I am always dedicated to discussing problems with people who share the same passion for research. If you are interested in my work or would like to explore interesting research ideas with me, please feel free to contact me via my email!
+I am always passionate about exploring cutting-edge research topics and actively engaging with the research community. If you’re interested in my work or would like to collaborate on exciting research ideas, please feel free to reach out to me via email!
 
-**News**: I will be visiting the KiMI Lab at the Hong Kong University of Science and Technology (Guangzhou Campus) as a visiting student for academic exchanges from June 25, 2025 to June 25, 2026. I'm really looking forward to making friends with HKUST-GZ alumni during my stay!
+<div style="border-left: 5px solid #2d78ad; background-color: #f0f8ff; padding: 15px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 16px;">
+  <strong>📢 News:</strong> I am currently a visiting student at <strong>KiMI Lab</strong>, <strong>the Hong Kong University of Science and Technology (Guangzhou Campus)</strong>, for academic exchange until <strong>May 25, 2026</strong>.
+  <br><br>
+  I am genuinely eager to connect and collaborate with fellow students at HKUST-GZ!
+</div>
 
 **Email**:
 
 1. enjundu.cs@gmail.com (Primary)
-2. edu719@connect.hkust-gz.edu.cn (optional)
-3. enjun_du@bit.edu.cn (Not recommended, I won't be able to use it after June 2026)
+2. edu719@connect.hkust-gz.edu.cn (optional), enjun_du@bit.edu.cn (Not recommended, I won't be able to use it after June 2026)
 
 <div style="margin-top: 20px; width: 420px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div>
