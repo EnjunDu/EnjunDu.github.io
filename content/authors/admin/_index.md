@@ -37,6 +37,8 @@ profiles:
     url: https://github.com/EnjunDu
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?hl=en&user=PvBvdgQAAAAJ
+  - icon: academicons/semantic-scholar
+    url: https://www.semanticscholar.org/author/Enjun-Du/2349542076
   - icon: academicons/orcid
     url: https://orcid.org/0009-0006-1448-9945
   - icon: academicons/dblp
