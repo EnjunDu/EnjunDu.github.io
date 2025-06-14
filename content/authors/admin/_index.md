@@ -59,26 +59,12 @@ interests:
 
 education:
 
-  - area: Research Assistant in KiMI lab
+  - area: Visiting Student in KiMI lab
     institution: The Hong Kong University of Science and Technology (Guangzhou)
     date_start: 2024-08-22
     date_end: 2026-06-30
     summary: |
       Supervised  by [Prof.Yongqi Zhang](https://yzhangee.github.io/)
-
-  - area: Research Assistant in Ronghua Li's Lab
-    institution: Beijing Institute of Technology
-    date_start: 2024-11-01
-    date_end: 2026-06-30
-    summary: |
-      Supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/)
-
-  - area: Research Assistant in Zandar Qin's Lab
-    institution: Beijing Institute of Technology
-    date_start: 2023-09-01
-    date_end: 2025-06-30
-    summary: |
-      Supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/)
 
   - area: Bachelor of Cyberspace Science and Technology
     institution: Beijing Institute of Technology
@@ -87,6 +73,8 @@ education:
     summary: |
       GPA: 92.7/100
       Rank: 1%
+      Research Assistant in Ronghua Li's Lab, supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/) from November 2024 to present.
+      Research Intern in Zhida Qin's Lab, supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/) form September 2023 to December 2025.
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
@@ -153,16 +141,6 @@ awards:
 
 
 ---
-
-## Education
-
-<ul>
-  <li><strong>Ph.D</strong> — The Chinese University of Hong Kong (Fall 2026)</li>
-  <li><strong>Visiting Student</strong> — The Hong Kong University of Science and Technology</li>
-  <li><strong>Bachelor</strong> — Beijing Institute of Technology</li>
-</ul>
-
-<p><a href="#section-resume-experience">See full education & experience →</a></p>
 
 ## About Me
 
