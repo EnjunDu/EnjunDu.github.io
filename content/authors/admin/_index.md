@@ -72,9 +72,9 @@ education:
     date_end: 2026-06-30
     summary: |
       GPA: 92.7/100
-      Rank: 1%
-      Research Assistant in Ronghua Li's Lab, supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/) from November 2024 to present.
-      Research Intern in Zhida Qin's Lab, supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/) form September 2023 to December 2025.
+      Rank: 1%<br>
+      Research Assistant in Ronghua Li's Lab, supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/) from November 2024 to present.<br>
+      Research Intern in Zhida Qin's Lab, supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/) form September 2023 to December 2025.<br>
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
