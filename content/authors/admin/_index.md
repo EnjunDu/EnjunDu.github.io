@@ -59,15 +59,15 @@ interests:
 
 education:
 
-  - area: Visiting Student in KiMI lab
-    institution: The Hong Kong University of Science and Technology (Guangzhou)
+  - area: The Hong Kong University of Science and Technology
+    institution: Visiting Student
     date_start: 2024-08-22
     date_end: 2026-06-30
     summary: |
       Supervised  by [Prof.Yongqi Zhang](https://yzhangee.github.io/)
 
-  - area: Bachelor of Cyberspace Science and Technology
-    institution: Beijing Institute of Technology
+  - area: Beijing Institute of Technology
+    institution: Bachelor of Cyberspace Science and Technology
     date_start: 2022-09-01
     date_end: 2026-06-30
     summary: |
