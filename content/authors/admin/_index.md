@@ -57,16 +57,6 @@ interests:
   - Data-Centric Learning
   - Knowledge-Integrated Large Language Models
 
-## Education
-
-<ul>
-  <li><strong>Ph.D</strong> — The Chinese University of Hong Kong (Fall 2026)</li>
-  <li><strong>Visiting Student</strong> — The Hong Kong University of Science and Technology</li>
-  <li><strong>Bachelor</strong> — Beijing Institute of Technology</li>
-</ul>
-
-<p><a href="#section-resume-experience">See full education & experience →</a></p>
-
 education:
 
   - area: Research Assistant in KiMI lab
@@ -164,6 +154,15 @@ awards:
 
 ---
 
+## Education
+
+<ul>
+  <li><strong>Ph.D</strong> — The Chinese University of Hong Kong (Fall 2026)</li>
+  <li><strong>Visiting Student</strong> — The Hong Kong University of Science and Technology</li>
+  <li><strong>Bachelor</strong> — Beijing Institute of Technology</li>
+</ul>
+
+<p><a href="#section-resume-experience">See full education & experience →</a></p>
 
 ## About Me
 
