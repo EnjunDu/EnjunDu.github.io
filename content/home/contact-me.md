@@ -2,7 +2,7 @@
 widget: blank
 headless: true
 active: true
-weight: 21
+weight: 90
 title: "Contact Me"
 design:
   columns: "1"

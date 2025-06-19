@@ -21,7 +21,7 @@ main:
     weight: 20
   - name: Contact Me
     url: /#contact-me
-    weight: 21
+    weight: 90
   #- name: Projects
   #  url: /#projects/
   #  weight: 30
