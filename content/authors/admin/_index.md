@@ -152,10 +152,6 @@ I am always passionate about exploring cutting-edge research topics and actively
 <br>
 	I am genuinely eager to connect and collaborate with fellow students at <strong style="color: #111111;">HKUST-GZ</strong>!
 </div>
-
-**Email**:
-
-1. enjundu.cs@gmail.com (Primary)
-2. edu719@connect.hkust-gz.edu.cn (optional), enjun_du@bit.edu.cn (Not recommended, I won't be able to use it after June 2026)
+**Email**: enjundu.cs@gmail.com 
 
 <div style="margin-top: 20px; width: 420px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div>
