@@ -145,13 +145,11 @@ awards:
 
 Enjun Du is currently an undergraduate student in the Class of 2022 at the School of Cyberspace Science and Technology, [Beijing Institute of Technology](https://english.bit.edu.cn/). His research interests lie in Large Language Models and Data Mining. He is now a Research Assistant at the [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), working under the supervision of [Prof. Yongqi Zhang](https://yzhangee.github.io/). Concurrently, he also serves as a Research Assistant in the lab of [Prof. Ronghua Li](https://ronghuali.github.io/) at [BIT](https://www.bit.edu.cn/). Previously, he was a Research Intern in the group of [Prof. Zhida Qin](https://zhidaqin.github.io/), gaining extensive hands-on experience in AI research.
 
-I am always passionate about exploring cutting-edge research topics and actively engaging with the research community. If you’re interested in my work or would like to collaborate on exciting research ideas, please feel free to reach out to me via email!
+** Email **: enjundu.cs@gmail.com 
 
 <div style="border: 2px solid #000000; background-color: #99FFFC; color: #000000; padding: 15px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 16px;">
   <strong style="color: #111111;">📢 News:</strong> I am currently a visiting student at the <strong style="color: #111111;">KiMI Lab</strong>, <strong style="color: #111111;">Hong Kong University of Science and Technology (Guangzhou Campus)</strong>, for academic exchange until <strong style="color: #111111;">May 25, 2026</strong>.
 <br>
 	I am genuinely eager to connect and collaborate with fellow students at <strong style="color: #111111;">HKUST-GZ</strong>!
 </div>
-**Email**: enjundu.cs@gmail.com 
-
 <div style="margin-top: 20px; width: 420px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div>
