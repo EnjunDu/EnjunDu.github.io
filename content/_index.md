@@ -130,9 +130,7 @@ sections:
       title: "Contact Me"
       subtitle: ""
       text: |-
-        I genuinely believe that meaningful progress in academia stems from open dialogue and thoughtful debate.
-
-        If you have any questions about my research--or if you've previously contacted me through GitHub issues and haven't received a response--please feel free to reach out via email. I'm always happy to chat, collaborate, or offer assistance where I can.
+        I genuinely believe that meaningful progress in academia stems from open dialogue and thoughtful debate. If you have any questions about my research--or if you've previously contacted me through GitHub issues and haven't received a response--please feel free to reach out via email. I'm always happy to chat, collaborate, or offer assistance where I can.
 
         Throughout my academic journey, I've been fortunate to receive support and inspiration from many generous people. I'm always eager to give back to the community and engage with others passionate about learning and discovery.
 
