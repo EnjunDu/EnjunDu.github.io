@@ -7,7 +7,7 @@ title: "Contact Me"
 design:
   columns: "1"
   background:
-    color: "light"
+    color: "primary"
 ---
 
 I genuinely believe that meaningful progress in academia stems from open dialogue and thoughtful debate. If you have ideas to share, constructive feedback on my work, or fresh perspectives you'd like to explore together, I would truly appreciate hearing from you.

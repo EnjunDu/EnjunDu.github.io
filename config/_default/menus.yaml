@@ -20,7 +20,7 @@ main:
     url: /#experience
     weight: 20
   - name: Contact Me
-    url: /#contact-me/
+    url: /#contact-me
     weight: 90
   #- name: Projects
   #  url: /#projects/
