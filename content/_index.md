@@ -151,9 +151,9 @@ sections:
         padding: [0, 0, 0, 0]
 
   - block: markdown
+    id: contact-me
     content:
       title: "Contact Me"
-      id: contact-me
       subtitle: ""
       text: |-
         I genuinely believe that meaningful progress in academia stems from open dialogue and thoughtful debate. If you have ideas to share, constructive feedback on my work, or fresh perspectives you'd like to explore together, I would truly appreciate hearing from you.
