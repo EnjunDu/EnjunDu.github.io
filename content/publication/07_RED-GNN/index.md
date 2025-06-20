@@ -6,7 +6,6 @@ authors:
   - Shuzhi Liu
   - admin
   - "Quanming Yao*"
-  - "(temp)"
 
 # Author notes (optional)
 author_notes:
