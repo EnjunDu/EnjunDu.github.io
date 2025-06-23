@@ -143,7 +143,7 @@ awards:
 
 ## About Me
 
-Enjun Du is currently an undergraduate student in the Class of 2022 at the School of Cyberspace Science and Technology, [Beijing Institute of Technology](https://english.bit.edu.cn/). His research interests lie in Large Language Models and Data Mining. He is now a Research Assistant at the [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), working under the supervision of [Prof. Yongqi Zhang](https://yzhangee.github.io/). Concurrently, he also serves as a Research Assistant in the lab of [Prof. Ronghua Li](https://ronghuali.github.io/) at [BIT](https://www.bit.edu.cn/). Previously, he was a Research Intern in the group of [Prof. Zhida Qin](https://zhidaqin.github.io/), gaining extensive hands-on experience in AI research.
+**Enjun DU** is currently an undergraduate student in the Class of 2022 at the School of Cyberspace Science and Technology, [Beijing Institute of Technology](https://english.bit.edu.cn/). His research interests lie in Large Language Models and Data Mining. He is now a Research Assistant at the [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), working under the supervision of [Prof. Yongqi ZHANG](https://yzhangee.github.io/). Concurrently, he also serves as a Research Assistant in the lab of [Prof. Rong-Hua LI](https://ronghuali.github.io/) at [BIT](https://www.bit.edu.cn/). Previously, he was a Research Intern in the group of [Prof. Zhida QIN](https://zhidaqin.github.io/), gaining extensive hands-on experience in AI research.
 
 **Email**: enjundu.cs@gmail.com
 
