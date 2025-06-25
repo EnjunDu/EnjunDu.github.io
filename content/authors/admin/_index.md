@@ -37,8 +37,6 @@ profiles:
     url: https://github.com/EnjunDu
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?hl=en&user=PvBvdgQAAAAJ
-  - icon: academicons/semantic-scholar
-    url: https://www.semanticscholar.org/author/Enjun-Du/2349542076
   - icon: academicons/orcid
     url: https://orcid.org/0009-0006-1448-9945
   - icon: academicons/dblp
@@ -49,6 +47,9 @@ profiles:
     url: https://www.instagram.com/enjundu.c/
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/enjun-du-49455b35a/
+  - icon: custom/xiaohongshu
+    url: https://www.xiaohongshu.com/user/profile/65786ef0000000003d02aa48?xsec_token=YBEuRePbEsFTq9-IgFF467AXTh4W8cvofeFwip7ltyGsQ=&xsec_source=app_share&xhsshare=CopyLink&appuid=65786ef0000000003d02aa48&apptime=1750836679&share_id=79ebd3d97f564f14807ca13b4857ca18
+
 
 
 
