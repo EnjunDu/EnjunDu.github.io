@@ -47,9 +47,6 @@ profiles:
     url: https://www.instagram.com/enjundu.c/
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/enjun-du-49455b35a/
-  - icon: custom/xiaohongshu
-    url: https://www.xiaohongshu.com/user/profile/65786ef0000000003d02aa48?xsec_token=YBEuRePbEsFTq9-IgFF467AXTh4W8cvofeFwip7ltyGsQ=&xsec_source=app_share&xhsshare=CopyLink&appuid=65786ef0000000003d02aa48&apptime=1750836679&share_id=79ebd3d97f564f14807ca13b4857ca18
-
 
 
 
