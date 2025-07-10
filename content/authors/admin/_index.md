@@ -51,9 +51,9 @@ profiles:
 
 
 interests:
-  - AI-Driven Science
-  - Data-Centric Learning
-  - Knowledge-Integrated Large Language Models
+  - Graph for LLM
+  - LLM Reasoning
+  - Data-Mining
 
 education:
 

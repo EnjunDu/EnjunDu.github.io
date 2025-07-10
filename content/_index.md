@@ -37,13 +37,12 @@ sections:
       text: |-
         My current research interests are:
 
-        1. **AI-Driven Science**: Leveraging advanced artificial intelligence techniques to tackle complex scientific challenges, this research promotes interdisciplinary innovation and discovery that unveil novel scientific insights.  
+        1. **Graph for LLM**: Graph RAG, Graph-Enhanced LLM
         
-        2. **Data-Centric Learning**: Integrating universal graph models with large language models to significantly enhance data quantity, quality, efficiency, and privacy. This approach aims to optimize the robustness and scalability of machine learning systems for real-world applications. 
+        2. **LLM Reasoning**: MLLM, RL-LLM
 
-        3. **Knowledge-Integrated LLMs**: Merging domain-specific knowledge with large language models to fortify their reasoning capabilities and adaptability, ultimately striving to develop more efficient and universally applicable intelligent solutions.
-
-        Here are some of my research works. If you have any questions about them or would like to connect and explore new ideas together, I welcome the discussion. Please reach out to collaborate! 😃
+        3. **Data Mining**: Data-Centric AI, Knowledge Graph Reasoning
+        Here are some of my research works.
     design:
       columns: '1'
   - block: collection
@@ -81,15 +80,10 @@ sections:
       title: '📝 Reviewer Experience'
       subtitle: ''
       text: |-
-        ### Journals
-        - **TIST in 2024**: ACM Transactions on Intelligent Systems and Technology
-        - **TCSS in 2025**: IEEE Transactions on Computational Social Systems
-
         
-        ### Conferences
-        - **ICML 2025**: International Conference on Machine Learning
-        - **ARR 2025**: Association for Computational Linguistics Rolling Review
-        - **NeurIPS 2025**: Neural Information Processing Systems
+        - **Journals**: ACM TIST, IEEE TCSS
+        - **Conferences**: ACL ARR, ICML
+
     design:
       columns: '1'
   - block: collection
