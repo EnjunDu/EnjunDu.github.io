@@ -146,8 +146,9 @@ awards:
 **Email**: enjundu.cs@gmail.com
 
 <div style="border: 2px solid #000000; background-color: #99FFFC; color: #000000; padding: 15px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 16px;">
-  <strong style="color: #111111;">📢 News:</strong> I am currently a visiting student at the <strong style="color: #111111;">KiMI Lab</strong>, <strong style="color: #111111;">Hong Kong University of Science and Technology (Guangzhou Campus)</strong>, for academic exchange until <strong style="color: #111111;">May 25, 2026</strong>.
-<br>
-	I am genuinely eager to connect and collaborate with fellow students at <strong style="color: #111111;">HKUST-GZ</strong>!
+  <strong style="color: #111111;">📢 News:</strong> I am actively seeking <strong style="color: #111111;">Ph.D. opportunities for Fall 2026 admission</strong>, especially in the areas of <strong style="color: #111111;">Graph for LLM, LLM Reasoning, and Multi-Modal Data-Mining</strong>.
+  <br>
+  Please feel free to reach out if you are interested in potential collaboration or supervision!
 </div>
 <div style="margin-top: 20px; width: 420px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div>
+
