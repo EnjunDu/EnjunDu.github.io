@@ -48,9 +48,9 @@ tags:
 # links:
 # - name: ""
 #   url: ""
-url_pdf: ''
+url_pdf: 'https://enjundu.com/publication/02_caddisr/CaDDiSR.pdf'
 url_code: 'https://github.com/EnjunDu/CaDDiSR'
-url_dataset: ''
+url_dataset: 'https://github.com/EnjunDu/CaDDiSR/tree/main/datasets'
 url_poster: ''
 url_project: ''
 url_slides: ''

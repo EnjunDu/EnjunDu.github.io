@@ -40,7 +40,7 @@ tags:
 
 featured: false
 
-url_pdf: ''
+url_pdf: 'https://enjundu.com/publication/05_simdiff/SimDiff.pdf'
 url_code: ''
 url_dataset: ''
 url_poster: ''

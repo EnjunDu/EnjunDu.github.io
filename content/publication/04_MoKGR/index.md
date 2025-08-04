@@ -3,6 +3,7 @@ title: "Mixture of Length and Pruning Experts for Knowledge Graphs Reasoning"
 authors:
 authors:
   - admin
+  - Siyi Liu
   - "Yongqi Zhang*"
 
 author_notes:
@@ -39,7 +40,7 @@ featured: true
 links:
 - name: Custom Link
   url: 
-url_pdf: 
+url_pdf: 'https://arxiv.org/pdf/2507.20498'
 url_code: ''
 url_dataset: '#'
 url_poster: '#'

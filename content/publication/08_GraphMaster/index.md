@@ -47,13 +47,13 @@ featured: true
 # - name: ""
 #   url: ""
 url_pdf: 'https://arxiv.org/pdf/2504.00711'
-url_code: 'https://arxiv.org/pdf/2504.00711'
-url_dataset: 'https://arxiv.org/pdf/2504.00711'
-url_poster: 'https://arxiv.org/pdf/2504.00711'
-url_project: 'https://arxiv.org/pdf/2504.00711'
-url_slides: 'https://arxiv.org/pdf/2504.00711'
-url_source: 'https://arxiv.org/pdf/2504.00711'
-url_video: 'https://arxiv.org/pdf/2504.00711'
+url_code: ''
+url_dataset: 'https://huggingface.co/datasets/EnjunDu/GraphMaster'
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 

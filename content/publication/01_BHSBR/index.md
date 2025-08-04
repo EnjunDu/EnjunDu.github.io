@@ -50,9 +50,9 @@ tags:
 # links:
 # - name: ""
 #   url: ""
-url_pdf: ''
-url_code: ''
-url_dataset: ''
+url_pdf: 'https://enjundu.com/publication/01_bhsbr/BHSBR.pdf'
+url_code: 'https://github.com/EnjunDu/BHSBR'
+url_dataset: 'https://github.com/EnjunDu/BHSBR/tree/main/data'
 url_poster: ''
 url_project: ''
 url_slides: ''

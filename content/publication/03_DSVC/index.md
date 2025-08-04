@@ -42,14 +42,14 @@ tags:
 # links:
 # - name: ""
 #   url: ""
-url_pdf: ''
-url_code: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
-url_dataset: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
-url_poster: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
-url_project: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
-url_slides: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
-url_source: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
-url_video: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
+url_pdf: 'https://ieeexplore.ieee.org/abstract/document/10769506/'
+url_code: 'https://github.com/EnjunDu/DSVC/tree/main'
+url_dataset: 'https://github.com/EnjunDu/DSVC/tree/main/dataset'
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 

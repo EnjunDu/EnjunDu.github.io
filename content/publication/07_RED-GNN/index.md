@@ -43,8 +43,8 @@ tags:
 # - name: ""
 #   url: ""
 url_pdf: ''
-url_code: ''
-url_dataset: ''
+url_code: 'https://github.com/LARS-research/RED-GNN'
+url_dataset: 'https://github.com/LARS-research/RED-GNN/tree/main/transductive/data'
 url_poster: ''
 url_project: ''
 url_slides: ''
