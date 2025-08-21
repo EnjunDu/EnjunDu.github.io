@@ -22,8 +22,8 @@ publishDate: "2025-01-19"
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: 
-publication_short: 
+publication: The 2025 Conference on Empirical Methods in Natural Language Processing
+publication_short: EMNLP 2025 Main
 
 abstract: "Knowledge Graphs (KGs) reasoning, which aims to infer new facts from structured knowledge repositories, critically depends on constructing effective reasoning paths. While existing Graph Neural Networks (GNNs) have advanced this field, they employ rigid path exploration strategies that fail to adapt to diverse query requirements. To address these limitations, we propose MoKGR, a novel framework that personalizes path exploration through two key innovations: (1) an adaptive path length selection mechanism that dynamically weights path lengths based on query complexity, ensuring each query receives appropriate reasoning depth, and (2) a mixture-of-experts pruning mechanism that evaluates paths through complementary perspectives to preserve the most informative reasoning paths. Through comprehensive experiments on dirse benchmark, MoKGR demonstrates superior performance in both transductive and inductive settings, validating the effectiveness of personalized path exploration in KGs reasoning."
 
