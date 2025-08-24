@@ -148,9 +148,35 @@ awards:
 **Email**: enjundu.cs@gmail.com
 
 <div style="border: 2px solid #000000; background-color: #99FFFC; color: #000000; padding: 15px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 16px;">
-  <strong style="color: #111111;">📢 News:</strong> I am actively seeking <strong style="color: #111111;">Ph.D. opportunities for Fall 2026 admission</strong>, especially in the areas of <strong style="color: #111111;">Graph for LLM, LLM Reasoning, and Multi-Modal Data-Mining</strong>.
-  <br>
-  Please feel free to reach out if you are interested in potential collaboration or supervision!
+  <strong style="color: #111111;">📢 News:</strong>
+  <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">I am actively seeking Ph.D. opportunities for Fall 2026 admission</strong>, especially in the areas of <strong style="color: #111111;">Graph for LLM, LLM Reasoning, and Multi-Modal Data-Mining</strong>. Please feel free to reach out if you are interested in potential collaboration or supervision!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">EMNLP Main:</strong> 
+        <a href="https://arxiv.org/pdf/2507.20498">MoKGR</a> accepted at EMNLP 2025 main conference, thanks to Prof. Zhang for the guidance. See you in Suzhou!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">Visiting Research Student:</strong> Officially joined The Hong Kong University of Science and Technology (Guangzhou) as a Visiting Research Student until July 1, 2026. Looking forward to more with HKUST(GZ) peers!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">CVPR 2025 Workshop:</strong> <a href="https://arxiv.org/pdf/2503.08154">S2A</a> accepted at CVPR 2025 Workshop, thanks to my co-authors!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">IEEE TCSS:</strong> <a href="https://ieeexplore.ieee.org/abstract/document/10769506/">DSVC</a> accepted by IEEE TCSS, thanks to all co-authors!
+      </li>
+    </ul>
+  </div>
+  <div style="text-align: center; margin-top: 8px; font-size: 12px; color: #666;">
+    ↕️ Scroll down to view more messages
+  </div>
 </div>
+
+
+
 <div style="margin-top: 20px; width: 420px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div>
+
+
 
