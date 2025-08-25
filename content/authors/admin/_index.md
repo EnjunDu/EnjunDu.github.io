@@ -159,7 +159,13 @@ awards:
         <a href="https://arxiv.org/pdf/2507.20498" style="color: #006400; font-weight: bold; text-decoration: underline;">MoKGR</a> accepted at EMNLP 2025 main conference, thanks to Prof. Zhang for the guidance. See you in Suzhou!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">Visiting Research Student:</strong> Officially joined The Hong Kong University of Science and Technology (Guangzhou) as a Visiting Research Student until July 1, 2026. Looking forward to more with HKUST(GZ) peers!
+        <strong style="color: #111111;">IJCAI 2025:</strong> 
+        I will attend IJCAI 2025 in Guangzhou and give an <strong style="color: #111111;">oral presentation</strong> of our paper 
+        <span style="color: #006400; font-weight: bold;">ADC-GS: Anchor-Driven Deformable and Compressed Gaussian Splatting for Dynamic Scene Reconstruction</span>. 
+        Looking forward to meeting everyone!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">Visiting Research Student:</strong> Officially joined The Hong Kong University of Science and Technology (Guangzhou) as a Visiting Research Student until July 1, 2026. Looking forward to meet more with HKUST(GZ) peers!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">CVPR 2025 Workshop:</strong> <a href="https://arxiv.org/pdf/2503.08154" style="color: #006400; font-weight: bold; text-decoration: underline;">S2A</a> accepted at CVPR 2025 Workshop, thanks to my co-authors!
@@ -173,6 +179,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
