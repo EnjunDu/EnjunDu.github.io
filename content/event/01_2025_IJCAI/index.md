@@ -39,7 +39,7 @@ image:
 
 url_code: 'https://github.com/H-Huang774/ADC-GS'
 url_pdf: 'https://arxiv.org/abs/2505.08196'
-url_slides: 'https://github.com/EnjunDu/EnjunDu.github.io/blob/main/content/event/01_2025_IJCAI/IJCAI-1356.pdf'
+url_slides:  'https://github.com/EnjunDu/EnjunDu.github.io/blob/main/content/event/01_2025_IJCAI/IJCAI-1356.pdf'
 url_video: ''
 
 # Markdown Slides (optional).
