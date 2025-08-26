@@ -1,75 +1,66 @@
 ---
 title: IJCAI 2025 Oral
 
-event: IJCAI 2025 Oral
-event_url: https://example.org
+event: IJCAI 2025 Oral Presentation
+event_url: https://ijcai25.org
 
-location: Hugo Blox Builder HQ
+location: Guangzhou, China
 address:
-  street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
-  country: United States
+  street: Guangzhou Baiyun International Convention Center
+  city: Guangzhou
+  region: Guangdong
+  postcode: '510000'
+  country: China
 
-summary: An example talk using Hugo Blox Builder's Markdown slides feature.
-abstract: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam.'
+summary: Oral presentation at IJCAI 2025 on our paper "ADC-GS: Anchor-Driven Deformable and Compressed Gaussian Splatting for Dynamic Scene Reconstruction".
+abstract: 'We present ADC-GS, a novel anchor-driven framework for dynamic scene reconstruction based on Gaussian Splatting. By leveraging anchor-based compact Gaussian organization, coarse-to-fine deformation, and rate–distortion optimization, our method achieves significant improvements in memory efficiency, rendering speed, and reconstruction quality. Experimental results demonstrate that ADC-GS achieves state-of-the-art performance while reducing storage overhead by an order of magnitude compared to baselines.'
 
 # Talk start and end times.
-#   End time can optionally be hidden by prefixing the line with `#`.
-date: '2010-06-01T13:00:00Z'
-date_end: '2010-06-01T15:00:00Z'
+date: '2025-08-25T10:00:00+08:00'
+date_end: '2025-08-25T10:30:00+08:00'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2017-01-01T00:00:00Z'
+publishDate: '2025-08-01T00:00:00+08:00'
 
 authors:
   - admin
 
-tags: []
+tags: ["IJCAI 2025", "Oral", "Dynamic Scene Reconstruction", "Gaussian Splatting"]
 
 # Is this a featured talk? (true/false)
-featured: false
+featured: true
 
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
-  focal_point: Right
+  caption: 'Presentation at IJCAI 2025'
+  focal_point: Center
 
-#links:
-#  - icon: twitter
-#    icon_pack: fab
-#    name: Follow
-#    url: https://twitter.com/georgecushen
-url_code: 'https://github.com'
-url_pdf: ''
-url_slides: 'https://slideshare.net'
-url_video: 'https://youtube.com'
+url_code: 'https://github.com/H-Huang774/ADC-GS'
+url_pdf: 'https://arxiv.org/abs/2505.08196'
+url_slides: 'https://slideshare.net/ADC-GS-IJCAI25'
+url_video: ''
 
 # Markdown Slides (optional).
-#   Associate this talk with Markdown slides.
-#   Simply enter your slide deck's filename without extension.
-#   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
-#   Otherwise, set `slides = ""`.
-slides: ""
+slides: "adcgs-ijcai25"
 
 # Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
 projects:
-  - example
+  - adc-gs
+
 ---
 
 {{% callout note %}}
-Click on the **Slides** button above to view the built-in slides feature.
+This page highlights my **Oral Presentation at IJCAI 2025** in Guangzhou, China.  
+Click on the **Slides** button above to view my presentation slides.
 {{% /callout %}}
 
-Slides can be added in a few ways:
+Our talk introduces **ADC-GS: Anchor-Driven Deformable and Compressed Gaussian Splatting**, a new method for **dynamic scene reconstruction** that balances storage efficiency and rendering quality.  
+Key contributions include:
 
-- **Create** slides using Hugo Blox Builder's [_Slides_](https://docs.hugoblox.com/reference/content-types/) feature and link using `slides` parameter in the front matter of the talk file
-- **Upload** an existing slide deck to `static/` and link using `url_slides` parameter in the front matter of the talk file
-- **Embed** your slides (e.g. Google Slides) or presentation video on this page using [shortcodes](https://docs.hugoblox.com/reference/markdown/).
+- Anchor-based compact Gaussian primitive organization  
+- Coarse-to-fine anchor-driven deformation  
+- Rate–distortion optimization for efficient rendering  
 
-Further event details, including [page elements](https://docs.hugoblox.com/reference/markdown/) such as image galleries, can be added to the body of this page.
+Experimental results demonstrate **state-of-the-art storage efficiency (3.8MB)** and **high-quality reconstruction (32.5dB)**, significantly outperforming existing baselines.  
+
+Further event details are available at the [IJCAI 2025 website](https://ijcai25.org).
