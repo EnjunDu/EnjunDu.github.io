@@ -155,23 +155,23 @@ awards:
         <strong style="color: #111111;">I am actively seeking Ph.D. opportunities for Fall 2026 admission</strong>, especially in the areas of <strong style="color: #111111;">Graph for LLM, LLM Reasoning, and Multi-Modal Data-Mining</strong>. Please feel free to reach out if you are interested in potential collaboration or supervision!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">EMNLP Main:</strong> 
+        <strong style="color: #111111;">[Aug. 2025]</strong> 
         <a href="https://arxiv.org/pdf/2507.20498" style="color: #EA517F; font-weight: bold; text-decoration: underline;">MoKGR</a> accepted at EMNLP 2025 main conference, thanks to Prof. Zhang for the guidance. See you in Suzhou!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">IJCAI 2025:</strong> 
+        <strong style="color: #111111;">[Aug. 2025]</strong> 
         I will attend IJCAI 2025 in Guangzhou and give an <strong style="color: #111111;">oral presentation</strong> of our paper 
         <span style="color: #EA517F; font-weight: bold;">ADC-GS: Anchor-Driven Deformable and Compressed Gaussian Splatting for Dynamic Scene Reconstruction</span>. 
         Looking forward to meeting everyone!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">Visiting Research Student:</strong> Officially joined The Hong Kong University of Science and Technology (Guangzhou) as a Visiting Research Student until July 1, 2026. Looking forward to meet more with HKUST(GZ) peers!
+        <strong style="color: #111111;">[Jun. 2025]</strong> Officially joined The Hong Kong University of Science and Technology (Guangzhou) as a Visiting Research Student until July 1, 2026. Looking forward to meet more with HKUST(GZ) peers!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">CVPR 2025 Workshop:</strong> <a href="https://arxiv.org/pdf/2503.08154" style="color: #EA517F; font-weight: bold; text-decoration: underline;">S2A</a> accepted at CVPR 2025 Workshop, thanks to my co-authors!
+        <strong style="color: #111111;">[Mar. 2025]</strong> <a href="https://arxiv.org/pdf/2503.08154" style="color: #EA517F; font-weight: bold; text-decoration: underline;">S2A</a> accepted at CVPR 2025 Workshop, thanks to my co-authors!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">IEEE TCSS:</strong> <a href="https://ieeexplore.ieee.org/abstract/document/10769506/" style="color: #EA517F; font-weight: bold; text-decoration: underline;">DSVC</a> accepted by IEEE TCSS, thanks to all co-authors!
+        <strong style="color: #111111;">[Nov. 2024]</strong> <a href="https://ieeexplore.ieee.org/abstract/document/10769506/" style="color: #EA517F; font-weight: bold; text-decoration: underline;">DSVC</a> accepted by IEEE TCSS, thanks to all co-authors!
       </li>
     </ul>
   </div>
@@ -179,6 +179,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
