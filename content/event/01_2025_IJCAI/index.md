@@ -12,7 +12,9 @@ address:
   postcode: '510000'
   country: China
 
-summary: Oral presentation at IJCAI 2025 on our paper "ADC-GS: Anchor-Driven Deformable and Compressed Gaussian Splatting for Dynamic Scene Reconstruction".
+summary: |
+  Oral presentation at IJCAI 2025 on our paper "ADC-GS: Anchor-Driven Deformable and Compressed Gaussian Splatting for Dynamic Scene Reconstruction".
+
 abstract: 'We present ADC-GS, a novel anchor-driven framework for dynamic scene reconstruction based on Gaussian Splatting. By leveraging anchor-based compact Gaussian organization, coarse-to-fine deformation, and rate–distortion optimization, our method achieves significant improvements in memory efficiency, rendering speed, and reconstruction quality. Experimental results demonstrate that ADC-GS achieves state-of-the-art performance while reducing storage overhead by an order of magnitude compared to baselines.'
 
 # Talk start and end times.
