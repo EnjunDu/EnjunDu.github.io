@@ -34,8 +34,8 @@ publishDate: '2025-01-18'
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: In **IEEE Transactions on Knowledge and Data Engineering**
-publication_short: In **TKDE**
+publication: In **IEEE Transactions on Big Data**
+publication_short: In **TBD**
 
 abstract: >
   Multi-behavior Session Based Recommendations (MBSBRs) have achieved remarkable results due to considering behavioral heterogeneity in sessions. Yet most existing works only consider binary or continuous behavior dependencies and aim to predict the next item under the target behavior, neglecting users' inherent behavior habits, resulting in learning inaccurate intentions. To tackle the above issues, we propose a novel Behavior Habits Enhanced Intention Learning framework for Session Based Recommendation (BHSBR) framework. Specifically, we focus on the next item recommendation and design a global item transition graph to learn the behavior-aware semantic relationships between items, in order to mine the underlying similarity between items beyond the session. In addition, we construct a hypergraph to extract the diverse behavior habits of users and break through the limitations of temporal relationships in the session. Compared to the existing works, our behavior habit learning method learns behavior dependencies at the user level, which could capture the user's more accurate long-term intentions and reduce the impact of noise behaviors. Extensive experiments on three datasets demonstrate that the performance of our proposed BHSBR is superior to SOTA. Further ablation experiments fully illustrate the effectiveness of our various modules.
