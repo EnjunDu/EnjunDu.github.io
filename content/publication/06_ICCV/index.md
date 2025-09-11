@@ -23,7 +23,7 @@ publishDate: '2025-03-03'
 publication_types: ['paper-conference']
 
 publication: In **CVPR workshop MAI Jun. 2025**
-publication_short:In **CVPR Workshop**
+publication_short: In **CVPR Workshop 2025**
 
 abstract: >-
   Parameter-efficient transfer learning (PETL) aims to reduce the scales of pre-trained models for multiple downstream tasks. However, the memory footprint of existing PETL methods is not significantly reduced compared to the reduction of learnable parameters. This limitation hinders the practical deployment of PETL methods on memory-constrained devices. In this paper, we proposed a new PETL framework, called Structure to Activation (S2A), to reduce the memory footprint of activation during fine-tuning. We explore model tuning by examining parametric model structures (i.e., bias, prompt, and side modules) and designing activation-efficient modules. In addition, we analyze non-parametric structures (i.e., non-linear functions) to minimize memory usage through activation quantization. Our Structure to Activation (S2A) method consequently offers a lightweight solution in terms of both parameter and memory footprint. We conduct extensive experiments on various datasets to evaluate the effectiveness of our S2A framework. The results show that our method outperforms existing PETL techniques, achieving a fourfold reduction in GPU memory footprint on average. These also demonstrate that our method is highly suitable for practical transfer learning on hardware-constrained devices.
