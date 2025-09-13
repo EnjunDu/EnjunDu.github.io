@@ -156,7 +156,11 @@ awards:
   <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
     <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
       <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">I am actively seeking Ph.D. opportunities for Fall 2026 admission</strong>, especially in the areas of <strong style="color: #111111;">Graph for LLM, LLM Reasoning, and Multi-Modal Data-Mining</strong>. Please feel free to reach out if you are interested in potential collaboration or supervision!
+        <strong style="color: #111111;">[Sep. 2025]</strong> 
+        <span style="color: #EA517F; font-weight: bold;">I’m now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Aug. 2025] I am actively seeking Ph.D. opportunities for Fall 2026 admission</strong>, especially in the areas of <strong style="color: #111111;">Graph for LLM, LLM Reasoning, and Multi-Modal Data-Mining</strong>. Please feel free to reach out if you are interested in potential collaboration or supervision!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Aug. 2025]</strong> 
@@ -183,6 +187,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
