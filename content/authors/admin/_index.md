@@ -160,6 +160,12 @@ awards:
         <span style="color: #EA517F; font-weight: bold;">I’m now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Sep. 2025]</strong> 
+        I will attend EMNLP 2025 in Suzhou and give an <strong style="color: #111111;">oral presentation</strong> of our paper 
+        <a href="https://arxiv.org/pdf/2507.20498" style="color: #EA517F; font-weight: bold; text-decoration: underline;">Mixture of Length and Pruning Experts for Knowledge Graphs Reasoning (MoKGR)</a>. 
+        Looking forward to meeting everyone!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Aug. 2025] I am actively seeking Ph.D. opportunities for Fall 2026 admission</strong>, especially in the areas of <strong style="color: #111111;">Graph for LLM, LLM Reasoning, and Multi-Modal Data-Mining</strong>. Please feel free to reach out if you are interested in potential collaboration or supervision!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
@@ -187,6 +193,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
