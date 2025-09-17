@@ -159,6 +159,12 @@ awards:
         <strong style="color: #111111;">[Sep. 2025--present]</strong> 
         <span style="color: #EA517F; font-weight: bold;">I’m now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
       </li>
+       <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Sep. 2025]</strong> 
+        I am honored to start a relationship with a  
+        <a href="https://www.douyin.com/user/MS4wLjABAAAA8szeirQhJ8R7M5oGCSAkCXO3QwyCuAma9TX5aZt-XSA?from_tab_name=main&is_search=0&list_name=follow&nt=0" style="color: #EA517F; font-weight: bold; text-decoration: underline;">talented lady</a>. 
+        Grateful to fate for bringing us together!
+      </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Sep. 2025]</strong> 
         I will attend EMNLP 2025 in Suzhou and give an <strong style="color: #111111;">oral presentation</strong> of our paper 
@@ -193,6 +199,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
