@@ -159,6 +159,10 @@ awards:
         <strong style="color: #111111;">[Sep. 2025--present]</strong> 
         <span style="color: #EA517F; font-weight: bold;">I’m now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
       </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Sep. 2025]</strong> 
+        <a href="https://arxiv.org/pdf/2504.00711" style="color: #EA517F; font-weight: bold; text-decoration: underline;">GraphMaster</a> accepted at NeurIPS 2025 Spotlight. See you in San Diego, USA!
+      </li>
        <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Sep. 2025]</strong> 
         I am honored to start a relationship with a  
