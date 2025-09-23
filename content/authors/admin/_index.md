@@ -55,7 +55,7 @@ interests:
   - LLM Reasoning
   - Data-Mining
 
-Experience:
+Education:
 
   - area: Tencent Company
     institution: Research Intern
