@@ -55,7 +55,14 @@ interests:
   - LLM Reasoning
   - Data-Mining
 
-education:
+Experience:
+
+  - area: Tencent Company
+    institution: Research Intern
+    date_start: 2025-10-13
+    date_end: 2026-09-30
+    summary: |
+      In CSIG Group.
 
   - area: The Hong Kong University of Science and Technology
     institution: Visiting Student
@@ -160,6 +167,9 @@ awards:
         <span style="color: #EA517F; font-weight: bold;">I’m now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
+      <strong style="color: #111111;">[Sep. 2025]</strong> I will join <strong style="color: #111111;">Tencent</strong> CSIG in Oct. 2025 for a one-year research internship, based in <strong style="color: #111111;">Tencent Headquarters Tower</strong> Shenzhen. Looking forward to doing some interesting work!
+    </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Sep. 2025]</strong> 
         <a href="https://arxiv.org/pdf/2504.00711" style="color: #EA517F; font-weight: bold; text-decoration: underline;">GraphMaster</a> accepted at NeurIPS 2025 Spotlight. See you in San Diego, USA!
       </li>
@@ -203,6 +213,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
