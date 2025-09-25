@@ -167,6 +167,9 @@ awards:
         <span style="color: #EA517F; font-weight: bold;">I’m now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Sep. 2025]</strong> <a href="https://enjundu.com/publication/01_bhsbr/BHSBR.pdf" style="color: #EA517F; font-weight: bold; text-decoration: underline;">BHSBR</a> accepted by IEEE Transactions on Big Data, thanks to all co-authors!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
       <strong style="color: #111111;">[Sep. 2025]</strong> I will join <strong style="color: #111111;">Tencent</strong> CSIG in Oct. 2025 for a one-year research internship, based in <strong style="color: #111111;">Tencent Headquarters Tower</strong> Shenzhen. Looking forward to doing some interesting work!
     </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
@@ -213,6 +216,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
