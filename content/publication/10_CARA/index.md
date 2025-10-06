@@ -40,7 +40,7 @@ abstract: 'Collision detection in autonomous driving faces a critical interpreta
 tags:
   - MultiModal Learning
 
-featured: true
+
 
 # links:
 # - name: ""
