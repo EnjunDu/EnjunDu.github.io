@@ -41,13 +41,13 @@ links:
 - name: Custom Link
   url: 
 url_pdf: 'https://arxiv.org/pdf/2507.20498'
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
+url_code: 'https://github.com/EnjunDu/MoKGR'
+url_dataset: 'https://github.com/EnjunDu/MoKGR'
+url_poster: 'https://github.com/EnjunDu/Enjun_Resource/blob/main/EMNLP2025/EMNLP%202025_main_Poster-EnjunDu.pptx'
+url_project: 'https://github.com/EnjunDu/MoKGR'
+url_slides: 'https://github.com/EnjunDu/Enjun_Resource/blob/main/EMNLP2025/EMNLP%202025_main-ORAL_EnjunDu_PPT.pptx'
+url_source: 'https://github.com/EnjunDu/MoKGR'
+url_video: 'https://www.youtube.com/watch?v=XlOH8mwr-jk'
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
