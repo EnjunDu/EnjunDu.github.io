@@ -47,12 +47,12 @@ featured: true
 # - name: ""
 #   url: ""
 url_pdf: 'https://arxiv.org/pdf/2504.00711'
-url_code: ''
+url_code: 'https://github.com/EnjunDu/GraphMaster'
 url_dataset: 'https://huggingface.co/datasets/EnjunDu/GraphMaster'
-url_poster: ''
+url_poster: 'https://github.com/EnjunDu/Enjun_Resource/blob/main/NeurIPS2025/NeurIPS_2025_spotlight_GraphMaster_EnjunDu.pptx'
 url_project: ''
 url_slides: ''
-url_source: ''
+url_source: 'https://huggingface.co/datasets/EnjunDu/GraphMaster'
 url_video: ''
 
 # Featured image
