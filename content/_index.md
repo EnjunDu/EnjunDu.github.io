@@ -134,7 +134,7 @@ sections:
         - [EnjunDu.cs@gmail.com](mailto:EnjunDu.cs@gmail.com)
 
         **Optional Email**:  
-        - [edu719@connect.hkust-gz.edu.cn](mailto:edu719@connect.hkust-gz.edu.cn)
+        - [edu719@connect.hkust-gz.edu.cn](mailto:edu719@connect.hkust-gz.edu.cn), [enjundu@tencent.com](mailto:enjundu@tencent.com)
 
-        *Please avoid contacting me at* `enjun_du@bit.edu.cn`, *as I will no longer have access to this address after June 2026.*
+        *Please avoid contacting me at* `enjun_du@bit.edu.cn`, *as I will no longer have access to this address.*
 ---
