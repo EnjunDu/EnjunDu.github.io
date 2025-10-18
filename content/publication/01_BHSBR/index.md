@@ -50,13 +50,13 @@ tags:
 # links:
 # - name: ""
 #   url: ""
-url_pdf: 'https://enjundu.com/publication/01_bhsbr/BHSBR.pdf'
+url_pdf: 'https://ieeexplore.ieee.org/abstract/document/11194163'
 url_code: 'https://github.com/EnjunDu/BHSBR'
 url_dataset: 'https://github.com/EnjunDu/BHSBR/tree/main/data'
-url_poster: ''
-url_project: ''
+url_poster: 'https://ieeexplore.ieee.org/abstract/document/11194163'
+url_project: 'https://ieeexplore.ieee.org/abstract/document/11194163'
 url_slides: ''
-url_source: ''
+url_source: 'https://ieeexplore.ieee.org/abstract/document/11194163'
 url_video: ''
 
 # Featured image

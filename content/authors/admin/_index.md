@@ -152,7 +152,7 @@ awards:
 
 ## About Me
 
-**Enjun DU** is currently a **Visiting Research Student** at the [KiMI Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi ZHANG](https://yzhangee.github.io/). He is an undergraduate student at the School of Cyberspace Science and Technology, [Beijing Institute of Technology](https://english.bit.edu.cn/), supervised by [Prof. Rong-Hua LI](https://ronghuali.github.io/ronghuali.html). His research interests lie in **Large Language Models** and **Data Mining**.
+**Enjun DU** is currently a **Visiting Research Student** at the [Knowledge-integrated Machine Intelligence (**KiMI**) Lab](https://yzhangee.github.io/group), [The Hong Kong University of Science and Technology (Guangzhou)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi ZHANG](https://yzhangee.github.io/). He is an undergraduate student at the School of Cyberspace Science and Technology, [Beijing Institute of Technology](https://english.bit.edu.cn/), supervised by [Prof. Rong-Hua LI](https://ronghuali.github.io/ronghuali.html). His research interests lie in **Large Language Models** and **Data Mining**.
 
 
 
@@ -165,6 +165,9 @@ awards:
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Sep. 2025--present]</strong> 
         <span style="color: #EA517F; font-weight: bold;">I’m now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Oct. 2025]</strong> Honored to receive the <span style="color: #EA517F; font-weight: bold;">National Scholarship of China</span>, awarded to the top 0.2% of university students nationwide!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Sep. 2025]</strong> <a href="https://enjundu.com/publication/01_bhsbr/BHSBR.pdf" style="color: #EA517F; font-weight: bold; text-decoration: underline;">BHSBR</a> accepted by IEEE Transactions on Big Data, thanks to all co-authors!
@@ -216,6 +219,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
