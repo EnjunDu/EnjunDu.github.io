@@ -82,7 +82,7 @@ sections:
       text: |-
         
         - **Journals**: ACM TIST, IEEE TCSS
-        - **Conferences**: ACL ARR, ICML, NeurIPS, AAAI
+        - **Conferences**: ACL Rolling Review, ICML, NeurIPS, AAAI, ICLR
 
     design:
       columns: '1'
