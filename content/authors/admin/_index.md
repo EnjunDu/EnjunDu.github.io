@@ -164,10 +164,16 @@ awards:
     <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Sep. 2025--present]</strong> 
-        <span style="color: #EA517F; font-weight: bold;">I’m now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
+        <span style="color: #EA517F; font-weight: bold;">I'm now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Nov. 2025]</strong> I received the <span style="color: #EA517F; font-weight: bold;">Outstanding Student Model Award</span> from Beijing Institute of Technology (the only one in the college)!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Oct. 2025]</strong> Honored to receive the <span style="color: #EA517F; font-weight: bold;">National Scholarship of China</span>, awarded to the top 0.2% of university students nationwide!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Sep. 2025]</strong> I received the <span style="color: #EA517F; font-weight: bold;">First-Class Scholarship</span> from Beijing Institute of Technology!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Sep. 2025]</strong> <a href="https://enjundu.com/publication/01_bhsbr/BHSBR.pdf" style="color: #EA517F; font-weight: bold; text-decoration: underline;">BHSBR</a> accepted by IEEE Transactions on Big Data, thanks to all co-authors!
@@ -211,7 +217,28 @@ awards:
         <strong style="color: #111111;">[Mar. 2025]</strong> <a href="https://arxiv.org/pdf/2503.08154" style="color: #EA517F; font-weight: bold; text-decoration: underline;">S2A</a> accepted at CVPR 2025 Workshop, thanks to my co-authors!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Feb. 2025]</strong> I received the <span style="color: #EA517F; font-weight: bold;">First-Class Scholarship</span> from Beijing Institute of Technology!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Nov. 2024]</strong> <a href="https://ieeexplore.ieee.org/abstract/document/10769506/" style="color: #EA517F; font-weight: bold; text-decoration: underline;">DSVC</a> accepted by IEEE TCSS, thanks to all co-authors!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Oct. 2024]</strong> I received the <span style="color: #EA517F; font-weight: bold;">Outstanding Student Award</span> from Beijing Institute of Technology!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Sep. 2024]</strong> I received the <span style="color: #EA517F; font-weight: bold;">Second-Class Scholarship</span> from Beijing Institute of Technology!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Feb. 2024]</strong> I received the <span style="color: #EA517F; font-weight: bold;">Second-Class Scholarship</span> from Beijing Institute of Technology!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Oct. 2023]</strong> I received the <span style="color: #EA517F; font-weight: bold;">Outstanding Student Award</span> from Beijing Institute of Technology!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Sep. 2023]</strong> I received the <span style="color: #EA517F; font-weight: bold;">Outstanding Student Leader Award</span> from Beijing Institute of Technology!
+      </li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Feb. 2023]</strong> I received the <span style="color: #EA517F; font-weight: bold;">Second-Class Scholarship</span> from Beijing Institute of Technology!
       </li>
     </ul>
   </div>
@@ -219,6 +246,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
