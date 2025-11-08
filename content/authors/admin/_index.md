@@ -162,6 +162,10 @@ awards:
   <strong style="color: #111111;">📢 News:</strong>
   <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
     <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+       <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Nov. 2025]</strong> 
+        <a href="https://arxiv.org/abs/2505.11125" style="color: #EA517F; font-weight: bold; text-decoration: underline;">GraphOracle</a> accepted at AAAI 2026 as an Oral presentation. See you in Singapore!
+      </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Sep. 2025--present]</strong> 
         <span style="color: #EA517F; font-weight: bold;">I'm now keeping a healthy work-life balance. Please reach out to me only during working hours :)</span>
@@ -246,6 +250,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
