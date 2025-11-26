@@ -152,7 +152,7 @@ awards:
 
 ## About Me
 
-**Enjun DU** is currently a **Visiting Research Student** at the [Big Data Institute (**BDI**) Lab](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi ZHANG](https://yzhangee.github.io/). He is a final-year undergraduate student at [Graph Data Intelligence Lab (**GDI**)](https://gdilab.cn/), [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), supervised by [Prof. Rong-Hua LI](https://ronghuali.github.io/ronghuali.html). His research interests lie in **Large Language Models** and **Data Mining**.
+**Enjun DU** is currently a **Visiting Research Student** at the [Big Data Institute (**BDI**) Lab](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi ZHANG](https://yzhangee.github.io/). He is a final-year undergraduate student at [Graph Data Intelligence (**GDI**) Lab](https://gdilab.cn/), [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), supervised by [Prof. Rong-Hua LI](https://ronghuali.github.io/ronghuali.html). His research interests lie in **Large Language Models** and **Data Mining**.
 
 
 
