@@ -55,14 +55,16 @@ interests:
   - LLM Reasoning
   - Data-Mining
 
-Education:
-
-  - area: Tencent Company
-    institution: Research Intern
+work:
+  - position: Research Intern
+    company_name: Tencent Company
+    company_url: "https://www.tencent.com/"
     date_start: 2025-10-13
     date_end: 2026-09-30
     summary: |
       In [CSIG Group](https://www.tencent.com/en-us/about.html), supervised by [Xinyu Zuo](https://scholar.google.com/citations?hl=en&user=SSNOfN4AAAAJ&view_op=list_works&sortby=pubdate) and [Jinwen Luo](https://scholar.google.com/citations?hl=en&user=uAHOmooAAAAJ).
+
+education:
 
   - area: The Hong Kong University of Science and Technology
     institution: Visiting Student

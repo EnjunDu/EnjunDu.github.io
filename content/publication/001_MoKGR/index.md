@@ -1,6 +1,6 @@
 ---
 title: "Mixture of Length and Pruning Experts for Knowledge Graphs Reasoning"
-authors:
+
 authors:
   - admin
   - Siyi Liu

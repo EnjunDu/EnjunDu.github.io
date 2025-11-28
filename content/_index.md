@@ -65,14 +65,28 @@ sections:
       view: article-grid
       columns: 2
   - block: collection
+    id: papers
     content:
+      title: Selected Publications
       count: 114514
-      title: Publications
       text: ""
       filters:
         folders:
           - publication
-        exclude_featured: false
+        featured_only: true
+    design:
+      view: citation
+
+  - block: collection
+    id: publications
+    content:
+      title: Publications
+      count: 114514
+      text: ""
+      filters:
+        folders:
+          - publication
+        exclude_featured: true
     design:
       view: citation
   - block: markdown
