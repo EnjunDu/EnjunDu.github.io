@@ -80,7 +80,7 @@ sections:
   - block: collection
     id: publications
     content:
-      title: Publications
+      title: Other Publications
       count: 114514
       text: ""
       filters:
