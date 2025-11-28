@@ -56,13 +56,13 @@ interests:
   - Data-Mining
 
 work:
-  - area: Tencent Company
-    institution: Research Intern
+  - position: Tencent Company        
+    company_name: Research Intern    
+    company_url: "https://www.tencent.com/"
     date_start: 2025-10-13
     date_end: 2026-09-30
     summary: |
       In [CSIG Group](https://www.tencent.com/en-us/about.html), supervised by [Xinyu Zuo](https://scholar.google.com/citations?hl=en&user=SSNOfN4AAAAJ&view_op=list_works&sortby=pubdate) and [Jinwen Luo](https://scholar.google.com/citations?hl=en&user=uAHOmooAAAAJ).
-
 
 education:
 
