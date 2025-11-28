@@ -56,9 +56,8 @@ interests:
   - Data-Mining
 
 work:
-  - company_name: Tencent Company
-    position: Research Intern
-    company_url: "https://www.tencent.com/"
+  - area: Tencent Company
+    institution: Research Intern
     date_start: 2025-10-13
     date_end: 2026-09-30
     summary: |
