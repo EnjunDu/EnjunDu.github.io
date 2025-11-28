@@ -40,12 +40,13 @@ header:
 # Site footer
 footer:
   copyright:
-      notice: "© {year} Enjun Du's homepage. This work is licensed under {license}"
-      license:
-      enable: true
+    notice: "© {year} Enjun Du’s homepage. Enjun Du reserves all rights of interpretation."
+    license:
+      enable: false
       allow_derivatives: false
-      share_alike: true
+      share_alike: false
       allow_commercial: false
+
 
 # Localization
 locale:
