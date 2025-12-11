@@ -4,7 +4,7 @@ title: "Mixture of Length and Pruning Experts for Knowledge Graphs Reasoning"
 authors:
   - admin
   - Siyi Liu
-  - "Yongqi Zhang<sup>†</sup>"
+  - "Yongqi Zhang†"
 
 author_notes:
   - ''
