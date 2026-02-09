@@ -1,7 +1,8 @@
 ---
-title: "Works about Multimodal retrieval-augmented generation"
+title: "Structure Evidence Mining for Image Retrieval"
 authors:
   - admin
+  - ...
   - ...
 
 
@@ -10,11 +11,11 @@ authors:
 author_notes:
   - ''
   - 'Corresponding Author'
-date: '2026-01-25'
+date: '2026-02-08'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2026-01-18'
+publishDate: '2026-02-08'
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
