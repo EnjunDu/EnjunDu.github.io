@@ -165,6 +165,11 @@ awards:
   <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
     <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
     <li style="margin-bottom: 8px; line-height: 1.4;">
+      <strong style="color: #111111;">[Pinned]</strong> 
+      I am about to start my Ph.D. journey. I am currently very interested in internship opportunities in <strong style="color: #111111;">Mainland China</strong> (especially Guangzhou and Shenzhen; Shanghai and Hangzhou are also welcome), <strong style="color: #111111;">Hong Kong</strong>, and <strong style="color: #111111;">Singapore</strong>.  
+      If you have internship opportunities related to <span style="color: #EA517F; font-weight: bold;">(M)LLMs or Data Mining</span>, please feel free to reach out to me via my email!
+    </li>
+    <li style="margin-bottom: 8px; line-height: 1.4;">
       <strong style="color: #111111;">[Jan. 2026]</strong> 
       I now have a little kitten named 
       <a href="http://xhslink.com/o/UbA4LWN1HQ" style="color: #EA517F; font-weight: bold; text-decoration: underline;">
@@ -262,6 +267,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
