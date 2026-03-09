@@ -170,6 +170,9 @@ awards:
       If you have internship opportunities related to <span style="color: #EA517F; font-weight: bold;">(M)LLMs or Data Mining</span>, please feel free to reach out to me via my email!
     </li>
     <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Mar. 2026]</strong> <a href="https://openreview.net/pdf?id=GU1xilxrq7" style="color: #EA517F; font-weight: bold; text-decoration: underline;">GraphScholar</a> accepted by ICLR 2026 Workshop on AI for Mechanism Design and Strategic Decision Making, thanks to all co-authors!
+    </li>
+    <li style="margin-bottom: 8px; line-height: 1.4;">
       <strong style="color: #111111;">[Jan. 2026]</strong> 
       I now have a little kitten named 
       <a href="http://xhslink.com/o/UbA4LWN1HQ" style="color: #EA517F; font-weight: bold; text-decoration: underline;">
@@ -197,7 +200,7 @@ awards:
         <strong style="color: #111111;">[Sep. 2025]</strong> I received the <span style="color: #EA517F; font-weight: bold;">First-Class Scholarship</span> from Beijing Institute of Technology!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">[Sep. 2025]</strong> <a href="https://enjundu.com/publication/01_bhsbr/BHSBR.pdf" style="color: #EA517F; font-weight: bold; text-decoration: underline;">BHSBR</a> accepted by IEEE Transactions on Big Data, thanks to all co-authors!
+        <strong style="color: #111111;">[Sep. 2025]</strong> <a href="https://ieeexplore.ieee.org/abstract/document/11194163/" style="color: #EA517F; font-weight: bold; text-decoration: underline;">BHSBR</a> accepted by IEEE Transactions on Big Data, thanks to all co-authors!
       </li>
       <li style="margin-bottom: 8px; line-height: 1.4;">
       <strong style="color: #111111;">[Sep. 2025]</strong> I will join <strong style="color: #111111;">Tencent</strong> CSIG in Oct. 2025 for a one-year research internship, based in <strong style="color: #111111;">Tencent Headquarters Tower</strong> Shenzhen. Looking forward to doing some interesting work!
