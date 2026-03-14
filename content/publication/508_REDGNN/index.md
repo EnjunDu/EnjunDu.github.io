@@ -39,7 +39,7 @@ extend this framework to T-RED-GNN for temporal knowledge graphs (tKGs). T-REDGN
 approach to both interpolation and extrapolation tasks. Extensive experiments show
 that our methodologies significantly outperform state-of-the-art static and temporal
 reasoning models. Moreover, the learned attention weights provide transparent,
-interpretable evidence for the reasoning process. The code is available at: github.com/LARS-research/RED-GNN.
+interpretable evidence for the reasoning process. The code is available at https://github.com/LARS-research/RED-GNN.
 tags:
   - Knowledge Graph Reasoning
   - Graph Learning
