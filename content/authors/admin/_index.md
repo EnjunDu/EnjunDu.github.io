@@ -178,6 +178,17 @@ If you have internship opportunities related to <span style="color: #EA517F; fon
         </span>, thanks to all co-authors!
     </li>
     <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Mar. 2026]</strong> 
+        <a href="https://github.com/EnjunDu/CaDDiSR" 
+           style="color: #EA517F; font-weight: bold; text-decoration: underline;">
+           CaDDiSR
+        </a> 
+        accepted by 
+        <span style="color: #EA517F; font-weight: bold;">
+            ACM Transactions on Intelligent Systems and Technology (TIST)
+        </span>, thanks to all co-authors!
+    </li>
+    <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Mar. 2026]</strong> <a href="https://openreview.net/pdf?id=GU1xilxrq7" style="color: #EA517F; font-weight: bold; text-decoration: underline;">GraphScholar</a> accepted by ICLR 2026 Workshop on AI for Mechanism Design and Strategic Decision Making, thanks to all co-authors!
     </li>
     <li style="margin-bottom: 8px; line-height: 1.4;">
@@ -278,6 +289,7 @@ If you have internship opportunities related to <span style="color: #EA517F; fon
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
