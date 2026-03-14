@@ -154,9 +154,11 @@ awards:
 
 ## About Me
 
-**Enjun DU** is currently a **Visiting Research Student** at the [Big Data Institute (**BDI**) Lab](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi ZHANG](https://yzhangee.github.io/). He is a final-year undergraduate student at [Graph Data Intelligence (**GDI**) Lab](https://gdilab.cn/), [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), supervised by [Prof. Rong-Hua LI](https://ronghuali.github.io/ronghuali.html). His research interests lie in **Large Language Models** and **Data Mining**.
+I am currently a **Visiting Research Student** at the [Big Data Institute (**BDI**) Lab](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/). I am also a final-year undergraduate student at the [Graph Data Intelligence (**GDI**) Lab](https://gdilab.cn/), [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), supervised by [Prof. Rong-Hua Li](https://ronghuali.github.io/ronghuali.html). My research interests lie in **Large Language Models** and **Data Mining**.
 
+Currently, I am working as a **Research Intern** at **Tencent Yuanbao (CSIG)** in the **Multimodal Algorithm Group**, where I focus on **Multimodal RAG and agentic multimodal reasoning**. I will begin my **Ph.D. in Fall 2026**. I am available only for internships in **Shenzhen** during my first Ph.D. year, and **open to internships without location restrictions from the second year onward**.
 
+If you have internship opportunities related to <span style="color: #EA517F; font-weight: bold;">Agentic (M)LLMs</span>, please feel free to reach out to me via email!
 
 **Email**: enjundu.cs@gmail.com
 
@@ -165,9 +167,15 @@ awards:
   <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
     <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
     <li style="margin-bottom: 8px; line-height: 1.4;">
-      <strong style="color: #111111;">[Pinned]</strong> 
-      I am about to start my Ph.D. journey. I am currently very interested in internship opportunities in <strong style="color: #111111;">Mainland China</strong> (especially Guangzhou and Shenzhen; Shanghai and Hangzhou are also welcome), <strong style="color: #111111;">Hong Kong</strong>, and <strong style="color: #111111;">Singapore</strong>.  
-      If you have internship opportunities related to <span style="color: #EA517F; font-weight: bold;">(M)LLMs or Data Mining</span>, please feel free to reach out to me via my email!
+        <strong style="color: #111111;">[Mar. 2026]</strong> 
+        <a href="https://github.com/LARS-research/RED-GNN" 
+           style="color: #EA517F; font-weight: bold; text-decoration: underline;">
+           RED-GNN
+        </a> 
+        accepted by 
+        <span style="color: #EA517F; font-weight: bold;">
+            Artificial Intelligence Journal (CCF-A)
+        </span>, thanks to all co-authors!
     </li>
     <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Mar. 2026]</strong> <a href="https://openreview.net/pdf?id=GU1xilxrq7" style="color: #EA517F; font-weight: bold; text-decoration: underline;">GraphScholar</a> accepted by ICLR 2026 Workshop on AI for Mechanism Design and Strategic Decision Making, thanks to all co-authors!
@@ -270,6 +278,7 @@ awards:
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
