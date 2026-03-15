@@ -158,7 +158,7 @@ I am currently a **Visiting Research Student** at the [Big Data Institute (**BDI
 
 Currently, I am working as a **Research Intern** at **Tencent Yuanbao (CSIG)** in the **Multimodal Algorithm Group**, where I focus on **Multimodal RAG and agentic multimodal reasoning**. I will begin my **Ph.D. in Fall 2026**. I am available only for internships in **Shenzhen** during my first Ph.D. year, and **open to internships without location restrictions from the second year onward**.
 
-If you have internship opportunities related to <span style="color: #EA517F; font-weight: bold;">Agentic (M)LLMs</span>, please feel free to reach out to me via email!
+**If you have internship opportunities related to** <span style="color: #EA517F; font-weight: bold;">Agentic (M)LLMs</span>, **please feel free to reach out to me via email!**
 
 **Email**: enjundu.cs@gmail.com
 
