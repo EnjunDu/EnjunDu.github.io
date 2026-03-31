@@ -167,6 +167,17 @@ Currently, I am working as a **Research Intern** at **Tencent Yuanbao (CSIG)** i
   <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
     <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
     <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">[Apr. 2026]</strong> 
+        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=PvBvdgQAAAAJ&citation_for_view=PvBvdgQAAAAJ:qUcmZB5y_30C" 
+           style="color: #EA517F; font-weight: bold; text-decoration: underline;">
+           SemDiff
+        </a> 
+        accepted by 
+        <span style="color: #EA517F; font-weight: bold;">
+            IEEE Transactions on Knowledge and Data Engineering (CCF-A)
+        </span>, thanks to all co-authors!
+    </li>
+    <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Mar. 2026]</strong> 
         <a href="https://github.com/LARS-research/RED-GNN" 
            style="color: #EA517F; font-weight: bold; text-decoration: underline;">
