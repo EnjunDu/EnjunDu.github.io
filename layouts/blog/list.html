@@ -1,0 +1,231 @@
+{{ define "main" }}
+<style>
+  .blog-list-hero {
+    text-align: center;
+    padding: 60px 24px 40px;
+  }
+  .blog-list-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .blog-list-hero p {
+    font-size: 1.1rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Tag filter bar */
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 36px;
+    padding: 0 24px;
+  }
+  .blog-tag-btn {
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    color: #475569;
+    font-size: .88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .blog-tag-btn:hover, .blog-tag-btn.active {
+    background: #6366f1;
+    color: #fff;
+    border-color: #6366f1;
+  }
+  .dark .blog-tag-btn {
+    background: #1e293b;
+    border-color: #334155;
+    color: #94a3b8;
+  }
+  .dark .blog-tag-btn:hover, .dark .blog-tag-btn.active {
+    background: #6366f1;
+    color: #fff;
+    border-color: #6366f1;
+  }
+
+  /* Card grid */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  .blog-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    transition: all .3s;
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,.1);
+  }
+  .dark .blog-card {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .blog-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .blog-card-body {
+    padding: 18px 20px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 8px;
+    line-height: 1.35;
+  }
+  .dark .blog-card-title { color: #f1f5f9; }
+
+  .blog-card-venue {
+    display: inline-block;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+  }
+
+  .blog-card-desc {
+    font-size: .88rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .dark .blog-card-desc { color: #94a3b8; }
+
+  .blog-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 12px;
+  }
+  .blog-card-tag {
+    font-size: .75rem;
+    color: #6366f1;
+    background: #eef2ff;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  .dark .blog-card-tag {
+    background: #312e81;
+    color: #a5b4fc;
+  }
+
+  @media (max-width: 640px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .blog-list-hero h1 { font-size: 2rem; }
+  }
+</style>
+
+<div class="blog-list-hero">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.subtitle }}<p>{{ . }}</p>{{ end }}
+</div>
+
+{{/* Collect all tags */}}
+{{ $allTags := slice }}
+{{ range .Pages }}
+  {{ with .Params.tags }}
+    {{ range . }}
+      {{ $allTags = $allTags | append . }}
+    {{ end }}
+  {{ end }}
+  {{ with .Params.venue }}
+    {{ $allTags = $allTags | append . }}
+  {{ end }}
+{{ end }}
+{{ $allTags = $allTags | uniq }}
+
+{{ if $allTags }}
+<div class="blog-tags">
+  <button class="blog-tag-btn active" onclick="filterBlog('all', this)">All</button>
+  {{ range $allTags }}
+  <button class="blog-tag-btn" onclick="filterBlog('{{ . | urlize }}', this)">{{ . }}</button>
+  {{ end }}
+</div>
+{{ end }}
+
+<div class="blog-grid" id="blog-grid">
+  {{ range .Pages.ByDate.Reverse }}
+  {{ $tags := slice }}
+  {{ with .Params.tags }}{{ range . }}{{ $tags = $tags | append (. | urlize) }}{{ end }}{{ end }}
+  {{ with .Params.venue }}{{ $tags = $tags | append (. | urlize) }}{{ end }}
+  <a href="{{ .RelPermalink }}" class="blog-card" data-tags="{{ delimit $tags "," }}">
+    {{/* Featured image */}}
+    {{ $img := .Resources.GetMatch "featured*" }}
+    {{ if $img }}
+    <img class="blog-card-img" src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy" />
+    {{ end }}
+    <div class="blog-card-body">
+      {{ with .Params.venue }}<span class="blog-card-venue">{{ . }}</span>{{ end }}
+      <h3 class="blog-card-title">{{ .Params.paper_name | default .Title }}</h3>
+      {{ with .Params.paper_subtitle }}
+      <p class="blog-card-desc">{{ . }}</p>
+      {{ else }}
+      <p class="blog-card-desc">{{ .Summary | plainify | truncate 120 }}</p>
+      {{ end }}
+      <div class="blog-card-tags">
+        {{ with .Params.tags }}{{ range . }}<span class="blog-card-tag">{{ . }}</span>{{ end }}{{ end }}
+      </div>
+    </div>
+  </a>
+  {{ end }}
+</div>
+
+<script>
+function filterBlog(tag, btn) {
+  // Update active button
+  document.querySelectorAll('.blog-tag-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  // Filter cards
+  document.querySelectorAll('.blog-card').forEach(function(card) {
+    if (tag === 'all') { card.style.display = ''; return; }
+    var tags = (card.getAttribute('data-tags') || '').split(',');
+    card.style.display = tags.indexOf(tag) !== -1 ? '' : 'none';
+  });
+}
+</script>
+
+{{ end }}

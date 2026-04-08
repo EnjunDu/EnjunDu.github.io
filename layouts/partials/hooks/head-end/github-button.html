@@ -1,1 +1,113 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<style>
+/* ========================================
+   Experience/Education: card layout
+   with LARGE logos on the left
+   ======================================== */
+
+/* Hide the default timeline line and dot icons */
+.blox-resume-experience ol.relative.border-s {
+  border-left: none !important;
+}
+.blox-resume-experience ol.relative > li .absolute.-start-3 {
+  display: none !important;
+}
+
+/* Each timeline item becomes a card with logo on the left */
+.blox-resume-experience ol.relative > li.mb-10.ms-6 {
+  margin-left: 0 !important;
+  padding: 22px 28px 22px 170px !important;
+  position: relative !important;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  margin-bottom: 20px !important;
+  min-height: 140px;
+  transition: box-shadow .2s;
+}
+.blox-resume-experience ol.relative > li.mb-10.ms-6:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+.dark .blox-resume-experience ol.relative > li.mb-10.ms-6 {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+/* The injected logo image — BIG and clear */
+.blox-resume-experience ol.relative > li .exp-logo {
+  position: absolute !important;
+  left: 18px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 130px !important;
+  height: 130px !important;
+  object-fit: contain !important;
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+}
+.dark .blox-resume-experience ol.relative > li .exp-logo {
+  background: #f9fafb;
+  border-color: #4b5563;
+}
+
+/* ========================================
+   Publication list: click title → blog
+   Redirect publications with url_project
+   pointing to /blog/* to blog page
+   ======================================== */
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // === 1. Experience/Education logos ===
+  var logoMap = {
+    "Tencent":              "/images/logos/tencent.png",
+    "Beijing Institute":    "/images/logos/bit.png",
+    "Hong Kong University": "/images/logos/hkust-gz.svg",
+    "HKUST":                "/images/logos/hkust-gz.svg"
+  };
+
+  var items = document.querySelectorAll(".blox-resume-experience ol.relative > li");
+  items.forEach(function(li) {
+    var text = li.textContent || "";
+    for (var keyword in logoMap) {
+      if (text.indexOf(keyword) !== -1) {
+        li.style.position = "relative";
+        var img = document.createElement("img");
+        img.src = logoMap[keyword];
+        img.alt = keyword;
+        img.className = "exp-logo";
+        li.appendChild(img);
+        break;
+      }
+    }
+  });
+
+  // === 2. Publication title click → blog page ===
+  // For any publication that has url_project pointing to /blog/*,
+  // rewrite the title link to go to the blog page instead of /publication/xxx/
+  // This works automatically — no need to hardcode paper names.
+  var pubLinks = document.querySelectorAll('a[href*="/publication/"]');
+  pubLinks.forEach(function(titleLink) {
+    // Find the parent container of this publication entry
+    var container = titleLink.closest('li, article, .citation, div');
+    if (!container) return;
+
+    // Look for a "Project" button link that points to /blog/
+    var projectLink = container.querySelector('a[href*="/blog/"]');
+    if (projectLink) {
+      titleLink.href = projectLink.href;
+      return;
+    }
+
+    // Also check: the titleLink itself might be /publication/xxx/
+    // Find if there's a sibling or nearby link to /blog/
+    var allLinks = container.querySelectorAll('a[href*="/blog/"]');
+    if (allLinks.length > 0) {
+      titleLink.href = allLinks[0].href;
+    }
+  });
+});
+</script>

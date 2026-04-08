@@ -59,6 +59,7 @@ work:
   - position: Tencent Company        
     company_name: Research Intern    
     company_url: "https://www.tencent.com/"
+    company_logo: "tencent"
     date_start: 2025-10-13
     date_end: 2026-09-30
     summary: |
@@ -68,6 +69,7 @@ education:
 
   - area: The Hong Kong University of Science and Technology
     institution: Visiting Student
+    icon: "hkust-gz"
     date_start: 2024-08-22
     date_end: 2026-06-30
     summary: |
@@ -75,6 +77,7 @@ education:
 
   - area: Beijing Institute of Technology
     institution: Bachelor of Cyberspace Science and Technology
+    icon: "bit"
     date_start: 2022-09-01
     date_end: 2026-06-30
     summary: |

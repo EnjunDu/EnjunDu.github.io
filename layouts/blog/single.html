@@ -1,0 +1,258 @@
+{{ define "main" }}
+{{ $page := . }}
+
+{{/* ====== CSS ====== */}}
+<style>
+  /* ---- Hero Section ---- */
+  .pp-hero {
+    background: linear-gradient(135deg, {{ .Params.hero_gradient | default "#0f0c29, #302b63, #24243e" }});
+    padding: 70px 0 50px;
+    text-align: center;
+    color: #fff;
+  }
+  .pp-hero-inner { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+  .pp-title {
+    font-size: 2.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 4px;
+    background: linear-gradient(90deg, {{ .Params.title_gradient | default "#a78bfa, #60a5fa, #34d399" }});
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .pp-subtitle { font-size: 1.15rem; color: #475569; margin: 6px 0 0; }
+  .pp-badge {
+    display: inline-block; margin: 18px 0 22px;
+    background: linear-gradient(90deg, {{ .Params.badge_gradient | default "#f59e0b, #ef4444" }});
+    color: #fff; padding: 6px 22px; border-radius: 20px;
+    font-weight: 700; font-size: 1.05rem; letter-spacing: .4px;
+  }
+
+  /* ---- Authors ---- */
+  .pp-authors { font-size: 1.3rem; color: #1e293b; margin-bottom: 8px; font-weight: 600; }
+  .pp-authors a { color: #7c3aed; text-decoration: none; font-weight: 700; }
+  .pp-authors a:hover { text-decoration: underline; }
+  .pp-authors .pp-corresponding::after { content: " *"; color: #e11d48; font-weight: 700; }
+
+  /* ---- Affiliations & Logos ---- */
+  .pp-affils { font-size: 1.05rem; color: #475569; margin-bottom: 12px; font-weight: 600; }
+  .pp-logos { display: flex; justify-content: center; gap: 24px; margin: 18px 0 26px; align-items: center; }
+  .pp-logos img { height: 90px; border-radius: 12px; background: white; padding: 10px; box-shadow: 0 3px 12px rgba(0,0,0,.12); }
+
+  /* ---- Buttons ---- */
+  .pp-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px; }
+  .pp-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: #1e293b; color: #fff !important;
+    padding: 9px 20px; border-radius: 24px;
+    font-size: .93rem; font-weight: 600; text-decoration: none !important;
+    border: 1px solid #334155;
+    transition: all .25s;
+  }
+  .pp-btn:hover { background: #334155; transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.2); }
+  .pp-btn svg, .pp-btn i { flex-shrink: 0; }
+
+  /* ---- Section containers ---- */
+  .pp-wrap { max-width: 900px; margin: 0 auto; padding: 50px 24px; }
+  .pp-alt { background: #f8fafc; }
+  .dark .pp-alt { background: #1a1a2e; }
+  .pp-wrap h2 {
+    font-size: 1.7rem; font-weight: 700; margin-bottom: 18px;
+    padding-bottom: 8px; display: inline-block;
+    border-bottom: 3px solid {{ .Params.accent | default "#6366f1" }};
+  }
+
+  /* ---- Content prose ---- */
+  .pp-prose { font-size: 1.03rem; line-height: 1.85; text-align: justify; color: #374151; }
+  .dark .pp-prose { color: #d1d5db; }
+  .pp-prose img { width: 100%; border-radius: 10px; box-shadow: 0 6px 24px rgba(0,0,0,.1); margin: 16px 0; }
+  .pp-prose strong { color: #111827; }
+  .dark .pp-prose strong { color: #f3f4f6; }
+
+  /* ---- Highlight boxes ---- */
+  .pp-highlight {
+    background: linear-gradient(135deg, {{ .Params.highlight_bg | default "#ede9fe, #dbeafe" }});
+    border-radius: 12px; padding: 22px 26px; margin: 22px 0;
+    border-left: 4px solid {{ .Params.accent | default "#6366f1" }};
+  }
+  .dark .pp-highlight { background: linear-gradient(135deg, {{ .Params.highlight_bg_dark | default "#1e1b4b, #172554" }}); }
+  .pp-highlight h3 { font-size: 1.15rem; font-weight: 700; margin: 0 0 10px; color: {{ .Params.accent | default "#6366f1" }}; }
+  .dark .pp-highlight h3 { color: {{ .Params.accent_light | default "#a78bfa" }}; }
+  .pp-highlight ul { margin: 0; padding-left: 20px; }
+  .pp-highlight li { margin-bottom: 7px; line-height: 1.65; }
+
+  /* ---- Figure grid ---- */
+  .pp-fig-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(380px,1fr)); gap: 22px; margin: 22px 0; }
+  .pp-fig-card {
+    background: #fff; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 3px 14px rgba(0,0,0,.07); transition: transform .25s;
+  }
+  .dark .pp-fig-card { background: #2a2a3c; }
+  .pp-fig-card:hover { transform: translateY(-3px); }
+  .pp-fig-card img { width: 100%; display: block; }
+  .pp-fig-cap { padding: 14px; font-size: .88rem; color: #6b7280; text-align: center; }
+  .dark .pp-fig-cap { color: #9ca3af; }
+
+  /* ---- Stats row ---- */
+  .pp-stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap: 14px; margin: 28px 0; text-align: center; }
+  .pp-stat {
+    background: #fff; padding: 18px 12px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  }
+  .dark .pp-stat { background: #2a2a3c; }
+  .pp-stat-val { font-size: 2rem; font-weight: 800; }
+  .pp-stat-label { font-size: .84rem; color: #6b7280; margin-top: 2px; }
+
+  /* ---- Citation block ---- */
+  .pp-cite {
+    background: #1e293b; color: #e2e8f0; border-radius: 10px;
+    padding: 20px 24px; font-family: 'Fira Code','Courier New',monospace;
+    font-size: .84rem; line-height: 1.7; overflow-x: auto; white-space: pre-wrap;
+    position: relative;
+  }
+  .pp-cite-copy {
+    position: absolute; top: 10px; right: 12px;
+    background: rgba(255,255,255,.15); border: none; color: #94a3b8;
+    padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: .78rem;
+  }
+  .pp-cite-copy:hover { background: rgba(255,255,255,.25); color: #fff; }
+
+  /* ---- Video embed ---- */
+  .pp-video {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+    border-radius: 12px; margin-top: 18px; box-shadow: 0 6px 24px rgba(0,0,0,.1);
+  }
+  .pp-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ---- Teaser image ---- */
+  .pp-teaser { width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.12); margin: 18px 0; }
+  .pp-teaser-cap { color: #6b7280; font-size: .92rem; margin-top: 6px; text-align: center; }
+
+  /* ---- Method cards ---- */
+  .pp-method-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 14px; margin: 22px 0; }
+  .pp-method-card {
+    color: #fff; padding: 22px 16px; border-radius: 12px; text-align: center;
+    transition: transform .25s;
+  }
+  .pp-method-card:hover { transform: translateY(-3px); }
+  .pp-method-icon { font-size: 1.8rem; }
+  .pp-method-name { font-weight: 700; margin: 8px 0 4px; font-size: 1rem; }
+  .pp-method-desc { font-size: .87rem; opacity: .9; }
+
+  /* ---- Back link ---- */
+  .pp-back {
+    display: inline-flex; align-items: center; gap: 5px;
+    color: {{ .Params.accent | default "#6366f1" }}; font-weight: 600;
+    text-decoration: none; margin-bottom: 24px;
+  }
+  .pp-back:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .pp-title { font-size: 1.7rem; }
+    .pp-fig-grid { grid-template-columns: 1fr; }
+    .pp-method-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+{{/* ====== HERO ====== */}}
+<section class="pp-hero">
+  <div class="pp-hero-inner">
+    <h1 class="pp-title">{{ .Params.paper_name | default .Title }}</h1>
+    {{ with .Params.paper_subtitle }}<p class="pp-subtitle">{{ . }}</p>{{ end }}
+    {{ with .Params.venue }}<div class="pp-badge">{{ . }}</div>{{ end }}
+
+    {{/* Authors with links */}}
+    <div class="pp-authors">
+      {{ range $i, $a := .Params.paper_authors }}{{ if $i }}, {{ end -}}
+        {{ if $a.corresponding }}<span class="pp-corresponding">{{ end -}}
+        {{ if $a.url }}<a href="{{ $a.url }}">{{ $a.name }}</a>{{ else }}{{ $a.name }}{{ end -}}
+        {{ with $a.affiliations }}<sup>{{ delimit . "," }}</sup>{{ end -}}
+        {{ if $a.corresponding }}</span>{{ end -}}
+      {{ end }}
+    </div>
+
+    {{/* Affiliations */}}
+    <div class="pp-affils">
+      {{ range $i, $aff := .Params.affiliations }}{{ if $i }} &nbsp;&nbsp; {{ end -}}
+        <sup>{{ $aff.id }}</sup>{{ $aff.name -}}
+      {{ end }}
+    </div>
+
+    {{/* Logos */}}
+    {{ with .Params.logos }}
+    <div class="pp-logos">
+      {{ range . }}<img src="{{ . }}" alt="logo" />{{ end }}
+    </div>
+    {{ end }}
+
+    {{/* Buttons */}}
+    <div class="pp-btns">
+      {{ with .Params.links }}
+        {{ with .paper }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-file-pdf"></i> Paper</a>{{ end }}
+        {{ with .arxiv }}<a class="pp-btn" href="{{ . }}"><i class="ai ai-arxiv"></i> arXiv</a>{{ end }}
+        {{ with .code }}<a class="pp-btn" href="{{ . }}"><i class="fab fa-github"></i> Code</a>{{ end }}
+        {{ with .dataset }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-database"></i> Dataset</a>{{ end }}
+        {{ with .video }}<a class="pp-btn" href="{{ . }}"><i class="fab fa-youtube"></i> Video</a>{{ end }}
+        {{ with .slides }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-tv"></i> Slides</a>{{ end }}
+        {{ with .poster }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-image"></i> Poster</a>{{ end }}
+        {{ with .huggingface }}<a class="pp-btn" href="{{ . }}">&#129303; HuggingFace</a>{{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ====== TEASER ====== */}}
+<div class="pp-wrap" style="text-align:center;">
+  <a href="https://enjundu.com" class="pp-back">&larr; Back to Homepage</a>
+  {{ with .Params.teaser_image }}
+    {{ $img := $page.Resources.GetMatch . }}
+    {{ if $img }}
+      <img src="{{ $img.RelPermalink }}" alt="Framework overview" class="pp-teaser" />
+    {{ end }}
+  {{ end }}
+  {{ with .Params.teaser_caption }}<p class="pp-teaser-cap">{{ . | markdownify }}</p>{{ end }}
+</div>
+
+{{/* ====== MARKDOWN CONTENT (Abstract, Contributions, Method, Results, etc.) ====== */}}
+<div class="pp-alt">
+  <div class="pp-wrap">
+    <div class="pp-prose">
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+
+{{/* ====== VIDEO ====== */}}
+{{ with .Params.video_embed }}
+<div class="pp-wrap" style="text-align:center;">
+  <h2 style="font-size:1.7rem; font-weight:700; border-bottom:3px solid {{ $page.Params.accent | default "#6366f1" }}; display:inline-block; padding-bottom:8px; margin-bottom:18px;">Presentation Video</h2>
+  <div class="pp-video">
+    <iframe src="{{ . }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+{{ end }}
+
+{{/* ====== CITATION ====== */}}
+{{ with .Params.bibtex }}
+<div class="pp-alt">
+  <div class="pp-wrap">
+    <h2 style="font-size:1.7rem; font-weight:700; border-bottom:3px solid {{ $page.Params.accent | default "#6366f1" }}; display:inline-block; padding-bottom:8px; margin-bottom:18px;">Citation</h2>
+    <div class="pp-cite" id="bibtex-block">
+      <button class="pp-cite-copy" onclick="navigator.clipboard.writeText(document.getElementById('bibtex-block').innerText.replace('Copy','').trim())">Copy</button>
+{{ . }}
+    </div>
+  </div>
+</div>
+{{ end }}
+
+<script>
+  // FontAwesome + Academicons (CDN)
+  if (!document.querySelector('link[href*="fontawesome"]')) {
+    var fa = document.createElement('link');
+    fa.rel = 'stylesheet'; fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+    document.head.appendChild(fa);
+  }
+  if (!document.querySelector('link[href*="academicons"]')) {
+    var ai = document.createElement('link');
+    ai.rel = 'stylesheet'; ai.href = 'https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css';
+    document.head.appendChild(ai);
+  }
+</script>
+
+{{ end }}

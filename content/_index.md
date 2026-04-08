@@ -53,7 +53,7 @@ sections:
   - block: collection
     id: papers
     content:
-      title: Featured Publications
+      title: Selected Publications
       count: 114514
       filters:
         folders:
@@ -63,11 +63,9 @@ sections:
       view: article-grid
       columns: 2
   - block: collection
-    id: papers
     content:
-      title: Selected Publications
+      title: ""
       count: 114514
-      text: ""
       filters:
         folders:
           - publication

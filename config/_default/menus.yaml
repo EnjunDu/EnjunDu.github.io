@@ -10,21 +10,18 @@ main:
   - name: Papers
     url: /#papers
     weight: 11
+  - name: Blog
+    url: /blog/
+    weight: 12
   - name: Talks
     url: /#talks
-    weight: 12
+    weight: 13
   - name: News
     url: /#news
-    weight: 13
+    weight: 14
   - name: Experience
     url: /#experience
     weight: 20
   - name: Contact Me
     url: /#contact-me
     weight: 90
-  #- name: Projects
-  #  url: /#projects/
-  #  weight: 30
-  #- name: Teaching
-  #  url: /#teaching/
-  #  weight: 40
