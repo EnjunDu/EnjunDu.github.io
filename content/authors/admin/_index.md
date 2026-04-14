@@ -51,9 +51,9 @@ profiles:
 
 
 interests:
-  - Graph for LLM
-  - LLM Reasoning
-  - Data-Mining
+  - Agentic Reasoning
+  - MLLM
+  - Agent
 
 work:
   - position: Tencent Company        
@@ -61,9 +61,9 @@ work:
     company_url: "https://www.tencent.com/"
     company_logo: "tencent"
     date_start: 2025-10-13
-    date_end: 2026-09-30
+    date_end: 2026-07-30
     summary: |
-      In [CSIG Group](https://www.tencent.com/en-us/about.html), supervised by [Xinyu Zuo](https://scholar.google.com/citations?hl=en&user=SSNOfN4AAAAJ&view_op=list_works&sortby=pubdate) and [Jinwen Luo](https://scholar.google.com/citations?hl=en&user=uAHOmooAAAAJ).
+      In [Yuanbao Multimodal AI Team](https://yuanbao.tencent.com/), supervised by [Xinyu Zuo](https://scholar.google.com/citations?hl=en&user=SSNOfN4AAAAJ&view_op=list_works&sortby=pubdate) and [Jinwen Luo](https://scholar.google.com/citations?hl=en&user=uAHOmooAAAAJ).
 
 education:
 
@@ -82,7 +82,7 @@ education:
     date_end: 2026-06-30
     summary: |
       GPA: 92.7/100, Rank: 1%<br>
-      Research Assistant in Ronghua Li's Lab, supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/) from November 2024 to present.<br>
+      Research Assistant in Ronghua Li's Lab, supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/) from November 2024 to August 2025.<br>
       Research Intern in Zhida Qin's Lab, supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/) form September 2023 to December 2025.<br>
     button:
       text: 'Read Thesis'
