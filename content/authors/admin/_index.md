@@ -132,6 +132,12 @@ languages:
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
+  - title: Xu Teli Scholarship (Highest Honor, RMB 50,000)
+    date: "2026-04-01"
+    awarder: Beijing Institute of Technology
+  - title: Beijing Outstanding Graduate & Outstanding Graduate of Beijing Institute of Technology
+    date: "2026-05-01"
+    awarder: Beijing Municipal Education Commission & Beijing Institute of Technology
   - title: China's National Scholarship
     date_start: "2025-09-01"
     date_end: "2025-09-30"
@@ -169,6 +175,24 @@ Currently, I am working as a **Research Intern** at **Tencent Yuanbao (CSIG)** i
   <strong style="color: #111111;">📢 News:</strong>
   <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
     <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+    <strong style="color: #111111;">[May. 2026]</strong> 
+    I was awarded the 
+    <span style="color: #EA517F; font-weight: bold;">
+        Beijing Outstanding Graduate
+    </span> 
+    and 
+    <span style="color: #EA517F; font-weight: bold;">
+        Outstanding Graduate of Beijing Institute of Technology
+    </span>.
+</li>
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+    <strong style="color: #111111;">[Apr. 2026]</strong> 
+    I was honored to receive the 
+    <span style="color: #EA517F; font-weight: bold;">
+        Xu Teli Scholarship
+    </span>, the highest honor at Beijing Institute of Technology (RMB 50,000).
+</li>
     <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">[Apr. 2026]</strong> 
         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=PvBvdgQAAAAJ&citation_for_view=PvBvdgQAAAAJ:qUcmZB5y_30C" 
@@ -303,6 +327,7 @@ Currently, I am working as a **Research Intern** at **Tencent Yuanbao (CSIG)** i
     ↕️ Scroll down to view more messages
   </div>
 </div>
+
 
 
 
