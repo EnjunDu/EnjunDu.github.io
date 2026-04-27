@@ -139,13 +139,13 @@ awards:
     date: "2026-05-01"
     awarder: Beijing Municipal Education Commission & Beijing Institute of Technology
   - title: China's National Scholarship
-    date: '2025-10'
+    date: '2025-10-01'
     awarder: Beijing Institute of Technology
   - title: Two Times first-class scholarship for outstanding students of Beijing Institute of Technology
-    date: '2025-09'
+    date: '2025-09-01'
     awarder: Beijing Institute of Technology
   - title: Three times won the second-class scholarship for outstanding students of Beijing Institute of Technology
-    date: '2024-09'
+    date: '2024-09-01'
     awarder: Beijing Institute of Technology
   - title: First and Second Prizes in Asia-Pacific Mathematical Modeling International
     date: '2024-01-01'
