@@ -145,7 +145,7 @@ awards:
     date: '2025-09-01'
     awarder: Beijing Institute of Technology
   - title: Three times won the second-class scholarship for outstanding students of Beijing Institute of Technology
-    date: '2024-09-01	'
+    date: '2024-09-01'
     awarder: Beijing Institute of Technology
   - title: First and Second Prizes in Asia-Pacific Mathematical Modeling International
     date: '2024-01-01'
