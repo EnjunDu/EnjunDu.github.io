@@ -35,11 +35,8 @@ sections:
       title: '📚 My Research'
       subtitle: ''
       text: |-
-        My current research interests are:
-        
-        1. **Large Language Model**: LLM Application, (M)LLM Reasoning, Retrieval augmented generation, RL-LLM
+        My research lies at the intersection of **World Models, Agentic Reinforcement Learning, and Multimodal Large Language Models**. I aim to build multimodal agents that go beyond perceiving the world—agents that can imagine it. Concretely, I study how to teach MLLMs to invoke world models as internal simulators, mentally rolling out future states before committing to an answer or an action, and how to train this imagination capability through reinforcement learning so the agent learns when to imagine, how deeply to imagine, and how to trust what it imagines. My long-term vision is to make imagination a first-class citizen of multimodal reasoning, enabling agents that are not only more capable, but also faithful, grounded, and compute-efficient—reliable enough to be trusted in long-horizon, real-world decision making under limited compute.
 
-        2. **Data Mining**: Data-Centric AI, Knowledge Graph Reasoning
         Here are some of my research works.
     design:
       columns: '1'

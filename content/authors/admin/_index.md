@@ -145,7 +145,7 @@ awards:
     date: '2025-09-01'
     awarder: Beijing Institute of Technology
   - title: Three times won the second-class scholarship for outstanding students of Beijing Institute of Technology
-    date: '2024-09-01'
+    date: '2024-09-01	'
     awarder: Beijing Institute of Technology
   - title: First and Second Prizes in Asia-Pacific Mathematical Modeling International
     date: '2024-01-01'
@@ -162,7 +162,7 @@ awards:
 
 I am currently a **Visiting Research Student** at the [Big Data Institute (**BDI**) Lab](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/). I am also a final-year undergraduate student at the [Graph Data Intelligence (**GDI**) Lab](https://gdilab.cn/), [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), supervised by [Prof. Rong-Hua Li](https://ronghuali.github.io/ronghuali.html). My research interests lie in **Large Language Models** and **Data Mining**.
 
-Currently, I am working as a **Research Intern** at **Tencent Yuanbao (CSIG)** in the **Multimodal Algorithm Group**, where I focus on **Multimodal RAG and agentic multimodal reasoning**. I will begin my **Ph.D. in Fall 2026**. I am available only for internships in **Shenzhen** during my first Ph.D. year, and **open to internships without location restrictions from the second year onward**.
+Currently, I am working as a **Research Intern** at **Tencent Yuanbao (CSIG)** in the **Multimodal Algorithm Group**, where I focus on **Multimodal RAG and agentic multimodal reasoning**. I will begin my **Ph.D. in The University of Hong Kong (Fall 2026)**. I am available only for internships in **Shenzhen** during my first Ph.D. year, and **open to internships without location restrictions from the second year onward**.
 
 **If you have internship opportunities related to** <span style="color: #EA517F; font-weight: bold;">Agentic (M)LLMs</span>, **please feel free to reach out to me via email!**
 
