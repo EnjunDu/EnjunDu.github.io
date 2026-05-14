@@ -71,7 +71,7 @@ education:
     institution: Visiting Student
     icon: "hkust-gz"
     date_start: 2024-08-22
-    date_end: 2026-06-30
+    date_end: 2027-06-30
     summary: |
       Supervised  by [Prof.Yongqi Zhang](https://yzhangee.github.io/)
 
@@ -79,9 +79,9 @@ education:
     institution: Bachelor of Cyberspace Science and Technology
     icon: "bit"
     date_start: 2022-09-01
-    date_end: 2026-06-30
+    date_end: 2025-12-30
     summary: |
-      GPA: 92.7/100, Rank: 1%<br>
+      GPA: 91.7/100, Rank: 1%<br>
       Research Assistant in Ronghua Li's Lab, supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/) from November 2024 to August 2025.<br>
       Research Intern in Zhida Qin's Lab, supervised  by [Prof.Zhida Qin](https://zhidaqin.github.io/) form September 2023 to December 2025.<br>
     button:
@@ -160,9 +160,11 @@ awards:
 
 ## About Me
 
-I am currently a **Visiting Research Student** at the [Big Data Institute (**BDI**) Lab](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/). I am also a final-year undergraduate student at the [Graph Data Intelligence (**GDI**) Lab](https://gdilab.cn/), [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), supervised by [Prof. Rong-Hua Li](https://ronghuali.github.io/ronghuali.html). My research interests lie in **Large Language Models** and **Data Mining**.
+I am currently a **final-year undergraduate student** at [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), and will begin my **Ph.D. at [The University of Hong Kong (**HKU**)](https://www.hku.hk/) in Fall 2026**. I am also a **Visiting Research Student** at the [Big Data Institute (**BDI**) Lab](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/).
 
-Currently, I am working as a **Research Intern** at **Tencent Yuanbao (CSIG)** in the **Multimodal Algorithm Group**, where I focus on **Multimodal RAG and agentic multimodal reasoning**. I will begin my **Ph.D. in The University of Hong Kong (Fall 2026)**. I am available only for internships in **Shenzhen** during my first Ph.D. year, and **open to internships without location restrictions from the second year onward**.
+My research lies at the intersection of **World Models**, **Agentic Reinforcement Learning**, and **Multimodal Large Language Models**. I aim to build multimodal agents that go beyond perceiving the world—agents that can **imagine future states before answering or acting**. Concretely, I study how to teach MLLMs to invoke world models as internal simulators, how to train this imagination capability through reinforcement learning, and how to make multimodal reasoning more **faithful**, **grounded**, and **compute-efficient**.
+
+Currently, I am also working as a **Research Intern** at **Tencent Yuanbao (CSIG)** in the **Multimodal Algorithm Group**, where I focus on **Multimodal RAG and agentic multimodal reasoning**. During my first Ph.D. year, I am available only for internships in **Shenzhen**, and I am **open to internships without location restrictions from the second year onward**.
 
 **If you have internship opportunities related to** <span style="color: #EA517F; font-weight: bold;">Agentic (M)LLMs</span>, **please feel free to reach out to me via email!**
 
