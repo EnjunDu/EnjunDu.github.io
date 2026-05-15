@@ -135,8 +135,6 @@ sections:
 
         Throughout my academic journey, I've been fortunate to receive support and inspiration from many generous people. I'm always eager to give back to the community and engage with others passionate about learning and discovery.
 
-        That said, I'm not interested in discussions centered around citation counts, publication metrics, or quantitative comparisons between individuals. If your outreach is primarily motivated by such metrics, I kindly ask that you refrain from contacting me. I'm most interested in conversations about meaningful problems, creative solutions, and insightful ideas.
-
         **Preferred Email**:  
         - [EnjunDu.cs@gmail.com](mailto:EnjunDu.cs@gmail.com)
 
