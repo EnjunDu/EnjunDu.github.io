@@ -1,0 +1,67 @@
+<script>
+(function () {
+  var moreSection = document.getElementById('more-publications');
+  var papersSection = document.getElementById('papers');
+  if (!moreSection || !papersSection) return;
+
+  // Hide the "Other Publications" section initially
+  moreSection.style.display = 'none';
+
+  // ── Google Scholar line: insert at bottom of #papers ──
+  var scholarDiv = document.createElement('div');
+  scholarDiv.style.cssText = 'text-align:center; margin-top:1.5rem; font-size:0.875rem; color:#6b7280;';
+  scholarDiv.innerHTML =
+    'Full publication list can be found on ' +
+    '<a href="https://scholar.google.com/citations?user=PvBvdgQAAAAJ&hl=en" ' +
+    '   target="_blank" rel="noopener" ' +
+    '   style="color:#2563eb; font-weight:600; text-decoration:none;" ' +
+    '   onmouseover="this.style.textDecoration=\'underline\'" ' +
+    '   onmouseout="this.style.textDecoration=\'none\'">Google Scholar</a>.';
+
+  var papersContainer = papersSection.querySelector('.flex.flex-col.items-center');
+  if (papersContainer) {
+    papersContainer.appendChild(scholarDiv);
+  } else {
+    papersSection.appendChild(scholarDiv);
+  }
+
+  // ── Show More button: insert AFTER #more-publications ──
+  var btn = document.createElement('div');
+  btn.id = 'pub-show-more-wrap';
+  btn.style.cssText = 'text-align:center; padding:2rem 0;';
+  btn.innerHTML =
+    '<button id="pub-show-more-btn" ' +
+    '  style="display:inline-flex; align-items:center; gap:0.5rem; border:1px solid #d1d5db; ' +
+    '         border-radius:6px; background:#fff; padding:0.5rem 1.25rem; font-size:0.875rem; ' +
+    '         font-weight:500; color:#374151; cursor:pointer; transition:background .2s;" ' +
+    '  onmouseover="this.style.background=\'#f9fafb\'" ' +
+    '  onmouseout="this.style.background=\'#fff\'">' +
+    '  <span id="pub-show-more-label">Show More</span>' +
+    '  <svg id="pub-show-more-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" ' +
+    '       style="transition:transform .3s;" fill="none" viewBox="0 0 24 24" stroke="currentColor">' +
+    '    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>' +
+    '  </svg>' +
+    '</button>';
+
+  // Insert after moreSection
+  moreSection.parentNode.insertBefore(btn, moreSection.nextSibling);
+
+  // ── Toggle logic ──
+  document.getElementById('pub-show-more-btn').addEventListener('click', function () {
+    var label = document.getElementById('pub-show-more-label');
+    var icon  = document.getElementById('pub-show-more-icon');
+    var expanded = moreSection.style.display !== 'none';
+    if (expanded) {
+      moreSection.style.display = 'none';
+      label.textContent = 'Show More';
+      icon.style.transform = '';
+      // scroll back to Show More button
+      btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      moreSection.style.display = '';
+      label.textContent = 'Show Less';
+      icon.style.transform = 'rotate(180deg)';
+    }
+  });
+})();
+</script>

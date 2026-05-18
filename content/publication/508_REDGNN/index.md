@@ -50,7 +50,7 @@ tags:
   - Graph Learning
   - Machine Learning
 
-featured: false
+featured: true
 
 url_pdf: 'https://enjundu.com'
 url_code: 'https://github.com/LARS-research/RED-GNN'
