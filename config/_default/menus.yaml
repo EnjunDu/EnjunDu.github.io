@@ -12,13 +12,13 @@ main:
     weight: 11
   - name: Blog
     url: /blog/
-    weight: 12
+    weight: 13
   - name: Talks
     url: /#talks
-    weight: 13
+    weight: 14
   - name: News
     url: /#news
-    weight: 14
+    weight: 15
   - name: Experience
     url: /#experience
     weight: 20

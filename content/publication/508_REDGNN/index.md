@@ -22,8 +22,8 @@ publishDate: '2025-03-14'
 
 publication_types: ['paper-conference']
 
-publication: 'In **Artificial Intelligence**'
-publication_short: 'In **Artificial Intelligence Journal**'
+publication: '**Artificial Intelligence Journal**'
+publication_short: '**Artificial Intelligence Journal**'
 
 abstract: >-
   Reasoning on Knowledge Graphs (KGs) aims to deduce unobserved facts from

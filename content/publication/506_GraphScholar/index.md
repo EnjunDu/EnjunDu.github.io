@@ -29,8 +29,8 @@ publishDate: '2026-03-08'
 publication_types: ["conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: 
-publication_short: 
+publication: "**ICLR 2026 Workshop**"
+publication_short: "**ICLR 2026 Workshop**"
 
 abstract: 'Strategic decision making in complex, dynamic multi-agent environments often depends on reliable relational reasoning under distribution shift, where both the underlying entities and the interaction types can change over time or across domains. Knowledge graph reasoning in the fully-inductive setting—where both entities and relations at test time are unseen during training—remains an open challenge. In this work, we introduce GRAPHSCHOLAR, a novel framework that achieves robust fully-inductive reasoning by transforming each knowledge graph into a Relation-Dependency Graph (RDG). The RDG encodes directed precedence links between relations, capturing essential compositional patterns while drastically reducing graph density. Conditioned on a query relation, a multi-head attention mechanism propagates information over the RDG to produce context-aware relation embeddings. These embeddings then guide a second GNN to perform inductive message passing over the original knowledge graph, enabling prediction on entirely new entities and relations. Comprehensive experiments on 60 benchmarks demonstrate that GRAPHSCHOLAR outperforms prior methods by up to 25% in fully-inductive and 28% in cross-domain scenarios. Our analysis further confirms that the compact RDG structure and attention-based propagation are key to efficient and accurate generalization.'
 
