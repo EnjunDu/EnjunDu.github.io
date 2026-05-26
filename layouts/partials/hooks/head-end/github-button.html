@@ -72,6 +72,78 @@
 }
 
 /* ========================================
+   Publication cards: responsive layout
+   ======================================== */
+.pub-card {
+  display: flex;
+  flex-direction: row;
+}
+.pub-card-img {
+  flex: 0 0 320px;
+  width: 320px;
+  height: 213px;
+  display: block;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+.pub-card-no-img {
+  flex: 0 0 10px;
+  display: block;
+  background: #e5e7eb;
+}
+.pub-card-meta {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .pub-card {
+    flex-direction: column !important;
+  }
+  .pub-card-img {
+    flex: none !important;
+    width: 100% !important;
+    height: 180px !important;
+  }
+  .pub-card-img img {
+    object-fit: cover !important;
+  }
+  .pub-card-no-img {
+    flex: none !important;
+    width: 100% !important;
+    height: 4px !important;
+  }
+  .pub-card-meta {
+    padding: 1rem !important;
+  }
+  .pub-card-meta h3 {
+    font-size: 1rem !important;
+  }
+
+  /* Experience cards: stack on mobile */
+  .blox-resume-experience ol.relative > li.mb-10.ms-6 {
+    padding: 16px 16px 16px 16px !important;
+    padding-top: 100px !important;
+    min-height: auto !important;
+  }
+  .blox-resume-experience ol.relative > li .exp-logo {
+    position: absolute !important;
+    left: 50% !important;
+    top: 12px !important;
+    transform: translateX(-50%) !important;
+    width: 70px !important;
+    height: 70px !important;
+    padding: 6px !important;
+  }
+}
+
+/* ========================================
    Publication list: click title → blog
    Redirect publications with url_project
    pointing to /blog/* to blog page

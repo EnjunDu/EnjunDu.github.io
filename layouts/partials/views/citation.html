@@ -2,31 +2,31 @@
 {{ $has_attachments := partial "functions/has_attachments" $item }}
 {{ $resource := partial "functions/get_featured_image.html" $item }}
 
-<div class="pub-list-item" style="display:flex; flex-direction:row; gap:0; margin-bottom:2rem; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; background:#fff; transition:all .3s cubic-bezier(0.4,0,0.2,1); cursor:pointer;"
+<div class="pub-list-item pub-card" style="margin-bottom:2rem; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; background:#fff; transition:all .3s cubic-bezier(0.4,0,0.2,1); cursor:pointer;"
      onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(0,0,0,0.1)';this.style.borderColor='#93c5fd'"
      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='#e5e7eb'"
      onmousedown="this.style.transform='scale(0.98)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.08)'"
      onmouseup="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(0,0,0,0.1)'">
 
-  {{/* -- Left: featured image -- */}}
+  {{/* -- Featured image -- */}}
   {{ with $resource }}
     {{ $img := .Fit "640x427 Center" }}
     {{ if ne $img.MediaType.SubType "gif" }}{{ $img = $img.Process "webp" }}{{ end }}
-    <a href="{{ $item.RelPermalink }}" style="flex:0 0 320px; width:320px; height:213px; display:block; overflow:hidden; background:#f3f4f6;">
+    <a href="{{ $item.RelPermalink }}" class="pub-card-img">
       <img src="{{ $img.RelPermalink }}"
            alt="{{ $item.Title | plainify }}"
            loading="lazy"
-           style="width:320px; height:213px; object-fit:contain; display:block; transition:transform .4s cubic-bezier(0.4,0,0.2,1);"
+           style="width:100%; height:100%; object-fit:contain; display:block; transition:transform .4s cubic-bezier(0.4,0,0.2,1);"
            onmouseover="this.style.transform='scale(1.05)'"
            onmouseout="this.style.transform='scale(1)'">
     </a>
   {{ else }}
-    {{/* no image: narrow placeholder */}}
-    <a href="{{ $item.RelPermalink }}" style="flex:0 0 10px; display:block; background:#e5e7eb;"></a>
+    {{/* no image: narrow accent bar */}}
+    <a href="{{ $item.RelPermalink }}" class="pub-card-no-img"></a>
   {{ end }}
 
-  {{/* -- Right: metadata -- */}}
-  <div style="flex:1; padding:1.25rem 1.5rem; display:flex; flex-direction:column; justify-content:center; gap:0.5rem; min-width:0;">
+  {{/* -- Metadata -- */}}
+  <div class="pub-card-meta">
 
     {{/* Title */}}
     <h3 style="margin:0 0 0.3rem 0; font-size:1.1rem; font-weight:700; line-height:1.4; color:#111827;">
@@ -41,7 +41,7 @@
       {{ partial "page_metadata_authors" $item }}
     </p>
 
-    {{/* Action links: PDF, Code, Project, Poster, Slides, Video */}}
+    {{/* Action links */}}
     {{ if $has_attachments }}
     <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.25rem;">
       {{ partial "page_links" (dict "page" $item "is_list" 1) }}
