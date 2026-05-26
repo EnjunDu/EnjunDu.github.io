@@ -1,0 +1,171 @@
+# ============================================================
+# News Data File
+# ============================================================
+# To add a new news item, simply copy the template below and add to the TOP of the list:
+#
+#   - date: "[Mon. Year]"
+#     content: "Your news content here"
+#     highlight: "Optional highlighted text"
+#     link_text: "Optional link text"
+#     link_url: "https://optional-url"
+#
+# Notes:
+#   - 'highlight' adds pink bold text after the main content
+#   - 'link_text' + 'link_url' creates a clickable link in the news item
+#   - You can use both 'highlight' and 'link' in the same item
+#   - Order matters: newest items should be at the TOP
+#   - All fields except 'date' and 'content' are optional
+# ============================================================
+
+news:
+  - date: "[May. 2026]"
+    content: "I was awarded the"
+    highlight: "Beijing Outstanding Graduate"
+    extra: "and"
+    highlight2: "Outstanding Graduate of Beijing Institute of Technology"
+
+  - date: "[Apr. 2026]"
+    content: "I was honored to receive the"
+    highlight: "Xu Teli Scholarship"
+    extra: ", the highest honor at Beijing Institute of Technology (RMB 50,000)."
+
+  - date: "[Apr. 2026]"
+    link_text: "SemDiff"
+    link_url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=PvBvdgQAAAAJ&citation_for_view=PvBvdgQAAAAJ:qUcmZB5y_30C"
+    content: "accepted by"
+    highlight: "IEEE Transactions on Knowledge and Data Engineering (CCF-A)"
+    extra: ", thanks to all co-authors!"
+
+  - date: "[Mar. 2026]"
+    link_text: "RED-GNN"
+    link_url: "https://github.com/LARS-research/RED-GNN"
+    content: "accepted by"
+    highlight: "Artificial Intelligence Journal (CCF-A)"
+    extra: ", thanks to all co-authors!"
+
+  - date: "[Mar. 2026]"
+    link_text: "CaDDiSR"
+    link_url: "https://github.com/EnjunDu/CaDDiSR"
+    content: "accepted by"
+    highlight: "ACM Transactions on Intelligent Systems and Technology (TIST)"
+    extra: ", thanks to all co-authors!"
+
+  - date: "[Mar. 2026]"
+    link_text: "GraphScholar"
+    link_url: "https://openreview.net/pdf?id=GU1xilxrq7"
+    content: "accepted by ICLR 2026 Workshop on AI for Mechanism Design and Strategic Decision Making, thanks to all co-authors!"
+
+  - date: "[Jan. 2026]"
+    content: "I now have a little kitten named"
+    link_text: "Xiao Zhen"
+    link_url: "http://xhslink.com/o/UbA4LWN1HQ"
+    extra: "(meaning \"my little treasure\") Welcome home, Du Xiao Zhen!"
+
+  - date: "[Nov. 2025]"
+    link_text: "GraphOracle"
+    link_url: "https://arxiv.org/abs/2505.11125"
+    content: "accepted at AAAI 2026 as an Oral presentation. See you in Singapore!"
+
+  - date: "[Sep. 2025--present]"
+    highlight: "I'm now keeping a healthy work-life balance. Please reach out to me only during working hours :)"
+
+  - date: "[Nov. 2025]"
+    content: "I received the"
+    highlight: "Outstanding Student Model Award"
+    extra: "from Beijing Institute of Technology (the only one in the college)!"
+
+  - date: "[Oct. 2025]"
+    content: "Honored to receive the"
+    highlight: "National Scholarship of China"
+    extra: ", awarded to the top 0.2% of university students nationwide!"
+
+  - date: "[Sep. 2025]"
+    content: "I received the"
+    highlight: "First-Class Scholarship"
+    extra: "from Beijing Institute of Technology!"
+
+  - date: "[Sep. 2025]"
+    link_text: "BHSBR"
+    link_url: "https://ieeexplore.ieee.org/abstract/document/11194163/"
+    content: "accepted by IEEE Transactions on Big Data, thanks to all co-authors!"
+
+  - date: "[Sep. 2025]"
+    content: "I will join **Tencent** CSIG in Oct. 2025 for a one-year research internship, based in **Tencent Headquarters Tower** Shenzhen. Looking forward to doing some interesting work!"
+
+  - date: "[Sep. 2025]"
+    link_text: "GraphMaster"
+    link_url: "https://arxiv.org/pdf/2504.00711"
+    content: "accepted at NeurIPS 2025 Spotlight. See you in San Diego, USA!"
+
+  - date: "[Sep. 2025]"
+    content: "I am honored to start a relationship with a"
+    link_text: "talented lady"
+    link_url: "http://xhslink.com/o/7Bifc17lCbN"
+    extra: ". Grateful to fate for bringing us together!"
+
+  - date: "[Sep. 2025]"
+    content: "I will attend EMNLP 2025 in Suzhou and give an **oral presentation** of our paper"
+    link_text: "Mixture of Length and Pruning Experts for Knowledge Graphs Reasoning (MoKGR)"
+    link_url: "https://arxiv.org/pdf/2507.20498"
+    extra: ". Looking forward to meeting everyone!"
+
+  - date: "[Aug. 2025]"
+    content: "**I am actively seeking Ph.D. opportunities for Fall 2026 admission**, especially in the areas of **Graph for LLM, LLM Reasoning, and Multi-Modal Data-Mining**. Please feel free to reach out if you are interested in potential collaboration or supervision!"
+
+  - date: "[Aug. 2025]"
+    link_text: "MoKGR"
+    link_url: "https://arxiv.org/pdf/2507.20498"
+    content: "accepted at EMNLP 2025 main conference, thanks to Prof. Zhang for the guidance. See you in Suzhou!"
+
+  - date: "[Aug. 2025]"
+    content: "I will attend IJCAI 2025 in Guangzhou and give an **oral presentation** of our paper"
+    highlight: "ADC-GS: Anchor-Driven Deformable and Compressed Gaussian Splatting for Dynamic Scene Reconstruction"
+    extra: ". Looking forward to meeting everyone!"
+
+  - date: "[Jun. 2025]"
+    content: "Officially joined The Hong Kong University of Science and Technology (Guangzhou) as a Visiting Research Student until July 1, 2026. Looking forward to meet more with HKUST(GZ) peers!"
+
+  - date: "[Mar. 2025]"
+    link_text: "S2A"
+    link_url: "https://arxiv.org/pdf/2503.08154"
+    content: "accepted at CVPR 2025 Workshop, thanks to my co-authors!"
+
+  - date: "[Feb. 2025]"
+    content: "I received the"
+    highlight: "First-Class Scholarship"
+    extra: "from Beijing Institute of Technology!"
+
+  - date: "[Nov. 2024]"
+    link_text: "DSVC"
+    link_url: "https://ieeexplore.ieee.org/abstract/document/10769506/"
+    content: "accepted by IEEE TCSS, thanks to all co-authors!"
+
+  - date: "[Oct. 2024]"
+    content: "I received the"
+    highlight: "Outstanding Student Award"
+    extra: "from Beijing Institute of Technology!"
+
+  - date: "[Sep. 2024]"
+    content: "I received the"
+    highlight: "Second-Class Scholarship"
+    extra: "from Beijing Institute of Technology!"
+
+  - date: "[Feb. 2024]"
+    content: "I received the"
+    highlight: "Second-Class Scholarship"
+    extra: "from Beijing Institute of Technology!"
+
+  - date: "[Oct. 2023]"
+    content: "I received the"
+    highlight: "Outstanding Student Award"
+    extra: "from Beijing Institute of Technology!"
+
+  - date: "[Sep. 2023]"
+    content: "I received the"
+    highlight: "Outstanding Student Leader Award"
+    extra: "from Beijing Institute of Technology!"
+
+  - date: "[Feb. 2023]"
+    content: "I received the"
+    highlight: "Second-Class Scholarship"
+    extra: "from Beijing Institute of Technology!"

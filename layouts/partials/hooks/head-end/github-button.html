@@ -54,6 +54,24 @@
 }
 
 /* ========================================
+   Publication sections: remove gap between
+   #papers and #more-publications
+   ======================================== */
+#more-publications {
+  padding-top: 0 !important;
+  margin-top: -4rem !important;
+}
+
+/* ========================================
+   Talks section: constrain image size
+   ======================================== */
+#talks article img {
+  max-height: 220px !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+}
+
+/* ========================================
    Publication list: click title → blog
    Redirect publications with url_project
    pointing to /blog/* to blog page

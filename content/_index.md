@@ -69,44 +69,13 @@ sections:
         exclude_featured: true
     design:
       view: citation
-  - block: markdown
+      spacing:
+        padding: ["0", "0", "0", "0"]
+  - block: patents
     id: patents
     content:
-      title: '📜 Patents'
+      title: 'Patents'
       subtitle: ''
-      text: |-
-        <div style="max-width:900px; margin:0 auto;">
-        <div class="patent-item" style="margin-bottom:1.25rem; padding:1rem 1.25rem; border:1px solid #e5e7eb; border-radius:8px; background:#fff;">
-        <h4 style="margin:0 0 0.4rem 0; font-size:1.05rem; font-weight:700; color:#111827; line-height:1.4;">Reply Generation Method, Apparatus, Computer Device, and Storage Medium</h4>
-        <p style="margin:0; font-size:0.9rem; color:#374151; line-height:1.5;"><strong>Enjun Du</strong>, Xinyu Zuo, Lisheng Duan, Yongqi Zhang</p>
-        </div>
-        <div class="patent-item" style="margin-bottom:1.25rem; padding:1rem 1.25rem; border:1px solid #e5e7eb; border-radius:8px; background:#fff;">
-        <h4 style="margin:0 0 0.4rem 0; font-size:1.05rem; font-weight:700; color:#111827; line-height:1.4;">Image Retrieval Method, Apparatus, Computer Device, Storage Medium, and Product</h4>
-        <p style="margin:0; font-size:0.9rem; color:#374151; line-height:1.5;"><strong>Enjun Du</strong>, Xinyu Zuo, Lisheng Duan, Ruiwen Tao, Yongqi Zhang</p>
-        </div>
-        <div id="more-patents" style="display:none;">
-        <div class="patent-item" style="margin-bottom:1.25rem; padding:1rem 1.25rem; border:1px solid #e5e7eb; border-radius:8px; background:#fff;">
-        <h4 style="margin:0 0 0.4rem 0; font-size:1.05rem; font-weight:700; color:#111827; line-height:1.4;">A Knowledge Graph Reasoning Method, Apparatus, Device, and Medium</h4>
-        <p style="margin:0; font-size:0.9rem; color:#374151; line-height:1.5;">Yongqi Zhang, <strong>Enjun Du</strong>, Siyi Liu</p>
-        </div>
-        <div class="patent-item" style="margin-bottom:1.25rem; padding:1rem 1.25rem; border:1px solid #e5e7eb; border-radius:8px; background:#fff;">
-        <h4 style="margin:0 0 0.4rem 0; font-size:1.05rem; font-weight:700; color:#111827; line-height:1.4;">A Training Method for Retrieval Models and Related Apparatus</h4>
-        <p style="margin:0; font-size:0.9rem; color:#374151; line-height:1.5;">Siyi Liu, <strong>Enjun Du</strong>, Zirong Chen, Xinyu Zuo, Lisheng Duan, Yongqi Zhang</p>
-        </div>
-        <div class="patent-item" style="margin-bottom:1.25rem; padding:1rem 1.25rem; border:1px solid #e5e7eb; border-radius:8px; background:#fff;">
-        <h4 style="margin:0 0 0.4rem 0; font-size:1.05rem; font-weight:700; color:#111827; line-height:1.4;">A Data Processing Method, Apparatus, Electronic Device, and Readable Medium</h4>
-        <p style="margin:0; font-size:0.9rem; color:#374151; line-height:1.5;">Zirong Chen, Fuda Ye, <strong>Enjun Du</strong>, Junfu Pu, Xinyu Zuo, Yongqi Zhang</p>
-        </div>
-        <div class="patent-item" style="margin-bottom:1.25rem; padding:1rem 1.25rem; border:1px solid #e5e7eb; border-radius:8px; background:#fff;">
-        <h4 style="margin:0 0 0.4rem 0; font-size:1.05rem; font-weight:700; color:#111827; line-height:1.4;"><a href="https://patents.google.com/patent/CN119180288A/en" style="color:inherit; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Intent-Aware Session Recommendation Based on Behavior-Enhanced Hypergraph Modeling</a></h4>
-        <p style="margin:0 0 0.3rem 0; font-size:0.9rem; color:#374151; line-height:1.5;">Wenhao Xue, Zhida Qin, Haoyao Zhang, Shixiao Yang, <strong>Enjun Du</strong>, Xingbo Tian, Shuang Li, Tianyu Huang</p>
-        <p style="margin:0; font-size:0.82rem; color:#6b7280; font-style:italic;">Chinese National Invention Patent, CN119180288A, published December 2024.</p>
-        </div>
-        </div>
-        <div style="text-align:center; margin-top:0.5rem;">
-        <button id="patents-toggle-btn" onclick="(function(){var m=document.getElementById('more-patents');var b=document.getElementById('patents-toggle-btn');if(m.style.display==='none'){m.style.display='block';b.innerText='Show less';}else{m.style.display='none';b.innerText='Show more';}})()" style="padding:0.4rem 1rem; border-radius:999px; background:#eff6ff; color:#1d4ed8; font-size:0.85rem; font-weight:600; border:1px solid #bfdbfe; cursor:pointer;">Show more</button>
-        </div>
-        </div>
     design:
       columns: '1'
   - block: markdown
@@ -129,7 +98,7 @@ sections:
           - event
     design:
       view: article-grid
-      columns: 1
+      columns: 3
   - block: resume-experience
     id: experience
     content:

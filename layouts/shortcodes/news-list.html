@@ -1,0 +1,30 @@
+{{ $data := site.Data.news }}
+{{ $news := $data.news }}
+
+<div style="border: 2px solid #000000; background-color: #99FFFC; color: #000000; padding: 15px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 16px;">
+  <strong style="color: #111111;">News:</strong>
+  <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+      {{ range $news }}
+      {{ $item := . }}
+      <li style="margin-bottom: 8px; line-height: 1.4;">
+        <strong style="color: #111111;">{{ $item.date }}</strong>
+        {{ if $item.link_url }}
+          <a href="{{ $item.link_url }}" style="color: #EA517F; font-weight: bold; text-decoration: underline;">{{ $item.link_text }}</a>
+        {{ end }}
+        {{ with $item.content }} {{ . | markdownify }}{{ end }}
+        {{ with $item.highlight }}
+          <span style="color: #EA517F; font-weight: bold;">{{ . }}</span>
+        {{ end }}
+        {{ with $item.extra }} {{ . | markdownify }}{{ end }}
+        {{ with $item.highlight2 }}
+          <span style="color: #EA517F; font-weight: bold;">{{ . }}</span>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  <div style="text-align: center; margin-top: 8px; font-size: 12px; color: #666;">
+    Scroll down to view more messages
+  </div>
+</div>
