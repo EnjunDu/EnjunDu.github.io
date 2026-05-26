@@ -3,6 +3,10 @@
 {{ $show_count := default 2 $data.show_count }}
 {{ $patents := $data.patents }}
 
+{{ with $block.content.title }}
+<h2 style="text-align:center; font-size:1.75rem; font-weight:700; margin-bottom:1.5rem;">{{ . | markdownify }}</h2>
+{{ end }}
+
 <div style="max-width:900px; margin:0 auto;">
 {{ range $i, $p := $patents }}
   {{ if eq $i $show_count }}

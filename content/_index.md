@@ -74,7 +74,7 @@ sections:
   - block: patents
     id: patents
     content:
-      title: 'Patents'
+      title: '📜 Patents'
       subtitle: ''
     design:
       columns: '1'
