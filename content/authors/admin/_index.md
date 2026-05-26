@@ -141,19 +141,6 @@ awards:
   - title: China's National Scholarship
     date: '2025-10-01'
     awarder: Beijing Institute of Technology
-  - title: Two Times first-class scholarship for outstanding students of Beijing Institute of Technology
-    date: '2025-09-01'
-    awarder: Beijing Institute of Technology
-  - title: Three times won the second-class scholarship for outstanding students of Beijing Institute of Technology
-    date: '2024-09-01'
-    awarder: Beijing Institute of Technology
-  - title: First and Second Prizes in Asia-Pacific Mathematical Modeling International
-    date: '2024-01-01'
-    awarder: APMCM Organizing Committee
-
-  - title: 'International Second Prize in ISCC: Information Security and Countermeasures Contest'
-    date: '2024-06-30'
-    awarder: China Ordnance Industry Association
 
 
 ---
