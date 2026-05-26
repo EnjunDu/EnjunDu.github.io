@@ -15,6 +15,9 @@
 #   - Order matters: patents are displayed top to bottom as listed here
 # ============================================================
 
+# Section title displayed on the page
+section_title: "📜 Patents"
+
 # Number of patents to show before "Show more" button
 show_count: 2
 
