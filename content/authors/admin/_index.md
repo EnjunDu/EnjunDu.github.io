@@ -20,12 +20,12 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Research Assistant
+role: Ph.D Student
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: HKUST
-    url: https://hkust.edu.hk/
+  - name: HKU
+    url: https://www.hku.hk/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -51,9 +51,9 @@ profiles:
 
 
 interests:
-  - Agentic Reasoning
-  - MLLM
-  - Agent
+  - Video Understanding
+  - Video Generation
+  - Agentic MLLM Reasoning
 
 work:
   - position: Tencent Company        
@@ -147,13 +147,13 @@ awards:
 
 ## About Me
 
-I am currently a **final-year undergraduate student** at [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), and will begin my **Ph.D. at [The University of Hong Kong (**HKU**)](https://www.hku.hk/) in Fall 2026**. I am also a **Visiting Research Student** at the [Big Data Institute (**BDI**) Lab](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/).
+I am currently a **final-year undergraduate student** at [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), and will begin my **Ph.D. at [The University of Hong Kong (**HKU**)](https://www.hku.hk/) in Fall 2026**. I am also a **Visiting Research Student** at the [Big Data Institute (**BDI**)](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/).
 
-My research lies at the intersection of **World Models**, **Agentic Reinforcement Learning**, and **Multimodal Large Language Models**. I aim to build multimodal agents that go beyond perceiving the world—agents that can **imagine future states before answering or acting**. Concretely, I study how to teach MLLMs to invoke world models as internal simulators, how to train this imagination capability through reinforcement learning, and how to make multimodal reasoning more **faithful**, **grounded**, and **compute-efficient**.
+My research focuses on **Video Understanding, World Models, and Agentic Multimodal AI**. I am particularly interested in enabling multimodal agents to **imagine future states before answering or acting**, by integrating predictive world models into multimodal reasoning and decision-making systems.
 
-Currently, I am also working as a **Research Intern** at **Tencent Yuanbao (CSIG)** in the **Multimodal Algorithm Group**, where I focus on **Multimodal RAG and agentic multimodal reasoning**. During my first Ph.D. year, I am available only for internships in **Shenzhen**, and I am **open to internships without location restrictions from the second year onward**.
+I am currently a **Research Intern at Tencent Yuanbao (CSIG)**, working on **Multimodal RAG and agentic multimodal reasoning**.
 
-**If you have internship opportunities related to** <span style="color: #EA517F; font-weight: bold;">Agentic (M)LLMs</span>, **please feel free to reach out to me via email!**
+**If you have internship opportunities related to** <span style="color: #EA517F; font-weight: bold;">Video Understanding & Generation</span>, **please feel free to reach out to me via email!**
 
 **Email**: enjundu.cs@gmail.com
 
