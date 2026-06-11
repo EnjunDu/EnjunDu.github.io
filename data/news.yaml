@@ -18,6 +18,14 @@
 # ============================================================
 
 news:
+
+  - date: "[Jun. 2026]"
+    content: "I was selected for"
+    link_text: "Tencent Project UP"
+    link_url: "https://join.qq.com/qingyun.html"
+    extra: ", Tencent's Qingyun talent program, and will join Tencent Lightspeed as an intern."
+
+    
   - date: "[May. 2026]"
     content: "I was awarded the"
     highlight: "Beijing Outstanding Graduate"

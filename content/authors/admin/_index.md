@@ -56,12 +56,32 @@ interests:
   - Agentic MLLM Reasoning
 
 work:
+
+  - position: Tencent Project Up @ LightSpeed        
+    company_name: Research Intern    
+    company_url: "https://www.tencent.com/"
+    company_logo: "tencent_project_up"
+    date_start: 2026-06-16
+    date_end: 2027-06-30
+    summary: |
+      In LightSpeed.
+
+  - position: YuanBao Multimodal Algorithm Group @ Tencent Company        
+    company_name: Research Intern    
+    company_url: "https://www.tencent.com/"
+    company_logo: "yuanbao"
+    date_start: 2025-10-13
+    date_end: 2026-06-30
+    summary: |
+      In [Yuanbao Multimodal AI Team](https://yuanbao.tencent.com/), supervised by [Xinyu Zuo](https://scholar.google.com/citations?hl=en&user=SSNOfN4AAAAJ&view_op=list_works&sortby=pubdate) and [Jinwen Luo](https://scholar.google.com/citations?hl=en&user=uAHOmooAAAAJ).
+
+
   - position: Tencent Company        
     company_name: Research Intern    
     company_url: "https://www.tencent.com/"
-    company_logo: "tencent"
+    company_logo: "yuanbao"
     date_start: 2025-10-13
-    date_end: 2026-07-30
+    date_end: 2026-06-30
     summary: |
       In [Yuanbao Multimodal AI Team](https://yuanbao.tencent.com/), supervised by [Xinyu Zuo](https://scholar.google.com/citations?hl=en&user=SSNOfN4AAAAJ&view_op=list_works&sortby=pubdate) and [Jinwen Luo](https://scholar.google.com/citations?hl=en&user=uAHOmooAAAAJ).
 
