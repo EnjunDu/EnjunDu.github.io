@@ -128,3 +128,23 @@ homepage/
 - **Add a talk**: Create a new folder under `content/event/` with an `index.md`
 - **Change bio**: Edit `content/authors/admin/_index.md`
 - **Change section order**: Edit the `sections:` list in `content/_index.md`
+
+## How to modify logos
+
+```
+layouts/partials/hooks/head-end/github-button.html
+```
+
+
+
+```
+var logoMap = {
+  "Project Up": "/images/logos/tencent_project_up.png",
+  "YuanBao": "/images/logos/yuanbao.png",
+  "Tencent": "/images/logos/tencent.png",
+  "Beijing Institute": "/images/logos/bit.png",
+  "Hong Kong University": "/images/logos/hkust-gz.svg",
+  "HKUST": "/images/logos/hkust-gz.svg"
+};
+```
+

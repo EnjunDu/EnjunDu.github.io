@@ -77,6 +77,14 @@ work:
 
 education:
 
+  - area: The University of Hong Kong
+    institution: Doctor of Philosophy
+    icon: "hku"
+    date_start: 2026-09-01
+    date_end: 2030-06-30
+    summary: |
+      
+
   - area: The Hong Kong University of Science and Technology
     institution: Visiting Student
     icon: "hkust-gz"
@@ -89,7 +97,7 @@ education:
     institution: Bachelor of Cyberspace Science and Technology
     icon: "bit"
     date_start: 2022-09-01
-    date_end: 2025-12-30
+    date_end: 2026-06-30
     summary: |
       GPA: 91.7/100, Rank: 1%<br>
       Research Assistant in Ronghua Li's Lab, supervised  by [Prof.Ronghua Li](https://ronghuali.github.io/) and [Dr.Xunkai Li](https://xkli-allen.github.io/) from November 2024 to August 2025.<br>
@@ -157,15 +165,15 @@ awards:
 
 ## About Me
 
-I am currently a **final-year undergraduate student** at [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/), and will begin my **Ph.D. at [The University of Hong Kong (**HKU**)](https://www.hku.hk/) in Fall 2026**. I am also a **Visiting Research Student** at the [Big Data Institute (**BDI**)](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/).
+I am an **incoming Ph.D. student** at [The University of Hong Kong (**HKU**)](https://www.hku.hk/) starting in Fall 2026. I am also a **Visiting Research Student** at the [Big Data Institute (**BDI**)](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/). I received my **Bachelor's degree in Cyberspace Science and Technology** from [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/).
 
 My research focuses on **Video Understanding, World Models, and Agentic Multimodal AI**. I am particularly interested in enabling multimodal agents to **imagine future states before answering or acting**, by integrating predictive world models into multimodal reasoning and decision-making systems.
 
-I am currently a **Research Intern at Tencent Yuanbao (CSIG)**, working on **Multimodal RAG and agentic multimodal reasoning**.
+I am currently a [Tencent Qingyun Talent Program Intern](https://join.qq.com/qingyun.html), working on **Multimodal RAG and agentic multimodal reasoning**.
 
-**If you have internship opportunities related to** <span style="color: #EA517F; font-weight: bold;">Video Understanding & Generation</span>, **please feel free to reach out to me via email!**
+**If you have internship opportunities related to** Video Understanding & Generation, **please feel free to reach out to me via email!**
 
-**Email**: enjundu.cs@gmail.com
+**Email**: [enjundu.cs@gmail.com](mailto:enjundu.cs@gmail.com)
 
 {{< news-list >}}
 
