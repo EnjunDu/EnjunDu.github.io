@@ -85,7 +85,7 @@ education:
     summary: |
       
 
-  - area: The Hong Kong University of Science and Technology
+  - area: The Hong Kong University of Science and Technology (Guangzhou)
     institution: Visiting Student
     icon: "hkust-gz"
     date_start: 2024-08-22
