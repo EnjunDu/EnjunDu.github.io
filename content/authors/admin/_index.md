@@ -64,7 +64,7 @@ work:
     date_start: 2026-06-16
     date_end: 2027-06-30
     summary: |
-      In LightSpeed.
+      In [LightSpeed](https://x.com/__lightspeed___?lang=en), supervised by [Jingyu Li](https://scholar.google.com/citations?user=yye11UQAAAAJ&hl=en).
 
   - position: YuanBao Multimodal Algorithm Group @ Tencent Company        
     company_name: Research Intern    
@@ -167,9 +167,7 @@ awards:
 
 I am an **incoming Ph.D. student** at [The University of Hong Kong (**HKU**)](https://www.hku.hk/) starting in Fall 2026. I am also a **Visiting Research Student** at the [Big Data Institute (**BDI**)](https://bdi.hkust.edu.hk/), [The Hong Kong University of Science and Technology (Guangzhou) (**HKUST GZ**)](https://www.hkust-gz.edu.cn/), supervised by [Prof. Yongqi Zhang](https://yzhangee.github.io/). I received my **Bachelor's degree in Cyberspace Science and Technology** from [Beijing Institute of Technology (**BIT**)](https://english.bit.edu.cn/).
 
-My research focuses on **Video Understanding, World Models, and Agentic Multimodal AI**. I am particularly interested in enabling multimodal agents to **imagine future states before answering or acting**, by integrating predictive world models into multimodal reasoning and decision-making systems.
-
-I am currently a [Tencent Qingyun Talent Program Intern](https://join.qq.com/qingyun.html), working on **Multimodal RAG and agentic multimodal reasoning**.
+I am currently a [Tencent Qingyun Talent Program Intern](https://join.qq.com/qingyun.html). My research focuses on **Long-Video Understanding, Omni Understanding, and Agentic Multimodal AI**. I am particularly interested in enabling multimodal agents to understand long-form videos through **multi-turn interactive reasoning**, and to perform **streaming audio-video omni understanding** for real-time perception, reasoning, and decision-making.
 
 **If you have internship opportunities related to** Video Understanding & Generation, **please feel free to reach out to me via email!**
 
