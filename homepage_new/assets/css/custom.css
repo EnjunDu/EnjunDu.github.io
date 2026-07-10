@@ -461,3 +461,36 @@ button:focus-visible {
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
+
+/* ---- "Show more / Show less" note + button (Publications, Patents) ---- */
+.hb-scholar-note {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgb(var(--color-neutral-600));
+}
+
+.dark .hb-scholar-note {
+  color: rgb(var(--color-neutral-400));
+}
+
+.hb-scholar-note a {
+  color: rgb(var(--color-primary-600));
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.hb-scholar-note a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--color-primary-600) / 0.5);
+}
+
+.dark .hb-scholar-note a {
+  color: rgb(var(--color-primary-400));
+}
+
+.hb-toggle-btn-icon {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -21,17 +21,22 @@
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  box-shadow: var(--hb-shadow-sm);
   margin-bottom: 20px !important;
   min-height: 140px;
-  transition: box-shadow .2s;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
 }
 .blox-resume-experience ol.relative > li.mb-10.ms-6:hover {
-  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+  box-shadow: var(--hb-shadow-md);
+  transform: translateY(-2px);
+  border-color: rgb(var(--color-primary-300));
 }
 .dark .blox-resume-experience ol.relative > li.mb-10.ms-6 {
   background: #1f2937;
   border-color: #374151;
+}
+.dark .blox-resume-experience ol.relative > li.mb-10.ms-6:hover {
+  border-color: rgb(var(--color-primary-700));
 }
 
 /* The injected logo image — BIG and clear */
@@ -54,15 +59,6 @@
 }
 
 /* ========================================
-   Publication sections: remove gap between
-   #papers and #more-publications
-   ======================================== */
-#more-publications {
-  padding-top: 0 !important;
-  margin-top: -4rem !important;
-}
-
-/* ========================================
    Talks section: constrain image size
    ======================================== */
 #talks article img {
@@ -71,61 +67,10 @@
   border-radius: 8px !important;
 }
 
-/* ========================================
-   Publication cards: responsive layout
-   ======================================== */
-.pub-card {
-  display: flex;
-  flex-direction: row;
-}
-.pub-card-img {
-  flex: 0 0 320px;
-  width: 320px;
-  height: 213px;
-  display: block;
-  overflow: hidden;
-  background: #f3f4f6;
-}
-.pub-card-no-img {
-  flex: 0 0 10px;
-  display: block;
-  background: #e5e7eb;
-}
-.pub-card-meta {
-  flex: 1;
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.5rem;
-  min-width: 0;
-}
+/* Publication card responsive layout now lives in assets/css/custom.css
+   (.hb-pub-card and friends) alongside the rest of the design system. */
 
-/* Mobile: stack vertically */
 @media (max-width: 768px) {
-  .pub-card {
-    flex-direction: column !important;
-  }
-  .pub-card-img {
-    flex: none !important;
-    width: 100% !important;
-    height: 180px !important;
-  }
-  .pub-card-img img {
-    object-fit: cover !important;
-  }
-  .pub-card-no-img {
-    flex: none !important;
-    width: 100% !important;
-    height: 4px !important;
-  }
-  .pub-card-meta {
-    padding: 1rem !important;
-  }
-  .pub-card-meta h3 {
-    font-size: 1rem !important;
-  }
-
   /* Experience cards: stack on mobile */
   .blox-resume-experience ol.relative > li.mb-10.ms-6 {
     padding: 16px 16px 16px 16px !important;
