@@ -7,19 +7,14 @@
     <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
       {{ range $news }}
       {{ $item := . }}
+      {{ $text := $item.content }}
+      {{/* [text](url) -> pink bold underlined link, usable anywhere in the sentence */}}
+      {{ $text := $text | replaceRE `\[([^\]]+)\]\(([^)]+)\)` `<a href="$2" target="_blank" rel="noopener" style="color:#EA517F;font-weight:bold;text-decoration:underline;">$1</a>` }}
+      {{/* **text** -> pink bold highlight (explicit color avoids inheriting the dark section's white text) */}}
+      {{ $text := $text | replaceRE `\*\*([^*]+)\*\*` `<span style="color:#EA517F;font-weight:bold;">$1</span>` }}
       <li style="margin-bottom: 8px; line-height: 1.4;">
         <strong style="color: #111111;">{{ $item.date }}</strong>
-        {{ if $item.link_url }}
-          <a href="{{ $item.link_url }}" style="color: #EA517F; font-weight: bold; text-decoration: underline;">{{ $item.link_text }}</a>
-        {{ end }}
-        {{ with $item.content }} {{ . | markdownify }}{{ end }}
-        {{ with $item.highlight }}
-          <span style="color: #EA517F; font-weight: bold;">{{ . }}</span>
-        {{ end }}
-        {{ with $item.extra }} {{ . | markdownify }}{{ end }}
-        {{ with $item.highlight2 }}
-          <span style="color: #EA517F; font-weight: bold;">{{ . }}</span>
-        {{ end }}
+        <span style="color: #111111;">{{ $text | safeHTML }}</span>
       </li>
       {{ end }}
     </ul>

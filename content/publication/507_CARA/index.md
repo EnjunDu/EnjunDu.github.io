@@ -29,8 +29,8 @@ publishDate: '2025-10-05'
 publication_types: ["conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: 
-publication_short: 
+publication: 'ACM Multimedia 2026'
+publication_short: '**ACM Multimedia 2026**'
 
 abstract: 'Collision detection in autonomous driving faces a critical interpretability challenge, as existing systems remain largely opaque in safety-critical decision-making. Current methods either rely on post-hoc explainers with limited fidelity or require costly manual annotations, failing to reconcile predictive accuracy with interpretability. To address these limitations, we propose leveraging natural language processing to extract interpretable risk concepts from real-world accident reports, bridging the semantic gap between textual accident descriptions and visual collision scenarios. We introduce CARA (Concept-Aware Risk Attention), a framework that uses language model-driven concept extraction and multimodal language-vision alignment to automatically discover risk-aware semantic concepts. Unlike traditional feature-driven attention mechanisms, CARA grounds spatial-temporal attention allocation in these human-understandable concepts derived from linguistic accident analysis. Experiments on standard benchmarks demonstrate that CARA achieves competitive accuracy and early warning capability while providing transparent, concept-based explanations for risk assessment in safety-critical AI systems.'
 
