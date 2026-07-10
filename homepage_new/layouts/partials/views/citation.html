@@ -1,0 +1,54 @@
+{{ $item := .item }}
+{{ $has_attachments := partial "functions/has_attachments" $item }}
+{{ $resource := partial "functions/get_featured_image.html" $item }}
+
+<div class="hb-pub-card not-prose">
+
+  {{/* -- Featured image -- */}}
+  {{ with $resource }}
+    {{ $img := .Fit "640x427 Center" }}
+    {{ if ne $img.MediaType.SubType "gif" }}{{ $img = $img.Process "webp" }}{{ end }}
+    <a href="{{ $item.RelPermalink }}" class="hb-pub-card-img">
+      <img src="{{ $img.RelPermalink }}"
+           alt="{{ $item.Title | plainify }}"
+           loading="lazy">
+    </a>
+  {{ else }}
+    <a href="{{ $item.RelPermalink }}" class="hb-pub-card-no-img" aria-hidden="true"></a>
+  {{ end }}
+
+  {{/* -- Metadata -- */}}
+  <div class="hb-pub-card-meta">
+
+    {{/* Title */}}
+    <h3 class="hb-pub-card-title">
+      <a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a>
+    </h3>
+
+    {{/* Authors */}}
+    <p class="hb-pub-card-authors">
+      {{ partial "page_metadata_authors" $item }}
+    </p>
+
+    {{/* Action links */}}
+    {{ if $has_attachments }}
+    <div class="hb-pub-card-links">
+      {{ partial "page_links" (dict "page" $item "is_list" 1) }}
+    </div>
+    {{ end }}
+
+    {{/* Venue badge */}}
+    {{ if or $item.Params.publication_short $item.Params.publication }}
+    <div>
+      <span class="hb-pub-card-badge">
+        {{ if $item.Params.publication_short }}
+          {{ $item.Params.publication_short | markdownify | plainify }}
+        {{ else }}
+          {{ $item.Params.publication | markdownify | plainify }}
+        {{ end }}
+      </span>
+    </div>
+    {{ end }}
+
+  </div>
+</div>

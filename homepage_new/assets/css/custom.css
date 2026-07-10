@@ -1,0 +1,463 @@
+/* ============================================================
+ * Custom theme refinements
+ * Loaded automatically by Hugo Blox after the base theme CSS.
+ * Goal: a calmer, more consistent, editorial reading experience —
+ * refined typography, quieter shadows, and one coherent accent
+ * color instead of several unrelated hard-coded hex colors.
+ * ============================================================ */
+
+/* ---- 1. Design tokens -------------------------------------- */
+:root {
+  /* Upstream theme bug: `colors.neutral.DEFAULT` is referenced by
+     `--tw-prose-invert-bold` but the bare `--color-neutral` variable
+     is never defined, so bold text inside dark/inverted prose blocks
+     silently falls back to an inconsistent color. Defining it keeps
+     bold text legible and consistent wherever `dark:prose-invert` is used. */
+  --color-neutral: 250 250 250;
+
+  /* Shared elevation + radius scale used by the refinements below. */
+  --hb-radius: 0.75rem;
+  --hb-shadow-sm: 0 1px 2px rgb(15 23 42 / 0.04), 0 1px 1px rgb(15 23 42 / 0.03);
+  --hb-shadow-md: 0 10px 25px -8px rgb(15 23 42 / 0.12), 0 4px 8px -4px rgb(15 23 42 / 0.06);
+  --hb-shadow-lg: 0 20px 40px -12px rgb(15 23 42 / 0.18);
+}
+
+.dark {
+  --hb-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
+  --hb-shadow-md: 0 10px 25px -8px rgb(0 0 0 / 0.45), 0 4px 8px -4px rgb(0 0 0 / 0.3);
+  --hb-shadow-lg: 0 20px 40px -12px rgb(0 0 0 / 0.55);
+}
+
+/* ---- 2. Global reading comfort ------------------------------ */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  letter-spacing: 0.005em;
+}
+
+::selection {
+  background-color: rgb(var(--color-primary-300) / 0.45);
+}
+
+.prose :where(h1, h2, h3, h4) {
+  letter-spacing: -0.015em;
+}
+
+.prose :where(p, li) {
+  line-height: 1.75;
+}
+
+/* Slightly calmer link underline than the theme default. */
+.prose :where(a):not(.hb-card, .hb-card *) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+/* Accessible, brand-colored focus ring everywhere instead of the
+   default blue browser outline. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgb(var(--color-primary-500) / 0.6);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
+}
+
+/* ---- 3. Thin, quiet scrollbars for inner scroll areas -------- */
+.hb-scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--color-neutral-400) / 0.6) transparent;
+}
+
+.hb-scroll-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.hb-scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hb-scroll-thin::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--color-neutral-400) / 0.5);
+  border-radius: 999px;
+}
+
+.hb-scroll-thin:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--color-neutral-400) / 0.8);
+}
+
+/* ============================================================
+ * News timeline widget (see layouts/shortcodes/news-list.html)
+ * ============================================================ */
+.hb-news {
+  position: relative;
+  margin: 1.75rem 0;
+  padding: 1.25rem 1.5rem 1.25rem 1.25rem;
+  border-radius: var(--hb-radius);
+  background: rgb(var(--color-neutral-50) / 0.06);
+  border: 1px solid rgb(var(--color-neutral-400) / 0.25);
+  backdrop-filter: blur(2px);
+}
+
+.hb-news-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.9rem 0.1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(var(--color-neutral-100));
+}
+
+.hb-news-heading::before {
+  content: "";
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: rgb(var(--color-primary-400));
+  box-shadow: 0 0 0 4px rgb(var(--color-primary-400) / 0.2);
+}
+
+.hb-news-scroll {
+  position: relative;
+  max-height: 210px;
+  overflow-y: auto;
+  padding-right: 0.75rem;
+  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 28px), transparent 100%);
+  mask-image: linear-gradient(to bottom, black calc(100% - 28px), transparent 100%);
+}
+
+.hb-news-list {
+  position: relative;
+  margin: 0;
+  padding: 0 0 1.25rem 1.1rem;
+  list-style: none;
+  border-left: 1.5px solid rgb(var(--color-neutral-400) / 0.3);
+}
+
+.hb-news-item {
+  position: relative;
+  padding-bottom: 0.85rem;
+  line-height: 1.55;
+  font-size: 0.925rem;
+  color: rgb(var(--color-neutral-200));
+}
+
+.hb-news-item::before {
+  content: "";
+  position: absolute;
+  left: -1.16rem;
+  top: 0.35rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgb(var(--color-neutral-500));
+  border: 2px solid rgb(var(--color-neutral-900));
+}
+
+.hb-news-item:first-child::before {
+  background: rgb(var(--color-primary-400));
+}
+
+.hb-news-date {
+  display: block;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: rgb(var(--color-neutral-400));
+  margin-bottom: 0.15rem;
+}
+
+.hb-news-item mark {
+  background: none;
+  padding: 0;
+  font-weight: 600;
+  color: rgb(var(--color-primary-300));
+}
+
+.hb-news-item a {
+  font-weight: 600;
+  color: rgb(var(--color-primary-300));
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--color-primary-300) / 0.45);
+  text-underline-offset: 2px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.hb-news-item a:hover {
+  color: rgb(var(--color-primary-200));
+  text-decoration-color: rgb(var(--color-primary-200));
+}
+
+.hb-news-hint {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: rgb(var(--color-neutral-500));
+}
+
+/* ============================================================
+ * Publication / patent cards — shared, dark-mode aware styling
+ * ============================================================ */
+.hb-pub-card {
+  position: relative;
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border-radius: var(--hb-radius);
+  border: 1px solid rgb(var(--color-neutral-200));
+  background: rgb(var(--color-neutral-50));
+  box-shadow: var(--hb-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.dark .hb-pub-card {
+  border-color: rgb(var(--color-neutral-700));
+  background: rgb(var(--color-neutral-800) / 0.5);
+}
+
+.hb-pub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--hb-shadow-md);
+  border-color: rgb(var(--color-primary-300));
+}
+
+.dark .hb-pub-card:hover {
+  border-color: rgb(var(--color-primary-700));
+}
+
+.hb-pub-card:active {
+  transform: translateY(-1px) scale(0.997);
+}
+
+.hb-pub-card-img {
+  display: block;
+  flex: 0 0 auto;
+  width: 220px;
+  overflow: hidden;
+  background: rgb(var(--color-neutral-100));
+}
+
+.dark .hb-pub-card-img {
+  background: rgb(var(--color-neutral-900));
+}
+
+.hb-pub-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hb-pub-card:hover .hb-pub-card-img img {
+  transform: scale(1.04);
+}
+
+.hb-pub-card-no-img {
+  flex: 0 0 auto;
+  width: 6px;
+  background: linear-gradient(180deg, rgb(var(--color-primary-400)), rgb(var(--color-primary-600)));
+}
+
+.hb-pub-card-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 1.1rem 1.3rem;
+}
+
+.hb-pub-card-title {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: rgb(var(--color-neutral-900));
+}
+
+.dark .hb-pub-card-title {
+  color: rgb(var(--color-neutral-100));
+}
+
+.hb-pub-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.hb-pub-card-title a:hover {
+  color: rgb(var(--color-primary-600));
+}
+
+.dark .hb-pub-card-title a:hover {
+  color: rgb(var(--color-primary-400));
+}
+
+.hb-pub-card-authors {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgb(var(--color-neutral-600));
+}
+
+.dark .hb-pub-card-authors {
+  color: rgb(var(--color-neutral-400));
+}
+
+.hb-pub-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.hb-pub-card-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.55rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgb(var(--color-primary-50));
+  color: rgb(var(--color-primary-700));
+  border: 1px solid rgb(var(--color-primary-200));
+}
+
+.dark .hb-pub-card-badge {
+  background: rgb(var(--color-primary-900) / 0.4);
+  color: rgb(var(--color-primary-300));
+  border-color: rgb(var(--color-primary-700) / 0.6);
+}
+
+@media (max-width: 640px) {
+  .hb-pub-card {
+    flex-direction: column;
+  }
+
+  .hb-pub-card-img {
+    width: 100%;
+    height: 180px;
+  }
+
+  .hb-pub-card-no-img {
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, rgb(var(--color-primary-400)), rgb(var(--color-primary-600)));
+  }
+}
+
+/* ---- Patents list -------------------------------------------- */
+.hb-patent-item {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--hb-radius);
+  border: 1px solid rgb(var(--color-neutral-200));
+  background: rgb(var(--color-neutral-50));
+  box-shadow: var(--hb-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.dark .hb-patent-item {
+  border-color: rgb(var(--color-neutral-700));
+  background: rgb(var(--color-neutral-800) / 0.5);
+}
+
+.hb-patent-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hb-shadow-md);
+  border-color: rgb(var(--color-primary-300));
+}
+
+.dark .hb-patent-item:hover {
+  border-color: rgb(var(--color-primary-700));
+}
+
+.hb-patent-title {
+  margin: 0 0 0.35rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: rgb(var(--color-neutral-900));
+}
+
+.dark .hb-patent-title {
+  color: rgb(var(--color-neutral-100));
+}
+
+.hb-patent-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.hb-patent-title a:hover {
+  color: rgb(var(--color-primary-600));
+}
+
+.dark .hb-patent-title a:hover {
+  color: rgb(var(--color-primary-400));
+}
+
+.hb-patent-authors {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgb(var(--color-neutral-600));
+}
+
+.dark .hb-patent-authors {
+  color: rgb(var(--color-neutral-400));
+}
+
+.hb-patent-note {
+  margin: 0.3rem 0 0 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: rgb(var(--color-neutral-500));
+}
+
+.hb-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgb(var(--color-primary-50));
+  color: rgb(var(--color-primary-700));
+  border: 1px solid rgb(var(--color-primary-200));
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hb-toggle-btn:hover {
+  background: rgb(var(--color-primary-100));
+  transform: translateY(-1px);
+}
+
+.dark .hb-toggle-btn {
+  background: rgb(var(--color-primary-900) / 0.4);
+  color: rgb(var(--color-primary-300));
+  border-color: rgb(var(--color-primary-700) / 0.6);
+}
+
+.dark .hb-toggle-btn:hover {
+  background: rgb(var(--color-primary-900) / 0.7);
+}
+
+.hb-section-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
