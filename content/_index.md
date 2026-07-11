@@ -47,30 +47,10 @@ sections:
       count: 6
       subtitle: ''
       text: ''
-  - block: collection
+  - block: publications
     id: papers
     content:
       title: Publications
-      count: 114514
-      filters:
-        folders:
-          - publication
-        featured_only: true
-    design:
-      view: citation
-  - block: collection
-    id: more-publications
-    content:
-      title: ""
-      count: 114514
-      filters:
-        folders:
-          - publication
-        exclude_featured: true
-    design:
-      view: citation
-      spacing:
-        padding: ["0", "0", "0", "0"]
   - block: patents
     id: patents
     content:

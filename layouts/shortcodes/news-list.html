@@ -1,25 +1,26 @@
 {{ $data := site.Data.news }}
 {{ $news := $data.news }}
 
-<div style="border: 2px solid #000000; background-color: #99FFFC; color: #000000; padding: 15px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 16px;">
-  <strong style="color: #111111;">News:</strong>
-  <div style="max-height: 180px; overflow-y: auto; margin-top: 10px; padding-right: 5px;">
-    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+{{/* Syntax inside `content` (see data/news.yaml for the full guide):
+       **text**        -> accent highlight
+       [text](url)      -> accent, underlined link
+     Everything else renders as plain body text. */}}
+
+<div class="hb-news not-prose">
+  <p class="hb-news-heading">News</p>
+  <div class="hb-news-scroll hb-scroll-thin">
+    <ul class="hb-news-list">
       {{ range $news }}
       {{ $item := . }}
       {{ $text := $item.content }}
-      {{/* [text](url) -> pink bold underlined link, usable anywhere in the sentence */}}
-      {{ $text := $text | replaceRE `\[([^\]]+)\]\(([^)]+)\)` `<a href="$2" target="_blank" rel="noopener" style="color:#EA517F;font-weight:bold;text-decoration:underline;">$1</a>` }}
-      {{/* **text** -> pink bold highlight (explicit color avoids inheriting the dark section's white text) */}}
-      {{ $text := $text | replaceRE `\*\*([^*]+)\*\*` `<span style="color:#EA517F;font-weight:bold;">$1</span>` }}
-      <li style="margin-bottom: 8px; line-height: 1.4;">
-        <strong style="color: #111111;">{{ $item.date }}</strong>
-        <span style="color: #111111;">{{ $text | safeHTML }}</span>
+      {{ $text := $text | replaceRE `\[([^\]]+)\]\(([^)]+)\)` `<a href="$2" target="_blank" rel="noopener">$1</a>` }}
+      {{ $text := $text | replaceRE `\*\*([^*]+)\*\*` `<mark>$1</mark>` }}
+      <li class="hb-news-item">
+        <span class="hb-news-date">{{ $item.date }}</span>
+        <span>{{ $text | safeHTML }}</span>
       </li>
       {{ end }}
     </ul>
   </div>
-  <div style="text-align: center; margin-top: 8px; font-size: 12px; color: #666;">
-    Scroll down to view more messages
-  </div>
+  <div class="hb-news-hint">Scroll for more</div>
 </div>

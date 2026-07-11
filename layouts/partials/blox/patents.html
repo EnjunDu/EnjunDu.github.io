@@ -4,25 +4,23 @@
 {{ $patents := $data.patents }}
 {{ $title := default "📜 Patents" $data.section_title }}
 
-<h2 style="text-align:center; font-size:1.75rem; font-weight:700; margin-bottom:1.5rem;">{{ $title }}</h2>
+<h2 class="hb-section-title">{{ $title }}</h2>
 
-<div style="max-width:900px; margin:0 auto;">
+<div class="not-prose" style="max-width:900px; margin:0 auto;">
 {{ range $i, $p := $patents }}
   {{ if eq $i $show_count }}
   <div id="more-patents" style="overflow:hidden; height:0; opacity:0;">
   {{ end }}
 
-  <div class="patent-item" style="margin-bottom:1.25rem; padding:1rem 1.25rem; border:1px solid #e5e7eb; border-radius:8px; background:#fff; transition:all .3s cubic-bezier(0.4,0,0.2,1);"
-       onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';this.style.borderColor='#93c5fd'"
-       onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='#e5e7eb'">
-    <h4 style="margin:0 0 0.4rem 0; font-size:1.05rem; font-weight:700; color:#111827; line-height:1.4;">
-      {{ with $p.url }}<a href="{{ . }}" style="color:inherit; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">{{ end }}
+  <div class="hb-patent-item">
+    <h4 class="hb-patent-title">
+      {{ with $p.url }}<a href="{{ . }}">{{ end }}
       {{ $p.title }}
       {{ with $p.url }}</a>{{ end }}
     </h4>
-    <p style="margin:0; font-size:0.9rem; color:#374151; line-height:1.5;">{{ $p.authors | markdownify }}</p>
+    <p class="hb-patent-authors">{{ $p.authors | markdownify }}</p>
     {{ with $p.note }}
-    <p style="margin:0.3rem 0 0 0; font-size:0.82rem; color:#6b7280; font-style:italic;">{{ . }}</p>
+    <p class="hb-patent-note">{{ . }}</p>
     {{ end }}
   </div>
 {{ end }}
@@ -30,10 +28,7 @@
 {{ if gt (len $patents) $show_count }}
   </div><!-- close #more-patents -->
   <div style="text-align:center; margin-top:0.5rem;">
-    <button id="patents-toggle-btn"
-      style="padding:0.4rem 1.2rem; border-radius:999px; background:#eff6ff; color:#1d4ed8; font-size:0.85rem; font-weight:600; border:1px solid #bfdbfe; cursor:pointer; transition:all .3s;"
-      onmouseover="this.style.background='#dbeafe';this.style.transform='translateY(-1px)'"
-      onmouseout="this.style.background='#eff6ff';this.style.transform='translateY(0)'">
+    <button id="patents-toggle-btn" class="hb-toggle-btn">
       Show more
     </button>
   </div>
