@@ -99,14 +99,17 @@ button:focus-visible {
   margin: 1.75rem 0;
   padding: 1.25rem 1.5rem 1.25rem 1.25rem;
   border-radius: var(--hb-radius);
-  /* Light frosted-glass panel over the dark hero — lighter than the
-     black background so it reads as a distinct, elevated card while the
-     blur keeps text crisp. */
-  background: rgb(255 255 255 / 0.1);
-  border: 1px solid rgb(255 255 255 / 0.18);
-  backdrop-filter: blur(12px) saturate(1.2);
-  -webkit-backdrop-filter: blur(12px) saturate(1.2);
-  box-shadow: var(--hb-shadow-md);
+  /* Elegant dark frosted-glass card. Not a flat black box — it blends
+     the theme's deep-green accent with charcoal at fairly high opacity,
+     so it reads as a refined tinted-glass panel while bright text on the
+     dark surface stays crisp and prominent. */
+  background: linear-gradient(150deg,
+      rgb(var(--color-primary-950) / 0.78),
+      rgb(var(--color-neutral-900) / 0.72));
+  border: 1px solid rgb(var(--color-primary-400) / 0.3);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow: var(--hb-shadow-lg), inset 0 1px 0 rgb(255 255 255 / 0.06);
 }
 
 .hb-news-heading {
@@ -116,9 +119,9 @@ button:focus-visible {
   margin: 0 0 0.9rem 0.1rem;
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgb(var(--color-neutral-100));
+  color: rgb(var(--color-primary-300));
 }
 
 .hb-news-heading::before {
@@ -128,7 +131,7 @@ button:focus-visible {
   height: 0.45rem;
   border-radius: 999px;
   background: rgb(var(--color-primary-400));
-  box-shadow: 0 0 0 4px rgb(var(--color-primary-400) / 0.2);
+  box-shadow: 0 0 0 4px rgb(var(--color-primary-400) / 0.22);
 }
 
 .hb-news-scroll {
@@ -145,15 +148,15 @@ button:focus-visible {
   margin: 0;
   padding: 0 0 1.25rem 1.1rem;
   list-style: none;
-  border-left: 1.5px solid rgb(255 255 255 / 0.25);
+  border-left: 1.5px solid rgb(var(--color-primary-400) / 0.35);
 }
 
 .hb-news-item {
   position: relative;
-  padding-bottom: 0.85rem;
-  line-height: 1.55;
-  font-size: 0.925rem;
-  color: rgb(var(--color-neutral-50));
+  padding-bottom: 0.9rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: rgb(255 255 255 / 0.96);
 }
 
 .hb-news-item::before {
@@ -164,12 +167,13 @@ button:focus-visible {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 999px;
-  background: rgb(var(--color-neutral-200));
-  border: 2px solid rgb(255 255 255 / 0.15);
+  background: rgb(var(--color-neutral-400));
+  border: 2px solid rgb(var(--color-primary-950) / 0.9);
 }
 
 .hb-news-item:first-child::before {
   background: rgb(var(--color-primary-400));
+  box-shadow: 0 0 0 3px rgb(var(--color-primary-400) / 0.25);
 }
 
 .hb-news-date {
@@ -184,7 +188,7 @@ button:focus-visible {
 .hb-news-item mark {
   background: none;
   padding: 0;
-  font-weight: 600;
+  font-weight: 700;
   color: rgb(var(--color-primary-300));
 }
 
@@ -192,7 +196,7 @@ button:focus-visible {
   font-weight: 600;
   color: rgb(var(--color-primary-300));
   text-decoration: underline;
-  text-decoration-color: rgb(var(--color-primary-300) / 0.45);
+  text-decoration-color: rgb(var(--color-primary-300) / 0.5);
   text-underline-offset: 2px;
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
