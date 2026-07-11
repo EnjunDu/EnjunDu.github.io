@@ -490,7 +490,3 @@ button:focus-visible {
 .dark .hb-scholar-note a {
   color: rgb(var(--color-primary-400));
 }
-
-.hb-toggle-btn-icon {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
