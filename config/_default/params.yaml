@@ -5,12 +5,7 @@
 
 # Appearance
 appearance:
-  # Dark by default so the purple-gold scheme shows cohesively.
-  # (The navbar theme toggle still lets visitors switch to light.)
-  mode: dark
-  # Base theme color; the accent is overridden to gold in
-  # assets/css/custom.css (purple-gold theme), so this value is
-  # only a fallback and kept as a valid built-in theme name.
+  mode: system
   color: emerald
 
 # SEO
