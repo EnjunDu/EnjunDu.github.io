@@ -1,0 +1,119 @@
+{{/* Hugo Blox: Publications (custom) */}}
+{{/* Same show-more/less structure & styling as the Patents block: */}}
+{{/* one continuous list, extra items pre-rendered but hidden, and a */}}
+{{/* real (non-JS-injected) toggle button + note right after them. */}}
+
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+
+{{ $pubs := where site.RegularPages "Section" "publication" }}
+{{ $featured := where $pubs "Params.featured" "==" true }}
+{{ $rest := where $pubs "Params.featured" "!=" true }}
+{{ $featured = sort $featured "Date" "desc" }}
+{{ $rest = sort $rest "Date" "desc" }}
+{{ $show_count := len $featured }}
+
+{{ $all := slice }}
+{{ range $featured }}{{ $all = $all | append . }}{{ end }}
+{{ range $rest }}{{ $all = $all | append . }}{{ end }}
+
+{{ with $block.content.title }}
+<div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6 md:px-0">
+  <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ . | markdownify | emojify }}</div>
+</div>
+{{ end }}
+
+<div class="flex flex-col items-center px-6">
+{{ partial "views/citation.start" dict }}
+
+{{ range $i, $p := $all }}
+  {{ if eq $i $show_count }}
+  <div id="more-publications" style="overflow:hidden; height:0; opacity:0;">
+  {{ end }}
+  {{ partial "views/citation" (dict "item" $p) }}
+{{ end }}
+
+{{ if gt (len $all) $show_count }}
+  </div><!-- close #more-publications -->
+  <div style="text-align:center; margin-top:0.5rem;">
+    <p class="hb-scholar-note" style="margin-bottom:1rem;">
+      Full publication list can be found on
+      <a href="https://scholar.google.com/citations?user=PvBvdgQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
+    <button id="pub-show-more-btn" class="hb-toggle-btn">
+      <span id="pub-show-more-label">Show More</span>
+      <svg id="pub-show-more-icon" class="hb-toggle-btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </button>
+  </div>
+  <script>
+  (function(){
+    var m = document.getElementById('more-publications');
+    var b = document.getElementById('pub-show-more-btn');
+    var label = document.getElementById('pub-show-more-label');
+    var icon = document.getElementById('pub-show-more-icon');
+    var expanded = false;
+    var animating = false;
+
+    // Smooth height animation with easeInOutCubic
+    function animateHeight(el, from, to, duration, onDone) {
+      var start = performance.now();
+      el.style.height = from + 'px';
+      el.style.overflow = 'hidden';
+
+      function step(now) {
+        var t = Math.min((now - start) / duration, 1);
+        var ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        el.style.height = (from + (to - from) * ease) + 'px';
+        if (t < 1) {
+          requestAnimationFrame(step);
+        } else {
+          if (onDone) onDone();
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    b.addEventListener('click', function(){
+      if (animating) return;
+      animating = true;
+
+      if (!expanded) {
+        // Expand
+        m.style.height = 'auto';
+        var fullH = m.scrollHeight;
+        m.style.height = '0';
+        var dur = Math.min(Math.max(fullH / 3, 400), 800);
+        m.style.opacity = '1';
+        animateHeight(m, 0, fullH, dur, function() {
+          m.style.height = 'auto';
+          m.style.overflow = 'visible';
+          animating = false;
+        });
+        label.textContent = 'Show Less';
+        icon.style.transform = 'rotate(180deg)';
+        expanded = true;
+      } else {
+        // Collapse
+        var curH = m.scrollHeight;
+        var dur = Math.min(Math.max(curH / 3, 400), 800);
+        m.style.opacity = '0';
+        animateHeight(m, curH, 0, dur, function() {
+          m.style.height = '0';
+          animating = false;
+        });
+        label.textContent = 'Show More';
+        icon.style.transform = '';
+        expanded = false;
+        setTimeout(function() {
+          b.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, dur * 0.7);
+      }
+    });
+  })();
+  </script>
+{{ end }}
+
+{{ partial "views/citation.end" dict }}
+</div>

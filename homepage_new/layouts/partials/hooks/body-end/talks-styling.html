@@ -1,0 +1,15 @@
+<style>
+  /* ── Talks section: constrain image size ── */
+  #talks article img,
+  #talks .article-grid img,
+  section:has(#talks) article img {
+    max-height: 220px !important;
+    width: auto !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+  }
+  #talks .grid > div,
+  section:has(#talks) .grid > div {
+    max-width: 500px;
+  }
+</style>
