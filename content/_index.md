@@ -21,15 +21,10 @@ sections:
     design:
       css_class: dark
       background:
-        color: black
-        image:
-          # Add your image background to `assets/media/`.
-          filename: stacked-peaks.svg
-          filters:
-            brightness: 1.0
-          size: cover
-          position: center
-          parallax: false
+        # Royal-purple diagonal gradient (purple-gold theme)
+        gradient_start: '#241a44'
+        gradient_end: '#3d2b63'
+        gradient_angle: 135
   - block: markdown
     content:
       title: '📚 My Research'
