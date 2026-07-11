@@ -99,12 +99,14 @@ button:focus-visible {
   margin: 1.75rem 0;
   padding: 1.25rem 1.5rem 1.25rem 1.25rem;
   border-radius: var(--hb-radius);
-  /* Solid frosted-dark panel: the parent biography section uses a busy
-     black + textured background, so a near-transparent panel washed out
-     the text. A mostly-opaque dark surface keeps the light text crisp. */
-  background: rgb(var(--color-neutral-900) / 0.82);
-  border: 1px solid rgb(var(--color-neutral-400) / 0.28);
-  backdrop-filter: blur(8px);
+  /* Light frosted-glass panel over the dark hero — lighter than the
+     black background so it reads as a distinct, elevated card while the
+     blur keeps text crisp. */
+  background: rgb(255 255 255 / 0.1);
+  border: 1px solid rgb(255 255 255 / 0.18);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  box-shadow: var(--hb-shadow-md);
 }
 
 .hb-news-heading {
@@ -143,7 +145,7 @@ button:focus-visible {
   margin: 0;
   padding: 0 0 1.25rem 1.1rem;
   list-style: none;
-  border-left: 1.5px solid rgb(var(--color-neutral-400) / 0.3);
+  border-left: 1.5px solid rgb(255 255 255 / 0.25);
 }
 
 .hb-news-item {
@@ -151,7 +153,7 @@ button:focus-visible {
   padding-bottom: 0.85rem;
   line-height: 1.55;
   font-size: 0.925rem;
-  color: rgb(var(--color-neutral-200));
+  color: rgb(var(--color-neutral-50));
 }
 
 .hb-news-item::before {
@@ -162,8 +164,8 @@ button:focus-visible {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 999px;
-  background: rgb(var(--color-neutral-500));
-  border: 2px solid rgb(var(--color-neutral-900));
+  background: rgb(var(--color-neutral-200));
+  border: 2px solid rgb(255 255 255 / 0.15);
 }
 
 .hb-news-item:first-child::before {
@@ -175,7 +177,7 @@ button:focus-visible {
   font-weight: 600;
   font-size: 0.78rem;
   letter-spacing: 0.02em;
-  color: rgb(var(--color-neutral-400));
+  color: rgb(var(--color-neutral-300));
   margin-bottom: 0.15rem;
 }
 
@@ -204,7 +206,7 @@ button:focus-visible {
   margin-top: 0.6rem;
   text-align: center;
   font-size: 0.72rem;
-  color: rgb(var(--color-neutral-500));
+  color: rgb(var(--color-neutral-300));
 }
 
 /* ============================================================
