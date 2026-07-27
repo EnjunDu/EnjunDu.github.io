@@ -46,7 +46,7 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: 'https://enjundu.com/publication/507_cara/CARA.pdf'
+url_pdf: 'https://arxiv.org/pdf/2607.22494v1'
 url_code: ''
 url_dataset: ''
 url_poster: ''
@@ -80,4 +80,3 @@ slides: ""
 {{% callout note %}}
 Click the *Cite* button above to demo the feature to enable visitors to import publication metadata into their reference management software.
 {{% /callout %}}
-
