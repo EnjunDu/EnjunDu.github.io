@@ -130,11 +130,15 @@
 @media (min-width: 1024px) {
   .blox-resume-experience ol.relative > li > time {
     position: absolute;
-    top: 1.45rem;
+    top: 1.35rem;
     right: calc(100% + 3rem);
-    width: 9.75rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    width: 9.25rem;
+    height: 2.25rem;
     margin: 0 !important;
-    padding: 0.45rem 0.65rem;
+    padding: 0 0.65rem;
     border: 1px solid rgb(var(--color-primary-200));
     border-radius: 0.6rem;
     background: rgb(var(--color-primary-50) / 0.92);
@@ -143,8 +147,10 @@
     font-size: 0.8rem !important;
     font-weight: 700 !important;
     line-height: 1.35 !important;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.015em;
     text-align: right;
-    white-space: normal;
+    white-space: nowrap;
   }
   .blox-resume-experience ol.relative > li > time::after {
     content: "";
