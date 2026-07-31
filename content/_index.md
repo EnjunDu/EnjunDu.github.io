@@ -10,6 +10,7 @@ design:
 
 sections:
   - block: resume-biography-3
+    id: bio
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
@@ -30,6 +31,14 @@ sections:
           size: cover
           position: center
           parallax: false
+  - block: resume-experience
+    id: experience
+    content:
+      title: Experience
+      username: admin
+    design:
+      date_format: 'January 2006'
+      is_education_first: false
   - block: markdown
     content:
       title: '📚 My Research'
@@ -79,14 +88,6 @@ sections:
     design:
       view: article-grid
       columns: 3
-  - block: resume-experience
-    id: experience
-    content:
-      title: Experience
-      username: admin
-    design:
-      date_format: 'January 2006'
-      is_education_first: false
   - block: resume-skills
     content:
       title: Skills & Hobbies

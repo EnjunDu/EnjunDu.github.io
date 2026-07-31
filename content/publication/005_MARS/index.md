@@ -1,5 +1,5 @@
 ---
-title: "MARS: Faithful Multimodal Agentic Reasoning with Structured Evidence Ledger"
+title: "LEDGERMIND: Provenance-Constrained Multimodal Agentic Reasoning with a Structured Evidence Ledger"
 authors:
   - admin
   - Hange Zhou

@@ -244,6 +244,21 @@ button:focus-visible {
   border-color: rgb(var(--color-primary-700));
 }
 
+.blox-resume-awards .w-full.flex.flex-col.gap-6 > .w-full {
+  box-shadow: var(--hb-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.blox-resume-awards .w-full.flex.flex-col.gap-6 > .w-full:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--hb-shadow-md);
+  border-color: rgb(var(--color-primary-300));
+}
+
+.dark .blox-resume-awards .w-full.flex.flex-col.gap-6 > .w-full:hover {
+  border-color: rgb(var(--color-primary-700));
+}
+
 .hb-pub-card:active {
   transform: translateY(-1px) scale(0.997);
 }
@@ -497,5 +512,15 @@ button:focus-visible {
 }
 
 .dark .hb-scholar-note a {
+  color: rgb(var(--color-primary-400));
+}
+
+/* ---- Homepage navigation scroll position -------------------- */
+#nav-menu .nav-link.hb-scroll-active {
+  color: rgb(var(--color-primary-600));
+  font-weight: 700;
+}
+
+.dark #nav-menu .nav-link.hb-scroll-active {
   color: rgb(var(--color-primary-400));
 }

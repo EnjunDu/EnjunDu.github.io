@@ -146,5 +146,83 @@ document.addEventListener("DOMContentLoaded", function() {
       titleLink.href = allLinks[0].href;
     }
   });
+
+  // === 3. Homepage navigation scroll position ===
+  if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+    var navMenu = document.getElementById("nav-menu");
+    if (!navMenu) return;
+
+    var navLinks = Array.from(navMenu.querySelectorAll(".nav-link"));
+    var sectionIdsByLabel = {
+      "Bio": "bio",
+      "Experience": "experience",
+      "Papers": "papers",
+      "Talks": "talks",
+      "News": "news",
+      "Contact Me": "contact-me"
+    };
+
+    var trackedSections = navLinks
+      .map(function(link) {
+        var id = sectionIdsByLabel[(link.textContent || "").trim()];
+        var section = id ? document.getElementById(id) : null;
+        return section ? { link: link, section: section } : null;
+      })
+      .filter(Boolean)
+      .sort(function(a, b) {
+        return a.section.offsetTop - b.section.offsetTop;
+      });
+
+    function setActiveNav(activeLink) {
+      navLinks.forEach(function(link) {
+        var isActive = link === activeLink;
+        link.classList.toggle("hb-scroll-active", isActive);
+        link.classList.toggle("active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    var scrollUpdateQueued = false;
+    function updateActiveNav() {
+      scrollUpdateQueued = false;
+      if (!trackedSections.length) return;
+
+      var header = document.getElementById("site-header");
+      var headerHeight = header ? header.getBoundingClientRect().height : 0;
+      var readingLine = window.scrollY + headerHeight + Math.min(window.innerHeight * 0.24, 180);
+      var active = trackedSections[0];
+
+      trackedSections.forEach(function(item) {
+        if (item.section.offsetTop <= readingLine) active = item;
+      });
+
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
+        active = trackedSections[trackedSections.length - 1];
+      }
+
+      setActiveNav(active.link);
+    }
+
+    function queueActiveNavUpdate() {
+      if (scrollUpdateQueued) return;
+      scrollUpdateQueued = true;
+      window.requestAnimationFrame(updateActiveNav);
+    }
+
+    navLinks.forEach(function(link) {
+      link.addEventListener("click", function() {
+        var id = sectionIdsByLabel[(link.textContent || "").trim()];
+        if (id) setActiveNav(link);
+      });
+    });
+
+    window.addEventListener("scroll", queueActiveNavUpdate, { passive: true });
+    window.addEventListener("resize", queueActiveNavUpdate);
+    updateActiveNav();
+  }
 });
 </script>
