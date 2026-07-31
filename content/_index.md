@@ -56,6 +56,10 @@ sections:
       count: 6
       subtitle: ''
       text: ''
+      filters:
+        folders:
+          - publication
+          - event
   - block: publications
     id: papers
     content:

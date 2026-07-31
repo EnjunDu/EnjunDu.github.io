@@ -10,6 +10,7 @@ hero_gradient: "#fdf8fe, #faf2fc, #f7edfb"
 title_gradient: "#7c3aed, #9333ea, #a855f7"
 badge_gradient: "#7c3aed, #a855f7"
 accent: "#a855f7"
+accent_soft: "#faf5ff"
 accent_light: "#c084fc"
 highlight_bg: "#f3e8ff, #ede9fe"
 highlight_bg_dark: "#2e1065, #1e1b4b"
@@ -32,7 +33,7 @@ affiliations:
     name: "Beijing Institute of Technology"
 
 logos:
-  - "/images/logos/hkust-gz.svg"
+  - "/images/logos/HKUST.png"
   - "/images/logos/bit.png"
 
 links:
@@ -46,6 +47,17 @@ links:
 
 teaser_image: "featured.jpg"
 teaser_caption: "**Figure 1:** Motivation — Two queries on the same KG require different reasoning depths: *(JACK, followed, ?)* resolves in 3 hops, while *(JACK, watched, ?)* needs deeper exploration. MoKGR adapts path length and pruning per query."
+
+highlights:
+  - value: "2 expert families"
+    label: "Adaptive depth and pruning"
+    detail: "Each query receives its own reasoning depth and path-selection policy."
+  - value: "6 benchmarks"
+    label: "Broad transductive evaluation"
+    detail: "Consistent gains across small, large, sparse, and dense knowledge graphs."
+  - value: "SOTA"
+    label: "Transductive and inductive reasoning"
+    detail: "Personalized exploration improves accuracy without sacrificing efficiency."
 
 video_embed: "https://www.youtube.com/embed/XlOH8mwr-jk"
 
@@ -63,7 +75,7 @@ bibtex: |
 
 ## Abstract
 
-Knowledge Graph (KG) reasoning critically depends on constructing informative reasoning paths. Existing GNNs adopt rigid, query-agnostic strategies. We propose **MoKGR**, a mixture-of-experts framework with two innovations: **(1)** a **mixture of length experts** that adaptively weights path lengths based on query complexity, and **(2)** a **mixture of pruning experts** that evaluates paths from complementary perspectives. MoKGR achieves **state-of-the-art** in both transductive and inductive settings.
+Knowledge-graph reasoning depends on finding the right paths—not simply exploring more of them. **MoKGR** personalizes graph traversal with two mixture-of-experts modules: one chooses an appropriate reasoning depth for each query, while the other decides which candidate paths deserve to survive.
 
 ---
 
@@ -71,7 +83,9 @@ Knowledge Graph (KG) reasoning critically depends on constructing informative re
 
 ![Motivation](motivation.png)
 
-Consider two queries on the same graph: *(JACK, followed, ?)* can be resolved within 3 hops, while *(JACK, watched, ?)* requires deeper exploration. Existing methods use **fixed reasoning depth** for all queries and **uniform pruning criteria** — both are suboptimal. MoKGR personalizes both the depth and the pruning strategy per query.
+> Different questions over the same graph may need completely different search budgets.
+
+The query *(JACK, followed, ?)* may resolve within three hops, while *(JACK, watched, ?)* can require deeper exploration. Fixed-depth GNNs spend too much work on simple questions and stop too early on difficult ones. Uniform pruning compounds the problem by applying one notion of relevance to every relation and query.
 
 ---
 
@@ -79,8 +93,8 @@ Consider two queries on the same graph: *(JACK, followed, ?)* can be resolved wi
 
 MoKGR introduces two complementary Mixture-of-Experts modules:
 
-- **Mixture of Length Experts** — Multiple experts specialized for different reasoning depths. A learned gating network computes query-specific weights over path lengths: simple queries route to short paths, complex queries activate deeper experts. The final output is a soft weighted combination.
-- **Mixture of Pruning Experts** — At each GNN layer, multiple pruning experts evaluate candidate paths from complementary perspectives (structural, semantic, diversity). A learned aggregation selects the top-k most informative paths per query.
+- **Mixture of Length Experts** — Experts specialize at different reasoning depths. A learned gate assigns query-specific weights, routing simple queries toward short paths and complex queries toward deeper ones.
+- **Mixture of Pruning Experts** — At each layer, multiple experts judge candidate paths from complementary perspectives before a learned aggregation keeps the most informative ones.
 - **End-to-End Training** — Both modules are trained jointly with the answer prediction objective, ensuring optimal synergy between depth selection and path pruning.
 
 ---

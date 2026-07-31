@@ -10,6 +10,7 @@ hero_gradient: "#fef7f7, #fdf0f3, #fceef5"
 title_gradient: "#7c3aed, #a855f7, #6366f1"
 badge_gradient: "#f59e0b, #ef4444"
 accent: "#6366f1"
+accent_soft: "#eef2ff"
 accent_light: "#a78bfa"
 highlight_bg: "#ede9fe, #dbeafe"
 highlight_bg_dark: "#1e1b4b, #172554"
@@ -40,7 +41,7 @@ affiliations:
 
 logos:
   - "/images/logos/bit.png"
-  - "/images/logos/hkust-gz.svg"
+  - "/images/logos/HKUST.png"
 
 links:
   paper: "https://arxiv.org/pdf/2504.00711"
@@ -52,6 +53,17 @@ links:
 
 teaser_image: "featured.jpg"
 teaser_caption: "**Figure 1:** GraphMaster — a hierarchical multi-agent framework orchestrating four specialized LLM agents for automated text-attributed graph synthesis."
+
+highlights:
+  - value: "4 agents"
+    label: "A coordinated synthesis team"
+    detail: "Manager, Perception, Enhancement, and Evaluation agents refine graphs together."
+  - value: "6 benchmarks"
+    label: "Designed for data-limited graphs"
+    detail: "New “Sub” variants test semantic and structural fidelity under realistic scarcity."
+  - value: "0.988"
+    label: "Label homogeneity"
+    detail: "Synthesized graphs preserve task-relevant semantic structure."
 
 bibtex: |
   @inproceedings{du2025graphmaster,
@@ -67,13 +79,15 @@ bibtex: |
 
 ## Abstract
 
-The era of foundation models has revolutionized AI research, yet **Graph Foundation Models (GFMs)** remain constrained by the scarcity of large-scale graph corpora. We introduce **GraphMaster** — the first multi-agent framework specifically designed for graph data synthesis in data-limited environments. GraphMaster orchestrates **four specialized LLM agents** (Manager, Perception, Enhancement, and Evaluation) that collaboratively optimize the synthesis process through iterative refinement, ensuring both semantic coherence and structural integrity.
+Graph Foundation Models need large, diverse graph corpora, but real-world graphs are often small, private, or expensive to annotate. **GraphMaster** turns graph synthesis into a coordinated agent workflow: four specialized LLM agents iteratively expand a text-attributed graph while preserving both its meaning and topology.
 
 ---
 
 ## Motivation
 
-Graph Foundation Models face a critical data bottleneck. Existing synthesis methods fail for three reasons: **(1)** classical augmentation (GraphSmote, G-Mixup) only manipulates structure, producing semantically empty nodes; **(2)** LLMs cannot process entire graphs within context windows; **(3)** uncoordinated LLM generation introduces hallucinations that violate graph topology.
+> The goal is not merely to make a graph larger. The new nodes must read naturally, connect plausibly, and remain useful for downstream learning.
+
+Classical augmentation methods mainly manipulate topology and cannot generate meaningful textual attributes. Direct LLM generation introduces a different set of problems: whole graphs exceed context windows, locally plausible additions may violate global structure, and hallucinated nodes or edges can silently corrupt the training signal.
 
 ---
 
@@ -81,12 +95,12 @@ Graph Foundation Models face a critical data bottleneck. Existing synthesis meth
 
 ![Framework](framework.png)
 
-GraphMaster decomposes graph synthesis into four specialized agents:
+GraphMaster decomposes synthesis into four accountable roles:
 
-- **Manager Agent** — Selects between semantic and topological enhancement modes based on environmental analysis, and coordinates the entire synthesis workflow.
+- **Manager Agent** — Selects semantic or topological enhancement according to the current graph state and coordinates the workflow.
 - **Perception Agent** — Overcomes context-window limitations via semantic-aware community detection, mode-adaptive seed selection, and hierarchical PPR-based diffusion sampling to extract representative subgraphs.
 - **Enhancement Agent** — Generates new nodes and edges conditioned on extracted knowledge, with dual-mode generation for semantic coherence and structural fidelity.
-- **Evaluation Agent** — Assesses quality through multi-dimensional scoring (semantic + structural), with adaptive threshold and temporal convergence detection for iterative refinement.
+- **Evaluation Agent** — Scores semantic and structural quality, then decides whether another refinement round is needed.
 
 ---
 

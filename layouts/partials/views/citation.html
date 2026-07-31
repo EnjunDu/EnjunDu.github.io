@@ -1,7 +1,9 @@
 {{ $item := .item }}
 {{ $has_attachments := partial "functions/has_attachments" $item }}
 {{ $resource := partial "functions/get_featured_image.html" $item }}
-{{ $item_link := $item.Params.external_link | default $item.RelPermalink }}
+{{/* Prefer an internal project page whenever the publication provides one. */}}
+{{ $item_link := $item.Params.url_project | default ($item.Params.external_link | default $item.RelPermalink) }}
+{{ $item_is_external := and (not $item.Params.url_project) $item.Params.external_link }}
 
 <div class="hb-pub-card not-prose">
 
@@ -9,13 +11,13 @@
   {{ with $resource }}
     {{ $img := .Fit "640x427 Center" }}
     {{ if ne $img.MediaType.SubType "gif" }}{{ $img = $img.Process "webp" }}{{ end }}
-    <a href="{{ $item_link }}" class="hb-pub-card-img"{{ if $item.Params.external_link }} target="_blank" rel="noopener"{{ end }}>
+    <a href="{{ $item_link }}" class="hb-pub-card-img"{{ if $item_is_external }} target="_blank" rel="noopener"{{ end }}>
       <img src="{{ $img.RelPermalink }}"
            alt="{{ $item.Title | plainify }}"
            loading="lazy">
     </a>
   {{ else }}
-    <a href="{{ $item_link }}" class="hb-pub-card-no-img" aria-hidden="true"{{ if $item.Params.external_link }} target="_blank" rel="noopener"{{ end }}></a>
+    <a href="{{ $item_link }}" class="hb-pub-card-no-img" aria-hidden="true"{{ if $item_is_external }} target="_blank" rel="noopener"{{ end }}></a>
   {{ end }}
 
   {{/* -- Metadata -- */}}
@@ -23,7 +25,7 @@
 
     {{/* Title */}}
     <h3 class="hb-pub-card-title">
-      <a href="{{ $item_link }}"{{ if $item.Params.external_link }} target="_blank" rel="noopener"{{ end }}>{{ $item.Title }}</a>
+      <a href="{{ $item_link }}"{{ if $item_is_external }} target="_blank" rel="noopener"{{ end }}>{{ $item.Title }}</a>
     </h3>
 
     {{/* Authors */}}

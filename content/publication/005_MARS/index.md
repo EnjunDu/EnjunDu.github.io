@@ -20,7 +20,7 @@ author_notes:
   - 'Corresponding Author'
 date: '2026-05-08'
 doi: ''
-external_link: 'https://huggingface.co/papers/2607.28374'
+external_link: ''
 
 # Schedule page publish date (NOT publication's date).
 publishDate: '2026-02-08'
@@ -52,7 +52,7 @@ url_pdf: 'https://huggingface.co/papers/2607.28374'
 url_code: ''
 url_dataset: ''
 url_poster: ''
-url_project: ''
+url_project: '/blog/ledgermind/'
 url_slides: ''
 url_source: ''
 url_video: ''

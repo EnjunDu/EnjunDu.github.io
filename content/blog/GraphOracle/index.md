@@ -10,6 +10,7 @@ hero_gradient: "#fef8f8, #fdf1f3, #fcecf0"
 title_gradient: "#dc2626, #ea580c, #d97706"
 badge_gradient: "#dc2626, #b91c1c"
 accent: "#f59e0b"
+accent_soft: "#fffbeb"
 accent_light: "#fbbf24"
 highlight_bg: "#fef3c7, #fed7aa"
 highlight_bg_dark: "#451a03, #431407"
@@ -32,7 +33,7 @@ affiliations:
     name: "Beijing Institute of Technology"
 
 logos:
-  - "/images/logos/hkust-gz.svg"
+  - "/images/logos/HKUST.png"
   - "/images/logos/bit.png"
 
 links:
@@ -46,6 +47,17 @@ links:
 
 teaser_image: "featured.jpg"
 teaser_caption: "**Figure 1:** Overview of GraphOracle — construct a Relation-Dependency Graph (RDG) from the KG, propagate messages via multi-head attention, then score candidate entities for answer prediction."
+
+highlights:
+  - value: "60 benchmarks"
+    label: "Four reasoning settings"
+    detail: "Transductive, entity-inductive, fully-inductive, and cross-domain evaluation."
+  - value: "+26.82%"
+    label: "Cross-domain MRR improvement"
+    detail: "Directed relation dependencies transfer effectively to unseen domains."
+  - value: "Directed RDG"
+    label: "Sparse relational structure"
+    detail: "Precedence edges encode compositional patterns that undirected graphs miss."
 
 video_embed: "https://www.youtube.com/embed/KiCdSzCOfac"
 
@@ -63,13 +75,15 @@ bibtex: |
 
 ## Abstract
 
-Knowledge graph reasoning in the **fully-inductive setting** — where both entities and relations at test time are unseen during training — remains an open challenge. We introduce **GraphOracle**, a novel framework that transforms each knowledge graph into a **Relation-Dependency Graph (RDG)** encoding directed precedence links between relations. A **multi-head attention** mechanism produces context-aware relation embeddings that guide inductive message passing over the original KG. Experiments on **60 benchmarks** show **up to 25% improvement** in fully-inductive and **28% in cross-domain** scenarios.
+Knowledge-graph reasoners often struggle when test-time entities and relations were never observed during training. **GraphOracle** addresses this fully-inductive setting by converting each knowledge graph into a directed **Relation-Dependency Graph (RDG)**. The RDG captures how relations compose, and its query-aware embeddings guide answer prediction on the original entity graph.
 
 ---
 
 ## Motivation
 
-Existing fully-inductive methods (INGRAM, ULTRA) construct **undirected** relation graphs that are dense and fail to capture **directed compositional patterns** — e.g., "born_in → located_in" is a directional dependency that undirected graphs cannot distinguish. Furthermore, they are limited to single-domain scenarios and cannot transfer across entirely different knowledge graphs.
+> Relation order matters: “born in → located in” carries a compositional direction that an undirected relation graph erases.
+
+Existing fully-inductive methods construct dense, undirected relation graphs. This makes computation expensive and loses directional dependencies that are essential for multi-hop reasoning. The same limitation makes it difficult to transfer a learned reasoner across domains with different entity and relation vocabularies.
 
 ---
 

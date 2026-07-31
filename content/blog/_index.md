@@ -1,4 +1,4 @@
 ---
-title: Blog
-subtitle: "Research papers and project pages"
+title: Project Pages
+subtitle: "Methods, results, resources, and the ideas behind my research"
 ---

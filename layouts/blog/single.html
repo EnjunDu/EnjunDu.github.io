@@ -1,258 +1,549 @@
 {{ define "main" }}
 {{ $page := . }}
 
-{{/* ====== CSS ====== */}}
 <style>
-  /* ---- Hero Section ---- */
+  .pp-page {
+    --pp-accent: #059669;
+    --pp-accent-soft: #ecfdf5;
+    --pp-ink: #0f172a;
+    --pp-muted: #64748b;
+    --pp-line: #e2e8f0;
+    color: var(--pp-ink);
+    background: #fff;
+  }
+  .dark .pp-page {
+    --pp-ink: #f8fafc;
+    --pp-muted: #a8b3c5;
+    --pp-line: #334155;
+    background: #0f172a;
+  }
+
   .pp-hero {
-    background: linear-gradient(135deg, {{ .Params.hero_gradient | default "#0f0c29, #302b63, #24243e" }});
-    padding: 70px 0 50px;
-    text-align: center;
-    color: #fff;
-  }
-  .pp-hero-inner { max-width: 920px; margin: 0 auto; padding: 0 24px; }
-  .pp-title {
-    font-size: 2.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 4px;
-    background: linear-gradient(90deg, {{ .Params.title_gradient | default "#a78bfa, #60a5fa, #34d399" }});
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .pp-subtitle { font-size: 1.15rem; color: #475569; margin: 6px 0 0; }
-  .pp-badge {
-    display: inline-block; margin: 18px 0 22px;
-    background: linear-gradient(90deg, {{ .Params.badge_gradient | default "#f59e0b, #ef4444" }});
-    color: #fff; padding: 6px 22px; border-radius: 20px;
-    font-weight: 700; font-size: 1.05rem; letter-spacing: .4px;
-  }
-
-  /* ---- Authors ---- */
-  .pp-authors { font-size: 1.3rem; color: #1e293b; margin-bottom: 8px; font-weight: 600; }
-  .pp-authors a { color: #7c3aed; text-decoration: none; font-weight: 700; }
-  .pp-authors a:hover { text-decoration: underline; }
-  .pp-authors .pp-corresponding::after { content: " *"; color: #e11d48; font-weight: 700; }
-
-  /* ---- Affiliations & Logos ---- */
-  .pp-affils { font-size: 1.05rem; color: #475569; margin-bottom: 12px; font-weight: 600; }
-  .pp-logos { display: flex; justify-content: center; gap: 24px; margin: 18px 0 26px; align-items: center; }
-  .pp-logos img { height: 90px; border-radius: 12px; background: white; padding: 10px; box-shadow: 0 3px 12px rgba(0,0,0,.12); }
-
-  /* ---- Buttons ---- */
-  .pp-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px; }
-  .pp-btn {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: #1e293b; color: #fff !important;
-    padding: 9px 20px; border-radius: 24px;
-    font-size: .93rem; font-weight: 600; text-decoration: none !important;
-    border: 1px solid #334155;
-    transition: all .25s;
-  }
-  .pp-btn:hover { background: #334155; transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.2); }
-  .pp-btn svg, .pp-btn i { flex-shrink: 0; }
-
-  /* ---- Section containers ---- */
-  .pp-wrap { max-width: 900px; margin: 0 auto; padding: 50px 24px; }
-  .pp-alt { background: #f8fafc; }
-  .dark .pp-alt { background: #1a1a2e; }
-  .pp-wrap h2 {
-    font-size: 1.7rem; font-weight: 700; margin-bottom: 18px;
-    padding-bottom: 8px; display: inline-block;
-    border-bottom: 3px solid {{ .Params.accent | default "#6366f1" }};
-  }
-
-  /* ---- Content prose ---- */
-  .pp-prose { font-size: 1.03rem; line-height: 1.85; text-align: justify; color: #374151; }
-  .dark .pp-prose { color: #d1d5db; }
-  .pp-prose img { width: 100%; border-radius: 10px; box-shadow: 0 6px 24px rgba(0,0,0,.1); margin: 16px 0; }
-  .pp-prose strong { color: #111827; }
-  .dark .pp-prose strong { color: #f3f4f6; }
-
-  /* ---- Highlight boxes ---- */
-  .pp-highlight {
-    background: linear-gradient(135deg, {{ .Params.highlight_bg | default "#ede9fe, #dbeafe" }});
-    border-radius: 12px; padding: 22px 26px; margin: 22px 0;
-    border-left: 4px solid {{ .Params.accent | default "#6366f1" }};
-  }
-  .dark .pp-highlight { background: linear-gradient(135deg, {{ .Params.highlight_bg_dark | default "#1e1b4b, #172554" }}); }
-  .pp-highlight h3 { font-size: 1.15rem; font-weight: 700; margin: 0 0 10px; color: {{ .Params.accent | default "#6366f1" }}; }
-  .dark .pp-highlight h3 { color: {{ .Params.accent_light | default "#a78bfa" }}; }
-  .pp-highlight ul { margin: 0; padding-left: 20px; }
-  .pp-highlight li { margin-bottom: 7px; line-height: 1.65; }
-
-  /* ---- Figure grid ---- */
-  .pp-fig-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(380px,1fr)); gap: 22px; margin: 22px 0; }
-  .pp-fig-card {
-    background: #fff; border-radius: 12px; overflow: hidden;
-    box-shadow: 0 3px 14px rgba(0,0,0,.07); transition: transform .25s;
-  }
-  .dark .pp-fig-card { background: #2a2a3c; }
-  .pp-fig-card:hover { transform: translateY(-3px); }
-  .pp-fig-card img { width: 100%; display: block; }
-  .pp-fig-cap { padding: 14px; font-size: .88rem; color: #6b7280; text-align: center; }
-  .dark .pp-fig-cap { color: #9ca3af; }
-
-  /* ---- Stats row ---- */
-  .pp-stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap: 14px; margin: 28px 0; text-align: center; }
-  .pp-stat {
-    background: #fff; padding: 18px 12px; border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.05);
-  }
-  .dark .pp-stat { background: #2a2a3c; }
-  .pp-stat-val { font-size: 2rem; font-weight: 800; }
-  .pp-stat-label { font-size: .84rem; color: #6b7280; margin-top: 2px; }
-
-  /* ---- Citation block ---- */
-  .pp-cite {
-    background: #1e293b; color: #e2e8f0; border-radius: 10px;
-    padding: 20px 24px; font-family: 'Fira Code','Courier New',monospace;
-    font-size: .84rem; line-height: 1.7; overflow-x: auto; white-space: pre-wrap;
     position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--pp-line);
+    background:
+      radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--pp-accent) 15%, transparent), transparent 30rem),
+      linear-gradient(180deg, #f8fffc 0%, #fff 100%);
+  }
+  .dark .pp-hero {
+    background:
+      radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--pp-accent) 22%, transparent), transparent 30rem),
+      linear-gradient(180deg, #111827 0%, #0f172a 100%);
+  }
+  .pp-hero::after {
+    content: "";
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+    right: -12rem;
+    bottom: -22rem;
+    border: 1px solid color-mix(in srgb, var(--pp-accent) 26%, transparent);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 3rem color-mix(in srgb, var(--pp-accent) 4%, transparent),
+      0 0 0 7rem color-mix(in srgb, var(--pp-accent) 3%, transparent);
+    pointer-events: none;
+  }
+  .pp-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 76px 28px 62px;
+    text-align: center;
+  }
+  .pp-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: var(--pp-accent);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+  }
+  .pp-kicker::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+  }
+  .pp-title {
+    max-width: 950px;
+    margin: 0 auto;
+    color: var(--pp-ink);
+    font-size: clamp(2.45rem, 5vw, 4.7rem);
+    font-weight: 850;
+    line-height: .98;
+    letter-spacing: -.055em;
+  }
+  .pp-subtitle {
+    max-width: 880px;
+    margin: 17px auto 0;
+    color: #334155;
+    font-size: clamp(1.08rem, 2vw, 1.42rem);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .dark .pp-subtitle { color: #cbd5e1; }
+  .pp-badge {
+    display: inline-flex;
+    align-items: center;
+    margin: 25px 0 20px;
+    padding: 7px 15px;
+    border: 1px solid color-mix(in srgb, var(--pp-accent) 34%, transparent);
+    border-radius: 999px;
+    color: var(--pp-accent);
+    background: color-mix(in srgb, var(--pp-accent) 8%, #fff);
+    font-size: .82rem;
+    font-weight: 800;
+  }
+  .dark .pp-badge {
+    background: color-mix(in srgb, var(--pp-accent) 15%, #0f172a);
+  }
+  .pp-authors {
+    color: #334155;
+    font-size: 1.08rem;
+    font-weight: 620;
+    line-height: 1.8;
+  }
+  .dark .pp-authors { color: #dbe3ef; }
+  .pp-authors a {
+    color: inherit;
+    text-decoration-color: color-mix(in srgb, var(--pp-accent) 45%, transparent);
+    text-underline-offset: 4px;
+  }
+  .pp-authors a:hover { color: var(--pp-accent); }
+  .pp-authors sup {
+    color: var(--pp-accent);
+    font-size: .68em;
+    font-weight: 900;
+  }
+  .pp-author-note {
+    margin-top: 2px;
+    color: var(--pp-muted);
+    font-size: .78rem;
+  }
+  .pp-affils {
+    margin-top: 7px;
+    color: var(--pp-muted);
+    font-size: .9rem;
+    font-weight: 600;
+  }
+  .pp-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 19px 0 0;
+  }
+  .pp-logos img {
+    width: auto;
+    height: 52px;
+    padding: 7px;
+    border: 1px solid var(--pp-line);
+    border-radius: 12px;
+    background: #fff;
+    object-fit: contain;
+  }
+
+  .pp-btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 26px;
+  }
+  .pp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 17px;
+    border: 1px solid #1e293b;
+    border-radius: 999px;
+    color: #fff !important;
+    background: #0f172a;
+    font-size: .86rem;
+    font-weight: 760;
+    text-decoration: none !important;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .pp-btn:first-child {
+    border-color: var(--pp-accent);
+    background: var(--pp-accent);
+  }
+  .pp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, .16);
+    background: #253247;
+  }
+  .pp-btn:first-child:hover {
+    background: color-mix(in srgb, var(--pp-accent) 82%, #000);
+  }
+
+  .pp-shell {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .pp-navline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 28px 0 20px;
+  }
+  .pp-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--pp-muted);
+    font-size: .86rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+  .pp-back:hover { color: var(--pp-accent); }
+
+  .pp-teaser-card {
+    overflow: hidden;
+    margin: 0;
+    padding: 16px;
+    border: 1px solid var(--pp-line);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 22px 70px rgba(15, 23, 42, .08);
+  }
+  .dark .pp-teaser-card { background: #111827; }
+  .pp-teaser {
+    display: block;
+    width: 100%;
+    max-height: 610px;
+    border-radius: 14px;
+    object-fit: contain;
+    background: #fff;
+  }
+  .pp-teaser-cap {
+    max-width: 900px;
+    margin: 13px auto 2px;
+    color: var(--pp-muted);
+    font-size: .87rem;
+    line-height: 1.55;
+    text-align: center;
+  }
+  .pp-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 22px 0 52px;
+  }
+  .pp-highlight-card {
+    min-height: 135px;
+    padding: 22px;
+    border: 1px solid color-mix(in srgb, var(--pp-accent) 22%, var(--pp-line));
+    border-radius: 18px;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--pp-accent) 7%, #fff), #fff 70%);
+  }
+  .dark .pp-highlight-card {
+    background: linear-gradient(145deg, color-mix(in srgb, var(--pp-accent) 13%, #111827), #111827 70%);
+  }
+  .pp-highlight-value {
+    display: block;
+    color: var(--pp-accent);
+    font-size: 1.5rem;
+    font-weight: 850;
+    line-height: 1.1;
+    letter-spacing: -.025em;
+  }
+  .pp-highlight-label {
+    display: block;
+    margin-top: 9px;
+    color: var(--pp-ink);
+    font-size: .92rem;
+    font-weight: 760;
+    line-height: 1.35;
+  }
+  .pp-highlight-detail {
+    display: block;
+    margin-top: 4px;
+    color: var(--pp-muted);
+    font-size: .79rem;
+    line-height: 1.45;
+  }
+
+  .pp-content {
+    border-top: 1px solid var(--pp-line);
+    background: #f8fafc;
+  }
+  .dark .pp-content { background: #0b1220; }
+  .pp-prose {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 58px 28px 68px;
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.78;
+  }
+  .dark .pp-prose { color: #d2dae6; }
+  .pp-prose h2 {
+    margin: 52px 0 18px;
+    color: var(--pp-ink);
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+    font-weight: 830;
+    line-height: 1.15;
+    letter-spacing: -.025em;
+  }
+  .pp-prose h2:first-child { margin-top: 0; }
+  .pp-prose h2::before {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 4px;
+    margin-bottom: 12px;
+    border-radius: 99px;
+    background: var(--pp-accent);
+  }
+  .pp-prose h3 {
+    margin: 34px 0 12px;
+    color: var(--pp-ink);
+    font-size: 1.18rem;
+    font-weight: 800;
+  }
+  .pp-prose p { margin: 0 0 17px; }
+  .pp-prose strong { color: var(--pp-ink); }
+  .pp-prose a { color: var(--pp-accent); text-underline-offset: 3px; }
+  .pp-prose ul, .pp-prose ol { margin: 0 0 22px; padding-left: 1.35rem; }
+  .pp-prose li { margin: 9px 0; padding-left: 4px; }
+  .pp-prose li::marker { color: var(--pp-accent); }
+  .pp-prose hr {
+    margin: 42px 0;
+    border: 0;
+    border-top: 1px solid var(--pp-line);
+  }
+  .pp-prose blockquote {
+    margin: 26px 0;
+    padding: 19px 22px;
+    border: 1px solid color-mix(in srgb, var(--pp-accent) 25%, var(--pp-line));
+    border-left: 4px solid var(--pp-accent);
+    border-radius: 0 14px 14px 0;
+    background: color-mix(in srgb, var(--pp-accent) 6%, #fff);
+    color: var(--pp-ink);
+    font-weight: 600;
+  }
+  .dark .pp-prose blockquote {
+    background: color-mix(in srgb, var(--pp-accent) 11%, #111827);
+  }
+  .pp-prose img {
+    display: block;
+    width: 100%;
+    max-height: 650px;
+    margin: 24px auto;
+    padding: 10px;
+    border: 1px solid var(--pp-line);
+    border-radius: 18px;
+    background: #fff;
+    object-fit: contain;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, .07);
+  }
+
+  .pp-video-section, .pp-citation-section {
+    background: #fff;
+  }
+  .dark .pp-video-section, .dark .pp-citation-section { background: #0f172a; }
+  .pp-section-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 28px;
+  }
+  .pp-section-title {
+    margin: 0 0 20px;
+    color: var(--pp-ink);
+    font-size: 1.65rem;
+    font-weight: 820;
+  }
+  .pp-video {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 56.25%;
+    border-radius: 18px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, .12);
+  }
+  .pp-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .pp-cite {
+    position: relative;
+    overflow-x: auto;
+    padding: 24px;
+    border-radius: 16px;
+    color: #dbeafe;
+    background: #0f172a;
+  }
+  .pp-cite pre {
+    margin: 0;
+    padding-right: 62px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: .79rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
   }
   .pp-cite-copy {
-    position: absolute; top: 10px; right: 12px;
-    background: rgba(255,255,255,.15); border: none; color: #94a3b8;
-    padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: .78rem;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 8px;
+    color: #cbd5e1;
+    background: rgba(255,255,255,.08);
+    font-size: .73rem;
+    font-weight: 700;
+    cursor: pointer;
   }
-  .pp-cite-copy:hover { background: rgba(255,255,255,.25); color: #fff; }
+  .pp-cite-copy:hover { color: #fff; background: rgba(255,255,255,.14); }
 
-  /* ---- Video embed ---- */
-  .pp-video {
-    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-    border-radius: 12px; margin-top: 18px; box-shadow: 0 6px 24px rgba(0,0,0,.1);
-  }
-  .pp-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-  /* ---- Teaser image ---- */
-  .pp-teaser { width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.12); margin: 18px 0; }
-  .pp-teaser-cap { color: #6b7280; font-size: .92rem; margin-top: 6px; text-align: center; }
-
-  /* ---- Method cards ---- */
-  .pp-method-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 14px; margin: 22px 0; }
-  .pp-method-card {
-    color: #fff; padding: 22px 16px; border-radius: 12px; text-align: center;
-    transition: transform .25s;
-  }
-  .pp-method-card:hover { transform: translateY(-3px); }
-  .pp-method-icon { font-size: 1.8rem; }
-  .pp-method-name { font-weight: 700; margin: 8px 0 4px; font-size: 1rem; }
-  .pp-method-desc { font-size: .87rem; opacity: .9; }
-
-  /* ---- Back link ---- */
-  .pp-back {
-    display: inline-flex; align-items: center; gap: 5px;
-    color: {{ .Params.accent | default "#6366f1" }}; font-weight: 600;
-    text-decoration: none; margin-bottom: 24px;
-  }
-  .pp-back:hover { text-decoration: underline; }
-
-  @media (max-width: 640px) {
-    .pp-title { font-size: 1.7rem; }
-    .pp-fig-grid { grid-template-columns: 1fr; }
-    .pp-method-grid { grid-template-columns: 1fr; }
+  @media (max-width: 760px) {
+    .pp-hero-inner { padding: 58px 20px 45px; }
+    .pp-title { font-size: clamp(2.25rem, 15vw, 3.5rem); }
+    .pp-subtitle { font-size: 1.02rem; }
+    .pp-shell, .pp-prose, .pp-section-inner { padding-left: 18px; padding-right: 18px; }
+    .pp-highlights { grid-template-columns: 1fr; }
+    .pp-highlight-card { min-height: auto; }
+    .pp-teaser-card { padding: 8px; border-radius: 16px; }
+    .pp-teaser { border-radius: 10px; }
+    .pp-logos img { height: 44px; }
   }
 </style>
 
-{{/* ====== HERO ====== */}}
-<section class="pp-hero">
-  <div class="pp-hero-inner">
-    <h1 class="pp-title">{{ .Params.paper_name | default .Title }}</h1>
-    {{ with .Params.paper_subtitle }}<p class="pp-subtitle">{{ . }}</p>{{ end }}
-    {{ with .Params.venue }}<div class="pp-badge">{{ . }}</div>{{ end }}
+<article class="pp-page" style="--pp-accent: {{ .Params.accent | default "#059669" }}; --pp-accent-soft: {{ .Params.accent_soft | default "#ecfdf5" }};">
+  <header class="pp-hero">
+    <div class="pp-hero-inner">
+      <div class="pp-kicker">Research Project</div>
+      <h1 class="pp-title">{{ .Params.paper_name | default .Title }}</h1>
+      {{ with .Params.paper_subtitle }}<p class="pp-subtitle">{{ . }}</p>{{ end }}
+      {{ with .Params.venue }}<div class="pp-badge">{{ . }}</div>{{ end }}
 
-    {{/* Authors with links */}}
-    <div class="pp-authors">
-      {{ range $i, $a := .Params.paper_authors }}{{ if $i }}, {{ end -}}
-        {{ if $a.corresponding }}<span class="pp-corresponding">{{ end -}}
-        {{ if $a.url }}<a href="{{ $a.url }}">{{ $a.name }}</a>{{ else }}{{ $a.name }}{{ end -}}
-        {{ with $a.affiliations }}<sup>{{ delimit . "," }}</sup>{{ end -}}
-        {{ if $a.corresponding }}</span>{{ end -}}
+      {{ with .Params.author_line }}
+        <div class="pp-authors">{{ . | markdownify }}</div>
+      {{ else }}
+        {{ with .Params.paper_authors }}
+        <div class="pp-authors">
+          {{ range $i, $a := . }}{{ if $i }}, {{ end -}}
+            {{ if $a.url }}<a href="{{ $a.url }}">{{ $a.name }}</a>{{ else }}{{ $a.name }}{{ end -}}
+            {{ with $a.affiliations }}<sup>{{ delimit . "," }}</sup>{{ end -}}
+            {{ if $a.equal }}<sup>†</sup>{{ end -}}
+            {{ if $a.corresponding }}<sup>*</sup>{{ end -}}
+          {{ end }}
+        </div>
+        {{ end }}
       {{ end }}
-    </div>
 
-    {{/* Affiliations */}}
-    <div class="pp-affils">
-      {{ range $i, $aff := .Params.affiliations }}{{ if $i }} &nbsp;&nbsp; {{ end -}}
-        <sup>{{ $aff.id }}</sup>{{ $aff.name -}}
+      {{ with .Params.author_note }}<div class="pp-author-note">{{ . }}</div>{{ end }}
+
+      {{ with .Params.affiliations }}
+      <div class="pp-affils">
+        {{ range $i, $aff := . }}{{ if $i }} &nbsp;&nbsp; {{ end -}}
+          <sup>{{ $aff.id }}</sup>{{ $aff.name -}}
+        {{ end }}
+      </div>
       {{ end }}
-    </div>
 
-    {{/* Logos */}}
-    {{ with .Params.logos }}
-    <div class="pp-logos">
-      {{ range . }}<img src="{{ . }}" alt="logo" />{{ end }}
+      {{ with .Params.logos }}
+      <div class="pp-logos">
+        {{ range . }}<img src="{{ . }}" alt="Affiliation logo" />{{ end }}
+      </div>
+      {{ end }}
+
+      <div class="pp-btns">
+        {{ with .Params.links }}
+          {{ with .paper }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-file-pdf"></i> Paper</a>{{ end }}
+          {{ with .arxiv }}<a class="pp-btn" href="{{ . }}"><i class="ai ai-arxiv"></i> arXiv</a>{{ end }}
+          {{ with .code }}<a class="pp-btn" href="{{ . }}"><i class="fab fa-github"></i> Code</a>{{ end }}
+          {{ with .dataset }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-database"></i> Dataset</a>{{ end }}
+          {{ with .video }}<a class="pp-btn" href="{{ . }}"><i class="fab fa-youtube"></i> Video</a>{{ end }}
+          {{ with .slides }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-display"></i> Slides</a>{{ end }}
+          {{ with .poster }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-image"></i> Poster</a>{{ end }}
+          {{ with .huggingface }}<a class="pp-btn" href="{{ . }}">🤗 Hugging Face</a>{{ end }}
+        {{ end }}
+      </div>
     </div>
+  </header>
+
+  <div class="pp-shell">
+    <nav class="pp-navline" aria-label="Project navigation">
+      <a href="/blog/" class="pp-back">← All Project Pages</a>
+      <a href="/#papers" class="pp-back">Homepage Papers →</a>
+    </nav>
+
+    {{ with .Params.teaser_image }}
+      {{ $img := $page.Resources.GetMatch . }}
+      {{ if $img }}
+      <figure class="pp-teaser-card">
+        <img src="{{ $img.RelPermalink }}" alt="{{ $page.Params.paper_name | default $page.Title }} overview" class="pp-teaser" />
+        {{ with $page.Params.teaser_caption }}<figcaption class="pp-teaser-cap">{{ . | markdownify }}</figcaption>{{ end }}
+      </figure>
+      {{ end }}
     {{ end }}
 
-    {{/* Buttons */}}
-    <div class="pp-btns">
-      {{ with .Params.links }}
-        {{ with .paper }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-file-pdf"></i> Paper</a>{{ end }}
-        {{ with .arxiv }}<a class="pp-btn" href="{{ . }}"><i class="ai ai-arxiv"></i> arXiv</a>{{ end }}
-        {{ with .code }}<a class="pp-btn" href="{{ . }}"><i class="fab fa-github"></i> Code</a>{{ end }}
-        {{ with .dataset }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-database"></i> Dataset</a>{{ end }}
-        {{ with .video }}<a class="pp-btn" href="{{ . }}"><i class="fab fa-youtube"></i> Video</a>{{ end }}
-        {{ with .slides }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-tv"></i> Slides</a>{{ end }}
-        {{ with .poster }}<a class="pp-btn" href="{{ . }}"><i class="fas fa-image"></i> Poster</a>{{ end }}
-        {{ with .huggingface }}<a class="pp-btn" href="{{ . }}">&#129303; HuggingFace</a>{{ end }}
+    {{ with .Params.highlights }}
+    <div class="pp-highlights" aria-label="Project highlights">
+      {{ range . }}
+      <div class="pp-highlight-card">
+        <span class="pp-highlight-value">{{ .value }}</span>
+        <span class="pp-highlight-label">{{ .label }}</span>
+        {{ with .detail }}<span class="pp-highlight-detail">{{ . }}</span>{{ end }}
+      </div>
       {{ end }}
     </div>
+    {{ end }}
   </div>
-</section>
 
-{{/* ====== TEASER ====== */}}
-<div class="pp-wrap" style="text-align:center;">
-  <a href="https://enjundu.com" class="pp-back">&larr; Back to Homepage</a>
-  {{ with .Params.teaser_image }}
-    {{ $img := $page.Resources.GetMatch . }}
-    {{ if $img }}
-      <img src="{{ $img.RelPermalink }}" alt="Framework overview" class="pp-teaser" />
-    {{ end }}
+  <section class="pp-content">
+    <div class="pp-prose">{{ .Content }}</div>
+  </section>
+
+  {{ with .Params.video_embed }}
+  <section class="pp-video-section">
+    <div class="pp-section-inner">
+      <h2 class="pp-section-title">Presentation</h2>
+      <div class="pp-video">
+        <iframe src="{{ . }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
   {{ end }}
-  {{ with .Params.teaser_caption }}<p class="pp-teaser-cap">{{ . | markdownify }}</p>{{ end }}
-</div>
 
-{{/* ====== MARKDOWN CONTENT (Abstract, Contributions, Method, Results, etc.) ====== */}}
-<div class="pp-alt">
-  <div class="pp-wrap">
-    <div class="pp-prose">
-      {{ .Content }}
+  {{ with .Params.bibtex }}
+  <section class="pp-citation-section">
+    <div class="pp-section-inner">
+      <h2 class="pp-section-title">Citation</h2>
+      <div class="pp-cite">
+        <button class="pp-cite-copy" type="button" onclick="navigator.clipboard.writeText(document.getElementById('pp-bibtex').textContent.trim()); this.textContent='Copied'">Copy</button>
+        <pre id="pp-bibtex">{{ . }}</pre>
+      </div>
     </div>
-  </div>
-</div>
-
-{{/* ====== VIDEO ====== */}}
-{{ with .Params.video_embed }}
-<div class="pp-wrap" style="text-align:center;">
-  <h2 style="font-size:1.7rem; font-weight:700; border-bottom:3px solid {{ $page.Params.accent | default "#6366f1" }}; display:inline-block; padding-bottom:8px; margin-bottom:18px;">Presentation Video</h2>
-  <div class="pp-video">
-    <iframe src="{{ . }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</div>
-{{ end }}
-
-{{/* ====== CITATION ====== */}}
-{{ with .Params.bibtex }}
-<div class="pp-alt">
-  <div class="pp-wrap">
-    <h2 style="font-size:1.7rem; font-weight:700; border-bottom:3px solid {{ $page.Params.accent | default "#6366f1" }}; display:inline-block; padding-bottom:8px; margin-bottom:18px;">Citation</h2>
-    <div class="pp-cite" id="bibtex-block">
-      <button class="pp-cite-copy" onclick="navigator.clipboard.writeText(document.getElementById('bibtex-block').innerText.replace('Copy','').trim())">Copy</button>
-{{ . }}
-    </div>
-  </div>
-</div>
-{{ end }}
+  </section>
+  {{ end }}
+</article>
 
 <script>
-  // FontAwesome + Academicons (CDN)
-  if (!document.querySelector('link[href*="fontawesome"]')) {
+  if (!document.querySelector('link[href*="font-awesome"]')) {
     var fa = document.createElement('link');
-    fa.rel = 'stylesheet'; fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+    fa.rel = 'stylesheet';
+    fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
     document.head.appendChild(fa);
   }
   if (!document.querySelector('link[href*="academicons"]')) {
     var ai = document.createElement('link');
-    ai.rel = 'stylesheet'; ai.href = 'https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css';
+    ai.rel = 'stylesheet';
+    ai.href = 'https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css';
     document.head.appendChild(ai);
   }
 </script>
-
 {{ end }}
