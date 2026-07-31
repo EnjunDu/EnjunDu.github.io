@@ -2,17 +2,25 @@
 title: "MARS: Faithful Multimodal Agentic Reasoning with Structured Evidence Ledger"
 authors:
   - admin
-  - ...
-  - ...
-
-
+  - Hange Zhou
+  - Chenxu Du
+  - Siyi Liu
+  - Zirong Chen
+  - Ziyu Zheng
+  - "Yongqi Zhang*"
 
 # Author notes (optional)
 author_notes:
+  - 'Equal Contribution'
+  - 'Equal Contribution'
+  - ''
+  - ''
+  - ''
   - ''
   - 'Corresponding Author'
 date: '2026-05-08'
 doi: ''
+external_link: 'https://huggingface.co/papers/2607.28374'
 
 # Schedule page publish date (NOT publication's date).
 publishDate: '2026-02-08'
@@ -74,4 +82,3 @@ slides: ""
 {{% callout note %}}
 Click the *Cite* button above to demo the feature to enable visitors to import publication metadata into their reference management software.
 {{% /callout %}}
-
