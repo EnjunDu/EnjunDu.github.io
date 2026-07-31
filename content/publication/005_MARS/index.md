@@ -48,7 +48,7 @@ featured: true
 # links:
 # - name: ""
 #   url: ""
-url_pdf: ''
+url_pdf: 'https://huggingface.co/papers/2607.28374'
 url_code: ''
 url_dataset: ''
 url_poster: ''
