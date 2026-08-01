@@ -6,6 +6,8 @@ type: blog
 paper_name: "GraphOracle"
 paper_subtitle: "Efficient Fully-Inductive Knowledge Graph Reasoning via Relation-Dependency Graphs"
 venue: "AAAI 2026 Oral"
+tags:
+  - Knowledge Graphs
 hero_gradient: "#fef8f8, #fdf1f3, #fcecf0"
 title_gradient: "#dc2626, #ea580c, #d97706"
 badge_gradient: "#dc2626, #b91c1c"

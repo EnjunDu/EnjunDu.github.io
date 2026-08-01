@@ -6,6 +6,9 @@ type: blog
 paper_name: "LEDGERMIND"
 paper_subtitle: "Provenance-Constrained Multimodal Agentic Reasoning with a Structured Evidence Ledger"
 venue: "Under Review"
+tags:
+  - Agentic Reasoning
+  - Multimodal AI
 accent: "#059669"
 accent_soft: "#ecfdf5"
 

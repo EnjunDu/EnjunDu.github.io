@@ -6,6 +6,9 @@ type: blog
 paper_name: "GraphMaster"
 paper_subtitle: "Automated Graph Synthesis via LLM Agents in Data-Limited Environments"
 venue: "NeurIPS 2025 Spotlight"
+tags:
+  - Agentic Reasoning
+  - Data Mining
 hero_gradient: "#fef7f7, #fdf0f3, #fceef5"
 title_gradient: "#7c3aed, #a855f7, #6366f1"
 badge_gradient: "#f59e0b, #ef4444"

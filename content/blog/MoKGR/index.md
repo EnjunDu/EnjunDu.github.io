@@ -6,6 +6,8 @@ type: blog
 paper_name: "MoKGR"
 paper_subtitle: "Mixture of Length and Pruning Experts for Knowledge Graphs Reasoning"
 venue: "EMNLP 2025 Main Oral"
+tags:
+  - Knowledge Graphs
 hero_gradient: "#fdf8fe, #faf2fc, #f7edfb"
 title_gradient: "#7c3aed, #9333ea, #a855f7"
 badge_gradient: "#7c3aed, #a855f7"

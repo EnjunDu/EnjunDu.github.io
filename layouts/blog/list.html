@@ -171,19 +171,8 @@
   {{ with .Params.subtitle }}<p>{{ . }}</p>{{ end }}
 </div>
 
-{{/* Collect all tags */}}
-{{ $allTags := slice }}
-{{ range .Pages }}
-  {{ with .Params.tags }}
-    {{ range . }}
-      {{ $allTags = $allTags | append . }}
-    {{ end }}
-  {{ end }}
-  {{ with .Params.venue }}
-    {{ $allTags = $allTags | append . }}
-  {{ end }}
-{{ end }}
-{{ $allTags = $allTags | uniq }}
+{{/* Research-area filters are intentionally separate from venue/status badges. */}}
+{{ $allTags := .Params.project_filters | default (slice) }}
 
 {{ if $allTags }}
 <div class="blog-tags">
@@ -198,7 +187,6 @@
   {{ range .Pages.ByDate.Reverse }}
   {{ $tags := slice }}
   {{ with .Params.tags }}{{ range . }}{{ $tags = $tags | append (. | urlize) }}{{ end }}{{ end }}
-  {{ with .Params.venue }}{{ $tags = $tags | append (. | urlize) }}{{ end }}
   <a href="{{ .RelPermalink }}" class="blog-card" data-tags="{{ delimit $tags "," }}">
     {{/* Featured image */}}
     {{ $img := .Resources.GetMatch "featured*" }}
