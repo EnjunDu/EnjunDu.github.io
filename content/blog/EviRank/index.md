@@ -7,6 +7,7 @@ paper_name: "EviRank"
 paper_subtitle: "Structured Relevance Evidence for Multimodal Image Re-ranking"
 venue: "Under Review"
 tags:
+  - LLM
   - Multimodal AI
   - Data Mining
 accent: "#16a34a"

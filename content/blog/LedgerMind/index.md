@@ -8,6 +8,7 @@ paper_subtitle: "Provenance-Constrained Multimodal Agentic Reasoning with a Stru
 venue: "Under Review"
 tags:
   - Agentic Reasoning
+  - LLM
   - Multimodal AI
 accent: "#059669"
 accent_soft: "#ecfdf5"
