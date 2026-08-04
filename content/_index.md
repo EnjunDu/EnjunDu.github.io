@@ -120,7 +120,7 @@ sections:
         - [EnjunDu.cs@gmail.com](mailto:EnjunDu.cs@gmail.com)
 
         **Optional Email**:  
-        - [edu719@connect.hkust-gz.edu.cn](mailto:edu719@connect.hkust-gz.edu.cn), [enjundu@tencent.com](mailto:enjundu@tencent.com)
+        - [enjundu@hkust-gz.edu.cn](mailto:enjundu@hkust-gz.edu.cn), [enjundu@tencent.com](mailto:enjundu@tencent.com)
 
-        *Please avoid contacting me at* `enjun_du@bit.edu.cn`, *as I will no longer have access to this address.*
+        *Please avoid contacting me at* `edu719@connect.hkust-gz.edu.cn` *or* `enjun_du@bit.edu.cn`, *as I will no longer have access to these addresses.*
 ---
