@@ -171,7 +171,7 @@ I am currently a [Tencent Qingyun Talent Program Intern](https://join.qq.com/qin
 
 **If you have internship opportunities related to** Video Understanding & Generation, **please feel free to reach out to me via email!**
 
-**Email**: [enjundu.cs@gmail.com](mailto:enjundu.cs@gmail.com)
+**Email**: **[enjundu.cs@gmail.com](mailto:enjundu.cs@gmail.com) (main),**  **[enjundu.cs@connect.hku.hk](mailto:enjundu.cs@connect.hku.hk) (optional)**
 
 {{< news-list >}}
 
@@ -197,6 +197,5 @@ I am currently a [Tencent Qingyun Talent Program Intern](https://join.qq.com/qin
 
 
 <div style="margin-top: 20px; width: 420px; margin-left: auto; margin-right: auto;"> <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=YqwrAieXupfwKmvDXnKDnNcDSS8tO8YEqekLvXM-EV0&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353"></script> </div>
-
 
 
