@@ -1,21 +1,23 @@
 ---
-title: "Structure Evidence Mining for Image Retrieval"
+title: "EviRank: Structured Relevance Evidence for Multimodal Image Re-ranking"
 authors:
   - admin
-  - ...
-  - ...
+  - Siyi Liu
+  - Zirong Chen
+  - Xinyu Zuo
+  - Jinwen Luo
+  - Ruiwen Tao
+  - Lisheng Duan
+  - Haijin Liang
+  - Jin Ma
+  - Junfu Pu
+  - Yongqi Zhang
 
-
-
-# Author notes (optional)
-author_notes:
-  - ''
-  - 'Corresponding Author'
-date: '2026-02-08'
+date: '2026-08-21T12:00:00+08:00'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2026-02-08'
+publishDate: '2026-08-21'
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -23,17 +25,19 @@ publishDate: '2026-02-08'
 publication_types: ["conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: ""
-publication_short: "Under Review" 
+publication: "EMNLP 2026 Main Conference"
+publication_short: "**EMNLP 2026 Main Conference**"
 
 abstract: ''
+summary: "Accepted to the EMNLP 2026 Main Conference. EviRank uses structured relevance evidence for multimodal image re-ranking."
 
 # Summary. An optional shortened abstract.
 #summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 
 tags:
+  - Multimodal Retrieval
   - Multimodal LLM
-  - RAG
+  - Re-ranking
 
 featured: true
 
@@ -44,7 +48,7 @@ url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''
-url_project: ''
+url_project: '/blog/evirank/'
 url_slides: ''
 url_source: ''
 url_video: ''
@@ -74,4 +78,3 @@ slides: ""
 {{% callout note %}}
 Click the *Cite* button above to demo the feature to enable visitors to import publication metadata into their reference management software.
 {{% /callout %}}
-

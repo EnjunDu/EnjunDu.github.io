@@ -26,6 +26,15 @@
 
 news:
 
+  - date: "[Aug. 2026]"
+    content: "Our paper [EviRank](/blog/evirank/) has been accepted to the **EMNLP 2026 Main Conference**!"
+
+  - date: "[Aug. 2026]"
+    content: "Our paper [SnapBench](/publication/509_snapbench/) has been accepted to **Findings of EMNLP 2026**!"
+
+  - date: "[Aug. 2026]"
+    content: "Our paper [RePair](/publication/510_repair/) has been accepted to the **EMNLP 2026 Main Conference**!"
+
   - date: "[Jul. 2026]"
     content: "Our new paper [LedgerMind](/blog/ledgermind/) is released!"
 

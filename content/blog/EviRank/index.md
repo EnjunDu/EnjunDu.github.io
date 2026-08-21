@@ -5,7 +5,7 @@ type: blog
 
 paper_name: "EviRank"
 paper_subtitle: "Structured Relevance Evidence for Multimodal Image Re-ranking"
-venue: "Under Review"
+venue: "EMNLP 2026 Main Conference"
 tags:
   - LLM
   - Multimodal AI
@@ -13,7 +13,7 @@ tags:
 accent: "#16a34a"
 accent_soft: "#f0fdf4"
 
-author_line: "**Enjun Du** et al."
+author_line: "**Enjun Du**, Siyi Liu, Zirong Chen, Xinyu Zuo, Jinwen Luo, Ruiwen Tao, Lisheng Duan, Haijin Liang, Jin Ma, Junfu Pu, Yongqi Zhang"
 
 links:
   code: "https://github.com/EnjunDu/EviRank"
