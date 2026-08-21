@@ -6,6 +6,12 @@
 {{ $page := .wcPage }}
 {{ $block := .wcBlock }}
 
+{{/*
+  Homepage visibility rule:
+  - featured: true is reserved for Enjun's first-author papers.
+  - Non-first-author papers belong under "Show more" (featured: false).
+  - Only user-approved exceptions may be featured; RED-GNN is currently such an exception.
+*/}}
 {{ $pubs := where site.RegularPages "Section" "publication" }}
 {{ $featured := where $pubs "Params.featured" "==" true }}
 {{ $rest := where $pubs "Params.featured" "!=" true }}

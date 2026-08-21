@@ -27,7 +27,8 @@ tags:
   - Multimodal Retrieval
   - Mobile Interaction
 
-featured: true
+# Homepage rule: non-first-author papers stay under "Show more" unless explicitly excepted.
+featured: false
 
 url_pdf: ''
 url_code: ''
