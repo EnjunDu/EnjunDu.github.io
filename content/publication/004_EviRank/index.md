@@ -44,7 +44,7 @@ featured: true
 # links:
 # - name: ""
 #   url: ""
-url_pdf: ''
+url_pdf: 'https://arxiv.org/abs/2608.20886'
 url_code: ''
 url_dataset: ''
 url_poster: ''

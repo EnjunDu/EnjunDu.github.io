@@ -16,6 +16,8 @@ accent_soft: "#f0fdf4"
 author_line: "**Enjun Du**, Siyi Liu, Zirong Chen, Xinyu Zuo, Jinwen Luo, Ruiwen Tao, Lisheng Duan, Haijin Liang, Jin Ma, Junfu Pu, Yongqi Zhang"
 
 links:
+  paper: "https://arxiv.org/abs/2608.20886"
+  arxiv: "https://arxiv.org/abs/2608.20886"
   code: "https://github.com/EnjunDu/EviRank"
 
 teaser_image: "featured.png"
