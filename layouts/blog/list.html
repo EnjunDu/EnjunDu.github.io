@@ -185,6 +185,7 @@
 
 <div class="blog-grid" id="blog-grid">
   {{ range .Pages.ByDate.Reverse }}
+  {{ $page := . }}
   {{ $tags := slice }}
   {{ with .Params.tags }}{{ range . }}{{ $tags = $tags | append (. | urlize) }}{{ end }}{{ end }}
   <a href="{{ .RelPermalink }}" class="blog-card" data-tags="{{ delimit $tags "," }}">
@@ -192,6 +193,10 @@
     {{ $img := .Resources.GetMatch "featured*" }}
     {{ if $img }}
     <img class="blog-card-img" src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy" />
+    {{ else }}
+    {{ with .Params.featured_image }}
+    <img class="blog-card-img" src="{{ . | relURL }}" alt="{{ $page.Title }}" loading="lazy" />
+    {{ end }}
     {{ end }}
     <div class="blog-card-body">
       {{ with .Params.venue }}<span class="blog-card-venue">{{ . }}</span>{{ end }}

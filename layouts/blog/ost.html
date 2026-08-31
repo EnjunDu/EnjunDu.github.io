@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06100d">
+  <meta name="description" content="Omni-Streaming Thinking: verification-aware reasoning for causal audio-visual streams.">
+  <title>Omni-Streaming Thinking · OST</title>
+  <style>
+    :root {
+      --ink:#101c18; --muted:#60706a; --paper:#f3f5ef; --white:#fff;
+      --night:#06100d; --night2:#0b1b16; --green:#8cf5bd; --acid:#d9ff70;
+      --teal:#1fd3a2; --blue:#85a7ff; --red:#ff796e; --amber:#ffc857;
+      --line:rgba(16,28,24,.13); --radius:24px; --shadow:0 24px 70px rgba(6,16,13,.12);
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}::selection{background:var(--acid);color:var(--night)}
+    .wrap{width:min(1180px,calc(100% - 42px));margin-inline:auto}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.17em;font-weight:800;font-size:10px;color:#34745d}.eyebrow:before{content:"";width:25px;height:1px;background:currentColor}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Navigation */
+    .topbar{position:fixed;inset:0 0 auto;z-index:50;border-bottom:1px solid transparent;transition:.25s}.topbar.scrolled{background:rgba(243,245,239,.9);border-color:var(--line);backdrop-filter:blur(18px)}.nav{height:65px;display:flex;align-items:center;gap:28px}.brand{display:flex;align-items:center;gap:10px;margin-right:auto;font-weight:900;letter-spacing:-.03em}.mark{display:grid;place-items:center;width:31px;height:31px;border-radius:50%;background:var(--night);color:var(--acid);font-size:10px;letter-spacing:.06em}.topbar:not(.scrolled) .brand,.topbar:not(.scrolled) .navlink{color:#e8f4ee}.navlinks{display:flex;align-items:center;gap:25px}.navlink{font-size:11px;font-weight:750;color:#4f615a;transition:.2s}.navlink:hover{color:#11956d}.nav-cta{padding:9px 14px;border-radius:99px;background:var(--acid);color:var(--night)!important;font-size:11px;font-weight:850}.mobile-menu{display:none;border:0;background:transparent;color:inherit;font-size:20px}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;min-height:820px;padding:146px 0 90px;background:var(--night);color:#edf8f2}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(140,245,189,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(140,245,189,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,#000 25%,transparent 90%)}.hero:after{content:"";position:absolute;width:760px;height:760px;border-radius:50%;left:-260px;top:-380px;background:radial-gradient(circle,rgba(31,211,162,.24),transparent 67%);filter:blur(15px)}.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.03fr .97fr;gap:58px;align-items:center}.hero .eyebrow{color:var(--green)}.status{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(140,245,189,.25);border-radius:99px;background:rgba(140,245,189,.07);color:#c7efda;font-size:10px;font-weight:750;letter-spacing:.06em}.status i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2s infinite}.hero h1{margin:23px 0 20px;font-size:clamp(58px,7.5vw,99px);line-height:.86;letter-spacing:-.075em;font-weight:850}.hero h1 span{display:block;color:var(--acid);font-weight:540;font-size:.43em;letter-spacing:-.045em;line-height:1.08;margin-top:17px}.hero-deck{max-width:655px;color:#b8c9c0;font-size:18px;line-height:1.6}.hero-deck strong{color:#f5fff9}.authors{margin-top:20px;color:#8fa69c;font-size:12px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:31px}.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:11px 17px;color:#edf8f2;font-size:11px;font-weight:800;transition:.2s}.button:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.42)}.button.primary{background:var(--acid);border-color:var(--acid);color:var(--night)}.button svg{width:14px;height:14px}.micro{display:flex;flex-wrap:wrap;gap:23px;margin-top:39px}.micro div{padding-left:12px;border-left:1px solid rgba(255,255,255,.17)}.micro b{display:block;color:#fff;font-size:16px}.micro small{display:block;color:#718b80;font-size:9px;text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+
+    /* Main sections */
+    main{overflow:hidden}.section{padding:112px 0}.section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:start;margin-bottom:52px}.section h2{margin:10px 0 0;font-size:clamp(36px,5vw,61px);line-height:1.02;letter-spacing:-.055em}.lead{margin:0;color:var(--muted);font-size:18px;line-height:1.72}.lead strong{color:var(--ink)}
+    .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.problem-card{position:relative;overflow:hidden;min-height:320px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:31px;box-shadow:var(--shadow)}.problem-card.dark{background:var(--night);color:#fff}.problem-card .no{font:800 10px/1 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.12em;color:#ef6c63}.problem-card .yes{color:var(--green)}.problem-card h3{font-size:26px;line-height:1.15;letter-spacing:-.04em;margin:15px 0 13px}.problem-card p{color:#69776f;margin:0;max-width:475px}.problem-card.dark p{color:#9bb0a6}.evidence-race{position:absolute;left:31px;right:31px;bottom:28px}.race-label{display:flex;justify-content:space-between;color:#7b8b84;font-size:9px;margin-bottom:8px}.race{height:13px;border-radius:99px;background:#eef0ec;overflow:hidden}.dark .race{background:#14251e}.race i{display:block;height:100%;border-radius:inherit}.visual-race{width:86%;background:var(--blue)}.audio-race{width:43%;background:var(--green);animation:grow 5s ease-in-out infinite}.problem-callout{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border-radius:var(--radius);background:linear-gradient(120deg,#1e5c4a,#173f35);color:#ecfff5;padding:29px 33px}.problem-callout .symbol{font-size:44px;color:var(--acid)}.problem-callout b{display:block;font-size:19px}.problem-callout span{color:#afd0c0}
+
+    .loop-section{background:#e9eee7}.loop{display:grid;grid-template-columns:repeat(5,1fr);position:relative}.loop:before{content:"";position:absolute;left:10%;right:10%;top:37px;height:1px;background:#bdc9c0}.loop-step{position:relative;text-align:center;padding:0 12px}.loop-num{position:relative;z-index:1;display:grid;place-items:center;width:75px;height:75px;margin:0 auto 19px;border-radius:50%;background:var(--paper);border:1px solid #b6c6bc;color:#2d775d;font:850 13px ui-monospace,monospace;transition:.25s}.loop-step:hover .loop-num{background:var(--night);color:var(--acid);transform:translateY(-4px)}.loop-step b{font-size:14px}.loop-step p{font-size:11px;line-height:1.55;color:#728078;margin:6px auto 0;max-width:170px}
+
+    .architecture{background:var(--white);border:1px solid var(--line);border-radius:28px;padding:18px;box-shadow:var(--shadow)}.architecture img{display:block;width:100%;height:auto;border-radius:16px;background:#fff}.figure-caption{display:flex;justify-content:space-between;gap:25px;padding:16px 8px 3px;color:#758179;font-size:11px}.figure-caption strong{color:#35463e}.zoom-note{white-space:nowrap}
+
+    .state-grid{display:grid;grid-template-columns:.93fr 1.07fr;gap:18px;margin-top:50px}.state-copy,.code-card{border-radius:var(--radius);padding:31px}.state-copy{background:var(--night);color:#fff}.state-copy h3{font-size:32px;line-height:1.08;letter-spacing:-.04em;margin:0 0 15px}.state-copy p{color:#9fb3aa;margin:0}.pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:25px}.pill{padding:6px 9px;border-radius:99px;border:1px solid rgba(255,255,255,.14);color:#c9d8d0;font-size:9px}.code-card{background:#fff;border:1px solid var(--line);font:11px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;overflow:auto}.code-card .k{color:#435cc7}.code-card .s{color:#0b8e68}.code-card .w{color:#d16e00}.code-card .r{color:#dd4439}.code-card .dim{color:#87928c}.code-card mark{background:#effad5;color:inherit;padding:1px 3px;border-radius:3px}
+
+    /* Benchmark */
+    .bench-section{background:var(--night);color:#eef9f3}.bench-section .eyebrow{color:var(--green)}.bench-section .lead{color:#9eb2a8}.bench-section .lead strong{color:#fff}.bench-card{position:relative;border:1px solid rgba(255,255,255,.12);border-radius:30px;background:#0c1b16;padding:14px;box-shadow:0 38px 90px rgba(0,0,0,.32)}.browser-chrome{display:flex;align-items:center;gap:6px;height:36px;padding:0 9px;color:#6e877b;font-size:9px}.dot{width:7px;height:7px;border-radius:50%;background:#ff7068}.dot:nth-child(2){background:#ffc857}.dot:nth-child(3){background:#6bd49c}.address{margin-left:8px;flex:1;max-width:360px;background:#14271f;border-radius:6px;padding:5px 9px}.bench-frame{display:block;width:100%;height:620px;border:0;border-radius:18px;background:#f5f3ed}.bench-actions{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:17px;padding:0 7px 4px}.bench-note{color:#718a7e;font-size:10px}.bench-actions .button{border-color:rgba(255,255,255,.2)}
+
+    /* Results */
+    .results-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:17px}.score-card{grid-row:span 2;display:flex;flex-direction:column;min-height:430px;border-radius:var(--radius);background:var(--night);color:#fff;padding:34px}.score-card .big{margin:auto 0 8px;font-size:clamp(80px,10vw,132px);line-height:.76;letter-spacing:-.08em;color:var(--acid);font-weight:850}.score-card h3{font-size:27px;line-height:1.2;letter-spacing:-.04em;margin:19px 0 7px}.score-card p{margin:0;color:#96aa9f}.small-score{border-radius:var(--radius);background:#fff;border:1px solid var(--line);padding:27px}.small-score .num{font-size:45px;line-height:1;letter-spacing:-.06em;font-weight:850;color:#167a5b}.small-score b{display:block;margin-top:12px}.small-score p{color:#728078;font-size:11px;margin:4px 0 0}.result-foot{margin-top:17px;color:#7b8981;font-size:10px}.result-foot strong{color:#33463d}
+
+    .contrib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.contrib{min-height:285px;border-radius:var(--radius);background:#fff;border:1px solid var(--line);padding:26px;transition:.25s}.contrib:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.contrib .n{font:800 11px ui-monospace,monospace;color:#0f8d66}.contrib h3{font-size:21px;line-height:1.2;letter-spacing:-.03em;margin:30px 0 11px}.contrib p{color:#6e7d75;font-size:12px}.contrib-icon{display:grid;place-items:center;width:42px;height:42px;margin-top:17px;border-radius:13px;background:#e5f6ec;color:#087452;font-size:17px}
+
+    .abstract{display:grid;grid-template-columns:.65fr 1.35fr;gap:80px;border-top:1px solid var(--line);padding-top:52px}.abstract h2{font-size:31px;margin:0}.abstract p{font-size:17px;line-height:1.85;color:#52635b;margin:0}.abstract p:first-letter{float:left;font-size:66px;line-height:.75;padding:10px 9px 0 0;color:#167a5b;font-weight:800}.citation{margin-top:35px;border-radius:16px;background:#e7ebe5;border:1px solid var(--line);padding:17px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px}.citation code{font:10px/1.6 ui-monospace,monospace;color:#53635b}.copy{border:0;border-radius:99px;background:var(--night);color:#fff;padding:8px 12px;font-size:9px;cursor:pointer;white-space:nowrap}
+
+    footer{background:#050c09;color:#789087;padding:39px 0}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:22px;font-size:10px}.footer-row strong{color:#ecfff4}.footer-links{display:flex;gap:18px}.footer-links a:hover{color:var(--green)}
+
+    @keyframes pulse{0%,100%{opacity:.5;transform:scale(.86)}50%{opacity:1;transform:scale(1.1)}}@keyframes grow{0%,20%{width:20%}65%,100%{width:86%}}
+    @media(max-width:940px){.hero{min-height:auto}.hero-grid,.section-head,.state-grid,.results-grid,.abstract{grid-template-columns:1fr}.hero-grid{gap:54px}.section-head{gap:20px}.score-card{grid-row:auto}.contrib-grid{grid-template-columns:1fr 1fr}.bench-frame{height:560px}.abstract{gap:25px}}
+    @media(max-width:700px){.wrap{width:min(100% - 24px,1180px)}.navlinks{display:none}.navlinks.open{position:absolute;display:flex;flex-direction:column;align-items:flex-start;top:57px;left:12px;right:12px;padding:18px;border-radius:15px;background:#eef2eb;border:1px solid var(--line)}.topbar:not(.scrolled) .navlinks.open .navlink{color:var(--ink)}.mobile-menu{display:block;color:#fff}.scrolled .mobile-menu{color:var(--ink)}.hero{padding:118px 0 68px}.hero h1{font-size:58px}.section{padding:78px 0}.problem-grid,.contrib-grid{grid-template-columns:1fr}.problem-callout{grid-column:auto}.loop{grid-template-columns:1fr}.loop:before{top:0;bottom:0;left:37px;right:auto;width:1px;height:auto}.loop-step{display:grid;grid-template-columns:75px 1fr;text-align:left;gap:17px;align-items:center;margin:8px 0}.loop-num{margin:0}.loop-step p{margin:4px 0 0;max-width:none}.figure-caption,.bench-actions,.footer-row{display:block}.zoom-note,.bench-actions .button{margin-top:10px}.bench-frame{height:520px}.micro{gap:14px}.abstract p{font-size:15px}.citation{align-items:flex-start;overflow:auto}.footer-links{margin-top:12px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.status i,.audio-race{animation:none}}
+
+    /* Editorial refinement: quiet, paper-like, and intentionally academic. */
+    :root{
+      --ink:#171916;--muted:#626861;--paper:#f5f3ee;--white:#fbfaf7;
+      --night:#18221e;--night2:#21302a;--green:#315f50;--acid:#304d7a;
+      --teal:#315f50;--blue:#304d7a;--red:#9c4b43;--amber:#a36b2f;
+      --line:#d7d5ce;--radius:7px;--shadow:none
+    }
+    body{background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .eyebrow{gap:12px;color:#59645e;font-size:9px;letter-spacing:.2em}.eyebrow:before{width:32px;background:#8b938e}
+    .topbar{background:rgba(245,243,238,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .topbar.scrolled{background:rgba(245,243,238,.96);border-color:var(--line)}
+    .nav{height:70px}.brand{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.01em}.mark{width:32px;height:32px;border:1px solid #929791;border-radius:50%;background:transparent;color:var(--ink);font-family:ui-monospace,monospace;font-size:8px}
+    .topbar:not(.scrolled) .brand,.topbar:not(.scrolled) .navlink{color:var(--ink)}.navlink{color:#555b55;font-size:10px;font-weight:650;letter-spacing:.02em}.navlink:hover{color:var(--blue)}
+    .nav-cta{padding:8px 12px;border:1px solid #a8aca6;border-radius:3px;background:transparent;color:var(--ink)!important}.nav-cta:hover{border-color:var(--ink)}
+
+    .hero{min-height:0;padding:165px 0 112px;background:var(--paper);color:var(--ink);border-bottom:1px solid var(--line)}
+    .hero:before{inset:70px 0 0;background:linear-gradient(90deg,transparent 49.96%,rgba(23,25,22,.055) 50%,transparent 50.04%);background-size:100% 100%;mask-image:none}.hero:after{display:none}
+    .hero-grid{grid-template-columns:1.02fr .98fr;gap:78px}.status{padding:0;border:0;border-radius:0;background:transparent;color:#646c66;font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.12em}.status i{width:5px;height:5px;background:#52665e;box-shadow:none;animation:none}
+    .hero h1{margin:29px 0 27px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(60px,7.4vw,102px);line-height:.88;letter-spacing:-.065em;font-weight:400}
+    .hero h1 span{max-width:650px;margin-top:27px;color:#3f4944;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:.25em;font-weight:450;letter-spacing:-.025em;line-height:1.35}
+    .hero-deck{max-width:620px;color:#595f5a;font-size:16px;line-height:1.75}.hero-deck strong{color:var(--ink);font-weight:650}.authors{max-width:650px;margin-top:27px;color:#555c56}.author-list{display:flex;flex-wrap:wrap;gap:7px 18px;font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.55}.author-list span{white-space:nowrap}.author-list sup,.affiliations sup{position:relative;top:-.25em;color:#304d7a;font:650 8px ui-monospace,monospace}.affiliations{display:grid;gap:3px;margin-top:13px;padding-top:12px;border-top:1px solid var(--line);color:#7b807b;font:9px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.015em}
+    .actions{gap:22px;margin-top:33px}.button,.button.primary{min-height:0;padding:0 0 5px;border:0;border-bottom:1px solid #7f8580;border-radius:0;background:transparent;color:var(--ink);font-size:10px;font-weight:700}.button:hover{transform:none;border-color:var(--ink);color:var(--blue)}.button svg{width:12px;height:12px}.micro{gap:32px;margin-top:45px}.micro div{padding-left:0;border-left:0}.micro b{color:var(--ink);font-family:Georgia,"Times New Roman",serif;font-size:15px;font-weight:500}.micro small{color:#8b8f8b;font-size:8px;letter-spacing:.14em}
+
+    .section{padding:128px 0}.section-head{grid-template-columns:.72fr 1.28fr;gap:85px;margin-bottom:63px}.section h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(40px,5vw,64px);font-weight:400;letter-spacing:-.05em;line-height:1}.lead{color:#626862;font-size:16px;line-height:1.85}.lead strong{font-weight:650}
+    .problem-grid{gap:0;border-top:1px solid var(--line)}.problem-card{min-height:315px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:34px 36px 34px 0;box-shadow:none}.problem-card+ .problem-card{border-left:1px solid var(--line);padding-left:36px}.problem-card.dark{background:transparent;color:var(--ink)}.problem-card .no,.problem-card .yes{color:#777f79;font-size:9px}.problem-card h3{font-family:Georgia,"Times New Roman",serif;font-size:27px;font-weight:400;letter-spacing:-.025em}.problem-card p,.problem-card.dark p{color:#666d67}.evidence-race{left:0;right:36px}.problem-card+ .problem-card .evidence-race{left:36px}.race,.dark .race{height:4px;background:#ddddd7}.visual-race{background:#7184a4}.audio-race{background:#708b7e}.problem-callout{grid-column:1/-1;border-radius:0;background:transparent;color:var(--ink);padding:29px 0;border-bottom:1px solid var(--line)}.problem-callout .symbol{color:#6c756f;font-family:Georgia,serif}.problem-callout b{font-family:Georgia,"Times New Roman",serif;font-weight:400}.problem-callout span{color:#68706a}
+
+    .loop-section{background:#eeece7;border-block:1px solid var(--line)}.loop:before{background:#c9cac5}.loop-num{width:69px;height:69px;border:1px solid #b8bbb6;border-radius:50%;background:#eeece7;color:#596c62;font-weight:650}.loop-step:hover .loop-num{background:#26342e;color:#fff;transform:none}.loop-step b{font-family:Georgia,"Times New Roman",serif;font-size:15px;font-weight:500}.loop-step p{color:#737a74}.architecture{border:0;border-radius:0;background:transparent;padding:0;box-shadow:none}.architecture img{border:1px solid var(--line);border-radius:2px}.figure-caption{padding:15px 0;border-bottom:1px solid var(--line)}
+    .state-grid{gap:0;border:1px solid var(--line)}.state-copy,.code-card{border:0;border-radius:0;padding:36px}.state-copy{background:#26342e}.state-copy h3{font-family:Georgia,"Times New Roman",serif;font-size:32px;font-weight:400}.state-copy p{color:#c2cac5}.pill{border-color:#64726b;border-radius:2px}.code-card{background:#f8f7f3;font-size:10px}
+
+    .bench-section{background:#26342e;color:#f4f3ef;border-block:1px solid #1f2925}.bench-section .eyebrow{color:#b4bdb8}.bench-section .lead{color:#c5ccc8}.bench-card{border:1px solid #59645e;border-radius:4px;background:#1f2b26;padding:9px;box-shadow:none}.browser-chrome{color:#a0aaa4}.dot{width:5px;height:5px;background:#9c4b43}.dot:nth-child(2){background:#ad864f}.dot:nth-child(3){background:#667d71}.address{border-radius:2px;background:#2c3933}.bench-frame{border-radius:2px}.bench-actions .button,.bench-actions .button.primary{color:#f3f2ee;border-color:#8e9993;background:transparent}.bench-note{color:#9ba59f}
+
+    .results-grid{gap:0;border-block:1px solid var(--line)}.score-card{min-height:390px;border-radius:0;background:transparent;color:var(--ink);padding:34px 34px 34px 0;border-right:1px solid var(--line)}.score-card .big{font-family:Georgia,"Times New Roman",serif;color:#304d7a;font-weight:400}.score-card h3{font-family:Georgia,"Times New Roman",serif;font-weight:400}.score-card p{color:#6a706b}.small-score{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:34px}.small-score:last-child{border-bottom:0}.small-score .num{font-family:Georgia,"Times New Roman",serif;color:#315f50;font-weight:400}.small-score b{font-family:Georgia,"Times New Roman",serif;font-size:17px;font-weight:400}
+    .contrib-grid{gap:0;border-top:1px solid var(--line)}.contrib{min-height:285px;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:30px 30px 30px 0}.contrib:not(:first-child){padding-left:30px}.contrib:last-child{border-right:0}.contrib:hover{transform:none;box-shadow:none}.contrib .n{color:#68716b}.contrib-icon{border:1px solid #c3c6c1;border-radius:50%;background:transparent;color:#4e5a53}.contrib h3{font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:400}.abstract{border-color:var(--line)}.abstract h2{font-family:Georgia,"Times New Roman",serif;font-weight:400}.abstract p:first-letter{color:#304d7a;font-family:Georgia,serif;font-weight:400}.citation{border-radius:2px;background:#ebe9e3}.copy{border-radius:2px;background:#26342e}
+    footer{background:#18221e}.footer-row strong{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+
+    @media(max-width:940px){.hero:before{display:none}.hero-grid,.section-head,.state-grid,.results-grid,.abstract{grid-template-columns:1fr}.hero-grid{gap:65px}.section-head{gap:25px}.score-card{border-right:0;border-bottom:1px solid var(--line)}.contrib-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.navlinks.open{border-radius:3px;background:#f5f3ee}.mobile-menu{color:var(--ink)}.hero{padding:125px 0 80px}.hero h1{font-size:56px}.hero h1 span{font-size:.35em}.section{padding:88px 0}.problem-grid,.contrib-grid{grid-template-columns:1fr}.problem-card,.problem-card+ .problem-card{padding:28px 0;border-left:0}.problem-card+ .problem-card .evidence-race{left:0}.problem-callout{grid-template-columns:35px 1fr}.loop:before{background:#c9cac5}.state-copy,.code-card{padding:25px}.contrib,.contrib:not(:first-child){border-right:0;padding:27px 0}.bench-frame{height:520px}}
+
+    /* Blue-pink academic project page, following the requested title-first hierarchy. */
+    :root{
+      --ink:#343750;--muted:#70748d;--paper:#fffafe;--white:#fff;
+      --night:#6674ad;--night2:#56659c;--green:#7f9cf5;--acid:#f28fbc;
+      --blue:#708ef2;--pink:#ee8bb8;--teal:#8d83e7;--red:#e7769a;
+      --amber:#f2ae72;--line:#e5e1ef;--radius:22px;--shadow:0 18px 55px rgba(103,112,171,.11)
+    }
+    body{background:#fffafe;color:var(--ink)}
+    .topbar,.topbar.scrolled{background:rgba(255,250,254,.92);border-color:#eee8f2}.nav{height:76px}.brand{color:#3e4059;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:16px;font-weight:750}.mark{width:35px;height:35px;border:0;background:linear-gradient(135deg,#7c9bf8,#ef91bd);color:#fff;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:10px;font-weight:850}.navlinks{gap:27px}.navlink{color:#6c6f87;font-size:13px}.navlink:hover{color:#6f88df}.nav-cta{padding:10px 16px;border:1px solid #d9d9ef;border-radius:99px;background:#f1f3ff;color:#596da9!important;font-size:13px}
+    .hero{padding:145px 0 105px;background:radial-gradient(circle at 8% 12%,rgba(164,199,255,.22),transparent 29%),radial-gradient(circle at 92% 18%,rgba(255,177,216,.22),transparent 27%),linear-gradient(180deg,#fffaff 0%,#fff 72%,#fbf9ff 100%);border-bottom:1px solid #eee9f3}
+    .hero:before{display:none}.hero-academic{position:relative;z-index:2}.project-heading{text-align:center}.status{justify-content:center;color:#8b87a5}.status i{background:#e986b2}.hero h1{margin:25px auto 0;max-width:1120px;color:#3a3b4d;font-family:Georgia,"Times New Roman",serif;font-size:clamp(54px,6.8vw,88px);font-weight:500;line-height:1.04;letter-spacing:-.055em}.hero h1 span{display:inline;max-width:none;margin:0;font-family:inherit;font-size:1em;font-weight:500;line-height:inherit;letter-spacing:inherit}.hero h1 .title-blue{color:#6e90ec}.hero h1 .title-pink{color:#e782ae}
+    .authors{max-width:1120px;margin:36px auto 0}.author-list{justify-content:center;gap:8px 27px;font-family:Georgia,"Times New Roman",serif;font-size:22px;line-height:1.6}.author-list span:nth-child(3n+1){color:#6687de}.author-list span:nth-child(3n+2){color:#dc78a4}.author-list span:nth-child(3n){color:#8174cf}.author-list a{color:inherit;text-decoration-line:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:5px;transition:text-decoration-color .2s ease,opacity .2s ease}.author-list a:hover{opacity:.82;text-decoration-color:currentColor}.author-list sup,.affiliations sup,.author-note sup{color:#7e79bc}.affiliations{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;max-width:1120px;margin:20px auto 0;padding:0;border:0;color:#62657b;font:16px/1.55 Georgia,"Times New Roman",serif;letter-spacing:0}.author-note{margin-top:10px;color:#8a7fa3;font:13px/1.5 Georgia,"Times New Roman",serif}
+    .institution-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:32px;margin:34px auto 0}.logo-tile{display:flex;align-items:center;justify-content:center;width:168px;height:82px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}.logo-tile img{display:block;max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}.logo-hku img{max-height:76px}.logo-hkust img{max-height:76px}.logo-lightspeed{width:205px;background:transparent;border:0}.logo-lightspeed img{width:185px;max-height:62px;filter:brightness(0) saturate(100%) invert(37%) sepia(15%) saturate(1576%) hue-rotate(190deg) brightness(91%);mix-blend-mode:normal}.logo-sussex img{max-height:82px}
+    .actions{justify-content:center;gap:12px;margin-top:31px}.button,.button.primary{min-height:42px;padding:10px 18px;border:0;border-radius:14px;background:#eef2ff;color:#5870b4;font-size:11px;box-shadow:none}.button:nth-child(2){background:#fff0f7;color:#b85d87}.button:nth-child(3){background:#f3efff;color:#7665b5}.button:hover{transform:translateY(-2px);color:inherit;filter:saturate(1.08)}.hero-caption{margin:20px auto 0;color:#898ca4;font-family:Georgia,"Times New Roman",serif;font-size:14px;font-style:italic}
+    .project-video{width:min(100%,1060px);margin:55px auto 0}.project-video-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 8px 13px;color:#8589a4;font-size:10px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}.project-video-head span:first-child{color:#cc6f98}.project-video-frame{overflow:hidden;aspect-ratio:16/9;padding:10px;border:1px solid #dfe4f8;border-radius:27px;background:linear-gradient(135deg,#eef3ff,#fff0f7);box-shadow:0 28px 80px rgba(107,119,181,.14)}.project-video-player{display:block;width:100%;height:100%;border:0;border-radius:19px;background:#171827;object-fit:contain}.project-video figcaption{margin:15px auto 0;color:#898ca4;font:italic 13px/1.65 Georgia,"Times New Roman",serif;text-align:center}
+    .floating-bench{position:fixed;left:20px;bottom:20px;z-index:80;display:inline-flex;align-items:center;gap:9px;padding:10px 10px 10px 15px;border:1px solid rgba(136,123,210,.25);border-radius:99px;background:linear-gradient(135deg,rgba(235,242,255,.96),rgba(255,235,245,.96));color:#6474b8;box-shadow:0 14px 38px rgba(103,108,158,.18);backdrop-filter:blur(14px);font-size:13px;font-weight:820;letter-spacing:.01em;transition:transform .2s ease,box-shadow .2s ease}.floating-bench span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#6e90ec,#e782ae);color:#fff;font-size:15px}.floating-bench:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(103,108,158,.24)}
+    .eyebrow{color:#778bd0}.eyebrow:before{background:#b5c2eb}.section{background:#fff}.section:nth-of-type(odd){background:#fffafd}.section h2{color:#3b3d58}.lead{color:#70738a}.problem-grid{border:0;gap:18px}.problem-card,.problem-card.dark{min-height:315px;padding:31px;border:1px solid #dfe7ff;border-radius:26px;background:#f2f6ff;color:var(--ink)}.problem-card+ .problem-card{padding-left:31px;border-left:1px solid #f6dce9;background:#fff2f8}.problem-card p,.problem-card.dark p{color:#6f7387}.problem-card .no{color:#6c86d8}.problem-card .yes{color:#c66b94}.evidence-race,.problem-card+ .problem-card .evidence-race{left:31px;right:31px}.race,.dark .race{background:#e8e5ef}.visual-race{background:#83a5fa}.audio-race{background:#ee96bc}.problem-callout{margin-top:18px;padding:25px 30px;border:1px solid #e4dcfb;border-radius:22px;background:#f5f1ff}.problem-callout .symbol{color:#9a84df}.problem-callout span{color:#77738a}
+    .loop-section{background:#f5f7ff;border-color:#e5e7f4}.loop:before{background:#d6dcf2}.loop-num{border-color:#d8ddf1;background:#fff;color:#7187d0;box-shadow:0 8px 25px rgba(113,128,185,.09)}.loop-step:nth-child(even) .loop-num{color:#ce739b}.loop-step:hover .loop-num{background:#7e8fd0}.loop-step b{color:#4b4e6b}.loop-step p{color:#7d8095}.architecture{padding:15px;border:1px solid #e2e5f3;border-radius:25px;background:#fff;box-shadow:var(--shadow)}.architecture img{border:0;border-radius:16px}.figure-caption{border:0;padding:16px 4px 1px}.state-grid{overflow:hidden;border:1px solid #e2e2f2;border-radius:25px}.state-copy{background:#7d89c4}.state-copy .eyebrow{color:#e6e9ff}.state-copy p{color:#edf0ff}.pill{border-color:#aeb7e1;color:#f4f5ff}.code-card{background:#fff7fb}.code-card .k{color:#6880cf}.code-card .s{color:#bc648d}.code-card .w{color:#8a6fc5}
+    .bench-section{position:relative;overflow:hidden;background:linear-gradient(135deg,#6f7fb9 0%,#7d78b6 52%,#a77dab 100%);border:0}.bench-section:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-140px;top:-160px;background:rgba(255,195,224,.18)}.bench-section .wrap{position:relative}.bench-section .eyebrow{color:#e4e8ff}.bench-section .lead{color:#eeeffb}.bench-card{border-color:rgba(255,255,255,.25);border-radius:27px;background:rgba(65,70,119,.38);padding:12px;box-shadow:0 30px 90px rgba(51,47,95,.25)}.address{background:rgba(255,255,255,.12)}.bench-frame{border-radius:19px}.bench-actions .button,.bench-actions .button.primary{border:0;border-radius:14px;background:#fff0f7;color:#a75b81}.bench-note{color:#daddf0}
+    .results-grid{gap:16px;border:0}.score-card{border:1px solid #dfe5fb;border-radius:27px;background:#f0f4ff;padding:34px}.score-card .big{color:#6b87dc}.score-card p{color:#737890}.small-score{border:1px solid #f2dce8;border-radius:25px;background:#fff2f8;padding:30px}.small-score:last-child{border-bottom:1px solid #e6ddf5;background:#f5f1ff}.small-score .num{color:#dc78a6}.small-score:last-child .num{color:#8975d1}.result-foot{color:#86899b}.contrib-grid{gap:16px;border:0}.contrib,.contrib:not(:first-child){padding:28px;border:1px solid #e1e5f7;border-radius:24px;background:#f5f7ff}.contrib:nth-child(2){border-color:#f1dce8;background:#fff3f8}.contrib:nth-child(3){border-color:#e6ddf5;background:#f6f2ff}.contrib-icon{border:0;background:#e7edff;color:#6d86d6}.contrib:nth-child(2) .contrib-icon{background:#ffe6f1;color:#c96d97}.contrib:nth-child(3) .contrib-icon{background:#ebe5ff;color:#806ec5}.citation{border-color:#e3e0ef;border-radius:17px;background:#f5f3fb}.copy{border-radius:12px;background:#7283c0}footer{background:#59679d}
+    @media(max-width:940px){.institution-logos{gap:12px}.logo-tile{width:156px}.logo-lightspeed{width:190px}.project-video{max-width:760px}}
+    @media(max-width:700px){.navlinks.open{background:#fffaff;border-radius:20px}.navlink,.nav-cta{font-size:14px}.hero{padding:120px 0 78px}.hero h1{font-size:49px}.hero h1 span{font-size:1em}.author-list{gap:6px 16px;font-size:18px}.affiliations{display:grid;justify-content:center;gap:5px;font-size:14px}.author-note{font-size:12px}.institution-logos{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin-top:27px}.logo-tile,.logo-lightspeed{width:100%;height:78px;border-radius:0}.project-video{margin-top:42px}.project-video-head{align-items:flex-start;font-size:9px;line-height:1.5}.project-video-head span:last-child{text-align:right}.project-video-frame{padding:6px;border-radius:18px}.project-video-player{border-radius:12px}.project-video figcaption{padding:0 12px;font-size:12px}.floating-bench{left:12px;bottom:12px;padding:8px 8px 8px 12px;font-size:12px}.floating-bench span{width:27px;height:27px}.actions{display:grid;grid-template-columns:1fr 1fr}.actions .button:last-child{grid-column:1/-1}.button,.button.primary{width:100%}.hero-caption{font-size:12px}.problem-card,.problem-card.dark,.problem-card+ .problem-card{padding:25px;border-radius:21px}.evidence-race,.problem-card+ .problem-card .evidence-race{left:25px;right:25px}.problem-callout{border-radius:19px}.architecture{border-radius:20px}.state-grid{border-radius:20px}.contrib,.contrib:not(:first-child){padding:25px;border-radius:20px}}
+  </style>
+</head>
+<body>
+  <a class="floating-bench" href="{{ "blog/ost/OST-DiagBench-pastel.html" | relURL }}" aria-label="Open OST-DiagBench"><span>→</span>OST-DiagBench</a>
+  <header class="topbar" id="topbar">
+    <nav class="nav wrap" aria-label="Primary navigation">
+      <a class="brand" href="#top"><span class="mark">OST</span><span>Omni-Streaming Thinking</span></a>
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+      <div class="navlinks" id="navlinks">
+        <a class="navlink" href="#idea">Idea</a><a class="navlink" href="#method">Method</a><a class="navlink" href="#bench">Benchmark</a><a class="navlink" href="#results">Results</a>
+        <a class="navlink nav-cta" href="{{ "blog/ost/OST-DiagBench-pastel.html" | relURL }}">Explore DiagBench ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wrap hero-academic">
+      <div class="project-heading">
+        <h1><span class="title-blue">Omni-</span><span class="title-pink">Streaming</span> Thinking</h1>
+        <div class="authors">
+          <div class="author-list" aria-label="Authors">
+            <span><a href="https://enjundu.com/">Enjun Du</a><sup>1,2</sup></span><span>Siyi Liu<sup>2</sup></span><span>Ziyu Zheng<sup>4</sup></span><span>Jingyu Li<sup>3</sup></span><span>Yiwen Guo<sup>5</sup></span><span><a href="https://yzhangee.github.io/">Yongqi Zhang</a><sup>2</sup></span><span><a href="https://difanzou.github.io/">Difan Zou</a><sup>1,*</sup></span>
+          </div>
+          <div class="affiliations" aria-label="Affiliations">
+            <span><sup>1</sup> The University of Hong Kong</span>
+            <span><sup>2</sup> The Hong Kong University of Science and Technology (Guangzhou)</span>
+            <span><sup>3</sup> LIGHTSPEED</span>
+            <span><sup>4</sup> University of Sussex</span>
+            <span><sup>5</sup> Independent Researcher</span>
+          </div>
+          <div class="author-note"><sup>*</sup> Corresponding author</div>
+        </div>
+        <div class="institution-logos" aria-label="Institution logos">
+          <div class="logo-tile logo-hku"><img src="{{ "images/logos/HKU.jpeg" | relURL }}" alt="The University of Hong Kong logo"></div>
+          <div class="logo-tile logo-hkust"><img src="{{ "blog/ost/logos/hkust-gz.svg" | relURL }}" alt="HKUST Guangzhou logo"></div>
+          <div class="logo-tile logo-lightspeed"><img src="{{ "blog/ost/logos/lightspeed.webp" | relURL }}" alt="LIGHTSPEED Studios logo"></div>
+          <div class="logo-tile logo-sussex"><img src="{{ "blog/ost/logos/sussex.jpg" | relURL }}" alt="University of Sussex Brighton logo"></div>
+        </div>
+        <figure class="project-video" aria-labelledby="ost-demo-title">
+          <div class="project-video-head"><span id="ost-demo-title">Demo · 4:58</span><span>Claim → Verify → Retract</span></div>
+          <div class="project-video-frame">
+            <video class="project-video-player" controls playsinline preload="metadata" poster="{{ "blog/ost/demo/ost-demo-poster.jpg" | relURL }}">
+              <source src="{{ "blog/ost/demo/ost-demo-1080p.mp4" | relURL }}" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+          <figcaption>From premature commitment to verified correction—a five-minute walkthrough of OST and OST-DiagBench.</figcaption>
+        </figure>
+        <div class="actions">
+          <a class="button primary" href="{{ "blog/ost/paper.pdf" | relURL }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Read paper</a>
+          <a class="button" href="{{ "blog/ost/OST-DiagBench-pastel.html" | relURL }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 16l4-4 3 3 5-7"/></svg>OST-DiagBench</a>
+          <a class="button" href="https://github.com/EnjunDu/OST">Code</a>
+        </div>
+        <p class="hero-caption">Verification-aware reasoning for causal audio-visual streams.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="idea">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">The failure mode</div><h2>Seeing arrives early.<br>Hearing unfolds.</h2></div><p class="lead">Visual evidence is dense and often locally decidable. Auditory evidence is sparse, temporally extended, and vulnerable to eviction. Under bounded memory, this asymmetry creates <strong>premature cross-modal commitment</strong>: a plausible visual explanation becomes a working fact before audio can settle it.</p></div>
+        <div class="problem-grid">
+          <article class="problem-card"><div class="no">Naive stream</div><h3>A guess enters memory as if observed.</h3><p>Free-form think-while-watching merges what the model saw with what it merely expected. The error can survive compression and compound across the stream.</p><div class="evidence-race"><div class="race-label"><span>visual certainty</span><span>early</span></div><div class="race"><i class="visual-race"></i></div></div></article>
+          <article class="problem-card dark"><div class="no yes">OST stream</div><h3>A guess becomes a testable claim.</h3><p>Every query-critical expectation names a modality, a deadline, and a proposition. It cannot support an answer until the named evidence arrives.</p><div class="evidence-race"><div class="race-label"><span>audio maturity</span><span>unfolding</span></div><div class="race"><i class="audio-race"></i></div></div></article>
+          <div class="problem-callout"><div class="symbol">≠</div><div><b>Physical synchronization is not evidential synchronization.</b><span> Audio and video can arrive at the same timestamp while becoming decisive at very different rates.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section loop-section" id="method">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">The OST loop</div><h2>Reason, then audit<br>the reasoning.</h2></div><p class="lead">OST runs one closed loop at every decision step. New evidence first checks earlier assumptions; corrections propagate through the exact reasoning they influenced; only then can the model decide whether the stream is sufficient.</p></div>
+        <div class="loop" aria-label="OST reasoning stages">
+          <div class="loop-step"><div class="loop-num">01</div><div><b>Retain</b><p>Keep visual and audio native tokens in separately budgeted buffers.</p></div></div>
+          <div class="loop-step"><div class="loop-num">02</div><div><b>Commit</b><p>Register explicit, deadline-bound claims instead of hidden guesses.</p></div></div>
+          <div class="loop-step"><div class="loop-num">03</div><div><b>Verify</b><p>Let only the named modality confirm the claim from realized evidence.</p></div></div>
+          <div class="loop-step"><div class="loop-num">04</div><div><b>Correct</b><p>Attenuate refuted claims along provenance, including summaries.</p></div></div>
+          <div class="loop-step"><div class="loop-num">05</div><div><b>Answer</b><p>Wait while any answer-critical claim remains unsettled.</p></div></div>
+        </div>
+        <div class="architecture" style="margin-top:60px"><img src="{{ "blog/ost/ost-architecture.png" | relURL }}" alt="OST architecture with modality-resolved state, claim verification and sufficiency-gated answering"><div class="figure-caption"><span><strong>Figure 1 · Omni-Streaming Thinking.</strong> A three-stage causal system for retaining modality-resolved evidence, verifying future claims, and answering only when settled.</span><span class="zoom-note">Open image to inspect details</span></div></div>
+        <div class="state-grid">
+          <article class="state-copy"><div class="eyebrow" style="color:var(--green)">State, not narration</div><h3>Every chunk says exactly what it knows.</h3><p>The six-field Omni-State makes omission visible. Silence is a valid fact; uncertainty is legal; fabricated audio is not required. Claims preserve their modality and provenance even after history is folded into summaries.</p><div class="pill-row"><span class="pill">visual_evidence</span><span class="pill">audio_state</span><span class="pill">audio_evidence</span><span class="pill">conflict</span><span class="pill">forecast</span><span class="pill">sufficiency</span></div></article>
+          <div class="code-card" aria-label="Example Omni-State"><span class="dim">omni_state @ 8.0s</span><br>{<br>&nbsp;&nbsp;<span class="k">"visual_evidence"</span>: <span class="s">"Gate 6 sign visible"</span>,<br>&nbsp;&nbsp;<span class="k">"audio_state"</span>: <span class="w">"uncertain"</span>,<br>&nbsp;&nbsp;<span class="k">"audio_evidence"</span>: <span class="s">"announcement incomplete"</span>,<br>&nbsp;&nbsp;<span class="k">"conflict"</span>: <span class="s">null</span>,<br>&nbsp;&nbsp;<span class="k">"forecast"</span>: {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"claim"</span>: <mark>"announcement names Gate 6"</mark>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"modality"</span>: <span class="s">"audio"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"deadline"</span>: <span class="w">"t + 8s"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">"status"</span>: <span class="r">"pending"</span><br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;<span class="k">"sufficiency"</span>: <span class="r">false</span><br>}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bench-section" id="bench">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">A benchmark that changes the evidence</div><h2>Lock the video.<br>Intervene on audio.</h2></div><p class="lead"><strong>OST-DiagBench</strong> diagnoses whether an omni-modal model truly uses auditory evidence. Its matched Core keeps video fixed while audio is retained, muted, swapped, or mixed. The new <strong>CLASH</strong> operation keeps an old fact visible in subtitles while speech states a mutually exclusive new fact—testing whether the model follows what it heard rather than what it read.</p></div>
+        <div class="bench-card">
+          <div class="browser-chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="address mono">/blog/ost/OST-DiagBench-pastel.html</span></div>
+          <iframe class="bench-frame" src="{{ "blog/ost/OST-DiagBench-pastel.html" | relURL }}" title="OST-DiagBench interactive benchmark page" loading="lazy"></iframe>
+          <div class="bench-actions"><span class="bench-note">Matched acoustic Core · subtitle–speech CLASH · paired inference paths</span><a class="button primary" href="{{ "blog/ost/OST-DiagBench-pastel.html" | relURL }}">Open OST-DiagBench ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">Native streaming results</div><h2>Earlier when possible.<br>Correct when it matters.</h2></div><p class="lead">On SOVBench, OST leads online multimodal systems while preserving causal, prefix-only inference. It improves both answer quality and the decision of <strong>when</strong> to answer.</p></div>
+        <div class="results-grid">
+          <article class="score-card"><div class="eyebrow" style="color:var(--green)">Audio-visual + QA context</div><div class="big">88.4</div><h3>SOVBench-O average</h3><p>Best online result across real-time, recall, and proactive questions.</p></article>
+          <article class="small-score"><div class="num">87.8</div><b>Audio-visual context</b><p>SOVBench-O average under causal, prefix-only inference.</p></article>
+          <article class="small-score"><div class="num">92.4</div><b>SOVBench-T F1</b><p>Respond/wait trigger quality under native streaming.</p></article>
+        </div>
+        <p class="result-foot"><strong>Reporting note.</strong> Values reproduce the current manuscript’s main SOVBench table. OST also reaches 46.47% CLASH accuracy and 51.37% MIX joint recall on the retained OST-DiagBench stress sets.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:20px">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">What OST adds</div><h2>Three contracts for<br>trustworthy streams.</h2></div><p class="lead">OST is not a fusion block. It is a set of enforceable contracts governing what survives memory, what can count as evidence, and what may support an answer.</p></div>
+        <div class="contrib-grid">
+          <article class="contrib"><span class="n">CONTRACT 01</span><div class="contrib-icon">↕</div><h3>Modality-local retention</h3><p>Audio eviction cannot be caused by a higher visual-token arrival rate. Native evidence remains identifiable for later adjudication.</p></article>
+          <article class="contrib"><span class="n">CONTRACT 02</span><div class="contrib-icon">✓</div><h3>Modality self-evidence</h3><p>A claim may be confirmed only by realized evidence from the modality it names, preventing the verifier from inheriting the bias it audits.</p></article>
+          <article class="contrib"><span class="n">CONTRACT 03</span><div class="contrib-icon">⌁</div><h3>Lineage-aware retraction</h3><p>Refutation reaches every dependent packet and folded summary, then installs what actually arrived instead of merely lowering a score.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="abstract">
+      <div class="wrap abstract"><div><div class="eyebrow">Abstract</div><h2>Streaming memory as a causal audit loop.</h2></div><div><p>Streaming omni-modal understanding asks a model to decide, at each moment and from only the audio-visual prefix seen so far, whether it has heard and seen enough to answer. OST externalizes every step as an audio-explicit state, registers future-dependent expectations as deadline-bound claims, verifies them against the genuinely arriving stream with modality-scoped evidence, retracts refuted influence along its provenance, and forbids any answer that rests on an unsettled claim.</p><div class="citation"><code id="bibtex">@article{du2026omni,<br>&nbsp;&nbsp;title={Omni-Streaming Thinking},<br>&nbsp;&nbsp;author={Enjun Du and Siyi Liu and Ziyu Zheng and Jingyu Li and Yiwen Guo and Yongqi Zhang and Difan Zou},<br>&nbsp;&nbsp;year={2026}<br>}</code><button class="copy" id="copyBib">Copy BibTeX</button></div></div></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-row"><strong>Omni-Streaming Thinking</strong><span>Think with the stream. Verify with the future.</span><div class="footer-links"><a href="{{ "blog/ost/paper.pdf" | relURL }}">Paper</a><a href="{{ "blog/ost/OST-DiagBench-pastel.html" | relURL }}">DiagBench</a><a href="#top">Back to top ↑</a></div></div></footer>
+
+  <script>
+    const topbar=document.getElementById('topbar');
+    const onScroll=()=>topbar.classList.toggle('scrolled',window.scrollY>24);
+    addEventListener('scroll',onScroll,{passive:true});onScroll();
+    const menu=document.getElementById('mobileMenu'),links=document.getElementById('navlinks');
+    menu.addEventListener('click',()=>links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+    document.getElementById('copyBib').addEventListener('click',async e=>{await navigator.clipboard.writeText(document.getElementById('bibtex').innerText);e.currentTarget.textContent='Copied ✓';setTimeout(()=>e.currentTarget.textContent='Copy BibTeX',1400)});
+  </script>
+</body>
+</html>
