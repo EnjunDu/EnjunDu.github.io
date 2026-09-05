@@ -29,7 +29,7 @@ tags:
 # Homepage rule: non-first-author papers stay under "Show more" unless explicitly excepted.
 featured: false
 
-url_pdf: ''
+url_pdf: 'https://arxiv.org/pdf/2608.29604'
 url_code: ''
 url_dataset: ''
 url_poster: ''
