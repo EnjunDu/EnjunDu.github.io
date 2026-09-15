@@ -36,7 +36,11 @@ tags:
 
 featured: true
 
-url_pdf: ''
+links:
+  - name: Hugging Face
+    url: 'https://huggingface.co/papers/2609.15128'
+
+url_pdf: 'https://arxiv.org/abs/2609.15128'
 url_code: 'https://github.com/EnjunDu/OST'
 url_dataset: 'https://huggingface.co/datasets/EnjunDu/OST-Diagbench'
 url_poster: ''
