@@ -1,43 +1,53 @@
 # ============================================================
 # Patents Data File
 # ============================================================
-# To add a new patent, simply copy the template below and fill in:
-#
-#   - title: "Your Patent Title"
-#     authors: "Author1, **Your Name**, Author2"
-#     note: "Optional note, e.g., Patent number, date, etc."
-#     url: "https://optional-link-to-patent"
-#
-# Notes:
-#   - Use **Name** to bold an author (typically yourself)
-#   - 'note' and 'url' fields are optional, leave them out if not needed
-#   - The first 2 patents will show by default; the rest hidden under "Show more"
-#   - Order matters: patents are displayed top to bottom as listed here
+# Each patent has an English display title and its original Chinese filing title.
+# Set first_inventor to true only when Enjun Du is the first listed inventor.
+# The homepage shows those patents by default and places all others under
+# "Show more", regardless of the order in this file.
 # ============================================================
 
-# Section title displayed on the page
 section_title: "📜 Patents"
 
-# Number of patents to show before "Show more" button
-show_count: 2
-
 patents:
-  - title: "Reply Generation Method, Apparatus, Computer Device, and Storage Medium"
+  - title: "Response Generation Method, Apparatus, Computer Device, and Storage Medium"
+    title_zh: "答复生成方法、装置、计算机设备及存储介质"
     authors: "**Enjun Du**, Xinyu Zuo, Lisheng Duan, Yongqi Zhang"
+    note: "Chinese National Invention Patent Application No. 202610921178.2, filed June 24, 2026."
+    first_inventor: true
 
   - title: "Image Retrieval Method, Apparatus, Computer Device, Storage Medium, and Product"
+    title_zh: "图像检索方法、装置、计算机设备、存储介质及产品"
     authors: "**Enjun Du**, Xinyu Zuo, Lisheng Duan, Ruiwen Tao, Yongqi Zhang"
+    note: "Chinese National Invention Patent Application No. 202610654767.9, filed May 13, 2026."
+    first_inventor: true
 
-  - title: "A Knowledge Graph Reasoning Method, Apparatus, Device, and Medium"
-    authors: "Yongqi Zhang, **Enjun Du**, Siyi Liu"
+  - title: "Information Retrieval Method, Apparatus, Electronic Device, and Readable Medium"
+    title_zh: "信息检索方法、装置、电子设备和可读介质"
+    authors: "Zirong Chen, Fuda Ye, **Enjun Du**, Xinlei Wang, Junfu Pu, Ying Shan, Yongqi Zhang"
+    note: "Chinese National Invention Patent Application No. 202611161158.6, filed July 31, 2026."
+    first_inventor: false
 
-  - title: "A Training Method for Retrieval Models and Related Apparatus"
+  - title: "A Training Method for a Retrieval Model and Related Apparatus"
+    title_zh: "一种检索模型的训练方法和相关装置"
     authors: "Siyi Liu, **Enjun Du**, Zirong Chen, Xinyu Zuo, Lisheng Duan, Yongqi Zhang"
+    note: "Chinese National Invention Patent Application No. 202610667770.4, filed May 14, 2026."
+    first_inventor: false
 
   - title: "A Data Processing Method, Apparatus, Electronic Device, and Readable Medium"
-    authors: "Zirong Chen, Fuda Ye, **Enjun Du**, Junfu Pu, Xinyu Zuo, Yongqi Zhang"
+    title_zh: "一种数据处理的方法、装置、电子设备和可读介质"
+    authors: "Zirong Chen, Fuda Ye, **Enjun Du**, Junfu Pu, Xinlei Wang, Xinyu Zuo, Yongqi Zhang"
+    note: "Chinese National Invention Patent Application No. 202610661588.8, filed May 13, 2026."
+    first_inventor: false
 
-  - title: "Intent-Aware Session Recommendation Based on Behavior-Enhanced Hypergraph Modeling"
+  - title: "A Mixed-Length and Pruning Mixture-of-Experts Method for Knowledge Graph Reasoning"
+    title_zh: "一种面向知识图谱推理的混合长度与剪枝专家方法"
+    authors: "Yongqi Zhang, **Enjun Du**, Siyi Liu"
+    first_inventor: false
+
+  - title: "An Intent-Aware Session Recommendation Method Based on Behavior-Enhanced Hypergraph Modeling"
+    title_zh: "一种基于行为增强超图建模的意图感知会话推荐方法"
     authors: "Wenhao Xue, Zhida Qin, Haoyao Zhang, Shixiao Yang, **Enjun Du**, Xingbo Tian, Shuang Li, Tianyu Huang"
     note: "Chinese National Invention Patent, CN119180288A, published December 2024."
     url: "https://patents.google.com/patent/CN119180288A/en"
+    first_inventor: false

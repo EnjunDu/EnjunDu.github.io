@@ -1,21 +1,30 @@
-{{ $block := . }}
 {{ $data := site.Data.patents }}
-{{ $show_count := default 2 $data.show_count }}
 {{ $patents := $data.patents }}
+{{ $featured := where $patents "first_inventor" true }}
+{{ $additional := where $patents "first_inventor" "ne" true }}
 {{ $title := default "📜 Patents" $data.section_title }}
 
 <h2 class="hb-section-title">{{ $title }}</h2>
 
-<div class="not-prose" style="max-width:900px; margin:0 auto;">
-{{ range $i, $p := $patents }}
-  {{ if eq $i $show_count }}
-  <div id="more-patents" style="overflow:hidden; height:0; opacity:0;">
-  {{ end }}
+<div class="not-prose hb-patents-wrap">
+  <div class="hb-patent-toolbar">
+    <button
+      id="patent-language-btn"
+      class="hb-toggle-btn hb-patent-language-btn"
+      type="button"
+      aria-pressed="false"
+      aria-label="Show original Chinese patent titles"
+    >
+      <span class="hb-patent-language-glyph" aria-hidden="true">文</span>
+      <span data-patent-language-label>中文名称</span>
+    </button>
+  </div>
 
+  {{ range $p := $featured }}
   <div class="hb-patent-item">
     <h4 class="hb-patent-title">
       {{ with $p.url }}<a href="{{ . }}">{{ end }}
-      {{ $p.title }}
+      <span class="hb-patent-title-text" data-title-en="{{ $p.title }}" data-title-zh="{{ default $p.title $p.title_zh }}">{{ $p.title }}</span>
       {{ with $p.url }}</a>{{ end }}
     </h4>
     <p class="hb-patent-authors">{{ $p.authors | markdownify }}</p>
@@ -23,73 +32,116 @@
     <p class="hb-patent-note">{{ . }}</p>
     {{ end }}
   </div>
-{{ end }}
+  {{ end }}
 
-{{ if gt (len $patents) $show_count }}
-  </div><!-- close #more-patents -->
-  <div style="text-align:center; margin-top:0.5rem;">
-    <button id="patents-toggle-btn" class="hb-toggle-btn">
+  {{ if gt (len $additional) 0 }}
+  <div id="more-patents" style="overflow:hidden; height:0; opacity:0;" aria-hidden="true">
+    {{ range $p := $additional }}
+    <div class="hb-patent-item">
+      <h4 class="hb-patent-title">
+        {{ with $p.url }}<a href="{{ . }}">{{ end }}
+        <span class="hb-patent-title-text" data-title-en="{{ $p.title }}" data-title-zh="{{ default $p.title $p.title_zh }}">{{ $p.title }}</span>
+        {{ with $p.url }}</a>{{ end }}
+      </h4>
+      <p class="hb-patent-authors">{{ $p.authors | markdownify }}</p>
+      {{ with $p.note }}
+      <p class="hb-patent-note">{{ . }}</p>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  <div class="hb-patent-more-wrap">
+    <button
+      id="patents-toggle-btn"
+      class="hb-toggle-btn"
+      type="button"
+      aria-controls="more-patents"
+      aria-expanded="false"
+    >
       Show more
     </button>
   </div>
-  <script>
-  (function(){
-    var m = document.getElementById('more-patents');
-    var b = document.getElementById('patents-toggle-btn');
-    var expanded = false;
-    var animating = false;
-
-    // Smooth height animation with easeInOutCubic
-    function animateHeight(el, from, to, duration, onDone) {
-      var start = performance.now();
-      el.style.height = from + 'px';
-      el.style.overflow = 'hidden';
-
-      function step(now) {
-        var t = Math.min((now - start) / duration, 1);
-        var ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        el.style.height = (from + (to - from) * ease) + 'px';
-        if (t < 1) {
-          requestAnimationFrame(step);
-        } else {
-          if (onDone) onDone();
-        }
-      }
-      requestAnimationFrame(step);
-    }
-
-    b.addEventListener('click', function(){
-      if (animating) return;
-      animating = true;
-
-      if (!expanded) {
-        // Expand
-        m.style.height = 'auto';
-        var fullH = m.scrollHeight;
-        m.style.height = '0';
-        var dur = Math.min(Math.max(fullH / 2, 350), 700);
-        m.style.opacity = '1';
-        animateHeight(m, 0, fullH, dur, function() {
-          m.style.height = 'auto';
-          m.style.overflow = 'visible';
-          animating = false;
-        });
-        b.innerText = 'Show less';
-        expanded = true;
-      } else {
-        // Collapse
-        var curH = m.scrollHeight;
-        var dur = Math.min(Math.max(curH / 2, 350), 700);
-        m.style.opacity = '0';
-        animateHeight(m, curH, 0, dur, function() {
-          m.style.height = '0';
-          animating = false;
-        });
-        b.innerText = 'Show more';
-        expanded = false;
-      }
-    });
-  })();
-  </script>
-{{ end }}
+  {{ end }}
 </div>
+
+<script>
+(function(){
+  var languageButton = document.getElementById('patent-language-btn');
+  var languageLabel = languageButton && languageButton.querySelector('[data-patent-language-label]');
+  var chineseTitlesVisible = false;
+
+  if (languageButton && languageLabel) {
+    languageButton.addEventListener('click', function(){
+      chineseTitlesVisible = !chineseTitlesVisible;
+      document.querySelectorAll('.hb-patent-title-text').forEach(function(title){
+        title.textContent = chineseTitlesVisible ? title.dataset.titleZh : title.dataset.titleEn;
+      });
+      languageButton.setAttribute('aria-pressed', String(chineseTitlesVisible));
+      languageButton.setAttribute(
+        'aria-label',
+        chineseTitlesVisible ? 'Show English patent titles' : 'Show original Chinese patent titles'
+      );
+      languageLabel.textContent = chineseTitlesVisible ? 'English Titles' : '中文名称';
+    });
+  }
+
+  var morePatents = document.getElementById('more-patents');
+  var moreButton = document.getElementById('patents-toggle-btn');
+  var expanded = false;
+  var animating = false;
+
+  if (!morePatents || !moreButton) return;
+
+  function animateHeight(el, from, to, duration, onDone) {
+    var start = performance.now();
+    el.style.height = from + 'px';
+    el.style.overflow = 'hidden';
+
+    function step(now) {
+      var t = Math.min((now - start) / duration, 1);
+      var ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      el.style.height = (from + (to - from) * ease) + 'px';
+      if (t < 1) {
+        requestAnimationFrame(step);
+      } else if (onDone) {
+        onDone();
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  moreButton.addEventListener('click', function(){
+    if (animating) return;
+    animating = true;
+
+    if (!expanded) {
+      morePatents.style.height = 'auto';
+      var fullHeight = morePatents.scrollHeight;
+      morePatents.style.height = '0';
+      var openDuration = Math.min(Math.max(fullHeight / 2, 350), 700);
+      morePatents.style.opacity = '1';
+      morePatents.setAttribute('aria-hidden', 'false');
+      animateHeight(morePatents, 0, fullHeight, openDuration, function() {
+        morePatents.style.height = 'auto';
+        morePatents.style.overflow = 'visible';
+        animating = false;
+      });
+      moreButton.textContent = 'Show less';
+      moreButton.setAttribute('aria-expanded', 'true');
+      expanded = true;
+    } else {
+      var currentHeight = morePatents.scrollHeight;
+      var closeDuration = Math.min(Math.max(currentHeight / 2, 350), 700);
+      morePatents.style.opacity = '0';
+      animateHeight(morePatents, currentHeight, 0, closeDuration, function() {
+        morePatents.style.height = '0';
+        morePatents.setAttribute('aria-hidden', 'true');
+        animating = false;
+      });
+      moreButton.textContent = 'Show more';
+      moreButton.setAttribute('aria-expanded', 'false');
+      expanded = false;
+    }
+  });
+})();
+</script>

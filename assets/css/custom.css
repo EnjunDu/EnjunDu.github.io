@@ -380,6 +380,40 @@ button:focus-visible {
 }
 
 /* ---- Patents list -------------------------------------------- */
+.hb-patents-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hb-patent-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: -0.4rem 0 0.9rem;
+}
+
+.hb-patent-language-btn {
+  min-width: 7.6rem;
+  justify-content: center;
+}
+
+.hb-patent-language-glyph {
+  display: inline-grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: rgb(var(--color-primary-600));
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.dark .hb-patent-language-glyph {
+  background: rgb(var(--color-primary-400));
+  color: rgb(var(--color-neutral-950));
+}
+
 .hb-patent-item {
   margin-bottom: 1rem;
   padding: 1rem 1.25rem;
@@ -447,6 +481,17 @@ button:focus-visible {
   font-size: 0.8rem;
   font-style: italic;
   color: rgb(var(--color-neutral-500));
+}
+
+.hb-patent-more-wrap {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .hb-patent-toolbar {
+    justify-content: center;
+  }
 }
 
 .hb-toggle-btn {
