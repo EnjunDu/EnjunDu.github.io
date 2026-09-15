@@ -10,6 +10,12 @@
 section_title: "📜 Patents"
 
 patents:
+  - title: "An Audio-Video Processing Method, Apparatus, Electronic Device, and Storage Medium"
+    title_zh: "一种音视频处理方法、装置、电子设备和存储介质"
+    authors: "**Enjun Du**, Jingyu Li, Yiwen Guo"
+    note: "Chinese National Invention Patent Application No. 202611224711.6, filed August 12, 2026."
+    first_inventor: true
+
   - title: "Response Generation Method, Apparatus, Computer Device, and Storage Medium"
     title_zh: "答复生成方法、装置、计算机设备及存储介质"
     authors: "**Enjun Du**, Xinyu Zuo, Lisheng Duan, Yongqi Zhang"
