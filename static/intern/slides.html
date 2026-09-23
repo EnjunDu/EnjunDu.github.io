@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-pagefind-ignore="all">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#fcfbf8">
+  <meta name="description" content="Enjun Du — research internship slides.">
+  <title>Enjun Du · Internship Slides</title>
+  <link rel="icon" type="image/png" href="../media/icon_hu3247630877640252165.png">
+  <script>
+    (() => {
+      const root = document.documentElement;
+      let lang = new URLSearchParams(location.search).get('lang');
+      if (lang !== 'zh' && lang !== 'en') {
+        try { lang = localStorage.getItem('enjundu-slides-lang'); } catch (e) { lang = null; }
+      }
+      root.dataset.lang = lang === 'zh' ? 'zh' : 'en';
+      root.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    })();
+  </script>
+  <style>
+    :root {
+      --paper: #fcfbf8;
+      --ink: #1f2326;
+      --muted: #667075;
+      --line: rgba(31, 35, 38, .12);
+      --white: #fff;
+      --jade: #3d8a78;
+      --indigo: #5a6fb0;
+      --clay: #bd6f55;
+      --amber: #b0873b;
+      --accent: var(--jade);
+      --accent-2: #93c7b7;
+      --soft: #edf6f2;
+      --alt: var(--clay);
+      --alt-2: #ebbda7;
+      --tint: var(--indigo);
+      --ui: #3d8a78;
+      --ui-2: #93c7b7;
+      --shadow: 0 24px 70px rgba(38, 50, 46, .09);
+      --ease: cubic-bezier(.2, .8, .2, 1);
+      --sans: Inter, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      --serif: "Bodoni 72", Didot, "Bodoni MT", Georgia, "Times New Roman", serif;
+      --serif-display: "Bodoni 72 Display", "Bodoni 72", Didot, "Bodoni MT", Georgia, serif;
+      --serif-cjk: "Songti SC", STSong, "Noto Serif CJK SC", "Source Han Serif SC", SimSun, serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .theme-jade { --accent: #3d8a78; --accent-2: #93c7b7; --soft: #edf6f2; --alt: #bd6f55; --alt-2: #ebbda7; --tint: #5a6fb0; }
+    .theme-indigo { --accent: #5a6fb0; --accent-2: #a9b5e0; --soft: #eff2fa; --alt: #bd6f55; --alt-2: #ebbda7; --tint: #3d8a78; }
+    .theme-clay { --accent: #bd6f55; --accent-2: #ebbda7; --soft: #fbf1ec; --alt: #5a6fb0; --alt-2: #a9b5e0; --tint: #3d8a78; }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; }
+    body {
+      overflow: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    img { display: block; max-width: 100%; }
+    kbd { font-family: var(--mono); font-size: .92em; padding: 1px 6px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; background: rgba(255,255,255,.75); }
+
+    html[data-lang="en"] [lang="zh-CN"], html[data-lang="zh"] [lang="en"] { display: none !important; }
+    [lang="zh-CN"] { letter-spacing: 0; font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", var(--sans); }
+
+    .deck { position: relative; width: 100%; height: 100%; isolation: isolate; }
+    .deck::before {
+      content: "";
+      position: fixed;
+      inset: -22%;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 16% 16%, rgba(212,135,106,.10), transparent 25%),
+        radial-gradient(circle at 82% 80%, rgba(61,138,120,.12), transparent 27%),
+        radial-gradient(circle at 70% 12%, rgba(90,111,176,.07), transparent 22%),
+        linear-gradient(135deg, #ffffff 0%, var(--paper) 48%, #f4f7f5 100%);
+      animation: atmosphere 18s ease-in-out infinite alternate;
+    }
+    .deck::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .32;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(61,138,120,.14) .7px, transparent .7px);
+      background-size: 18px 18px;
+      mask-image: linear-gradient(to bottom right, rgba(0,0,0,.45), transparent 54%);
+    }
+    @keyframes atmosphere {
+      from { transform: translate3d(-1.2%, -.6%, 0) scale(1); }
+      to { transform: translate3d(1.4%, 1%, 0) scale(1.04); }
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: clamp(16px, 2.2vw, 30px);
+      padding: clamp(28px, 5vw, 72px) clamp(30px, 6.2vw, 94px) clamp(46px, 5vw, 70px);
+      overflow: hidden auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate3d(22px, 0, 0) scale(.992);
+      pointer-events: none;
+    }
+    .slide > * { min-width: 0; }
+    .slide.active { opacity: 1; visibility: visible; transform: none; pointer-events: auto; z-index: 2; }
+    .slide.before { transform: translate3d(-22px, 0, 0) scale(.992); }
+    .slide.active .reveal { animation: rise .3s var(--ease) both; animation-delay: calc(var(--i, 0) * 30ms + 12ms); }
+    @keyframes rise {
+      from { opacity: .62; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--accent);
+      font-size: clamp(11px, .85vw, 13.5px);
+      font-weight: 750;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 31px; height: 2px; background: currentColor; border-radius: 99px; }
+    .eyebrow [lang="zh-CN"] { letter-spacing: .14em; }
+    .slide-title {
+      max-width: 1320px;
+      margin: 12px 0 0;
+      font-size: clamp(38px, 5.2vw, 78px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      font-weight: 720;
+      text-wrap: balance;
+    }
+    .slide-title.medium { font-size: clamp(32px, 4.1vw, 62px); }
+    .slide-title [lang="zh-CN"] { letter-spacing: -.01em; line-height: 1.14; }
+    .slide-lede {
+      max-width: 960px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: clamp(16px, 1.42vw, 22px);
+      line-height: 1.5;
+      text-wrap: pretty;
+    }
+    .slide-lede b { color: var(--ink); font-weight: 650; }
+    .accent { color: var(--accent); }
+    .slide-body { min-height: 0; display: flex; align-items: center; }
+    .slide-foot {
+      width: calc(100% - 118px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(31,35,38,.55);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+    .slide-foot .links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .slide-foot a { transition: color .2s ease; }
+    .slide-foot a:hover { color: var(--accent); }
+    .page-no { font-variant-numeric: tabular-nums; }
+
+    /* Opening */
+    .hero { grid-template-rows: 1fr; padding-bottom: clamp(44px, 5vw, 70px); }
+    .hero .slide-body { display: grid; place-items: center; }
+    .opening-composition { width: min(1180px, 91vw); display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(300px, .7fr); gap: clamp(26px, 4.5vw, 68px); align-items: center; }
+    .name-stage { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: min(560px, 68vh); isolation: isolate; }
+    .name-stage::before,
+    .name-stage::after {
+      position: absolute;
+      z-index: -1;
+      color: rgba(61,138,120,.06);
+      font-family: var(--serif);
+      font-size: clamp(260px, 32vw, 480px);
+      font-style: italic;
+      line-height: .7;
+      pointer-events: none;
+    }
+    .name-stage::before { content: "E"; left: 2%; top: 4%; transform: rotate(-7deg); }
+    .name-stage::after { content: "D"; right: 2%; bottom: 2%; color: rgba(189,111,85,.06); transform: rotate(8deg); }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 10px; margin-bottom: clamp(22px, 4.5vh, 44px); color: var(--muted); font-size: clamp(11.5px, .95vw, 14px); font-weight: 650; letter-spacing: .16em; text-transform: uppercase; }
+    .hero-kicker i { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 7px rgba(61,138,120,.11); }
+    .name-lockup { position: relative; display: inline-flex; align-items: baseline; padding: .12em .18em; }
+    .name-lockup::before { content: ""; position: absolute; left: -5%; right: -5%; bottom: 7%; height: 1px; background: linear-gradient(90deg, transparent, var(--alt), var(--accent), transparent); transform: scaleX(0); animation: signature-line 1.15s .28s var(--ease) forwards; }
+    .name-lockup::after { content: ""; position: absolute; width: 13px; height: 13px; right: -5%; bottom: calc(7% - 6px); border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 10px rgba(61,138,120,.10); animation: float 5s ease-in-out infinite; }
+    .hero-name { margin: 0; font-family: var(--serif-display); font-size: clamp(78px, 11vw, 164px); line-height: .8; letter-spacing: -.06em; font-weight: 400; white-space: nowrap; }
+    .hero-name em { color: var(--accent); font-weight: 400; }
+    .hero-cn { margin: clamp(20px, 3.4vh, 32px) 0 0; font-family: var(--serif-cjk); font-size: clamp(17px, 1.6vw, 24px); letter-spacing: .6em; text-indent: .6em; color: var(--muted); }
+    .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: clamp(22px, 4vh, 38px); color: var(--muted); font-size: clamp(13px, 1.02vw, 16px); }
+    .hero-meta > span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-meta > span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--alt); }
+    .hero-orbit { position: relative; width: min(32vw, 440px); aspect-ratio: 1; justify-self: end; }
+    .hero-orbit::before, .hero-orbit::after, .orbit-line {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px solid rgba(61,138,120,.24);
+      border-radius: 46% 54% 58% 42% / 42% 44% 56% 58%;
+      animation: orbit 15s linear infinite;
+    }
+    .hero-orbit::after { inset: 20%; border-color: rgba(189,111,85,.26); animation-duration: 11s; animation-direction: reverse; }
+    .orbit-line { inset: 0; border-color: rgba(90,111,176,.16); animation-duration: 22s; }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    .portrait { position: absolute; inset: 27%; width: 46%; height: 46%; border-radius: 50%; object-fit: cover; object-position: 55% 40%; border: 8px solid rgba(255,255,255,.92); box-shadow: var(--shadow); background: #8c9195; }
+    .orbit-dot { position: absolute; width: 13px; height: 13px; border-radius: 50%; background: var(--alt); box-shadow: 0 0 0 8px rgba(189,111,85,.14); }
+    .orbit-dot.one { top: 9%; left: 28%; animation: float 4.2s ease-in-out infinite; }
+    .orbit-dot.two { right: 8%; bottom: 25%; width: 9px; height: 9px; background: var(--tint); box-shadow: 0 0 0 7px rgba(90,111,176,.12); animation: float 5.6s ease-in-out infinite reverse; }
+    @keyframes float { 50% { transform: translateY(14px); } }
+    @keyframes signature-line { to { transform: scaleX(1); } }
+    .hero-hint { position: absolute; left: 0; right: 0; bottom: clamp(20px, 3.4vh, 30px); margin: 0; text-align: center; color: rgba(31,35,38,.45); font-size: 12px; letter-spacing: .04em; pointer-events: none; }
+
+    /* Contents */
+    .agenda { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
+    .agenda-item { position: relative; display: flex; flex-direction: column; min-height: clamp(240px, 40vh, 350px); padding: clamp(20px, 2.4vw, 34px); border: 1px solid var(--line); border-top: 3px solid var(--c); background: rgba(255,255,255,.62); cursor: pointer; transition: transform .32s var(--ease), box-shadow .32s var(--ease); }
+    .agenda-item:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+    .agenda-item::after { content: "↗"; position: absolute; top: 20px; right: 20px; color: var(--c); font-size: 16px; opacity: .7; }
+    .agenda-num { color: var(--c); font-family: var(--serif); font-size: clamp(54px, 5.6vw, 88px); font-style: italic; line-height: .9; letter-spacing: -.04em; }
+    .agenda-item h3 { margin: auto 0 10px; font-size: clamp(22px, 2.1vw, 32px); line-height: 1.05; letter-spacing: -.035em; }
+    .agenda-item p { margin: 0; color: var(--muted); font-size: clamp(13px, 1vw, 16px); line-height: 1.45; }
+    .agenda-item small { margin-top: 18px; color: var(--c); font-size: 11px; font-weight: 760; letter-spacing: .14em; font-variant-numeric: tabular-nums; }
+
+    /* Profile */
+    .intro-grid { width: 100%; display: grid; grid-template-columns: minmax(280px, .84fr) minmax(0, 1.16fr); gap: clamp(26px, 5vw, 76px); align-items: center; }
+    .profile-panel { padding-left: clamp(20px, 3vw, 44px); border-left: 2px solid var(--accent); }
+    .profile-panel .big { margin: 0; font-size: clamp(23px, 2.35vw, 36px); line-height: 1.2; letter-spacing: -.03em; font-weight: 650; text-wrap: pretty; }
+    .profile-panel .big em { font-style: normal; color: var(--accent); }
+    .profile-panel .big [lang="zh-CN"] { line-height: 1.42; letter-spacing: .01em; }
+    .profile-panel p:not(.big) { margin: 18px 0 0; color: var(--muted); font-size: clamp(15px, 1.15vw, 18px); line-height: 1.55; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .tag { padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12.5px; background: rgba(255,255,255,.5); }
+    .identity-list { margin: 0; display: grid; border-top: 1px solid var(--line); }
+    .identity-row { display: grid; grid-template-columns: 96px 1fr; gap: 20px; padding: clamp(12px, 1.9vh, 18px) 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .identity-row dt { color: var(--accent); font-size: 11.5px; font-weight: 760; letter-spacing: .13em; text-transform: uppercase; }
+    .identity-row dt [lang="zh-CN"] { letter-spacing: .1em; font-size: 13px; }
+    .identity-row dd { margin: 0; font-size: clamp(16px, 1.3vw, 21px); line-height: 1.3; font-weight: 600; letter-spacing: -.01em; }
+    .identity-row dd small { display: block; margin-top: 5px; color: var(--muted); font-size: clamp(12.5px, .95vw, 15px); font-weight: 400; letter-spacing: 0; line-height: 1.45; }
+    .identity-row a { border-bottom: 1px solid rgba(61,138,120,.3); transition: color .2s, border-color .2s; }
+    .identity-row a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Experience */
+    .experience-line { width: 100%; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: stretch; position: relative; }
+    .exp-item { position: relative; min-width: 0; padding: 0 clamp(10px, 1.3vw, 20px); }
+    .exp-logo { position: relative; z-index: 1; width: 82px; height: 82px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.96); border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(38,50,46,.08); transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+    .exp-logo img { width: 54px; height: 54px; object-fit: contain; }
+    .exp-logo::after { content: ""; position: absolute; inset: -7px; border: 1px dashed rgba(61,138,120,.30); border-radius: 50%; }
+    .slide.active .exp-logo::after { animation: orbit 7s linear infinite; }
+    .exp-item:hover .exp-logo { transform: translateY(-7px) scale(1.04); box-shadow: 0 18px 42px rgba(38,50,46,.14); }
+    .exp-item:not(:last-child)::after { content: ""; position: absolute; z-index: 0; top: 40px; left: calc(82px + clamp(10px, 1.3vw, 20px) + 14px); right: 4px; height: 2px; opacity: .5; background: repeating-linear-gradient(90deg, var(--accent) 0 12px, transparent 12px 21px); background-size: 21px 2px; }
+    .slide.active .exp-item:not(:last-child)::after { animation: connector-flow .9s linear infinite; }
+    @keyframes connector-flow { to { background-position: 21px 0; } }
+    .exp-item time { display: block; margin-top: 24px; color: var(--accent); font-size: 11.5px; font-weight: 760; letter-spacing: .08em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+    .exp-item h3 { margin: 8px 0 8px; font-size: clamp(16px, 1.36vw, 22px); line-height: 1.15; letter-spacing: -.02em; }
+    .exp-item p { margin: 0; color: var(--muted); font-size: clamp(12.5px, .98vw, 15px); line-height: 1.5; }
+    .exp-item p b { color: var(--ink); font-weight: 650; }
+    .exp-item.now .exp-logo { box-shadow: 0 0 0 4px rgba(90,111,176,.12), 0 14px 34px rgba(38,50,46,.12); }
+
+    /* Output and honors */
+    .summary-grid { width: 100%; display: grid; grid-template-columns: minmax(300px, .92fr) minmax(0, 1.08fr); gap: clamp(26px, 4.5vw, 70px); align-items: center; }
+    .ring-wrap { position: relative; min-height: clamp(300px, 46vh, 400px); display: grid; place-items: center; }
+    @property --share-now { syntax: "<percentage>"; inherits: false; initial-value: 0%; }
+    .stat-ring { position: relative; width: min(26vw, 320px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; --share-now: var(--share); background: conic-gradient(var(--accent) 0 var(--share-now), rgba(189,111,85,.15) var(--share-now) 100%); box-shadow: var(--shadow); }
+    .slide.active .stat-ring { animation: ring-fill 1.2s .25s var(--ease) both; }
+    @keyframes ring-fill { from { --share-now: 0%; } to { --share-now: var(--share); } }
+    .stat-ring::before { content: ""; position: absolute; inset: 22px; border-radius: 50%; background: var(--paper); box-shadow: inset 0 0 0 1px rgba(31,35,38,.05); }
+    .stat-ring-copy { position: relative; text-align: center; }
+    .stat-ring-copy strong { display: block; font-size: clamp(64px, 7vw, 104px); line-height: .82; letter-spacing: -.06em; }
+    .stat-ring-copy span { display: block; margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.35; }
+    .ring-note { position: absolute; min-width: 138px; padding: 14px 16px; background: rgba(255,255,255,.96); border-left: 4px solid var(--accent); box-shadow: 0 15px 38px rgba(38,50,46,.10); }
+    .ring-note strong { display: block; font-size: 30px; line-height: .95; letter-spacing: -.04em; }
+    .ring-note span { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.35; }
+    .ring-note.first { right: 2%; bottom: 6%; }
+    .ring-note.patents { left: 0; top: 4%; border-color: var(--alt); }
+    .impact-list { display: grid; border-top: 1px solid var(--line); }
+    .impact-item { padding: clamp(13px, 2vh, 20px) 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 34px 1fr; gap: 16px; }
+    .impact-item i { width: 27px; height: 27px; display: grid; place-items: center; border-radius: 50%; color: white; font-style: normal; font-size: 11px; font-weight: 780; background: var(--accent); }
+    .impact-item:nth-child(even) i { background: var(--alt); }
+    .impact-item h3 { margin: 0 0 4px; font-size: clamp(17px, 1.45vw, 23px); letter-spacing: -.015em; }
+    .impact-item p { margin: 0; color: var(--muted); font-size: clamp(12.5px, 1vw, 15.5px); line-height: 1.45; }
+    .aside-note { margin-top: 18px; padding: 14px 18px; border: 1px solid var(--line); background: rgba(255,255,255,.5); color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .aside-note b { color: var(--accent); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; margin-right: 8px; }
+
+    /* Research arc */
+    .arc { width: 100%; display: grid; grid-template-columns: .84fr .84fr .84fr 1.48fr; gap: 12px; align-items: stretch; padding-top: 14px; }
+    .arc-step { position: relative; min-height: clamp(250px, 38vh, 330px); padding: clamp(18px, 2.1vw, 30px); border: 1px solid var(--line); background: rgba(255,255,255,.55); display: flex; flex-direction: column; overflow: hidden; cursor: pointer; transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+    .arc-step::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--c); opacity: .6; }
+    .arc-step:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .arc-step small { color: var(--muted); font-size: 11px; font-weight: 740; letter-spacing: .1em; text-transform: uppercase; }
+    .arc-step h3 { margin: auto 0 8px; font-size: clamp(19px, 1.8vw, 28px); line-height: 1.04; letter-spacing: -.035em; }
+    .arc-step p { margin: 0; color: var(--muted); font-size: clamp(12.5px, .98vw, 15.5px); line-height: 1.42; }
+    .papers { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 0; }
+    .papers li { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 6px 0; border-top: 1px solid var(--line); font-size: 12.5px; }
+    .papers b { font-weight: 700; }
+    .papers span { color: var(--c); font-weight: 650; white-space: nowrap; font-size: 11.5px; }
+    .arc-step.focus { border-color: rgba(61,138,120,.4); background: linear-gradient(145deg, rgba(237,246,242,.92), rgba(255,255,255,.94)); box-shadow: var(--shadow); transform: translateY(-14px); }
+    .arc-step.focus:hover { transform: translateY(-18px); }
+    .arc-step.focus::before { width: 7px; opacity: 1; }
+    .arc-step.focus h3 { font-size: clamp(30px, 2.9vw, 46px); }
+    .arc-step .thread { margin-top: 14px; color: var(--c); font-size: clamp(14px, 1.2vw, 18px); font-weight: 650; }
+
+    /* OST stream */
+    .stream-layout { width: 100%; display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(240px, .48fr); gap: clamp(20px, 3vw, 46px); align-items: center; }
+    .stream { position: relative; display: grid; gap: 8px; padding: clamp(22px, 2.2vw, 30px) clamp(14px, 1.6vw, 22px) clamp(14px, 1.6vw, 22px); background: rgba(255,255,255,.74); border: 1px solid var(--line); box-shadow: 0 18px 48px rgba(38,50,46,.06); }
+    .stream-q { position: absolute; top: -13px; left: 18px; padding: 5px 13px; border-radius: 99px; background: var(--ink); color: #fff; font-size: 12px; font-weight: 650; letter-spacing: .02em; }
+    .stream-row { display: grid; grid-template-columns: 94px repeat(3, minmax(0, 1fr)); gap: 8px; align-items: stretch; }
+    .stream-row.head b { padding: 0 4px; color: var(--muted); font-size: 11px; font-weight: 760; letter-spacing: .1em; font-variant-numeric: tabular-nums; }
+    .lane { display: flex; align-items: center; color: var(--muted); font-size: 10.5px; font-weight: 780; letter-spacing: .11em; text-transform: uppercase; }
+    .lane [lang="zh-CN"] { font-size: 12.5px; letter-spacing: .06em; }
+    .stream-row.naive .lane { color: var(--clay); }
+    .stream-row.ost .lane { color: var(--jade); }
+    .cell { position: relative; min-height: clamp(50px, 7.2vh, 64px); display: flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--line); background: #fff; font-size: clamp(11.5px, .9vw, 14px); line-height: 1.35; }
+    .cell b { font-weight: 750; }
+    .slide.active .stream .cell { animation: cell-in .5s var(--ease) both; animation-delay: calc(var(--c) * .55s + .3s); }
+    @keyframes cell-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .cell.screen { justify-content: center; background: #f3f5f4; }
+    .gate { display: inline-flex; align-items: baseline; gap: 6px; padding: 5px 11px; border-radius: 4px; background: #1d2a30; color: #f2c14e; font-size: 13px; font-weight: 800; letter-spacing: .12em; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+    .gate i { font-style: normal; font-size: 10px; letter-spacing: .16em; opacity: .8; }
+    .cell.wave { flex-direction: column; align-items: stretch; justify-content: center; gap: 4px; color: var(--muted); }
+    .cell.wave svg { width: 100%; height: 20px; }
+    .cell.wave polyline { fill: none; stroke: #9aa3a8; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .cell.wave.loud { color: var(--ink); font-weight: 650; }
+    .cell.wave.loud polyline { stroke: var(--indigo); stroke-width: 2; }
+    .stream-row.naive .cell { background: #fdf7f4; border-color: rgba(189,111,85,.22); }
+    .stream-row.ost .cell { background: var(--soft); border-color: rgba(61,138,120,.26); }
+    .stream-row .cell.bad { background: #fbe8e1; border-color: rgba(189,111,85,.45); color: #9c4a33; font-weight: 650; }
+    .stream-row .cell.good { background: #dcefe7; border-color: rgba(61,138,120,.5); color: #2b6a5b; font-weight: 650; }
+    .neq-card { padding: 8px 0 8px clamp(18px, 2vw, 28px); border-left: 3px solid var(--accent); }
+    .neq { display: block; color: var(--accent); font-family: var(--serif); font-size: clamp(64px, 7vw, 110px); line-height: .8; }
+    .neq-card h3 { margin: 16px 0 12px; font-size: clamp(20px, 1.85vw, 29px); line-height: 1.1; letter-spacing: -.03em; }
+    .neq-card h3 [lang="zh-CN"] { line-height: 1.3; }
+    .neq-card p { margin: 0; color: var(--muted); font-size: clamp(13px, 1.02vw, 16px); line-height: 1.5; }
+
+    /* Figures and method notes */
+    .method-grid { width: 100%; display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(270px, .5fr); gap: clamp(20px, 3vw, 46px); align-items: center; }
+    .method-grid.stacked { grid-template-columns: minmax(0, 1fr); gap: clamp(14px, 2.2vh, 24px); }
+    .method-grid.stacked .media-frame { justify-self: center; }
+    .method-grid.stacked .media-frame img { max-height: min(41vh, 470px); }
+    .method-grid.stacked .method-notes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .media-frame { position: relative; display: block; background: white; border: 1px solid var(--line); box-shadow: var(--shadow); padding: clamp(8px, .9vw, 14px); }
+    .media-frame img { width: 100%; height: auto; max-height: min(52vh, 580px); object-fit: contain; }
+    .zoomable { cursor: zoom-in; }
+    .zoomable::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(255,255,255,.94) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f2326' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.2'/%3E%3Cpath d='m19.5 19.5-4.3-4.3M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 15px no-repeat;
+      box-shadow: 0 6px 16px rgba(38,50,46,.10);
+      opacity: 0;
+      transform: scale(.9);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .zoomable:hover::after, .zoomable:focus-visible::after { opacity: 1; transform: scale(1); }
+    .method-notes { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .method-note { padding: clamp(12px, 2.3vh, 23px) clamp(14px, 1.55vw, 23px); background: rgba(252,251,248,.97); }
+    .method-note b { color: var(--accent); font-size: 11.5px; font-weight: 780; letter-spacing: .1em; text-transform: uppercase; }
+    .method-note h3 { margin: 7px 0 6px; font-size: clamp(17px, 1.55vw, 24px); line-height: 1.12; letter-spacing: -.02em; }
+    .method-note p { margin: 0; color: var(--muted); font-size: clamp(12.5px, .96vw, 15px); line-height: 1.45; }
+    .method-note sub, .comparison-note sub { font-size: .7em; }
+    .method-note h3.formula { font-family: var(--serif); font-size: clamp(15px, 1.3vw, 20px); font-weight: 400; letter-spacing: 0; line-height: 1.3; }
+
+    /* OST-DiagBench */
+    .diag-wrap { width: 100%; display: grid; gap: clamp(12px, 2vh, 20px); }
+    .diag-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .diag { margin: 0; display: flex; flex-direction: column; border: 1px solid var(--line); background: rgba(255,255,255,.8); overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s; }
+    .diag.is-audible { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(61,138,120,.16), var(--shadow); transform: translateY(-5px); }
+    .diag-media { position: relative; aspect-ratio: 16 / 10; background: #e7ebe9; cursor: pointer; overflow: hidden; }
+    .diag-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .diag-tag { position: absolute; left: 9px; top: 9px; padding: 4px 9px; background: rgba(31,35,38,.78); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .14em; backdrop-filter: blur(6px); }
+    .diag-sound { position: absolute; right: 9px; bottom: 9px; width: 36px; height: 36px; border: 0; border-radius: 50%; display: grid; place-items: center; background: rgba(31,35,38,.72); color: #fff; cursor: pointer; backdrop-filter: blur(6px); transition: background .2s ease, transform .2s ease; }
+    .diag-media:hover .diag-sound { transform: scale(1.08); }
+    .diag.is-audible .diag-sound { background: var(--accent); }
+    .diag-sound svg { width: 18px; height: 18px; }
+    .diag-sound .on, .diag.is-audible .diag-sound .off { display: none; }
+    .diag.is-audible .diag-sound .on { display: block; }
+    .diag figcaption { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 11px 13px 13px; }
+    .diag-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: clamp(12.5px, .98vw, 15px); font-weight: 650; }
+    .verdict { flex-shrink: 0; padding: 3px 9px; border-radius: 99px; font-size: 11px; font-weight: 760; white-space: nowrap; }
+    .verdict.ok { color: #2b6a5b; background: #dcefe7; }
+    .verdict.bad { color: #9c4a33; background: #fbe4db; }
+    .verdict.warn { color: #87601a; background: #f8edd5; }
+    .diag q { color: var(--muted); font-family: var(--serif); font-size: clamp(13px, 1.02vw, 16px); font-style: italic; line-height: 1.35; quotes: none; }
+    .diag-note { margin: 0; color: var(--muted); font-size: 12px; }
+    .stat-band { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 28px; padding-top: clamp(12px, 2vh, 18px); border-top: 1px solid var(--line); }
+    .band-stat { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 14px; }
+    .band-stat strong { color: var(--accent); font-size: clamp(30px, 3vw, 46px); line-height: .9; letter-spacing: -.05em; white-space: nowrap; }
+    .band-stat strong small { font-family: var(--serif); font-size: .56em; font-style: italic; letter-spacing: 0; margin-left: 2px; }
+    .band-stat:nth-child(2) strong { color: var(--alt); }
+    .band-stat:nth-child(3) strong { color: var(--tint); }
+    .band-stat span { color: var(--muted); font-size: clamp(12px, .92vw, 14.5px); line-height: 1.4; }
+
+    /* MARS */
+    .failure-layout { width: 100%; display: grid; gap: clamp(14px, 2.4vh, 26px); }
+    .failure-layout .media-frame img { max-height: min(38vh, 420px); margin: 0 auto; }
+    .failure-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .failure { padding: clamp(13px, 1.5vw, 20px); border-top: 3px solid var(--c); background: rgba(255,255,255,.64); }
+    .failure b { color: var(--c); font-size: 12px; font-weight: 800; letter-spacing: .1em; }
+    .failure h3 { margin: 5px 0 6px; font-size: clamp(16px, 1.42vw, 22px); line-height: 1.12; letter-spacing: -.02em; }
+    .failure p { margin: 0; color: var(--muted); font-size: clamp(12.5px, .96vw, 15px); line-height: 1.42; }
+    .comparison-layout { width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 310px); gap: clamp(18px, 2.6vw, 40px); align-items: center; }
+    .comparison-note { border-left: 3px solid var(--accent); padding: 4px 0 4px 22px; }
+    .comparison-note h3 { margin: 0 0 12px; color: var(--accent); font-size: clamp(36px, 3.6vw, 56px); line-height: .92; letter-spacing: -.05em; }
+    .comparison-note h3 small { margin-left: 6px; color: var(--ink); font-size: 14px; font-weight: 650; letter-spacing: 0; }
+    .comparison-note p { margin: 0; color: var(--muted); font-size: clamp(13px, 1vw, 15.5px); line-height: 1.5; }
+    .metric-list { margin: 18px 0 0; display: grid; border-top: 1px solid var(--line); }
+    .metric-list div { display: grid; grid-template-columns: 58px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .metric-list dt { color: var(--accent); font-family: var(--mono); font-size: 12px; font-weight: 700; }
+    .metric-list dd { margin: 0; font-size: 13px; line-height: 1.35; }
+
+    /* EviRank */
+    .results-trio { width: 100%; display: grid; grid-template-columns: minmax(0, 1.36fr) minmax(0, .86fr) minmax(220px, .68fr); gap: clamp(14px, 2vw, 28px); align-items: center; }
+    .results-trio .media-frame img { max-height: min(46vh, 500px); margin: 0 auto; }
+    .result-stats { display: grid; gap: 12px; }
+    .result-stat { padding: clamp(12px, 1.6vw, 18px) 18px; border-left: 4px solid var(--accent); background: rgba(255,255,255,.74); }
+    .result-stat:nth-child(2) { border-color: var(--alt); }
+    .result-stat:nth-child(3) { border-color: var(--tint); }
+    .result-stat strong { display: block; font-size: clamp(30px, 3vw, 46px); line-height: .9; letter-spacing: -.05em; }
+    .result-stat span { display: block; margin-top: 8px; color: var(--muted); font-size: clamp(12px, .92vw, 14px); line-height: 1.42; }
+
+    /* Graph foundations */
+    .project-trio { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 26px); align-items: stretch; }
+    .project-card { display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--line); background: rgba(255,255,255,.74); box-shadow: 0 18px 48px rgba(38,50,46,.06); overflow: hidden; transition: transform .32s var(--ease), box-shadow .32s var(--ease); }
+    .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+    .project-card__media { position: relative; display: grid; place-items: center; height: clamp(140px, 23vh, 220px); padding: 10px; background: #fff; border-bottom: 1px solid var(--line); }
+    .project-card__media img { width: 100%; height: 100%; object-fit: contain; }
+    .project-card__copy { display: flex; flex-direction: column; padding: clamp(16px, 1.8vw, 26px); }
+    .project-card__copy small { color: var(--c); font-size: 11.5px; font-weight: 760; letter-spacing: .1em; text-transform: uppercase; }
+    .project-card__copy h3 { margin: 8px 0 8px; font-size: clamp(24px, 2.2vw, 34px); line-height: 1; letter-spacing: -.04em; }
+    .project-card__copy p { margin: 0; color: var(--muted); font-size: clamp(12.5px, 1vw, 15.5px); line-height: 1.48; }
+    .card-link { margin-top: auto; padding-top: 14px; color: var(--c); font-size: 13px; font-weight: 720; }
+    .card-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Plan */
+    .lesson-grid { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 34px); }
+    .lesson { min-height: clamp(250px, 38vh, 320px); padding: clamp(22px, 2.8vw, 40px); border-top: 2px solid var(--c); background: rgba(255,255,255,.5); display: flex; flex-direction: column; }
+    .lesson-num { color: var(--c); font-family: var(--serif); font-size: clamp(40px, 3.6vw, 58px); font-style: italic; line-height: .9; }
+    .lesson h3 { margin: auto 0 14px; font-size: clamp(22px, 2.2vw, 34px); line-height: 1.08; letter-spacing: -.035em; }
+    .lesson p { margin: 0; color: var(--muted); font-size: clamp(13.5px, 1.1vw, 17px); line-height: 1.55; }
+
+    /* Closing */
+    .closing { grid-template-rows: 1fr; }
+    .closing .slide-body { display: grid; place-items: center; text-align: center; }
+    .closing-wrap { display: grid; place-items: center; }
+    .closing h1 { margin: 0; font-family: var(--serif-display); font-size: clamp(76px, 13vw, 190px); font-weight: 400; font-style: italic; line-height: .8; letter-spacing: -.06em; }
+    .closing h1 [lang="zh-CN"] { font-family: var(--serif-cjk); font-size: .56em; font-style: normal; font-weight: 500; letter-spacing: .12em; line-height: 1.1; }
+    .closing-summary { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; margin-top: 44px; color: var(--muted); font-size: clamp(12.5px, 1vw, 16px); letter-spacing: .08em; text-transform: uppercase; }
+    .closing-summary span { position: relative; }
+    .closing-summary span:not(:last-child)::after { content: ""; position: absolute; right: -15px; top: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--alt); }
+    .closing-name { margin-top: 26px; color: var(--accent); font-size: 13px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
+    .closing-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: 16px; color: var(--muted); font-size: 13px; }
+    .closing-links a { border-bottom: 1px solid var(--line); transition: color .2s, border-color .2s; }
+    .closing-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Controls */
+    .deck-ui { position: fixed; inset: 0; z-index: 20; pointer-events: none; }
+    .topbar { position: absolute; top: 18px; right: 24px; display: flex; align-items: center; gap: 14px; pointer-events: auto; }
+    .slide-count { color: rgba(31,35,38,.55); font-size: 12px; font-variant-numeric: tabular-nums; }
+    .lang-toggle { height: 28px; padding: 0 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.72); font-size: 12px; font-weight: 650; cursor: pointer; backdrop-filter: blur(10px); transition: color .2s ease, background .2s ease, border-color .2s ease; }
+    .lang-toggle:hover { color: #fff; background: var(--ui); border-color: var(--ui); }
+    .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(31,35,38,.07); }
+    .progress span { display: block; width: 100%; height: 100%; transform-origin: left center; transform: scaleX(0); background: linear-gradient(90deg, var(--ui), var(--ui-2)); transition: transform .55s var(--ease); }
+    .controls { position: absolute; right: 26px; bottom: 22px; display: flex; gap: 8px; pointer-events: auto; }
+    .control { width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.68); cursor: pointer; backdrop-filter: blur(10px); transition: .22s ease; }
+    .control:hover:not(:disabled) { color: white; background: var(--ui); border-color: var(--ui); transform: translateY(-2px); }
+    .control:disabled { opacity: .32; cursor: default; }
+    .nav-dots { position: absolute; left: 28px; bottom: 24px; display: flex; align-items: center; gap: 6px; pointer-events: auto; }
+    .nav-dot { width: 14px; height: 5px; padding: 0; border: 0; border-radius: 99px; background: rgba(31,35,38,.16); cursor: pointer; transition: .3s var(--ease); }
+    .nav-dot:hover { background: rgba(31,35,38,.32); }
+    .nav-dot.section-start { margin-left: 10px; }
+    .nav-dot.active { width: 34px; background: var(--ui); }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--ui); outline-offset: 3px; }
+
+    .lightbox { position: fixed; inset: 0; z-index: 50; display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; align-items: center; gap: 12px; padding: 3.5vh 3vw 2.5vh; background: rgba(252,251,248,.95); backdrop-filter: blur(12px); cursor: zoom-out; animation: lightbox-in .22s ease both; }
+    .lightbox[hidden] { display: none; }
+    .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .lightbox-bar { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 12px; }
+    .lightbox-bar a { color: var(--ui); font-weight: 700; cursor: pointer; }
+    @keyframes lightbox-in { from { opacity: 0; } to { opacity: 1; } }
+
+    @media screen and (max-width: 1100px) {
+      .opening-composition { grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); gap: 24px; }
+      .hero-orbit { width: min(38vw, 380px); }
+      .experience-line { grid-template-columns: repeat(5, 200px); overflow-x: auto; padding: 8px 0 16px; }
+      .arc { grid-template-columns: repeat(4, minmax(210px, 1fr)); overflow-x: auto; padding: 18px 4px 22px; }
+      .arc-step.focus { transform: none; }
+      .comparison-layout, .results-trio { grid-template-columns: 1fr 1fr; }
+      .comparison-note, .result-stats { grid-column: 1 / -1; }
+      .result-stats { grid-template-columns: repeat(3, 1fr); }
+      .stream-layout { grid-template-columns: 1fr; }
+      .neq-card { display: grid; grid-template-columns: auto 1fr; gap: 0 20px; align-items: center; }
+      .neq-card .neq { grid-row: span 2; }
+      .neq-card h3 { margin: 0 0 6px; }
+      .diag-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .diag-media { aspect-ratio: 16 / 8; }
+    }
+
+    @media screen and (max-height: 820px) and (min-width: 721px) {
+      .slide { padding: 46px clamp(52px, 6vw, 88px) 50px; gap: 14px; }
+      .slide-title.medium { font-size: clamp(30px, 3.5vw, 50px); }
+      .slide-lede { margin-top: 10px; font-size: clamp(15px, 1.2vw, 18px); }
+      .method-note { padding: 12px 16px; }
+      .method-note h3 { margin: 4px 0; font-size: clamp(16px, 1.4vw, 21px); }
+      .method-note p { font-size: 12.5px; }
+      .media-frame img { max-height: 47vh; }
+      .failure-layout .media-frame img { max-height: 31vh; }
+      .results-trio .media-frame img { max-height: 42vh; }
+      .name-stage { min-height: 62vh; }
+      .hero-orbit { width: min(30vw, 330px); }
+      .agenda-item { min-height: 36vh; }
+      .identity-row { padding: 10px 0; }
+      .impact-item { padding: 11px 0; }
+      .ring-wrap { min-height: 44vh; }
+      .stat-ring { width: min(24vw, 270px); }
+      .arc-step { min-height: 36vh; }
+      .cell { min-height: 46px; padding: 7px 10px; }
+      .stream { gap: 6px; }
+      .diag-media { aspect-ratio: 16 / 8.4; }
+      .diag figcaption { padding: 9px 11px 10px; gap: 4px; }
+      .project-card__media { height: 21vh; }
+      .lesson { min-height: 34vh; }
+    }
+
+    @media screen and (max-width: 720px) {
+      .slide { grid-template-rows: auto auto auto; align-content: start; padding: 64px 22px 76px; gap: 20px; }
+      .hero, .closing { grid-template-rows: 1fr; align-content: stretch; }
+      .slide-body { min-height: auto; align-items: flex-start; }
+      .opening-composition { display: block; width: 100%; }
+      .name-stage { min-height: 70vh; }
+      .hero-orbit { position: absolute; width: 190px; right: -36px; top: 66px; opacity: .34; }
+      .hero-name { font-size: clamp(58px, 18vw, 86px); }
+      .hero-hint { display: none; }
+      .slide-title { font-size: 38px; }
+      .slide-title.medium { font-size: 31px; }
+      .slide-lede { font-size: 15.5px; }
+      .slide-foot { width: calc(100% - 100px); }
+      .agenda, .intro-grid, .summary-grid, .method-grid, .comparison-layout, .results-trio, .project-trio, .lesson-grid, .stat-band, .failure-row { grid-template-columns: 1fr; }
+      .agenda-item { min-height: 0; }
+      .agenda-item h3 { margin-top: 18px; }
+      .identity-row { grid-template-columns: 74px 1fr; gap: 14px; }
+      .ring-wrap { min-height: 330px; }
+      .stat-ring { width: 230px; }
+      .result-stats { grid-template-columns: 1fr; }
+      .arc { grid-template-columns: repeat(4, 240px); }
+      .stream { overflow-x: auto; }
+      .stream-row { grid-template-columns: 70px repeat(3, 150px); }
+      .diag-grid { grid-template-columns: 1fr 1fr; }
+      .diag-media { aspect-ratio: 4 / 3; }
+      .method-notes, .method-grid.stacked .method-notes { grid-template-columns: 1fr; }
+      .lesson { min-height: 0; }
+      .lesson h3 { margin-top: 22px; }
+      .closing h1 { font-size: clamp(54px, 17vw, 82px); }
+      .nav-dots { display: none; }
+      .controls { right: 16px; bottom: 16px; }
+      .topbar { top: 14px; right: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+
+    @media print {
+      @page { size: 1600px 900px; margin: 0; }
+      html, body { width: 1600px; height: auto; overflow: visible; background: var(--paper); }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .deck { height: auto; }
+      .deck::before, .deck::after, .deck-ui, .hero-hint, .lightbox, .diag-sound, .zoomable::after { display: none !important; }
+      .slide { position: relative; inset: auto; width: 1600px; height: 900px; opacity: 1; visibility: visible; transform: none; overflow: hidden; break-after: page; page-break-after: always; background: linear-gradient(135deg, #ffffff 0%, var(--paper) 55%, #f4f7f5 100%); }
+      .slide *, .slide *::before, .slide *::after { animation: none !important; transition: none !important; }
+      .name-lockup::before { transform: scaleX(1); }
+    }
+  </style>
+</head>
+<body data-pagefind-ignore="all">
+  <main class="deck" id="deck">
+
+    <section class="slide hero theme-jade active" data-title="Opening" data-section="0">
+      <div class="slide-body">
+        <div class="opening-composition">
+          <div class="name-stage">
+            <div class="hero-kicker reveal" style="--i:0"><i></i><span lang="en">Internship interview</span><span lang="zh-CN">实习面试</span></div>
+            <div class="name-lockup reveal" style="--i:1"><h1 class="hero-name">Enjun <em>Du</em></h1></div>
+            <p class="hero-cn reveal" style="--i:2">杜恩俊</p>
+            <div class="hero-meta reveal" style="--i:3">
+              <span><span lang="en">PhD Student · HKU</span><span lang="zh-CN">香港大学 · 博士生</span></span>
+              <span><span lang="en">Visiting Scholar · HKUST(GZ)</span><span lang="zh-CN">港科大（广州）· 访问学者</span></span>
+              <span><span lang="en">Research Intern · Tencent</span><span lang="zh-CN">腾讯 · 研究实习生</span></span>
+            </div>
+          </div>
+          <div class="hero-orbit reveal" style="--i:2" aria-hidden="true">
+            <span class="orbit-line"></span>
+            <span class="orbit-dot one"></span>
+            <span class="orbit-dot two"></span>
+            <img class="portrait" src="assets/portrait.webp" alt="" width="460" height="460" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+      <p class="hero-hint reveal" style="--i:5">
+        <span lang="en"><kbd>←</kbd> <kbd>→</kbd> or swipe to navigate · <kbd>F</kbd> full screen · <kbd>L</kbd> 中文</span>
+        <span lang="zh-CN"><kbd>←</kbd> <kbd>→</kbd> 或滑动翻页 · <kbd>F</kbd> 全屏 · <kbd>L</kbd> English</span>
+      </p>
+    </section>
+
+    <section class="slide theme-indigo" data-title="Contents" data-section="0">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">Contents</span><span lang="zh-CN">目录</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Three parts, <span class="accent">one research story.</span></span><span lang="zh-CN">三个部分，<span class="accent">一条研究主线。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <nav class="agenda reveal" style="--i:2" aria-label="Contents">
+          <a class="agenda-item" style="--c: var(--jade)" data-go="Profile">
+            <span class="agenda-num">01</span>
+            <h3><span lang="en">Profile</span><span lang="zh-CN">学业情况</span></h3>
+            <p><span lang="en">Education, experience, publications and honors.</span><span lang="zh-CN">教育背景、实习经历、学术成果与荣誉。</span></p>
+            <small data-range="1"></small>
+          </a>
+          <a class="agenda-item" style="--c: var(--indigo)" data-go="Research arc">
+            <span class="agenda-num">02</span>
+            <h3><span lang="en">Research</span><span lang="zh-CN">研究经历</span></h3>
+            <p>OST · MARS · EviRank · <span lang="en">graph reasoning</span><span lang="zh-CN">图推理</span></p>
+            <small data-range="2"></small>
+          </a>
+          <a class="agenda-item" style="--c: var(--clay)" data-go="Plan">
+            <span class="agenda-num">03</span>
+            <h3><span lang="en">Plan</span><span lang="zh-CN">未来规划</span></h3>
+            <p><span lang="en">Availability and the problems I want to work on.</span><span lang="zh-CN">实习时间安排与希望深入的研究方向。</span></p>
+            <small data-range="3"></small>
+          </a>
+        </nav>
+      </div>
+      <div class="slide-foot"><span>Enjun Du · enjundu.com</span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-jade" data-title="Profile" data-section="1">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">01 · Profile</span><span lang="zh-CN">01 · 学业情况</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Multimodal reasoning, <span class="accent">grounded in evidence.</span></span><span lang="zh-CN">多模态推理，<span class="accent">以证据为锚。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="intro-grid">
+          <div class="profile-panel reveal" style="--i:2">
+            <p class="big"><span lang="en">I study how models understand <em>video, audio and images</em> — and how they can show the evidence behind every answer.</span><span lang="zh-CN">我关注模型如何理解<em>视频、音频与图像</em>，并让每一个回答都能给出可核验的证据。</span></p>
+            <p><span lang="en">Interests: video understanding, video generation and world models.</span><span lang="zh-CN">研究兴趣：视频理解、视频生成、世界模型。</span></p>
+            <div class="tag-row">
+              <span class="tag"><span lang="en">Streaming omni-modal reasoning</span><span lang="zh-CN">流式全模态推理</span></span>
+              <span class="tag"><span lang="en">Agentic MLLMs</span><span lang="zh-CN">多模态智能体</span></span>
+              <span class="tag"><span lang="en">Multimodal retrieval</span><span lang="zh-CN">多模态检索</span></span>
+              <span class="tag"><span lang="en">Graph reasoning</span><span lang="zh-CN">图推理</span></span>
+              <span class="tag">IELTS 6.5</span>
+            </div>
+          </div>
+          <dl class="identity-list reveal" style="--i:3">
+            <div class="identity-row">
+              <dt><span lang="en">PhD</span><span lang="zh-CN">博士</span></dt>
+              <dd><span lang="en">The University of Hong Kong</span><span lang="zh-CN">香港大学</span>
+                <small><span lang="en">Computing &amp; Data Science · 2026 — 2030 · Advisor: Prof. Difan Zou</span><span lang="zh-CN">计算与数据科学 · 2026 — 2030 · 导师：Difan Zou 教授</span></small></dd>
+            </div>
+            <div class="identity-row">
+              <dt><span lang="en">Visiting</span><span lang="zh-CN">访问</span></dt>
+              <dd><span lang="en">HKUST (Guangzhou)</span><span lang="zh-CN">香港科技大学（广州）</span>
+                <small><span lang="en">Visiting Research Scholar · 2024.07 — 2027.10 · Advisor: Prof. Yongqi Zhang</span><span lang="zh-CN">访问研究学者 · 2024.07 — 2027.10 · 导师：张永祺 教授</span></small></dd>
+            </div>
+            <div class="identity-row">
+              <dt><span lang="en">B.S.</span><span lang="zh-CN">本科</span></dt>
+              <dd><span lang="en">Beijing Institute of Technology</span><span lang="zh-CN">北京理工大学</span>
+                <small><span lang="en">Cyberspace Science &amp; Technology · 2022 — 2026 · 92.6 / 100, top 1%</span><span lang="zh-CN">网络空间安全 · 2022 — 2026 · 92.6 / 100，前 1%</span></small></dd>
+            </div>
+            <div class="identity-row">
+              <dt><span lang="en">Industry</span><span lang="zh-CN">实习</span></dt>
+              <dd><span lang="en">Tencent · Research Intern</span><span lang="zh-CN">腾讯 · 研究实习生</span>
+                <small><span lang="en">Qingyun Program @ LightSpeed (2026.06 —) · YuanBao Multimodal (2025.10 — 2026.06)</span><span lang="zh-CN">青云计划 · 光子学习发展组（2026.06 至今）· 元宝多模态算法组（2025.10 — 2026.06）</span></small></dd>
+            </div>
+            <div class="identity-row">
+              <dt><span lang="en">Contact</span><span lang="zh-CN">联系</span></dt>
+              <dd><a href="mailto:enjundu.cs@gmail.com">enjundu.cs@gmail.com</a>
+                <small><a href="https://enjundu.com/" target="_blank" rel="noopener">enjundu.com</a> · <a href="https://scholar.google.com/citations?hl=en&amp;user=PvBvdgQAAAAJ" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://github.com/EnjunDu" target="_blank" rel="noopener">GitHub</a></small></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">Profile</span><span lang="zh-CN">个人概况</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-indigo" data-title="Experience" data-section="1">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">01 · Experience</span><span lang="zh-CN">01 · 教育与实习</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Academia and industry,<br><span class="accent">in parallel.</span></span><span lang="zh-CN">学术与工业，<br><span class="accent">双线并行。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="experience-line reveal" style="--i:2">
+          <article class="exp-item">
+            <div class="exp-logo"><img src="assets/logos/bit.webp" alt="Beijing Institute of Technology" width="240" height="240"></div>
+            <time>2022 — 2026</time>
+            <h3><span lang="en">Beijing Institute of Technology</span><span lang="zh-CN">北京理工大学</span></h3>
+            <p><span lang="en">B.S. Cyberspace Science<br><b>Top 1%</b> · Xu Teli Scholarship</span><span lang="zh-CN">网络空间安全 本科<br><b>前 1%</b> · 徐特立奖学金</span></p>
+          </article>
+          <article class="exp-item">
+            <div class="exp-logo"><img src="assets/logos/hkust.webp" alt="HKUST (Guangzhou)" width="240" height="240"></div>
+            <time>2024.07 — 2027.10</time>
+            <h3><span lang="en">HKUST (Guangzhou)</span><span lang="zh-CN">香港科技大学（广州）</span></h3>
+            <p><span lang="en">Visiting Research Scholar<br>with Prof. Yongqi Zhang</span><span lang="zh-CN">访问研究学者<br>导师 张永祺</span></p>
+          </article>
+          <article class="exp-item">
+            <div class="exp-logo"><img src="assets/logos/yuanbao.webp" alt="Tencent YuanBao" width="240" height="240"></div>
+            <time>2025.10 — 2026.06</time>
+            <h3><span lang="en">Tencent YuanBao</span><span lang="zh-CN">腾讯元宝</span></h3>
+            <p><span lang="en">Multimodal Algorithm Group<br>Research Intern · <b>EviRank, MARS</b></span><span lang="zh-CN">多模态算法组 研究实习生<br>多模态检索 · <b>EviRank、MARS</b></span></p>
+          </article>
+          <article class="exp-item now">
+            <div class="exp-logo"><img src="assets/logos/qingyun.webp" alt="Tencent Qingyun Program" width="240" height="240"></div>
+            <time><span lang="en">2026.06 — now</span><span lang="zh-CN">2026.06 — 至今</span></time>
+            <h3><span lang="en">Tencent Qingyun Program</span><span lang="zh-CN">腾讯青云计划</span></h3>
+            <p><span lang="en">LightSpeed · Research Intern<br>Streaming omni-modal video</span><span lang="zh-CN">光子学习发展组 研究实习生<br>流式全模态视频理解</span></p>
+          </article>
+          <article class="exp-item">
+            <div class="exp-logo"><img src="assets/logos/hku.webp" alt="The University of Hong Kong" width="240" height="240"></div>
+            <time>2026.09 — 2030</time>
+            <h3><span lang="en">The University of Hong Kong</span><span lang="zh-CN">香港大学</span></h3>
+            <p><span lang="en">PhD, Computing &amp; Data Science<br>with Prof. Difan Zou</span><span lang="zh-CN">计算与数据科学 博士<br>导师 Difan Zou</span></p>
+          </article>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">Education &amp; internships</span><span lang="zh-CN">教育与实习经历</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-clay" data-title="Output" data-section="1">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">01 · Output &amp; honors</span><span lang="zh-CN">01 · 学术成果与荣誉</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">19 papers, <span class="accent">6 as first author.</span></span><span lang="zh-CN">19 篇论文，<span class="accent">6 篇第一作者。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="summary-grid">
+          <div class="ring-wrap reveal" style="--i:2" role="img" aria-label="19 papers published or submitted, 6 as first author; 6 invention patents, 2 as first inventor">
+            <div class="stat-ring" style="--share: 31.6%">
+              <div class="stat-ring-copy"><strong>19</strong><span lang="en">papers published<br>or submitted</span><span lang="zh-CN">篇论文<br>已发表 / 在投</span></div>
+            </div>
+            <div class="ring-note patents"><strong>6</strong><span lang="en">invention patents<br>2 as first inventor</span><span lang="zh-CN">项发明专利<br>2 项第一发明人</span></div>
+            <div class="ring-note first"><strong>6</strong><span lang="en">first-author<br>papers</span><span lang="zh-CN">篇第一作者<br>论文</span></div>
+          </div>
+          <div class="reveal" style="--i:3">
+            <div class="impact-list">
+              <div class="impact-item"><i>01</i><div><h3><span lang="en">Xu Teli Scholarship</span><span lang="zh-CN">徐特立奖学金</span></h3><p><span lang="en">Highest honor at Beijing Institute of Technology · RMB 50,000</span><span lang="zh-CN">北京理工大学最高荣誉 · 5 万元</span></p></div></div>
+              <div class="impact-item"><i>02</i><div><h3><span lang="en">National Scholarship</span><span lang="zh-CN">国家奖学金</span></h3><p><span lang="en">China's highest undergraduate honor · top 0.2%</span><span lang="zh-CN">本科生最高荣誉 · 前 0.2%</span></p></div></div>
+              <div class="impact-item"><i>03</i><div><h3><span lang="en">Beijing Outstanding Graduate</span><span lang="zh-CN">北京市优秀毕业生</span></h3><p><span lang="en">Also Outstanding Graduate of Beijing Institute of Technology</span><span lang="zh-CN">同时获评北京理工大学优秀毕业生</span></p></div></div>
+              <div class="impact-item"><i>04</i><div><h3><span lang="en">Outstanding Student Model</span><span lang="zh-CN">优秀学生标兵</span></h3><p><span lang="en">The only one in the college · First-Class Scholarship ×2, Second-Class ×3</span><span lang="zh-CN">全院唯一 · 校一等奖学金 ×2、二等奖学金 ×3</span></p></div></div>
+            </div>
+            <div class="aside-note"><b><span lang="en">Reviewer</span><span lang="zh-CN">审稿</span></b>NeurIPS · ICML · ICLR · KDD · ACL ARR · MM · ICMR · TKDE · ACM TIST · IEEE TCSS</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><a href="https://scholar.google.com/citations?hl=en&amp;user=PvBvdgQAAAAJ" target="_blank" rel="noopener"><span lang="en">Full list on Google Scholar ↗</span><span lang="zh-CN">完整论文列表见 Google Scholar ↗</span></a><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-jade" data-title="Research arc" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">02 · Research arc</span><span lang="zh-CN">02 · 研究脉络</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">From structure, to evidence, <span class="accent">to time.</span></span><span lang="zh-CN">从结构，到证据，<span class="accent">再到时间。</span></span></h2>
+        <p class="slide-lede reveal" style="--i:2"><span lang="en">One question across six papers: can a model show the evidence behind each decision?</span><span lang="zh-CN">六篇论文，同一个问题：模型能否为每一个决策给出可核验的证据？</span></p>
+      </header>
+      <div class="slide-body">
+        <div class="arc reveal" style="--i:3">
+          <a class="arc-step" style="--c: var(--clay)" data-go="Graph foundations">
+            <small><span lang="en">2024 — 2025 · Graphs</span><span lang="zh-CN">2024 — 2025 · 图</span></small>
+            <h3><span lang="en">Reason along structure</span><span lang="zh-CN">沿结构推理</span></h3>
+            <p><span lang="en">Explicit paths and relations make reasoning inspectable.</span><span lang="zh-CN">显式的路径与关系，让推理过程可解释。</span></p>
+            <ul class="papers">
+              <li><b>MoKGR</b><span>EMNLP'25 Oral</span></li>
+              <li><b>GraphOracle</b><span>AAAI'26 Oral</span></li>
+              <li><b>GraphMaster</b><span>NeurIPS'25 Spotlight</span></li>
+            </ul>
+          </a>
+          <a class="arc-step" style="--c: var(--indigo)" data-go="EviRank · method">
+            <small><span lang="en">2025 — 2026 · Images</span><span lang="zh-CN">2025 — 2026 · 图像</span></small>
+            <h3><span lang="en">Make relevance explicit</span><span lang="zh-CN">让相关性显式化</span></h3>
+            <p><span lang="en">Relevance becomes required, forbidden and ignorable evidence.</span><span lang="zh-CN">相关性被拆解为“必须 / 禁止 / 可忽略”的证据。</span></p>
+            <ul class="papers"><li><b>EviRank</b><span>EMNLP'26 Main</span></li></ul>
+          </a>
+          <a class="arc-step" style="--c: var(--clay)" data-go="MARS · failures">
+            <small><span lang="en">2026 · Agents</span><span lang="zh-CN">2026 · 智能体</span></small>
+            <h3><span lang="en">Audit every claim</span><span lang="zh-CN">审计每一条论断</span></h3>
+            <p><span lang="en">Agent trajectories become ledgers of verified claims.</span><span lang="zh-CN">智能体轨迹变成可审计的证据账本。</span></p>
+            <ul class="papers"><li><b>MARS</b><span>NeurIPS'26 sub.</span></li></ul>
+          </a>
+          <a class="arc-step focus" style="--c: var(--jade)" data-go="OST · failure">
+            <small><span lang="en">2026 → · Streams &amp; world models</span><span lang="zh-CN">2026 → · 流式视频与世界模型</span></small>
+            <span class="thread"><span lang="en">Current focus</span><span lang="zh-CN">当前重点</span></span>
+            <h3><span lang="en">Verify with the future.</span><span lang="zh-CN">用未来验证现在。</span></h3>
+            <p><span lang="en">Claims made on a live audio-visual stream stay open until later evidence confirms or refutes them.</span><span lang="zh-CN">在实时音视频流上做出的判断保持“待定”，直到后续证据确认或否定它。</span></p>
+            <ul class="papers"><li><b>OST</b><span>ICLR'27 sub.</span></li></ul>
+          </a>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">Deep dives start with the latest work →</span><span lang="zh-CN">以下从最新的工作开始展开 →</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-jade" data-title="OST · failure" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0">OST · 01 / 03 · Omni-Streaming Thinking</div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Seeing arrives early. <span class="accent">Hearing unfolds.</span></span><span lang="zh-CN">画面先到，<span class="accent">声音后至。</span></span></h2>
+        <p class="slide-lede reveal" style="--i:2"><span lang="en">Under bounded memory, a plausible visual guess can become a working fact before the audio settles it — <b>premature cross-modal commitment</b>.</span><span lang="zh-CN">在有限的记忆里，一个看似合理的视觉猜测，可能在音频给出定论之前就被当作事实——即<b>过早的跨模态承诺</b>。</span></p>
+      </header>
+      <div class="slide-body">
+        <div class="stream-layout">
+          <div class="stream reveal" style="--i:3" role="img" aria-label="Airport example: the screen shows Gate 6 while the announcement later says Gate 12. A naive stream keeps Gate 6; OST keeps a pending audio-verified claim, waits, refutes it and answers Gate 12.">
+            <span class="stream-q"><span lang="en">Q · Which gate?</span><span lang="zh-CN">问 · 去几号登机口？</span></span>
+            <div class="stream-row head"><span></span><b>t</b><b>t + 4 s</b><b>t + 8 s</b></div>
+            <div class="stream-row">
+              <span class="lane"><span lang="en">Video</span><span lang="zh-CN">画面</span></span>
+              <div class="cell screen" style="--c:0"><span class="gate"><i>GATE</i>6</span></div>
+              <div class="cell screen" style="--c:1"><span class="gate"><i>GATE</i>6</span></div>
+              <div class="cell screen" style="--c:2"><span class="gate"><i>GATE</i>6</span></div>
+            </div>
+            <div class="stream-row">
+              <span class="lane"><span lang="en">Audio</span><span lang="zh-CN">音频</span></span>
+              <div class="cell wave" style="--c:0"><svg viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,12 5,9 9,15 13,7 17,17 21,9 25,14 29,10 33,13 37,12 120,12"/></svg><span lang="en">announcement begins…</span><span lang="zh-CN">广播刚开始……</span></div>
+              <div class="cell wave" style="--c:1"><svg viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,12 5,10 9,14 13,6 17,18 21,8 25,16 29,5 33,19 37,9 41,15 45,7 49,17 53,10 57,14 61,8 65,16 69,11 73,13 77,12 120,12"/></svg><span lang="en">…still incomplete</span><span lang="zh-CN">……仍未说完</span></div>
+              <div class="cell wave loud" style="--c:2"><svg viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,12 4,6 8,18 12,3 16,21 20,7 24,17 28,2 32,22 36,6 40,18 44,4 48,20 52,8 56,16 60,3 64,21 68,7 72,17 76,5 80,19 84,9 88,15 92,4 96,20 100,8 104,16 108,6 112,18 116,10 120,12"/></svg><span lang="en">“…to Gate 12”</span><span lang="zh-CN">“……改至 12 号登机口”</span></div>
+            </div>
+            <div class="stream-row naive">
+              <span class="lane"><span lang="en">Naive</span><span lang="zh-CN">常规流式</span></span>
+              <div class="cell" style="--c:0"><span lang="en">writes “Gate 6” as a fact</span><span lang="zh-CN">把“6 号口”当作事实写入记忆</span></div>
+              <div class="cell" style="--c:1"><span lang="en">keeps relaying Gate 6</span><span lang="zh-CN">继续沿用 6 号口</span></div>
+              <div class="cell bad" style="--c:2"><span lang="en">answers Gate 6 ✕</span><span lang="zh-CN">回答 6 号口 ✕</span></div>
+            </div>
+            <div class="stream-row ost">
+              <span class="lane">OST</span>
+              <div class="cell" style="--c:0"><span lang="en">pending claim · verify by <b>audio</b> · due t + 8 s</span><span lang="zh-CN">待定声明 · 由<b>音频</b>验证 · t + 8 s 复核</span></div>
+              <div class="cell" style="--c:1"><span lang="en"><b>WAIT</b> · evidence incomplete</span><span lang="zh-CN"><b>等待</b> · 证据尚不充分</span></div>
+              <div class="cell good" style="--c:2"><span lang="en"><b>REFUTED</b> → retract → Gate 12 ✓</span><span lang="zh-CN"><b>被否定</b> → 撤回 → 12 号口 ✓</span></div>
+            </div>
+          </div>
+          <aside class="neq-card reveal" style="--i:4">
+            <span class="neq" aria-hidden="true">≠</span>
+            <h3><span lang="en">Physical synchronization is not evidential synchronization.</span><span lang="zh-CN">时间上同步，<br>不等于证据上同步。</span></h3>
+            <p><span lang="en">Video is dense and often locally decidable; audio is sparse, stretched over time and easily evicted from memory.</span><span lang="zh-CN">视觉证据密集，往往局部即可判定；听觉证据稀疏、跨时延展，还容易被挤出记忆。</span></p>
+          </aside>
+        </div>
+      </div>
+      <div class="slide-foot"><span class="links"><a href="../blog/ost/" target="_blank" rel="noopener"><span lang="en">Project page ↗</span><span lang="zh-CN">项目主页 ↗</span></a><a href="https://arxiv.org/abs/2609.15128" target="_blank" rel="noopener">arXiv 2609.15128 ↗</a><span><span lang="en">Submitted to ICLR 2027</span><span lang="zh-CN">投稿至 ICLR 2027</span></span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-indigo" data-title="OST · method" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">OST · 02 / 03 · Method</span><span lang="zh-CN">OST · 02 / 03 · 方法</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Claim → verify → retract, <span class="accent">at every chunk.</span></span><span lang="zh-CN">声明 → 验证 → 撤回，<span class="accent">逐块执行。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="method-grid stacked">
+          <a class="media-frame zoomable reveal" style="--i:2" href="assets/ost-architecture.webp"><img data-src="assets/ost-architecture.webp" width="2400" height="893" alt="OST: modality-resolved streaming state, the claim-verify-retract loop in each decision chunk, and the sufficiency gate"></a>
+          <div class="method-notes reveal" style="--i:3">
+            <div class="method-note"><b><span lang="en">Retain</span><span lang="zh-CN">保留</span></b><h3><span lang="en">Separate audio &amp; video budgets</span><span lang="zh-CN">音画分预算存储</span></h3><p><span lang="en">Sparse audio is never evicted by dense frames; evidence windows stay pinned until review.</span><span lang="zh-CN">稀疏的音频不会被密集的画面挤出；证据窗口在复核完成前保持固定。</span></p></div>
+            <div class="method-note"><b><span lang="en">Claim → Verify</span><span lang="zh-CN">声明 → 验证</span></b><h3><span lang="en">Future-testable claims</span><span lang="zh-CN">可被未来检验的声明</span></h3><p><span lang="en">Each guess records a prediction, a verifying modality and a review window, then meets real evidence from that modality.</span><span lang="zh-CN">每个猜测都记录预测内容、验证模态与复核窗口，到期后用该模态的真实证据检验。</span></p></div>
+            <div class="method-note"><b><span lang="en">Retract → Answer</span><span lang="zh-CN">撤回 → 作答</span></b><h3><span lang="en">Lineage-aware correction</span><span lang="zh-CN">沿依赖链纠错</span></h3><p><span lang="en">Refuted claims lose influence through recorded dependencies; the answer waits while any answer-critical review is open.</span><span lang="zh-CN">被否定的声明沿记录的依赖链削弱影响；只要关键复核未完成，答案门控就保持等待。</span></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">Frozen Qwen3-Omni-30B-A3B-Instruct backbone + lightweight adaptation</span><span lang="zh-CN">冻结 Qwen3-Omni-30B-A3B-Instruct 主干 + 轻量适配</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-jade" data-title="OST · evidence" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0">OST · 03 / 03 · OST-DiagBench</div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Lock the video. <span class="accent">Intervene on audio.</span></span><span lang="zh-CN">锁定画面，<span class="accent">只改声音。</span></span></h2>
+        <p class="slide-lede reveal" style="--i:2"><span lang="en">510 matched groups hold the video fixed while the audio is kept, muted, swapped or mixed — plus 510 reviewed subtitle-versus-speech CLASH items.</span><span lang="zh-CN">510 组匹配样本固定画面，只把音频保留、静音、替换或混合；另有 510 条人工审核的字幕-语音冲突（CLASH）样本。</span></p>
+      </header>
+      <div class="slide-body">
+        <div class="diag-wrap">
+          <div class="diag-grid reveal" style="--i:3">
+            <figure class="diag">
+              <div class="diag-media">
+                <video muted loop playsinline preload="none" poster="assets/diag-guitar-poster.webp" data-src="../blog/ost/artifacts/v2/media/FC/ave-0a7683f182e2/clean.mp4"></video>
+                <span class="diag-tag">CLEAN</span>
+                <button class="diag-sound" type="button" aria-label="Listen to the CLEAN clip"><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+              </div>
+              <figcaption>
+                <div class="diag-head"><span><span lang="en">Audible: guitar</span><span lang="zh-CN">实际声音：吉他</span></span><span class="verdict ok">✓ <span lang="en">heard</span><span lang="zh-CN">听到</span></span></div>
+                <q>“a guitar being played”</q>
+              </figcaption>
+            </figure>
+            <figure class="diag">
+              <div class="diag-media">
+                <video muted loop playsinline preload="none" poster="assets/diag-guitar-poster.webp" data-src="../blog/ost/artifacts/v2/media/FC/ave-0a7683f182e2/mute.mp4"></video>
+                <span class="diag-tag">MUTE</span>
+                <button class="diag-sound" type="button" aria-label="Listen to the MUTE clip"><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+              </div>
+              <figcaption>
+                <div class="diag-head"><span><span lang="en">Audible: background only</span><span lang="zh-CN">实际声音：仅背景底噪</span></span><span class="verdict bad">✕ <span lang="en">hallucinated</span><span lang="zh-CN">幻听</span></span></div>
+                <q>“a guitar being played is heard”</q>
+              </figcaption>
+            </figure>
+            <figure class="diag">
+              <div class="diag-media">
+                <video muted loop playsinline preload="none" poster="assets/diag-guitar-poster.webp" data-src="../blog/ost/artifacts/v2/media/FC/ave-0a7683f182e2/swap.mp4"></video>
+                <span class="diag-tag">SWAP</span>
+                <button class="diag-sound" type="button" aria-label="Listen to the SWAP clip"><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+              </div>
+              <figcaption>
+                <div class="diag-head"><span><span lang="en">Audible: dog barking</span><span lang="zh-CN">实际声音：狗叫</span></span><span class="verdict ok">✓ <span lang="en">heard</span><span lang="zh-CN">听到</span></span></div>
+                <q>“a dog barking in the background”</q>
+              </figcaption>
+            </figure>
+            <figure class="diag">
+              <div class="diag-media">
+                <video muted loop playsinline preload="none" poster="assets/diag-guitar-poster.webp" data-src="../blog/ost/artifacts/v2/media/FC/ave-0a7683f182e2/mix.mp4"></video>
+                <span class="diag-tag">MIX</span>
+                <button class="diag-sound" type="button" aria-label="Listen to the MIX clip"><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+              </div>
+              <figcaption>
+                <div class="diag-head"><span><span lang="en">Audible: guitar + dog</span><span lang="zh-CN">实际声音：吉他 + 狗叫</span></span><span class="verdict warn">! <span lang="en">dog missed</span><span lang="zh-CN">漏掉狗叫</span></span></div>
+                <q>“a guitar being played”</q>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="diag-note reveal" style="--i:4"><span lang="en">Quotes are Qwen2.5-Omni-7B (offline) on one guitar clip — CLEAN accuracy alone hides both failures. Click a clip to listen.</span><span lang="zh-CN">引号内为 Qwen2.5-Omni-7B（离线）在同一段吉他视频上的回答——只看 CLEAN 准确率，两类错误都会被掩盖。点击视频可试听。</span></p>
+          <div class="stat-band reveal" style="--i:5">
+            <div class="band-stat"><strong>&gt;10%</strong><span><span lang="en">average relative gain over the strongest open baselines on 5 streaming &amp; audio-visual benchmarks</span><span lang="zh-CN">在 5 个流式与音视频基准上，相对最强开源基线的平均提升</span></span></div>
+            <div class="band-stat"><strong>2.95<small>d′</small></strong><span><span lang="en">auditory sensitivity on OST-DiagBench; open baselines reach at most 1.38</span><span lang="zh-CN">OST-DiagBench 上的听觉敏感度；开源基线最高仅 1.38</span></span></div>
+            <div class="band-stat"><strong>88.4</strong><span><span lang="en">SOVBench-O average — best online result across real-time, recall and proactive questions</span><span lang="zh-CN">SOVBench-O 平均分——实时、回忆、主动三类问题上的最佳在线结果</span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span class="links"><a href="../blog/ost/OST-DiagBench-pastel.html" target="_blank" rel="noopener">OST-DiagBench ↗</a><a href="https://huggingface.co/datasets/EnjunDu/OST-Diagbench" target="_blank" rel="noopener"><span lang="en">Dataset ↗</span><span lang="zh-CN">数据集 ↗</span></a><a href="https://github.com/EnjunDu/OST" target="_blank" rel="noopener"><span lang="en">Code ↗</span><span lang="zh-CN">代码 ↗</span></a></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-indigo" data-title="MARS · failures" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0">MARS · 01 / 03 · Multimodal Agentic Reasoning</div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">A right answer can hide <span class="accent">a wrong trajectory.</span></span><span lang="zh-CN">答案正确，<span class="accent">不代表推理过程可信。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="failure-layout">
+          <a class="media-frame zoomable reveal" style="--i:2" href="assets/mars-failures.webp"><img data-src="assets/mars-failures.webp" width="2378" height="710" alt="A multimodal agent trajectory whose final answer is right while intermediate claims fail, and how free-form repair amplifies errors"></a>
+          <div class="failure-row reveal" style="--i:3">
+            <div class="failure" style="--c: var(--clay)"><b>F1</b><h3><span lang="en">Faithfulness gap</span><span lang="zh-CN">忠实性缺口</span></h3><p><span lang="en">The answer is right, but intermediate claims lack evidence.</span><span lang="zh-CN">答案正确，但中间论断缺少证据支撑。</span></p></div>
+            <div class="failure" style="--c: var(--indigo)"><b>F2</b><h3><span lang="en">Phantom grounding</span><span lang="zh-CN">虚假溯源</span></h3><p><span lang="en">A claim cites evidence that does not contain its entity or number.</span><span lang="zh-CN">论断引用了证据，但其中的实体或数字并不在证据里。</span></p></div>
+            <div class="failure" style="--c: var(--jade)"><b>F3</b><h3><span lang="en">Over-reasoning</span><span lang="zh-CN">过度推理</span></h3><p><span lang="en">Unneeded tool calls overwrite a simple, correct answer.</span><span lang="zh-CN">不必要的检索与推理，覆盖了原本正确的简单答案。</span></p></div>
+            <div class="failure" style="--c: var(--amber)"><b>F4</b><h3><span lang="en">Unsafe repair</span><span lang="zh-CN">不安全修复</span></h3><p><span lang="en">Free-form self-repair fixes one error and introduces another.</span><span lang="zh-CN">自由形式的自我修复改对一处，又引入新的错误。</span></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">MARS · submitted to NeurIPS 2026</span><span lang="zh-CN">MARS · 投稿至 NeurIPS 2026</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-clay" data-title="MARS · framework" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">MARS · 02 / 03 · Framework</span><span lang="zh-CN">MARS · 02 / 03 · 框架</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Provenance as <span class="accent">an execution constraint.</span></span><span lang="zh-CN">把证据溯源变成<span class="accent">执行约束。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="method-grid">
+          <a class="media-frame zoomable reveal" style="--i:2" href="assets/mars-framework.webp"><img data-src="assets/mars-framework.webp" width="2600" height="1363" alt="MARS framework: adaptive dispatcher, structured evidence ledger, grounding claims, grounding verifier and event-triggered typed repair"></a>
+          <div class="method-notes reveal" style="--i:3">
+            <div class="method-note"><b><span lang="en">Ledger</span><span lang="zh-CN">账本</span></b><h3><span lang="en">Structured Evidence Ledger</span><span lang="zh-CN">结构化证据账本</span></h3><p><span lang="en">Each tool output is a typed entry with source, confidence, TTL and status; claims cite only active entries.</span><span lang="zh-CN">每个工具输出记为带来源、置信度、TTL 与状态的条目；论断只能引用有效条目。</span></p></div>
+            <div class="method-note"><b><span lang="en">Verify</span><span lang="zh-CN">校验</span></b><h3><span lang="en">Support · ECC · NCC</span><span lang="zh-CN">三层落地校验</span></h3><p><span lang="en">Claims must pass support coverage, entity consistency and numeric coherence.</span><span lang="zh-CN">论断须通过支撑覆盖、实体一致性（ECC）与数值一致性（NCC）检查。</span></p></div>
+            <div class="method-note"><b><span lang="en">Dispatch · Repair</span><span lang="zh-CN">分流 · 修复</span></b><h3><span lang="en">Typed, event-triggered</span><span lang="zh-CN">事件触发的类型化修复</span></h3><p><span lang="en">Simple queries go direct; failures trigger typed repairs only, so repair never invents evidence.</span><span lang="zh-CN">简单问题走直连路径；失败只触发类型化修复，修复不会凭空制造证据。</span></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">Same backbone, same tool budget — the gain comes from the framework</span><span lang="zh-CN">同骨干、同工具预算——增益来自框架设计本身</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-indigo" data-title="MARS · results" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">MARS · 03 / 03 · Results</span><span lang="zh-CN">MARS · 03 / 03 · 实验结果</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Better answers, <span class="accent">and better reasons.</span></span><span lang="zh-CN">答得更对，<span class="accent">也答得有据。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="comparison-layout">
+          <a class="media-frame zoomable reveal" style="--i:2" href="assets/mars-results.webp"><img data-src="assets/mars-results.webp" width="2400" height="954" alt="MARS results on VTC-Bench and on MMStar, MMMU and MMMU-Pro"></a>
+          <div class="comparison-note reveal" style="--i:3">
+            <h3>▲22.7<small>GPT-4o</small></h3>
+            <p><span lang="en">MARS lifts every backbone on VTC-Bench; with Gemini-3-Flash it sets the state of the art (▲12.4).</span><span lang="zh-CN">MARS 在 VTC-Bench 上提升了每一个骨干模型；搭配 Gemini-3-Flash 达到 SOTA（▲12.4）。</span></p>
+            <dl class="metric-list">
+              <div><dt>UCR ↓</dt><dd><span lang="en">Unsupported claim rate</span><span lang="zh-CN">无支撑论断率</span></dd></div>
+              <div><dt>GDR ↑</dt><dd><span lang="en">Grounded decision rate</span><span lang="zh-CN">有据决策率</span></dd></div>
+              <div><dt>R4R ↑</dt><dd><span lang="en">Right answers that are also grounded</span><span lang="zh-CN">答对且有据的比例（Reason-for-Right）</span></dd></div>
+              <div><dt>WDG</dt><dd><span lang="en">Wrong, but decision-grounded</span><span lang="zh-CN">答错但决策有据</span></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">Trajectory-level metrics, not only final accuracy · VTC-Bench · MMStar · MMMU · MMMU-Pro</span><span lang="zh-CN">不只看最终准确率，也评估轨迹层面的忠实性 · VTC-Bench · MMStar · MMMU · MMMU-Pro</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-clay" data-title="EviRank · method" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0">EviRank · 01 / 02 · EMNLP 2026 Main</div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Re-ranking as <span class="accent">constraint satisfaction.</span></span><span lang="zh-CN">把图像重排序变成<span class="accent">约束满足问题。</span></span></h2>
+        <p class="slide-lede reveal" style="--i:2"><span lang="en">“This shirt, in pink”: keep the style, change one attribute, ignore the background.</span><span lang="zh-CN">“这件衬衫的粉色款”：保留款式、改变一个属性、忽略背景。</span></p>
+      </header>
+      <div class="slide-body">
+        <div class="method-grid">
+          <a class="media-frame zoomable reveal" style="--i:3" href="assets/evirank-framework.webp"><img data-src="assets/evirank-framework.webp" width="2400" height="1179" alt="EviRank: multimodal queries, evidence mining, evidence-conditioned verification and evidence-guided distillation"></a>
+          <div class="method-notes reveal" style="--i:4">
+            <div class="method-note"><b><span lang="en">Evidence frame</span><span lang="zh-CN">证据框架</span></b><h3><span lang="en">Required · Forbidden · Ignorable</span><span lang="zh-CN">必须 · 禁止 · 可忽略</span></h3><p><span lang="en">Typed criteria over 6 slots: entities, attributes, actions, relations, scene, key details.</span><span lang="zh-CN">覆盖 6 个语义槽：实体、属性、动作、关系、场景、关键细节。</span></p></div>
+            <div class="method-note"><b><span lang="en">Verify · Rank</span><span lang="zh-CN">验证 · 排序</span></b><h3><span lang="en">Traceable ranking</span><span lang="zh-CN">可追溯的排序</span></h3><p><span lang="en">Slot-wise rubric scores, then evidence-grounded listwise refinement on any retriever.</span><span lang="zh-CN">先按槽位打分，再做基于证据的列表式精排，可接在任意检索器之后。</span></p></div>
+            <div class="method-note"><b><span lang="en">Distill</span><span lang="zh-CN">蒸馏</span></b><h3 class="formula"><i>L</i> = <i>p</i>·(<i>L</i><sub>score</sub> + λ<i>L</i><sub>pair</sub> + η<i>L</i><sub>slot</sub>)</h3><p><span lang="en">A light student learns from these signals and needs only raw inputs at test time.</span><span lang="zh-CN">轻量学生模型从这些信号中学习，推理时只需原始输入。</span></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span class="links"><a href="../blog/evirank/" target="_blank" rel="noopener"><span lang="en">Project page ↗</span><span lang="zh-CN">项目主页 ↗</span></a><a href="https://arxiv.org/abs/2608.20886" target="_blank" rel="noopener">arXiv 2608.20886 ↗</a><a href="https://github.com/EnjunDu/EviRank" target="_blank" rel="noopener"><span lang="en">Code ↗</span><span lang="zh-CN">代码 ↗</span></a></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-jade" data-title="EviRank · results" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">EviRank · 02 / 02 · Results</span><span lang="zh-CN">EviRank · 02 / 02 · 实验结果</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Largest gains where <span class="accent">constraints are fine-grained.</span></span><span lang="zh-CN">约束越细粒度，<span class="accent">提升越明显。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="results-trio">
+          <a class="media-frame zoomable reveal" style="--i:2" href="assets/evirank-recall.webp"><img data-src="assets/evirank-recall.webp" width="916" height="458" alt="Recall@10 of EviRank variants across four retrievers"></a>
+          <a class="media-frame zoomable reveal" style="--i:3" href="assets/evirank-table.webp"><img data-src="assets/evirank-table.webp" width="884" height="764" alt="EviRank results with EVA-CLIP-18B and CLIP-ViT-B/32 retrievers"></a>
+          <div class="result-stats reveal" style="--i:4">
+            <div class="result-stat"><strong>&gt;90%</strong><span><span lang="en">of the teacher's capability kept by the distilled student, at far lower cost</span><span lang="zh-CN">蒸馏后的学生模型以低得多的成本保留教师 90% 以上的能力</span></span></div>
+            <div class="result-stat"><strong>+8.27</strong><span><span lang="en">Recall@10 over ImageScope on FashionIQ-Shirt</span><span lang="zh-CN">FashionIQ-Shirt 上 Recall@10 比 ImageScope 最高提升 8.27</span></span></div>
+            <div class="result-stat"><strong>0 MLLM</strong><span><span lang="en">calls at test time for EviRank-mini, which still matches reasoning re-rankers</span><span lang="zh-CN">EviRank-mini 推理时不调用 MLLM，仍可比肩基于推理的重排器</span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">5 benchmarks · text-to-image · image-to-image · composed image retrieval</span><span lang="zh-CN">5 个基准 · 文搜图 · 图搜图 · 组合图像检索</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-indigo" data-title="Graph foundations" data-section="2">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">Foundations · 2024 — 2025</span><span lang="zh-CN">早期工作 · 2024 — 2025</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Where the thread began: <span class="accent">reasoning on graphs.</span></span><span lang="zh-CN">起点：<span class="accent">图上的结构化推理。</span></span></h2>
+      </header>
+      <div class="slide-body">
+        <div class="project-trio reveal" style="--i:2">
+          <article class="project-card" style="--c: var(--clay)">
+            <a class="project-card__media zoomable" href="assets/graphmaster.webp"><img data-src="assets/graphmaster.webp" width="1573" height="569" alt="GraphMaster: manager, perception, enhancement and evaluation agents"></a>
+            <div class="project-card__copy">
+              <small>NeurIPS 2025 · Spotlight</small>
+              <h3>GraphMaster</h3>
+              <p><span lang="en">Four LLM agents — manager, perception, enhancement, evaluation — synthesize text-attributed graphs when data is scarce.</span><span lang="zh-CN">管理、感知、增强、评估四个 LLM 智能体协作，在数据稀缺时合成文本属性图。</span></p>
+              <a class="card-link" href="../blog/graphmaster/" target="_blank" rel="noopener"><span lang="en">Project page ↗</span><span lang="zh-CN">项目主页 ↗</span></a>
+            </div>
+          </article>
+          <article class="project-card" style="--c: var(--jade)">
+            <a class="project-card__media zoomable" href="assets/graphoracle.webp"><img data-src="assets/graphoracle.webp" width="1785" height="712" alt="GraphOracle: relation-dependency graph construction and two-stage GNN reasoning"></a>
+            <div class="project-card__copy">
+              <small>AAAI 2026 · Oral</small>
+              <h3>GraphOracle</h3>
+              <p><span lang="en">Relation-dependency graphs let one KG foundation model transfer across domains: pre-trained on 3 KGs, fine-tuned for 2 epochs on 31 datasets.</span><span lang="zh-CN">关系依赖图让一个知识图谱基础模型跨域迁移：在 3 个 KG 上预训练，于 31 个数据集上仅微调 2 个 epoch。</span></p>
+              <a class="card-link" href="../blog/graphoracle/" target="_blank" rel="noopener"><span lang="en">Project page ↗</span><span lang="zh-CN">项目主页 ↗</span></a>
+            </div>
+          </article>
+          <article class="project-card" style="--c: var(--indigo)">
+            <a class="project-card__media zoomable" href="assets/mokgr.webp"><img data-src="assets/mokgr.webp" width="1600" height="900" alt="MoKGR: mixture of length experts and pruning experts"></a>
+            <div class="project-card__copy">
+              <small>EMNLP 2025 · Oral</small>
+              <h3>MoKGR</h3>
+              <p><span lang="en">Personalized path exploration: length experts choose reasoning depth per query; pruning experts keep the most informative paths.</span><span lang="zh-CN">个性化路径探索：长度专家按查询选择推理深度，剪枝专家从互补视角保留信息量最大的路径。</span></p>
+              <a class="card-link" href="../blog/mokgr/" target="_blank" rel="noopener"><span lang="en">Project page ↗</span><span lang="zh-CN">项目主页 ↗</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="slide-foot"><span><span lang="en">Also: Neural Knowledge Graph Reasoning with Relational Di-graph · Artificial Intelligence Journal (co-author)</span><span lang="zh-CN">另有：Neural Knowledge Graph Reasoning with Relational Di-graph · Artificial Intelligence Journal（合作者）</span></span><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide theme-indigo" data-title="Plan" data-section="3">
+      <header>
+        <div class="eyebrow reveal" style="--i:0"><span lang="en">03 · Plan</span><span lang="zh-CN">03 · 未来规划</span></div>
+        <h2 class="slide-title medium reveal" style="--i:1"><span lang="en">Ready for a <span class="accent">long-term internship.</span></span><span lang="zh-CN">可以长期、稳定地<span class="accent">投入实习。</span></span></h2>
+        <p class="slide-lede reveal" style="--i:2"><span lang="en">Looking for research internships in video understanding, video generation and world models.</span><span lang="zh-CN">希望在视频理解、视频生成与世界模型方向开展研究型实习。</span></p>
+      </header>
+      <div class="slide-body">
+        <div class="lesson-grid reveal" style="--i:3">
+          <article class="lesson" style="--c: var(--jade)"><span class="lesson-num">01</span><h3><span lang="en">12+ months, full-time</span><span lang="zh-CN">稳定实习一年以上</span></h3><p><span lang="en">Available for a stable, full-time internship of more than a year.</span><span lang="zh-CN">可以稳定、全职地实习一年以上。</span></p></article>
+          <article class="lesson" style="--c: var(--indigo)"><span class="lesson-num">02</span><h3><span lang="en">An internship-friendly PhD</span><span lang="zh-CN">导师支持实习</span></h3><p><span lang="en">PhD at HKU with Prof. Difan Zou, who supports full-year internships and gives academic guidance throughout.</span><span lang="zh-CN">香港大学博士在读，导师 Difan Zou 支持全年实习，并在实习期间提供学术指导。</span></p></article>
+          <article class="lesson" style="--c: var(--clay)"><span class="lesson-num">03</span><h3><span lang="en">A bridge to academia</span><span lang="zh-CN">校企合作资源</span></h3><p><span lang="en">Visiting scholar at HKUST(GZ) with Prof. Yongqi Zhang — strong university–industry collaboration.</span><span lang="zh-CN">香港科技大学（广州）访问学者，导师张永祺，校企合作资源丰富。</span></p></article>
+        </div>
+      </div>
+      <div class="slide-foot"><a href="mailto:enjundu.cs@gmail.com">enjundu.cs@gmail.com</a><span class="page-no"></span></div>
+    </section>
+
+    <section class="slide closing theme-jade" data-title="Closing" data-section="3">
+      <div class="slide-body">
+        <div class="closing-wrap">
+          <h1 class="reveal" style="--i:0"><span lang="en">Thank you.</span><span lang="zh-CN">谢谢聆听</span></h1>
+          <div class="closing-summary reveal" style="--i:1"><span>OST</span><span>MARS</span><span>EviRank</span><span>GraphMaster</span><span>GraphOracle</span><span>MoKGR</span></div>
+          <div class="closing-name reveal" style="--i:2">Enjun Du · 杜恩俊</div>
+          <div class="closing-links reveal" style="--i:3">
+            <a href="mailto:enjundu.cs@gmail.com">enjundu.cs@gmail.com</a>
+            <a href="https://enjundu.com/" target="_blank" rel="noopener">enjundu.com</a>
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=PvBvdgQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://github.com/EnjunDu" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="deck-ui">
+      <div class="topbar">
+        <button class="lang-toggle" id="langToggle" type="button">中文</button>
+        <div class="slide-count" aria-live="polite"><span id="currentCount">01</span> / <span id="totalCount">17</span></div>
+      </div>
+      <div class="nav-dots" id="navDots" aria-label="Slide navigation"></div>
+      <div class="controls">
+        <button class="control" id="prev" type="button" aria-label="Previous slide">←</button>
+        <button class="control" id="next" type="button" aria-label="Next slide">→</button>
+      </div>
+      <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Figure" tabindex="-1" hidden>
+    <img id="lightboxImg" alt="">
+    <div class="lightbox-bar"><span><span lang="en">Click anywhere or press Esc to close</span><span lang="zh-CN">点击任意处或按 Esc 关闭</span></span><a id="lightboxOpen" target="_blank" rel="noopener"><span lang="en">Open original ↗</span><span lang="zh-CN">查看原图 ↗</span></a></div>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const slides = [...document.querySelectorAll('.slide')];
+      const prev = document.getElementById('prev');
+      const next = document.getElementById('next');
+      const count = document.getElementById('currentCount');
+      const total = document.getElementById('totalCount');
+      const progress = document.getElementById('progressBar');
+      const dots = document.getElementById('navDots');
+      const langToggle = document.getElementById('langToggle');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxOpen = document.getElementById('lightboxOpen');
+      const LANG_KEY = 'enjundu-slides-lang';
+      const TITLES = { en: 'Enjun Du · Internship Slides', zh: '杜恩俊 · 实习面试' };
+      const pad = n => String(n).padStart(2, '0');
+      const clamp = i => Math.max(0, Math.min(slides.length - 1, i));
+      const fromHash = () => (parseInt(location.hash.slice(1), 10) || 1) - 1;
+      let current = clamp(fromHash());
+      let wheelLock = false;
+      let touchX = 0;
+      let touchY = 0;
+      let digits = '';
+      let digitTimer = 0;
+      let fitTimer = 0;
+      let lastFocus = null;
+      const phone = matchMedia('(max-width: 720px)');
+
+      total.textContent = pad(slides.length);
+      let section = null;
+      slides.forEach((slide, index) => {
+        slide.setAttribute('aria-label', `Slide ${index + 1} of ${slides.length}: ${slide.dataset.title}`);
+        slide.querySelectorAll('.page-no').forEach(el => { el.textContent = pad(index + 1); });
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'nav-dot';
+        if (section !== null && slide.dataset.section !== section) dot.classList.add('section-start');
+        section = slide.dataset.section;
+        dot.title = `${pad(index + 1)} · ${slide.dataset.title}`;
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}: ${slide.dataset.title}`);
+        dot.addEventListener('click', () => go(index));
+        dots.appendChild(dot);
+      });
+      const dotItems = [...dots.children];
+
+      document.querySelectorAll('[data-range]').forEach(el => {
+        const hits = slides.flatMap((slide, i) => (slide.dataset.section === el.dataset.range ? [i + 1] : []));
+        if (hits.length) el.textContent = `${pad(hits[0])} — ${pad(hits[hits.length - 1])}`;
+      });
+
+      document.querySelectorAll('[data-go]').forEach(el => {
+        const target = slides.findIndex(slide => slide.dataset.title === el.dataset.go);
+        if (target < 0) return;
+        el.href = `#${target + 1}`;
+        el.addEventListener('click', event => { event.preventDefault(); go(target); });
+      });
+
+      function loadSlide(index) {
+        const slide = slides[index];
+        if (!slide) return;
+        slide.querySelectorAll('img[data-src]').forEach(img => {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        });
+      }
+
+      function syncMedia() {
+        slides.forEach((slide, index) => {
+          slide.querySelectorAll('video').forEach(video => {
+            if (index === current) {
+              if (!video.getAttribute('src') && video.dataset.src) video.src = video.dataset.src;
+              const play = video.play();
+              if (play) play.catch(() => {});
+            } else if (!video.paused || !video.muted) {
+              video.pause();
+              video.muted = true;
+            }
+          });
+          if (index !== current) slide.querySelectorAll('.diag.is-audible').forEach(fig => fig.classList.remove('is-audible'));
+        });
+      }
+
+      function fitActive() {
+        const body = slides[current].querySelector(':scope > .slide-body');
+        const content = body && body.firstElementChild;
+        if (!content) return;
+        const imgs = [...content.querySelectorAll('.media-frame img')];
+        imgs.forEach(img => img.style.removeProperty('max-height'));
+        if (phone.matches || !imgs.length) return;
+        let over = content.getBoundingClientRect().height - body.clientHeight;
+        for (let pass = 0; pass < 4 && over > 1; pass += 1) {
+          const before = imgs.map(img => img.style.maxHeight);
+          imgs.forEach(img => { img.style.maxHeight = `${Math.max(140, img.getBoundingClientRect().height - over)}px`; });
+          const after = content.getBoundingClientRect().height - body.clientHeight;
+          if (after > over - 1) {
+            imgs.forEach((img, i) => { img.style.maxHeight = before[i]; });
+            break;
+          }
+          over = after;
+        }
+      }
+
+      function go(index, updateHash = true) {
+        const target = clamp(index);
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === target);
+          slide.classList.toggle('before', i < target);
+          slide.setAttribute('aria-hidden', i === target ? 'false' : 'true');
+        });
+        current = target;
+        dotItems.forEach((dot, i) => dot.classList.toggle('active', i === current));
+        count.textContent = pad(current + 1);
+        progress.style.transform = `scaleX(${(current + 1) / slides.length})`;
+        prev.disabled = current === 0;
+        next.disabled = current === slides.length - 1;
+        const style = getComputedStyle(slides[current]);
+        root.style.setProperty('--ui', style.getPropertyValue('--accent').trim());
+        root.style.setProperty('--ui-2', style.getPropertyValue('--accent-2').trim());
+        for (let i = current - 1; i <= current + 2; i += 1) loadSlide(i);
+        if (updateHash) history.replaceState(null, '', `#${current + 1}`);
+        syncMedia();
+        requestAnimationFrame(fitActive);
+      }
+
+      function setLang(lang, persist) {
+        root.dataset.lang = lang;
+        root.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.title = TITLES[lang];
+        langToggle.textContent = lang === 'zh' ? 'EN' : '中文';
+        langToggle.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切换到中文');
+        requestAnimationFrame(fitActive);
+        if (!persist) return;
+        try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+        const url = new URL(location.href);
+        url.searchParams.set('lang', lang);
+        history.replaceState(null, '', url);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          const request = root.requestFullscreen && root.requestFullscreen();
+          if (request) request.catch(() => {});
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+
+      function openLightbox(src, alt) {
+        lastFocus = document.activeElement;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightboxOpen.href = src;
+        lightbox.hidden = false;
+        lightbox.focus({ preventScroll: true });
+      }
+
+      function closeLightbox() {
+        lightbox.hidden = true;
+        lightboxImg.removeAttribute('src');
+        if (lastFocus) lastFocus.focus({ preventScroll: true });
+      }
+
+      document.querySelectorAll('.zoomable').forEach(el => {
+        el.addEventListener('click', event => {
+          event.preventDefault();
+          const img = el.querySelector('img');
+          openLightbox(img.getAttribute('src') || img.dataset.src, img.alt);
+        });
+      });
+      lightbox.addEventListener('click', event => {
+        if (!event.target.closest('#lightboxOpen')) closeLightbox();
+      });
+
+      document.querySelectorAll('.diag').forEach(fig => {
+        const video = fig.querySelector('video');
+        fig.querySelector('.diag-media').addEventListener('click', () => {
+          const listen = !fig.classList.contains('is-audible');
+          fig.closest('.slide').querySelectorAll('.diag').forEach(other => {
+            other.classList.remove('is-audible');
+            other.querySelector('video').muted = true;
+          });
+          if (!listen) return;
+          if (!video.getAttribute('src') && video.dataset.src) video.src = video.dataset.src;
+          fig.classList.add('is-audible');
+          video.muted = false;
+          video.currentTime = 0;
+          const play = video.play();
+          if (play) play.catch(() => {});
+        });
+      });
+
+      prev.addEventListener('click', () => go(current - 1));
+      next.addEventListener('click', () => go(current + 1));
+      langToggle.addEventListener('click', () => setLang(root.dataset.lang === 'zh' ? 'en' : 'zh', true));
+
+      window.addEventListener('keydown', event => {
+        if (event.metaKey || event.ctrlKey || event.altKey) return;
+        if (!lightbox.hidden) {
+          if (event.key === 'Escape' || event.key === ' ') { event.preventDefault(); closeLightbox(); }
+          return;
+        }
+        const key = event.key;
+        if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(key)) { event.preventDefault(); go(current + 1); }
+        else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(key)) { event.preventDefault(); go(current - 1); }
+        else if (key === 'Home') { event.preventDefault(); go(0); }
+        else if (key === 'End') { event.preventDefault(); go(slides.length - 1); }
+        else if (key === 'l' || key === 'L') setLang(root.dataset.lang === 'zh' ? 'en' : 'zh', true);
+        else if (key === 'f' || key === 'F') toggleFullscreen();
+        else if (/^[0-9]$/.test(key)) {
+          digits += key;
+          clearTimeout(digitTimer);
+          digitTimer = setTimeout(() => { go(parseInt(digits, 10) - 1); digits = ''; }, 650);
+        } else if (key === 'Enter' && digits) {
+          clearTimeout(digitTimer);
+          go(parseInt(digits, 10) - 1);
+          digits = '';
+        }
+      });
+
+      window.addEventListener('wheel', event => {
+        if (!lightbox.hidden) return;
+        const active = slides[current];
+        const canScroll = active.scrollHeight > active.clientHeight + 4;
+        if (canScroll && ((event.deltaY > 0 && active.scrollTop + active.clientHeight < active.scrollHeight - 3) || (event.deltaY < 0 && active.scrollTop > 3))) return;
+        if (wheelLock || Math.abs(event.deltaY) < 18) return;
+        wheelLock = true;
+        go(current + (event.deltaY > 0 ? 1 : -1));
+        setTimeout(() => { wheelLock = false; }, 650);
+      }, { passive: true });
+
+      window.addEventListener('touchstart', event => {
+        touchX = event.changedTouches[0].clientX;
+        touchY = event.changedTouches[0].clientY;
+      }, { passive: true });
+      window.addEventListener('touchend', event => {
+        if (!lightbox.hidden) return;
+        const dx = event.changedTouches[0].clientX - touchX;
+        const dy = event.changedTouches[0].clientY - touchY;
+        if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.2) go(current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+
+      window.addEventListener('hashchange', () => go(fromHash(), false));
+      window.addEventListener('resize', () => {
+        clearTimeout(fitTimer);
+        fitTimer = setTimeout(fitActive, 120);
+      });
+      document.querySelectorAll('.media-frame img').forEach(img => {
+        img.addEventListener('load', () => { if (img.closest('.slide') === slides[current]) fitActive(); });
+      });
+      window.addEventListener('beforeprint', () => {
+        slides.forEach((_, i) => loadSlide(i));
+        document.querySelectorAll('.media-frame img').forEach(img => img.style.removeProperty('max-height'));
+      });
+      window.addEventListener('afterprint', fitActive);
+      window.addEventListener('load', () => {
+        let i = 0;
+        const step = () => {
+          loadSlide(i);
+          i += 1;
+          if (i < slides.length) setTimeout(step, 150);
+        };
+        setTimeout(step, 1200);
+      });
+
+      setLang(root.dataset.lang, false);
+      go(current, false);
+    })();
+  </script>
+</body>
+</html>
