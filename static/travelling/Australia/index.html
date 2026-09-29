@@ -91,6 +91,106 @@ html{scroll-padding-top:139px}.date-jump-shell{position:sticky;top:56px;z-index:
 <script>
 'use strict';
 const trip=JSON.parse(document.getElementById('trip-data').textContent);
+// Day 6 was re-timed for the confirmed 08:30 departure and 18:30 return,
+// with the south-lake scenic loop replacing the optional evening Skyline plan.
+function applyDay6Update(){
+  const day=trip.days.find(item=>item.date==='9/29');
+  Object.assign(day,{
+    departure:'08:30',
+    route:'鲍勃湾 → 贝内特悬崖观景台 → 格林诺奇码头与红船屋 → 格林诺奇泻湖步道 → 杰克角 → 魔鬼阶梯观景点 → 金斯顿湖滨 → 皇后镇',
+    highlights:'Bob’s Cove · Glenorchy · Jack’s Point · Devil’s Staircase · Kingston',
+    transport:'自驾 + 湖滨步行 + 观景短停',
+    drivingEstimate:250,
+    reservation:'08:30 出发 · 18:30 前回到 Queenstown',
+    dinner:'18:30 后 Queenstown 晚餐',
+    beforeBed:'长距离驾驶后正常休息',
+    backup:'14:15 仍未离开格林诺奇就取消 Jack’s Point 停留；17:20 必须离开 Kingston 返程。',
+    title:'从格林诺奇绕湖到金斯顿'
+  });
+
+  const common={
+    date:'9/29',
+    status:'建议',
+    nz:true,
+    sourceSheet:'用户确认调整 · 2026-09-29',
+    hotel:'Queenstown｜Mercure Resort'
+  };
+  const day6Events=[
+    {id:'nz-9-29-1',time:'07:30–08:15',title:'酒店早餐',activityText:'酒店早餐',description:'使用已含早餐；08:15 后整理随身物品，08:30 准时出发。',duration:'45 分钟',sequence:1,sourceKeys:[],detail:false},
+    {id:'nz-9-29-2',time:'08:30–08:55',title:'Mercure → 鲍勃湾停车场 / Bob’s Cove Car Park',activityText:'Mercure → 鲍勃湾停车场 / Bob’s Cove Car Park',description:'约 25 分钟交通预算；以实时导航为准。',duration:'25 分钟',sequence:2,sourceKeys:[],detail:false},
+    {id:'nz-9-29-3',time:'08:55–10:05',title:'鲍勃湾 / Bob’s Cove',activityText:'鲍勃湾 / Bob’s Cove；野餐角观景点 / Picnic Point 可选',description:'湖岸、码头、拍照；观景点有一段短而陡的爬升，湿滑就只走湖岸。',duration:'70 分钟',sequence:3,sourceKeys:['S4'],detail:true,chineseName:'鲍勃湾',englishName:'Bob’s Cove',navigationQuery:"Bob's Cove Car Park, Glenorchy-Queenstown Road",photo:'先拍湖岸和码头；野餐角 Picnic Point 是可选爬升段，湿滑时不登高。',stopNumber:1,nextText:'下一段 10:05–10:30 · 自驾前往 Bennetts Bluff Lookout。不在弯道或路肩临时停车拍照。'},
+    {id:'nz-9-29-4',time:'10:05–10:30',title:'自驾前往 Bennetts Bluff Lookout',activityText:'自驾前往 Bennetts Bluff Lookout',description:'不在弯道或路肩临时停车拍照。',duration:'25 分钟',sequence:4,sourceKeys:[],detail:false},
+    {id:'nz-9-29-5',time:'10:30–10:50',title:'贝内特悬崖观景台 / Bennetts Bluff Lookout',activityText:'贝内特悬崖观景台 / Bennetts Bluff Lookout',description:'正式停车区停车，短走到观景台。',duration:'20 分钟',sequence:5,sourceKeys:['S5'],detail:true,chineseName:'贝内特悬崖观景台',englishName:'Bennetts Bluff Lookout',navigationQuery:'Bennetts Bluff Lookout',photo:'利用观景台拍湖湾和道路远景，车停正式车位后再拍。',stopNumber:2,nextText:'下一段 10:50–11:25 · 自驾前往格林诺奇 / Glenorchy。约 35 分钟预算。'},
+    {id:'nz-9-29-6',time:'10:50–11:25',title:'自驾前往格林诺奇 / Glenorchy',activityText:'自驾前往格林诺奇 / Glenorchy',description:'约 35 分钟预算；以实时导航为准。',duration:'35 分钟',sequence:6,sourceKeys:[],detail:false},
+    {id:'nz-9-29-7',time:'11:25–12:10',title:'格林诺奇镇中心 / Glenorchy Town Centre 午餐',activityText:'格林诺奇镇中心 / Glenorchy Town Centre 午餐',description:'简餐即可，车上备备用食物。',duration:'45 分钟',sequence:7,sourceKeys:[],detail:false},
+    {id:'nz-9-29-8',time:'12:10–12:40',title:'格林诺奇码头与红船屋 / Glenorchy Wharf & Red Shed',activityText:'格林诺奇码头与红船屋 / Glenorchy Wharf & Red Shed',description:'湖岸拍照。',duration:'30 分钟',sequence:8,sourceKeys:[],detail:true,chineseName:'格林诺奇码头与红船屋',englishName:'Glenorchy Wharf & Red Shed',navigationQuery:'Glenorchy Wharf, Glenorchy',photo:'红船屋与远山同框，再沿码头拍湖面；不给平静倒影作保证。',stopNumber:3,nextText:'下一段 12:40–13:50 · 格林诺奇泻湖步道 / Glenorchy Walkway。选短环线和木栈道核心段，时间含步行衔接。[S6]'},
+    {id:'nz-9-29-9',time:'12:40–13:50',title:'格林诺奇泻湖步道 / Glenorchy Walkway',activityText:'格林诺奇泻湖步道 / Glenorchy Walkway',description:'选短环线和木栈道核心段，时间含步行衔接；不是要求走完所有分支。',duration:'70 分钟',sequence:9,sourceKeys:['S6'],detail:true,chineseName:'格林诺奇泻湖步道',englishName:'Glenorchy Walkway',navigationQuery:'Glenorchy Walkway, Mull Street, Glenorchy',photo:'木栈道、湿地与山景；选短环线核心段，给下午长途驾驶留余量。',stopNumber:4,nextText:'下一段 13:50–14:05 · 休息、卫生间。补水后上车，14:05 开始南下。'},
+    {id:'nz-9-29-10',time:'13:50–14:05',title:'休息、卫生间',activityText:'休息、卫生间',description:'上车前休息、补水；确认剩余油量和实时导航。',duration:'15 分钟',sequence:10,sourceKeys:[],detail:false},
+    {id:'nz-9-29-11',time:'14:05–15:30',title:'Glenorchy → Jack’s Point',activityText:'Glenorchy → Jack’s Point',description:'约 85 分钟驾驶预算；连续弯路不追赶，若 14:15 仍未离开 Glenorchy，则取消 Jack’s Point 停留。',duration:'85 分钟',sequence:11,sourceKeys:['S27','S28'],detail:false},
+    {id:'nz-9-29-12',time:'15:30–15:50',title:'杰克角 / Jack’s Point',activityText:'杰克角 / Jack’s Point',description:'在 Clubhouse 一带短停看湖景与 Remarkables 山景，不展开长距离步道。',duration:'20 分钟',sequence:12,sourceKeys:['S27'],detail:true,chineseName:'杰克角',englishName:'Jack’s Point',navigationQuery:"Jack's Point Clubhouse, McAdam Drive, Queenstown",photo:'以 The Remarkables 山脉、湖面与开阔草坡为主；只做短停，15:50 准时离开。',stopNumber:5,nextText:'下一段 15:50–16:20 · 沿 SH6 前往 Devil’s Staircase Lookout Point；按正式入口驶入，不在公路边临停。'},
+    {id:'nz-9-29-13',time:'15:50–16:20',title:'Jack’s Point → Devil’s Staircase',activityText:'Jack’s Point → Devil’s Staircase',description:'约 30 分钟驾驶预算；SH6 湖岸弯路需谨慎驾驶。',duration:'30 分钟',sequence:13,sourceKeys:['S26','S28'],detail:false},
+    {id:'nz-9-29-14',time:'16:20–16:35',title:'魔鬼阶梯观景点 / Devil’s Staircase Lookout Point',activityText:'魔鬼阶梯观景点 / Devil’s Staircase Lookout Point',description:'仅在正式观景停车区短停；车位不足或入口不安全就直接略过。',duration:'15 分钟',sequence:14,sourceKeys:['S26'],detail:true,chineseName:'魔鬼阶梯观景点',englishName:'Devil’s Staircase Lookout Point',navigationQuery:"Devil's Staircase Lookout Point, 2911 Kingston Road, Kingston",photo:'拍瓦卡蒂普湖、山脉与沿湖公路弯线；不要在 SH6 车道或狭窄路肩拍照。',stopNumber:6,nextText:'下一段 16:35–16:55 · 继续沿 SH6 前往 Kingston Lakefront。'},
+    {id:'nz-9-29-15',time:'16:35–16:55',title:'Devil’s Staircase → Kingston',activityText:'Devil’s Staircase → Kingston',description:'约 20 分钟驾驶预算；进镇后按湖滨导航停车。',duration:'20 分钟',sequence:15,sourceKeys:['S26','S28'],detail:false},
+    {id:'nz-9-29-16',time:'16:55–17:20',title:'金斯顿湖滨 / Kingston Lakefront',activityText:'金斯顿湖滨 / Kingston Lakefront',description:'湖滨短走和拍照；17:20 是硬性返程时间。',duration:'25 分钟',sequence:16,sourceKeys:['S26'],detail:true,chineseName:'金斯顿湖滨',englishName:'Kingston Lakefront',navigationQuery:'Kingston Lakefront, Kingston, New Zealand',photo:'从瓦卡蒂普湖南端拍湖面和群山；停留控制在 25 分钟，不增加步道。',stopNumber:7,nextText:'下一段 17:20–18:05 · 返回 Queenstown；预留至 18:30 的交通缓冲。'},
+    {id:'nz-9-29-17',time:'17:20–18:05',title:'Kingston → Queenstown',activityText:'Kingston → Queenstown',description:'约 45 分钟驾驶预算；沿 SH6 原路返回，先回 Queenstown，不再增加观景停靠。',duration:'45 分钟',sequence:17,sourceKeys:['S26','S28'],detail:false},
+    {id:'nz-9-29-18',time:'18:05–18:30',title:'返程缓冲 / 抵达 Mercure',activityText:'返程缓冲 / 抵达 Mercure',description:'为车流、弯路和找车位预留 25 分钟；目标 18:30 前回到 Queenstown。',duration:'25 分钟',sequence:18,sourceKeys:[],detail:false},
+    {id:'nz-9-29-19',time:'18:30–19:15',title:'皇后镇晚餐',activityText:'皇后镇晚餐',description:'完成长距离驾驶后再用餐；不再安排 Skyline。',duration:'45 分钟',sequence:19,sourceKeys:[],detail:false}
+  ].map(item=>Object.assign({},common,item));
+  const first=trip.events.findIndex(item=>item.date==='9/29');
+  const oldCount=trip.events.filter(item=>item.date==='9/29').length;
+  trip.events.splice(first,oldCount,...day6Events);
+
+  Object.assign(trip.newZealand['9/29'],{
+    title:'从格林诺奇绕湖到金斯顿',
+    englishTitle:'Glenorchy · Jack’s Point · Devil’s Staircase · Kingston',
+    hard:'08:30 出发 · 17:20 离开 Kingston · 18:30 前回到 Queenstown',
+    cut:'14:15 仍未离开 Glenorchy：Jack’s Point 不停车；17:20 必须离开 Kingston。',
+    weather:'9/29 道路信息显示 Glenorchy–Queenstown 与 Kingston–Frankton 开放、需谨慎驾驶；出发前仍要刷新实时路况。',
+    parking:["Bob's Cove Car Park, Glenorchy-Queenstown Road",'Bennetts Bluff Lookout','Glenorchy Wharf, Glenorchy','Glenorchy Walkway, Mull Street, Glenorchy',"Jack's Point Clubhouse, McAdam Drive, Queenstown","Devil's Staircase Lookout Point, 2911 Kingston Road, Kingston",'Kingston Lakefront, Kingston, New Zealand'],
+    notes:[
+      '停车导航：Bob’s Cove Car Park → Bennetts Bluff Lookout → Glenorchy Wharf → Glenorchy Walkway → Jack’s Point Clubhouse → Devil’s Staircase Lookout Point → Kingston Lakefront。所有观景只进正式停车区。',
+      '时间止损：14:15 仍未离开 Glenorchy 就取消 Jack’s Point 停留；16:45 仍未抵达 Kingston 就只做短暂停留；17:20 无论如何开始返程。',
+      '9/29 早间公开道路信息显示 Glenorchy–Queenstown 与 Kingston–Frankton 为 Open / Drive with care。页面状态会变化，出发和 Kingston 返程前刷新实时路况与导航。[S28]',
+      '租车限制：Omega 当前条款列有 “beyond Glenorchy”等除外区域，因此不自行加 Paradise、Routeburn 或碎石支路；个别道路许可须书面确认。[S16]'
+    ],
+    count:19,
+    stops:7
+  });
+  Object.assign(trip.nzSources,{
+    S26:{title:'Destination Queenstown, Queenstown to Kingston scenic drive',urls:['https://www.queenstownnz.co.nz/stories/post/scenic-drives-from-queenstown-explore-more-at-your-own-pace/']},
+    S27:{title:'Jack’s Point, official directions',urls:['https://www.jackspoint.com/directions']},
+    S28:{title:'Destination Queenstown, live road conditions',urls:['https://www.queenstown.com/snow']}
+  });
+  const firstAttraction=trip.attractions.findIndex(item=>item.date==='9/29');
+  const oldAttractionCount=trip.attractions.filter(item=>item.date==='9/29').length;
+  const day6Attractions=day6Events.filter(item=>item.detail).map(item=>({
+    date:'9/29',
+    region:'皇后镇',
+    title:`${item.chineseName} / ${item.englishName}`,
+    description:item.description,
+    duration:item.duration,
+    level:item.status,
+    official:trip.nzSources[item.sourceKeys[0]]?.urls[0]||'',
+    reminder:item.stopNumber>=5?'短停为主；按实时路况和 17:20 返程线压缩或取消。':'建议时段，按天气、路况和体力调整。'
+  }));
+  trip.attractions.splice(firstAttraction,oldAttractionCount,...day6Attractions);
+  const day6Note=trip.notes.find(item=>item.date==='9/29');
+  Object.assign(day6Note,{
+    title:'当天时限与南下返程',
+    text:'08:30 出发；14:15 仍未离开 Glenorchy 就取消 Jack’s Point 停留；17:20 必须离开 Kingston；18:30 前回到 Queenstown。',
+    source:'用户确认调整 · 2026-09-29'
+  });
+  const oldSkylineCheck=trip.checks.find(item=>item.id==='skyline-v2');
+  Object.assign(oldSkylineCheck,{
+    id:'day6-road-v3',
+    title:'刷新 9/29 南线实时路况',
+    text:'08:30 出发前及 17:20 Kingston 返程前，刷新 Glenorchy–Queenstown、Kingston–Frankton 路况和实时导航。',
+    tag:'出发及返程前',
+    url:'https://www.queenstown.com/snow'
+  });
+  trip.revised='2026-09-29';
+}
+applyDay6Update();
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeURL=value=>/^https?:\/\//i.test(value||'')?esc(value):'#';
