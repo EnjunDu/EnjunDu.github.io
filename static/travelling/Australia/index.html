@@ -293,6 +293,174 @@ function applyDay7Update(){
   trip.revised='2026-09-30';
 }
 applyDay7Update();
+// Wānaka: scenic variety without making every optional detour compulsory.
+// Keep the fixed bookings; update the itinerary, navigation, checks and fallbacks together.
+function applyWanakaUpdate(){
+  const hotel='The Hayloft, 272 Ballantyne Road, Wanaka, New Zealand';
+  const town='Wanaka Lakefront, Ardmore Street, Wanaka, New Zealand';
+  const hawea='The Esplanade, Lake Hawea, New Zealand';
+  const haweaLookout='-44.5085,169.2476';
+  const neckLookout='-44.4308236,169.1827315';
+  const glendhu='Glendhu Bay Lookout, Wanaka Mount Aspiring Road, New Zealand';
+  const diamond='Diamond Lake Conservation Area Car Park, New Zealand';
+  const bay='Bremner Bay, Wanaka, New Zealand';
+  const river='Gunn Road, Albert Town, New Zealand';
+  const tree='That Wanaka Tree, Wanaka, New Zealand';
+  const museum='National Transport and Toy Museum, 891 Wanaka-Luggate Highway, New Zealand';
+  const directions=(origin,destination,waypoints=[])=>'https://www.google.com/maps/dir/?'+new URLSearchParams({api:'1',origin,destination,travelmode:'driving',...(waypoints.length?{waypoints:waypoints.join('|')}:{})}).toString();
+  Object.assign(trip.nzSources,{
+    S38:{title:'NZTA · Hāwea–Makarora 恢复工程与限时通行（出发前刷新）',urls:['https://www.nzta.govt.nz/projects/sh-maintenance-programme/otago/sh6-makarora-to-hawea-severe-weather-event']},
+    S39:{title:'Wānaka 官方 · The Neck 与西岸公路路线',urls:['https://www.wanaka.co.nz/things-to-do/mountain-biking-road-cycling/road-cycling/']},
+    S40:{title:'Wānaka 官方 · Lake Hāwea',urls:['https://www.wanaka.co.nz/about-wanaka/explore-the-region/lake-hawea/']},
+    S41:{title:'Wānaka 官方 · Glendhu Bay 停车入口与湖岸步道',urls:['https://www.wanaka.co.nz/explore/glendhu-bay-track/']},
+    S42:{title:'DOC · Diamond Lake 下层小环线与铺装入口道路',urls:['https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/diamond-lake-and-hospital-flat/things-to-do/diamond-lake-loop-track/','https://www.wanaka.co.nz/explore/diamond-lake-and-rocky-mountain-walks/']},
+    S43:{title:'DOC · Clutha River / Outlet Track 的 Gunn Road 入口',urls:['https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/outlet-track/']},
+    S44:{title:'National Transport & Toy Museum · 无需预约、票价与开放时间',urls:['https://www.nttmuseumwanaka.co.nz/']},
+    S45:{title:'The Hayloft · 住宿与地址（提前寄存须单独确认）',urls:['https://www.thehayloft.co.nz/wanaka-accommodation/','https://www.thehayloft.co.nz/contact/']},
+    S46:{title:'Time and Date · Wānaka 天气与日落（预报会变）',urls:['https://www.timeanddate.com/weather/@2184707/ext']},
+    S47:{title:'Rippon 官方 · 预约规则，不接待单纯观景',urls:['https://rippon.co.nz/pages/tastings']},
+    S48:{title:'QLDC · Wānaka 停车地图，孤独树 / Watersports 入口',urls:['https://www.qldc.govt.nz/media/uvhjexyu/qldc_wanaka-cbd-parking-map-a4_overflow_dec25.pdf']},
+    S49:{title:'中段 Hāwea 观景位置参考 · 实拍坐标（入口服从现场标识）',urls:['https://commons.wikimedia.org/wiki/File:Lake_H%C4%81wea_Feb_2025.jpg']},
+    S50:{title:'The Neck 南侧 Lake Wānaka Lookout 点位',urls:['https://www.waze.com/live-map/directions/nz/otago-region/the-neck/lake-wanaka-lookout?to=place.ChIJS4ktqZRN1WwRprOq1OociIg']}
+  });
+  const day8=trip.days.find(d=>d.date==='10/1');
+  Object.assign(day8,{
+    title:'翻过山口，看哈威亚湖与晚霞',departure:'09:10',
+    route:'皇冠山口 → Cardrona → Wānaka 午餐 → Hāwea 镇湖岸 → SH6 中段湖景 → The Hayloft 入住 → 孤独树 → 湖畔晚餐与暮色',
+    highlights:'Crown Range · Cardrona · Lake Hāwea · That Wānaka Tree',
+    transport:'分段自驾 + 观景短停；The Neck 仅作可选延伸',drivingEstimate:195,
+    reservation:'无预约项目；Mercure 退房与 The Hayloft 入住按订单确认',
+    dinner:'18:15–19:15 Wānaka；不绑定需订位餐厅',beforeBed:'核对次日阵雨、步道与湖岸风况',
+    backup:'山口不适合就经 Cromwell 转场；Hāwea 中段看完即可返程，The Neck 不必去。',status:'景观优先 · 已优化'
+  });
+  const day9=trip.days.find(d=>d.date==='10/2');
+  Object.assign(day9,{
+    title:'西岸湖湾与克鲁萨河，轻松收尾',departure:'09:10（建议）',
+    route:'Glendhu Bay 西岸 → Diamond Lake 下层短线（可选）→ Wānaka 午餐 → Eely Point / Bremner Bay → Albert Town 河岸 → 休整与晚餐',
+    highlights:'Glendhu Bay · Bremner Bay · Clutha River',
+    transport:'近郊自驾 + 分段短走；不租自行车、不安排登山',drivingEstimate:90,
+    reservation:'自然景点无需预约；交通博物馆仅作雨天付费备选',
+    dinner:'18:00–19:00 Wānaka，饭后返回 The Hayloft',beforeBed:'准备10/3转场；核对退房时限及Aoraki天气',
+    backup:'下雨删 Diamond Lake，湖岸短停看雨隙；不为凑时间加远途或登山。',status:'景观优先 · 已优化'
+  });
+  const plans={
+    '10/1':[
+      {time:'08:15–09:10',title:'早餐、退房与路况检查',description:'09:10 从 Mercure 出发。看 Crown Range / QLDC 和 NZTA 当天报告，备水、加餐及防风外套；贵重物品随身。',sourceKeys:['S36','S37']},
+      {time:'09:10–10:00',title:'Mercure → Crown Range Summit',description:'约50分钟交通预算，含少量余量。正常公路上山，不驶入滑雪场道路；冰雪、需装链或低能见度时改经 Cromwell，不硬开。',sourceKeys:['S9','S37']},
+      {time:'10:00–10:20',title:'皇冠山口 / Crown Range Summit',chineseName:'皇冠山口观景点',englishName:'Crown Range Summit',description:'在正规停车区看山谷与远山，车旁及观景区短走即可，不安排登山。',duration:'20分钟',navigationQuery:'Crown Range Summit, New Zealand',photo:'优先开阔山谷全景；云雾遮挡就缩短停留，不为了等放晴久留。',sourceKeys:['S9','S37'],detail:true},
+      {time:'10:20–10:50',title:'Crown Range → Cardrona Hotel',description:'约30分钟，山路按舒适速度行驶，不在弯道临停。'},
+      {time:'10:50–11:25',title:'卡德罗纳历史酒店 / Cardrona Hotel',chineseName:'卡德罗纳历史酒店',englishName:'Cardrona Hotel',description:'拍历史外立面、逛可进入的花园，有座位再喝咖啡；这是山谷里的历史酒店，不是 Cardrona 滑雪场。',duration:'35分钟',navigationQuery:'Cardrona Hotel, Cardrona, New Zealand',photo:'老建筑与花园补充人文景观。咖啡和用餐不作为必需条件；驾驶员不饮酒。',sourceKeys:['S11'],detail:true},
+      {time:'11:25–12:00',title:'Cardrona → Wānaka 镇中心',description:'约35分钟含入镇停车余量。今天不在午间额外绕一趟民宿，除非房东已经允许寄存且确实顺路。'},
+      {time:'12:00–12:55',title:'Wānaka 午餐、卫生间与补给',description:'找有空位的店或买外带，不等预约餐厅。午餐后再出发去 Hāwea，避免连续开山路与湖岸公路。'},
+      {time:'12:55–13:20',title:'Wānaka → Lake Hāwea 镇湖岸',description:'约25分钟含停车余量；定位 The Esplanade 镇湖岸，而非泛泛的湖泊中心。',sourceKeys:['S40']},
+      {time:'13:20–13:55',title:'哈威亚湖镇湖岸 / Lake Hāwea',chineseName:'哈威亚湖镇湖岸',englishName:'Lake Hāwea · The Esplanade',description:'看近岸湖水、开阔湖面和山体，在公共湖岸短走10–15分钟后折返。无需走完 Gladstone Track。',duration:'35分钟',navigationQuery:hawea,photo:'这一站看近水视角；下一站才是公路高处长湖视角。风大时缩短步行，不沿碎石支路找偏僻机位。',sourceKeys:['S40'],detail:true},
+      {time:'13:55–14:10',title:'Hāwea 镇 → SH6 中段观景点',description:'约15分钟交通预算。只停正式观景停车区；有同名观景点，使用下方中段坐标，不导航到 The Neck 的北端同名点。',sourceKeys:['S49']},
+      {time:'14:10–14:30',title:'哈威亚湖中段公路观景点 / Lake Hāwea Lookout',chineseName:'哈威亚湖中段公路观景点',englishName:'Lake Hāwea Lookout · SH6 middle section',description:'主线最北折返点：从公路高处看狭长湖面与山坡，约20分钟足够。坐标标记观景点附近，实际驶入以正式入口、停车标识为准。',duration:'20分钟',navigationQuery:haweaLookout,photo:'此处约 -44.5085, 169.2476，与 The Neck 附近同名点不同。看完默认回住宿；仅能见度好、司机精神好且路况允许时，选下方 The Neck 延伸。',prominent:'默认在这里结束北线；The Neck 不是必做任务。',sourceKeys:['S39','S49'],detail:true},
+      {time:'14:30–15:05',title:'Hāwea 中段 → The Hayloft',description:'约35分钟预算，经原路返回。主线不加 Kane Road—Red Bridge 绕行，也不再停多个相似停车湾。'},
+      {time:'15:05–16:10',title:'The Hayloft 入住、放行李与休息',description:'272 Ballantyne Road。15:05是计划到达，不是已确认可入住时刻；出发前请房东确认。若尚不能入住，只在获准时寄存，并与后面的孤独树短停调换顺序。入口路面与车辆许可按实际租约核对。',sourceKeys:['S45','S16']},
+      {time:'16:10–16:25',title:'The Hayloft → 孤独树附近公共停车区',description:'约15分钟含停车余量，优先按 Watersports Facility / 孤独树公共停车标识进入。',sourceKeys:['S48']},
+      {time:'16:25–17:10',title:'瓦纳卡孤独树与南岸 / That Wānaka Tree',chineseName:'瓦纳卡孤独树与南岸',englishName:'That Wānaka Tree',description:'从公共停车点走到湖岸，拍孤独树、山体与水面；再沿开放南岸短走。不下水、不攀树，也不需要去更远的湖湾凑点。',duration:'45分钟',navigationQuery:tree,photo:'树枝作前景、远山和湖面作背景；风和水位会改变效果。这站下午先看，不把好照片完全押在日落。',sourceKeys:['S48'],detail:true},
+      {time:'17:10–17:25',title:'南岸 → 镇中心停车、短距离衔接',description:'约15分钟含停车余量；后面散步和晚饭集中在镇湖畔，不来回开车。'},
+      {time:'17:25–18:15',title:'镇湖畔自由活动与次日补给',description:'沿 Ardmore Street / Roys Bay 散步，或按需要买早餐。不是必须消费或守表等时间；想休息就直接找地方坐下。'},
+      {time:'18:15–19:15',title:'Wānaka 晚餐',description:'不绑定需要预订的餐厅，有位就吃、无位可外带。若加了 The Neck，傍晚整体可后移30分钟，优先保留吃饭与休息。'},
+      {time:'19:15–19:50',title:'瓦纳卡湖畔暮色 / Roys Bay',chineseName:'瓦纳卡湖畔暮色',englishName:'Roys Bay · Wānaka Lakefront',description:'天气舒服才留下看湖畔暮色；10/1日落参考约19:50，山体可能提前遮光。阴雨、冷风或疲劳就提前回住宿。',duration:'最多35分钟',navigationQuery:town,photo:'晚饭后的自由收尾，不保证晚霞，不在这里为了满足某个结束时刻硬等。',status:'可选',sourceKeys:['S46'],detail:true},
+      {time:'19:50–20:05',title:'Wānaka 湖畔 → The Hayloft',description:'约15分钟，完成当天行程。晚间返程视线不佳时放慢，不再增加远处景点。'}
+    ],
+    '10/2':[
+      {time:'08:15–09:10',title:'早餐、查看雨势与步道情况',description:'主线是近郊看景，不需要抢项目。下雨就删 Diamond Lake 土路小环线；没有全日晴天也不必改成长途自驾。',sourceKeys:['S42','S46']},
+      {time:'09:10–09:40',title:'The Hayloft → Glendhu Bay 西岸',description:'约30分钟含停车余量。沿 Wānaka–Mount Aspiring Road 到正规观景停车区；不驶入私人营地或农场。',sourceKeys:['S41']},
+      {time:'09:40–10:30',title:'格伦杜湾与西岸公路 / Glendhu Bay',chineseName:'格伦杜湾与西岸公路',englishName:'Glendhu Bay · West shore',description:'这是今天优先保留的大景：在正规公路观景点看湖湾，再到允许公众进入的湖岸短走。两处短停合计约50分钟，不开到 Treble Cone 岔口只为多一个点。',duration:'50分钟',navigationQuery:glendhu,photo:'拍湖湾弧线、群山与开阔水面。完整 Glendhu Bay Track 约15公里单程，不在本计划内；风雨大时只保留停车点附近。',sourceKeys:['S41','S39'],detail:true},
+      {time:'10:30–11:30',title:'西岸机动：Diamond Lake 下层短线（可选）',chineseName:'Diamond Lake 下层短线',englishName:'Diamond Lake Loop · Optional',description:'只在地面干燥、愿意短上坡时保留：约10分钟开到停车场，再走下层小湖环线约45–50分钟。不要上 Lake Wānaka 高处观景台或 Rocky Mountain。取消则直接回镇，后续可提前，不必等到11:30。',duration:'约60分钟含单程接驳',navigationQuery:diamond,photo:'DOC确认公路到停车场铺装，但步道是有短上坡的土路，并非停车即到。雨后泥泞、结冰或不想走路就删，不用其他爬山来替代。',status:'可选',sourceKeys:['S42'],detail:true},
+      {time:'11:30–12:00',title:'西岸 → Wānaka 镇中心',description:'约30分钟含停车余量。若未走 Diamond Lake，可更早回镇吃饭；不折返孤独树重复打卡。'},
+      {time:'12:00–13:00',title:'Wānaka 午餐',description:'轻松吃午饭，不必绑定某家名店。下午两处分别看湖湾和河流，不重复上午西岸长线。'},
+      {time:'13:00–13:15',title:'镇中心 → Bremner Bay 公共入口',description:'约15分钟含停车余量；按公共路边停车标识停车，若内部车道为碎石且租约未确认，就不驶入保护区内部。'},
+      {time:'13:15–14:20',title:'布雷姆纳湾与伊利角 / Bremner Bay & Eely Point',chineseName:'布雷姆纳湾与伊利角',englishName:'Bremner Bay & Eely Point',description:'把相邻湖湾合成一站：以 Bremner Bay 为停车与起终点，沿开放湖岸走向 Eely Point，按体力折返。看湖、树林与小海湾，不租自行车、不另外再绕 Beacon Point。',duration:'65分钟，可缩短',navigationQuery:bay,photo:'近岸、树荫和远山构成不同于公路观景台的画面；短走与休息交替，不要求完成整段湖岸。',sourceKeys:['S13'],detail:true},
+      {time:'14:20–14:40',title:'Bremner Bay → Albert Town',description:'约20分钟含停车余量。导航 Gunn Road，随后按 Outlet Track 公共入口指示到路底停车区；不是导航去 Outlet Motor Camp。',sourceKeys:['S43']},
+      {time:'14:40–15:25',title:'克鲁萨河短走 / Clutha River',chineseName:'克鲁萨河短走',englishName:'Clutha River / Mata-Au · Albert Town',description:'从 Gunn Road 底端公共停车入口进入 Outlet Track，沿河走10–15分钟，拍照后原路回来。这里看流动的蓝绿色河水，给两天湖景增加变化。',duration:'45分钟',navigationQuery:river,photo:'不要走到临水陡岸，也不为了到湖泊出水口走完整条步道。强降雨、积水或封闭标识出现时取消。',sourceKeys:['S43'],detail:true},
+      {time:'15:25–15:45',title:'Albert Town → The Hayloft',description:'约20分钟含余量。完成主线后休息，不为“景点数量”再向外开远。若选择雨天博物馆替代，就从这里直接前往馆区。'},
+      {time:'15:45–17:40',title:'休整 / 雨天博物馆替代（二选一）',description:'默认回住宿休息、整理照片。若喜欢车辆与玩具，或雨天已删了湖岸步行，可改15:40–16:55交通与玩具博物馆，之后回住宿或镇上；这是付费可选项，不是额外必做景点。',sourceKeys:['S44']},
+      {time:'17:40–18:00',title:'The Hayloft → Wānaka 晚餐',description:'约20分钟含停车余量；也可在住宿做饭，省去晚间接驳。'},
+      {time:'18:00–19:00',title:'Wānaka 晚餐与两日收尾',description:'吃完回住宿；天气突然放晴且仍有精神，可饭后在镇湖边短走。不要为了等约19:51日落而在雨中硬撑。',sourceKeys:['S46']},
+      {time:'19:00–19:15',title:'返回 The Hayloft',description:'约15分钟。准备次日转场，确认10/3退房时限；Tarras、Lindis Pass 与 Pūkaki 留给 Day 10。'}
+    ]
+  };
+  for(const [date,plan] of Object.entries(plans)){
+    let stop=0;
+    const events=plan.map((item,i)=>({date,nz:true,status:'建议',hotel:'Wānaka｜The Hayloft',sourceSheet:'Wānaka 景观与驾驶平衡版 · 2026-09-30 核对',sourceKeys:[],detail:false,...item,id:`nz-${date.replace('/','-')}-${i+1}`,sequence:i+1,activityText:item.title,...(item.detail?{stopNumber:++stop}:{})}));
+    events.forEach((e,i)=>{if(e.detail){const next=events[i+1];e.nextText=next?`${next.time} · ${next.title}。${next.description}`:'按计划返程。';}});
+    const first=trip.events.findIndex(e=>e.date===date);
+    trip.events.splice(first,trip.events.filter(e=>e.date===date).length,...events);
+    const firstAttraction=trip.attractions.findIndex(a=>a.date===date);
+    trip.attractions.splice(firstAttraction,trip.attractions.filter(a=>a.date===date).length,...events.filter(e=>e.detail).map(e=>({date,region:'Wānaka / Southern Lakes',title:e.title,description:e.description,duration:e.duration,level:e.status,official:trip.nzSources[e.sourceKeys[0]]?.urls[0]||'',reminder:e.status==='可选'?'可取消，不依赖预约，也不需要以其他远途补满。':'主线景观与短走；以当日路况、现场开放和合法停车为准。'})));
+    Object.assign(trip.newZealand[date],{title:trip.days.find(d=>d.date===date).title,englishTitle:trip.days.find(d=>d.date===date).highlights,count:events.length,stops:stop});
+  }
+  Object.assign(trip.newZealand['10/1'],{
+    hard:'09:10 Mercure 出发 · 15:05 计划到民宿 · 晚餐后湖畔收尾，约20:05回住宿',
+    cut:'先删 The Neck 延伸，再缩短镇上自由活动；不删午餐、必要休息来赶表。没有晚霞或疲劳可提前回。',
+    weather:'山口有冰雪、需装链、浓雾或驾乘不适：改经 Cromwell 转场，不重复今天老街。北线遇封闭提前折返，不等车队。',
+    parking:['Crown Range Summit, New Zealand','Cardrona Hotel, New Zealand',hawea,haweaLookout,hotel,tree,town],
+    intro:'主线看高处山谷、历史酒店、Hāwea近岸与长湖、孤独树；纯驾驶预算约3–3.5小时，表内转场另含停车余量。The Neck 不是必经点：约多30–40分钟驾驶、45–60分钟总时间，清晰标在可选分支。',
+    routeTitle:'Day 8｜舒适主线 + 一条可选延伸',
+    routeNote:'①②③是主线；④仅在天气通透、司机精神好且现场允许时打开。坐标是观景点附近定位，按正式停车入口驶入，不在路肩或弯道掉头。时间为估计，不是实时路况承诺。',
+    routeLinks:[
+      {title:'① 上午｜Mercure → 皇冠山口 → Cardrona → Wānaka',url:directions('Mercure Queenstown Resort, New Zealand',town,['Crown Range Summit, New Zealand','Cardrona Hotel, New Zealand'])},
+      {title:'② 主线｜Wānaka → Hāwea镇湖岸 → 中段观景点 → 住宿',url:directions(town,hotel,[hawea,haweaLookout])},
+      {title:'③ 傍晚｜住宿 → 孤独树 → 镇湖畔',url:directions(hotel,town,[tree])},
+      {title:'④ 可选延伸｜中段观景点 → The Neck南侧 → 住宿',url:directions(haweaLookout,hotel,[neckLookout])}
+    ],
+    alternatives:[
+      ['The Neck：通透、不累才加；不是主线',neckLookout,'14:30在Hāwea中段看完后作决定。延伸到南侧 Lake Wānaka Lookout 就折返，约16:00到住宿；之后保留至少45分钟休息，孤独树及晚餐后移约30分钟。多30–40分钟驾驶、45–60分钟总时间；不继续Makarora或Blue Pools，不靠夜间开放来完成行程。'],
+      ['Crown Range 不适合时：经 Cromwell 转场','Cromwell, New Zealand','删皇冠山与Cardrona，不折返。Day 7已游览Cromwell，今天只作转场与按需休息；接Wānaka午餐和Hāwea主线。']
+    ],
+    notes:[
+      '最后取舍：保留风景差异大的山口、历史建筑、Hāwea湖岸和孤独树；不加Kane Road—Red Bridge绕行，不把多个相似停车湾拆成必做景点。The Neck值得但不是不可替代的新增景观，因此从必跑降为条件延伸。[S39]',
+      '道路核对快照：NZTA目前可读的9/24更新写明，9/28起白天受限段缩至最北侧Lake Wānaka Lookout—Wharf Creek。工作日北行车队10:00、12:00、14:00，南行10:20、12:20、14:20。不要用普通导航车程推算跨工区往返。主线止于更南的Hāwea中段；可选The Neck也只到南侧坐标，地理判断不代替现场管制，出发前刷新。[S38][S36][S50]',
+      '点位去重：Lake Hāwea Lookout有同名点。主线中段约 -44.5085,169.2476；可选The Neck南侧Lake Wānaka Lookout约 -44.4308236,169.1827315。地图已分开，不能只凭名称一路向北。只在可安全、合法进出的正式停车区停靠，车位满或交通组织不允许就跳过。[S49][S50]',
+      '行李：默认下午完成北线后一次入住。房东若确认能提前寄存且你们确实顺路，可午间增加约20–30分钟；相应取消The Neck延伸，不为放行李额外来回跑。15:05仅为到达计划，入住时间与寄存权限以订单/房东为准。[S45]',
+      '两天天气取舍：截至9/30晚，10/1雨的风险相对较低，10/2有阵雨预报。因此较远的北线先走，次日保留随时能回镇的西岸和近郊；预报可能改变，不承诺晴空、雪山全貌或晚霞。10/1日落参考约19:50。[S46]',
+      'Omega与路面：景观主线走铺装公路，不进入滑雪场道路、私人农场和砂石山路；停车区或The Hayloft入口可能不是铺装面，仍须服从实际租约。铺装道路不等于保险没有除外。[S9][S16][S45]',
+      '没有安排Blue Pools并非宣称景点关闭，而是不愿为了跨越恢复工区等待车队。也不为了看更多湖而重复Day7的Cromwell或提前用掉Day10的Pūkaki。[S38]'
+    ]
+  });
+  Object.assign(trip.newZealand['10/2'],{
+    hard:'09:10建议出发 · 15:45左右结束自然主线 · 18:00晚餐，约19:15回住宿',
+    cut:'Diamond Lake先删；有雨或疲劳再缩短湖湾短走。博物馆仅作替代，不与所有户外安排硬叠加。',
+    weather:'10/2有阵雨风险。Glendhu看能见度择机短停；湿滑不走Diamond Lake。强降雨不进河边步道，可换无需预约的室内馆。',
+    parking:[glendhu,bay,river,hotel],
+    intro:'西岸大景、近镇湖湾与蓝绿色河流各看一组。核心纯驾驶约1–1.5小时；加Diamond Lake约再多15–20分钟。自然景点约15:45结束，之后休息和晚餐，不把“玩到晚上”变成不停开车。',
+    routeTitle:'Day 9｜近郊看景，步道与雨天项目自由删减',
+    routeNote:'①②为主线；③是干燥天气短步道，④是雨天/兴趣替代，不是四条都要执行。Gunn Road需按现场步道标识到路底公共入口，地图只作道路定位。未走可选项即可提前，不必守表。',
+    routeLinks:[
+      {title:'① 西岸主线｜住宿 → Glendhu Bay → Wānaka',url:directions(hotel,town,[glendhu])},
+      {title:'② 午后主线｜Wānaka → Bremner Bay → Clutha河入口 → 住宿',url:directions(town,hotel,[bay,river])},
+      {title:'③ 可选步道｜Glendhu Bay → Diamond Lake → Wānaka',url:directions(glendhu,town,[diamond])},
+      {title:'④ 雨天替代｜Albert Town → 交通博物馆 → 住宿',url:directions(river,hotel,[museum])}
+    ],
+    alternatives:[
+      ['雨天或有兴趣：National Transport & Toy Museum',museum,'官网明确无需预约；目前08:30–17:00、成人NZ$23。车辆、飞机与玩具收藏，可预留1.5–2小时。持续下雨就提前替换户外段；主线结束后临时加看只留到16:55，不宣称还能逛满2小时。不是强制消费。']
+    ],
+    notes:[
+      '节奏：不把四个相邻湖湾分别列成一小时，也不以远途或登山补空。Glendhu是西岸大景；Bremner/Eely合成一站；Albert Town用河流增加景观变化。下午回住宿休整后再吃晚饭，给Day10转场留体力。[S41][S13][S43]',
+      'Diamond Lake不是零步行景点：从停车场有一段上坡土路，湖边小环线约45分钟。DOC确认公路铺装，但提醒步道结冰风险；湿滑、不想上坡就取消，不上Rocky Mountain或高处Lake Wānaka Lookout。[S42]',
+      '西线边界：不沿Mount Aspiring Road继续到砂石段，不去Raspberry Creek/Rob Roy，也不上Treble Cone滑雪场路。铺装路尽头不是一个需要特地抵达的景点。[S39]',
+      'Rippon官网明确不接待单纯观景游客，品酒需要预约；因此不把酒庄当免费拍照点。原计划自行车租借、Mount Iron均已从必做清单删除。[S47]',
+      '雨天安排：有阵雨就利用雨隙看湖，Diamond Lake直接删；持续降雨可把下午交通与玩具博物馆提前替换湿滑步道，不一定要全数做完。不喜欢室内馆也可省略，接受提前结束比雨中硬撑更好。[S44][S46]',
+      '10/3仍按原住宿与转场安排走Tarras—Lindis Pass—Twizel/Pūkaki；这两天不为了加景点提前跑过去。10/2晚仍需核对Aoraki后续天气、道路和The Hayloft退房时间。'
+    ]
+  });
+  for(const date of ['10/1','10/2'])Object.assign(trip.notes.find(n=>n.date===date),{title:trip.days.find(d=>d.date===date).title,text:trip.newZealand[date].intro,source:'用户景观/驾驶偏好与公开信息 · 2026-09-30'});
+  Object.assign(trip.checks.find(c=>c.id==='bike-v2'),{id:'wanaka-weather-v3',title:'10/1–10/2：山口、北线与雨天取舍',text:'出发前刷新Crown Range和SH6；The Neck不是必跑。10/2有雨删Diamond Lake，交通博物馆无需预约但为付费可选。',tag:'出发前',url:'https://www.journeys.nzta.govt.nz/highway-conditions'});
+  Object.assign(trip.checks.find(c=>c.id==='hayloft-times-v2'),{id:'hayloft-times-v3',title:'确认The Hayloft入住、寄存与退房时刻',text:'10/1主线约15:05到达；加The Neck约16:00。均为行程估计，不是房东承诺。提前寄存要先获准；10/3计划10:00离店，仍须核对退房时限及入口道路。',url:'https://www.thehayloft.co.nz/contact/'});
+  const crownFallback=trip.nzContingencies.find(x=>x[0].includes('皇冠山路'));
+  if(crownFallback)crownFallback[1]='10/1改经Cromwell，删皇冠山观景与Cardrona。Day7已游览老街则只作转场，不重复停车；接Wānaka午餐与Hāwea主线。[S9][S37]';
+  trip.nzContingencies.push(
+    ['10/1北线能见度差、司机疲劳或道路管制','Hāwea镇湖岸/中段观景点结束后返住宿，不加The Neck，不为Makarora/Blue Pools等待车队。现场管制优先。[S38]'],
+    ['10/2下雨或Diamond Lake步道湿滑','删小湖步道，Glendhu与近镇湖岸择雨隙短停；交通与玩具博物馆为无需预约的付费替代，不强制加进整天。[S42][S44]']
+  );
+  trip.originalOverviewNote='悉尼沿用已确认四日攻略；新西兰以2026-09-22双语计划为基础，Day6–7按实际游览反馈修订，Day8–9于9/30晚按“景观丰富、减少驾驶疲劳”更新。可选延伸不计入必做主线；住宿与租车固定。';
+  trip.revised='2026-09-30';
+}
+applyWanakaUpdate();
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeURL=value=>/^https?:\/\//i.test(value||'')?esc(value):'#';
@@ -314,7 +482,7 @@ function setupOverview(){
   $('route').innerHTML=stops.map(s=>`<button class="route-node" type="button" data-day="${s[3]}"><span class="node-dot" style="display:block"></span><h3>${s[0]}</h3><p style="letter-spacing:.5px">${s[1]}</p><p>${s[2]}</p></button>`).join('');
   $('overview-grid').innerHTML=trip.days.map(d=>`<button class="overview-card" type="button" data-day="${d.date}" aria-label="查看 ${d.date} ${esc(d.title)}"><div class="overview-top"><span class="day-num">${String(d.index).padStart(2,'0')}</span><time>${d.date} / ${weekday(d.date)}</time></div><h3>${esc(d.title)}</h3><p>${esc(d.route)}</p><div class="overview-bottom"><span>${esc(d.city)} · ${esc(d.departure)}</span>${badge(d.status,d.status==='待补'?'red':d.status!=='已定'?'warn':'neutral')}</div></button>`).join('');
   $('jump-index').innerHTML=trip.days.map(d=>`<a href="#day-${d.index}" data-quick-day="${d.date}"><strong>${d.date}</strong><span>${esc(d.city)}</span></a>`).join('');
-  $('overview-source').innerHTML=`<p>${esc(trip.originalOverviewNote)}</p><p>普通日约 10:00–10:30 出门；Day 6 为 08:30、Day 7 为 08:45，赶飞机、Aoraki 和还车日另看当天。所有道路时间均为规划预算；临行核对实时导航和官方开放状态。</p><p>住宿仍为新西兰 9 晚。新计划的日期、时刻与活动覆盖旧 Excel 的对应内容。</p>`;
+  $('overview-source').innerHTML=`<p>${esc(trip.originalOverviewNote)}</p><p>普通日约10:00–10:30出门；Day6为08:30、Day7为08:45、Day8为09:10，Day9建议09:10。赶飞机、Aoraki和还车日另看当天。所有道路时间均为规划预算；临行核对实时导航和官方开放状态。</p><p>住宿仍为新西兰9晚。新计划的日期、时刻与活动覆盖旧Excel的对应内容。</p>`;
 }
 function renderDatePicker(){
   syncDateJump();
@@ -480,8 +648,9 @@ function nzEventHTML(e){
 function nzDayHTML(day,events){
   const m=trip.newZealand[day.date],all=trip.events.filter(e=>e.date===day.date),stops=all.filter(e=>e.detail),visible=new Set(events.map(e=>e.id));
   const route=stops.length?stops.map(e=>visible.has(e.id)?`<a href="#${e.id}"><span class="route-order">${String(e.stopNumber).padStart(2,'0')}</span>${esc(e.chineseName)}${e.status==='可选'?'（可选）':e.status==='天气条件项'?'（条件项）':''}</a>`:`<span>${esc(e.chineseName)}</span>`).join('<span class="route-arrow" aria-hidden="true">→</span>'):esc(day.route);
-  const alternatives=({'10/1':[['克伦威尔历史街区 · 山路备选','Cromwell Heritage Precinct','改经 Cromwell 后删除皇冠山与 Cardrona；9/30 已游览老街则只经城转场，不重复停留。']], '10/2':[['天堂电影院 · 雨天备选','Cinema Paradiso, Wanaka','仅在片单与场次合适时考虑。']], '10/4':[['彼得观景台 · 返程可选短停',"Peter's Lookout, Mount Cook Road",'仅在回程时间充足时短停约 10 分钟；不在 SH80 车道上拍照。']]})[day.date]||[];
-  const routePanel=m.routeLinks?`<section class="nz-day-notes" aria-label="自驾路线与分段导航"><h4>无需预约 · 自驾看景的一整天</h4><p>${esc(m.intro)}</p><div class="stop-maps">${m.routeLinks.map(r=>link(r.url,r.title)).join('')}</div><p>每段最多两个途经点；打开后核对站点顺序，按正式停车入口行驶。08:45 为基准；09:00 出发则箭镇少留 15 分钟。回皇后镇约 18:30，Mercure 约 18:40。</p></section>`:'';
+  const alternatives=m.alternatives||({'10/4':[['彼得观景台 · 返程可选短停',"Peter's Lookout, Mount Cook Road",'仅在回程时间充足时短停约10分钟；不在SH80车道上拍照。']]})[day.date]||[];
+  const routeNote=m.routeNote||(day.date==='9/30'?'每段最多两个途经点；打开后核对站点顺序，按正式停车入口行驶。08:45为基准；09:00出发则箭镇少留15分钟。回皇后镇约18:30，Mercure约18:40。':'打开地图后核对顺序、正式停车入口与当日道路状态。');
+  const routePanel=m.routeLinks?`<section class="nz-day-notes" aria-label="自驾路线与分段导航"><h4>${esc(m.routeTitle||'无需预约 · 自驾看景的一整天')}</h4><p>${esc(m.intro)}</p><div class="stop-maps">${m.routeLinks.map(r=>link(r.url,r.title)).join('')}</div><p>${esc(routeNote)}</p></section>`:'';
   return `<article class="day-block nz-day ${m.accent}" id="day-${day.index}"><header class="sydney-banner nz-banner" data-number="${day.index}"><img src="${trip.photos[day.image].data}" alt="${esc(trip.photos[day.image].title)}" loading="lazy"><div class="sydney-date">${day.date}<small>DAY ${String(day.index).padStart(2,'0')} / ${weekday(day.date)}</small></div><div class="nz-banner-copy"><div class="eyebrow">NEW ZEALAND · 2026</div><h3>${esc(m.title)}</h3><div class="sydney-subtitle" lang="en">${esc(m.englishTitle)}</div><p class="sydney-intro">${esc(day.transport)} · ${m.stops} 处展开攻略 · ${m.count} 条时间安排</p></div></header><nav class="sydney-route" aria-label="${day.date} 路线">${route}</nav><div class="nz-day-callout"><span>当天关键时间</span><strong>${esc(m.hard)}</strong><small>${day.date==='10/7'?'起降均为各地当地时间；航班来自提供的确认邮件摘录。':'NZDT（UTC+13）；9/28 悉尼段单独标注当地时间。观光与车程为建议安排。'}</small></div>${dailyStayHTML(day)}${routePanel}<details class="nz-timetable"><summary>当天时刻总表 <span>${all.length} 项 · 展开快速扫读</span></summary><div class="table-scroll"><table><caption>${day.date} 完整时间表 · 建议时段，预订信息另标</caption><thead><tr><th>时间</th><th>安排</th><th>状态</th></tr></thead><tbody>${all.map(e=>`<tr><td>${esc(e.time)}</td><td>${visible.has(e.id)?`<a href="#${e.id}">${esc(e.activityText)}</a>`:esc(e.activityText)}</td><td>${nzStatus(e)}</td></tr>`).join('')}</tbody></table></div></details><div class="day-layout"><div class="timeline">${events.map(nzEventHTML).join('')}</div><aside class="day-aside nz-day-aside"><h4>DAY ${day.index} · 执行要点</h4>${mini('出发 / 起床参考',day.departure)}${mini('删减规则',m.cut)}${mini('天气与衔接备选',m.weather)}<details class="parking-details"><summary>停车 / 导航搜索词</summary>${m.parking.map(q=>`<div class="nz-parking"><p lang="en">${esc(q)}</p>${link(mapSearch(q),'Google')}${link(appleMapSearch(q),'Apple')}<button class="copy-btn" type="button" data-copy-keyword="${esc(q)}">复制</button></div>`).join('')}</details><p class="sydney-assumption">住宿与取还车固定。旅行体验依体力、天气和现场开放情况调整，不把建议时间当作已预约。</p></aside></div>${m.notes.length?`<div class="nz-day-notes"><h4>当天补充与替代方案</h4>${m.notes.map(n=>`<p>${nzRichText(n)}</p>`).join('')}</div>`:''}${alternatives.map(([title,q,note])=>`<article class="nz-alternative"><h4>${esc(title)}</h4><p lang="en">${esc(q)}</p><p>${esc(note)}</p><div class="activity-links">${nzMapLinks(q)}</div></article>`).join('')}<div class="day-end-nav"><button type="button" data-day="${trip.days[day.index-2]?.date||'9/24'}">← 前一天</button><a href="#top">回到页首</a>${day.index<14?`<button type="button" data-day="${trip.days[day.index].date}">后一天 →</button>`:'<a href="#checklist">行前清单 →</a>'}</div></article>`;
 }
 function setupDateJump(){
