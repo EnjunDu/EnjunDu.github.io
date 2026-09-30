@@ -309,7 +309,7 @@ function applyWanakaUpdate(){
   const museum='National Transport and Toy Museum, 891 Wanaka-Luggate Highway, New Zealand';
   const directions=(origin,destination,waypoints=[])=>'https://www.google.com/maps/dir/?'+new URLSearchParams({api:'1',origin,destination,travelmode:'driving',...(waypoints.length?{waypoints:waypoints.join('|')}:{})}).toString();
   Object.assign(trip.nzSources,{
-    S38:{title:'NZTA · Hāwea–Makarora 恢复工程与限时通行（出发前刷新）',urls:['https://www.nzta.govt.nz/projects/sh-maintenance-programme/otago/sh6-makarora-to-hawea-severe-weather-event']},
+    S38:{title:'NZTA · Hāwea–Makarora恢复工程与9/25通告（出发前刷新）',urls:['https://www.nzta.govt.nz/projects/sh-maintenance-programme/otago/sh6-makarora-to-hawea-severe-weather-event','https://www.scoop.co.nz/stories/AK2609/S00845/shrinking-restrictions-for-sh6-as-rock-clearing-continues.htm']},
     S39:{title:'Wānaka 官方 · The Neck 与西岸公路路线',urls:['https://www.wanaka.co.nz/things-to-do/mountain-biking-road-cycling/road-cycling/']},
     S40:{title:'Wānaka 官方 · Lake Hāwea',urls:['https://www.wanaka.co.nz/about-wanaka/explore-the-region/lake-hawea/']},
     S41:{title:'Wānaka 官方 · Glendhu Bay 停车入口与湖岸步道',urls:['https://www.wanaka.co.nz/explore/glendhu-bay-track/']},
@@ -325,13 +325,13 @@ function applyWanakaUpdate(){
   });
   const day8=trip.days.find(d=>d.date==='10/1');
   Object.assign(day8,{
-    title:'翻过山口，看哈威亚湖与晚霞',departure:'09:10',
-    route:'皇冠山口 → Cardrona → Wānaka 午餐 → Hāwea 镇湖岸 → SH6 中段湖景 → The Hayloft 入住 → 孤独树 → 湖畔晚餐与暮色',
-    highlights:'Crown Range · Cardrona · Lake Hāwea · That Wānaka Tree',
-    transport:'分段自驾 + 观景短停；The Neck 仅作可选延伸',drivingEstimate:195,
+    title:'翻过山口，看双湖与晚霞',departure:'09:10',
+    route:'皇冠山口 → Cardrona → Wānaka 午餐 → Hāwea 镇湖岸 → SH6 中段湖景 → The Neck 南侧 → The Hayloft 入住 → 孤独树 → 湖畔晚餐与暮色',
+    highlights:'Crown Range · Cardrona · Hāwea & The Neck · That Wānaka Tree',
+    transport:'分段景观自驾 + 短走；天气与体力正常时推荐双湖完整线',drivingEstimate:225,
     reservation:'无预约项目；Mercure 退房与 The Hayloft 入住按订单确认',
-    dinner:'18:15–19:15 Wānaka；不绑定需订位餐厅',beforeBed:'核对次日阵雨、步道与湖岸风况',
-    backup:'山口不适合就经 Cromwell 转场；Hāwea 中段看完即可返程，The Neck 不必去。',status:'景观优先 · 已优化'
+    dinner:'18:00–19:00 Wānaka；不绑定需订位餐厅',beforeBed:'核对次日阵雨、步道与湖岸风况',
+    backup:'山口不适合就经 Cromwell 转场；北线低云、疲劳或管制时在Hāwea中段折返，不等车队。',status:'尽兴与体力平衡版'
   });
   const day9=trip.days.find(d=>d.date==='10/2');
   Object.assign(day9,{
@@ -355,15 +355,16 @@ function applyWanakaUpdate(){
       {time:'12:55–13:20',title:'Wānaka → Lake Hāwea 镇湖岸',description:'约25分钟含停车余量；定位 The Esplanade 镇湖岸，而非泛泛的湖泊中心。',sourceKeys:['S40']},
       {time:'13:20–13:55',title:'哈威亚湖镇湖岸 / Lake Hāwea',chineseName:'哈威亚湖镇湖岸',englishName:'Lake Hāwea · The Esplanade',description:'看近岸湖水、开阔湖面和山体，在公共湖岸短走10–15分钟后折返。无需走完 Gladstone Track。',duration:'35分钟',navigationQuery:hawea,photo:'这一站看近水视角；下一站才是公路高处长湖视角。风大时缩短步行，不沿碎石支路找偏僻机位。',sourceKeys:['S40'],detail:true},
       {time:'13:55–14:10',title:'Hāwea 镇 → SH6 中段观景点',description:'约15分钟交通预算。只停正式观景停车区；有同名观景点，使用下方中段坐标，不导航到 The Neck 的北端同名点。',sourceKeys:['S49']},
-      {time:'14:10–14:30',title:'哈威亚湖中段公路观景点 / Lake Hāwea Lookout',chineseName:'哈威亚湖中段公路观景点',englishName:'Lake Hāwea Lookout · SH6 middle section',description:'主线最北折返点：从公路高处看狭长湖面与山坡，约20分钟足够。坐标标记观景点附近，实际驶入以正式入口、停车标识为准。',duration:'20分钟',navigationQuery:haweaLookout,photo:'此处约 -44.5085, 169.2476，与 The Neck 附近同名点不同。看完默认回住宿；仅能见度好、司机精神好且路况允许时，选下方 The Neck 延伸。',prominent:'默认在这里结束北线；The Neck 不是必做任务。',sourceKeys:['S39','S49'],detail:true},
-      {time:'14:30–15:05',title:'Hāwea 中段 → The Hayloft',description:'约35分钟预算，经原路返回。主线不加 Kane Road—Red Bridge 绕行，也不再停多个相似停车湾。'},
-      {time:'15:05–16:10',title:'The Hayloft 入住、放行李与休息',description:'272 Ballantyne Road。15:05是计划到达，不是已确认可入住时刻；出发前请房东确认。若尚不能入住，只在获准时寄存，并与后面的孤独树短停调换顺序。入口路面与车辆许可按实际租约核对。',sourceKeys:['S45','S16']},
-      {time:'16:10–16:25',title:'The Hayloft → 孤独树附近公共停车区',description:'约15分钟含停车余量，优先按 Watersports Facility / 孤独树公共停车标识进入。',sourceKeys:['S48']},
-      {time:'16:25–17:10',title:'瓦纳卡孤独树与南岸 / That Wānaka Tree',chineseName:'瓦纳卡孤独树与南岸',englishName:'That Wānaka Tree',description:'从公共停车点走到湖岸，拍孤独树、山体与水面；再沿开放南岸短走。不下水、不攀树，也不需要去更远的湖湾凑点。',duration:'45分钟',navigationQuery:tree,photo:'树枝作前景、远山和湖面作背景；风和水位会改变效果。这站下午先看，不把好照片完全押在日落。',sourceKeys:['S48'],detail:true},
-      {time:'17:10–17:25',title:'南岸 → 镇中心停车、短距离衔接',description:'约15分钟含停车余量；后面散步和晚饭集中在镇湖畔，不来回开车。'},
-      {time:'17:25–18:15',title:'镇湖畔自由活动与次日补给',description:'沿 Ardmore Street / Roys Bay 散步，或按需要买早餐。不是必须消费或守表等时间；想休息就直接找地方坐下。'},
-      {time:'18:15–19:15',title:'Wānaka 晚餐',description:'不绑定需要预订的餐厅，有位就吃、无位可外带。若加了 The Neck，傍晚整体可后移30分钟，优先保留吃饭与休息。'},
-      {time:'19:15–19:50',title:'瓦纳卡湖畔暮色 / Roys Bay',chineseName:'瓦纳卡湖畔暮色',englishName:'Roys Bay · Wānaka Lakefront',description:'天气舒服才留下看湖畔暮色；10/1日落参考约19:50，山体可能提前遮光。阴雨、冷风或疲劳就提前回住宿。',duration:'最多35分钟',navigationQuery:town,photo:'晚饭后的自由收尾，不保证晚霞，不在这里为了满足某个结束时刻硬等。',status:'可选',sourceKeys:['S46'],detail:true},
+      {time:'14:10–14:30',title:'哈威亚湖中段公路观景点 / Lake Hāwea Lookout',chineseName:'哈威亚湖中段公路观景点',englishName:'Lake Hāwea Lookout · SH6 middle section',description:'中途下车休息，从公路高处看狭长湖面与山坡，约20分钟足够。坐标标记观景点附近，实际驶入以正式入口、停车标识为准。',duration:'20分钟',navigationQuery:haweaLookout,photo:'此处约 -44.5085,169.2476，与The Neck附近同名点不同。天气、精神和路况正常就继续双湖完整线；低云、疲劳或封路则从这里走短线回住宿。',prominent:'完整线推荐继续The Neck；中段折返是天气/疲劳备选。',sourceKeys:['S39','S49'],detail:true},
+      {time:'14:30–14:50',title:'Hāwea 中段 → The Neck 南侧',description:'约20分钟，沿SH6看湖岸公路，穿过两湖之间的狭窄地带。只到指定南侧Lake Wānaka Lookout，不开往北侧车队集合区。',sourceKeys:['S38','S50']},
+      {time:'14:50–15:15',title:'双湖山口南侧 / The Neck · Lake Wānaka Lookout',chineseName:'双湖山口南侧观景点',englishName:'The Neck · Southern Lake Wānaka Lookout',description:'推荐完整线的最北终点：从Hāwea一侧转到Wānaka北部，看另一组山湖纵深。下车短走与拍照约25分钟，然后原路返程；不需要爬山。',duration:'25分钟',navigationQuery:neckLookout,photo:'选定的是靠近The Neck的南侧点位约 -44.4308236,169.1827315。相比中段折返，多约30–40分钟驾驶、45–60分钟总时间；这段用来换另一侧湖景，不是为了增加打卡数量。现场管制优先，不能安全停车就提前折返。',status:'天气条件项',sourceKeys:['S39','S38','S50'],detail:true},
+      {time:'15:15–16:05',title:'The Neck → The Hayloft',description:'约50分钟含余量，经原路返回。今天不再加Kane Road—Red Bridge绕行或多个同质停车湾；不为抄近路进入砂石支路。'},
+      {time:'16:05–16:50',title:'The Hayloft 入住、放行李与休息',description:'272 Ballantyne Road。16:05是计划到达，不是已确认可入住时刻；出发前请房东确认。若尚不能入住，只在获准时寄存，并与孤独树短停调换顺序。保留至少45分钟休息；入口路面与车辆许可按实际租约核对。',sourceKeys:['S45','S16']},
+      {time:'16:50–17:05',title:'The Hayloft → 孤独树附近公共停车区',description:'约15分钟含停车余量，优先按Watersports Facility / 孤独树公共停车标识进入。',sourceKeys:['S48']},
+      {time:'17:05–17:45',title:'瓦纳卡孤独树与南岸 / That Wānaka Tree',chineseName:'瓦纳卡孤独树与南岸',englishName:'That Wānaka Tree',description:'从公共停车点走到湖岸，拍孤独树、山体与水面；再沿开放南岸短走。不下水、不攀树，也不需要去更远的湖湾凑点。',duration:'40分钟',navigationQuery:tree,photo:'树枝作前景、远山和湖面作背景；风和水位会改变效果。这站傍晚先看，不把好照片完全押在日落。',sourceKeys:['S48'],detail:true},
+      {time:'17:45–18:00',title:'南岸 → 镇中心停车、短距离衔接',description:'约15分钟含停车余量；后面散步和晚饭集中在镇湖畔，不来回开车。'},
+      {time:'18:00–19:00',title:'Wānaka 晚餐',description:'不绑定需要预订的餐厅，有位就吃、无位可外带。若北线稍有延误，缩短饭后自由散步，不压缩必要休息或赶路。'},
+      {time:'19:00–19:50',title:'瓦纳卡湖畔暮色 / Roys Bay',chineseName:'瓦纳卡湖畔暮色',englishName:'Roys Bay · Wānaka Lakefront',description:'天气舒服才留下看湖畔暮色，也可顺路买次日早餐；10/1日落参考约19:50，山体可能提前遮光。阴雨、冷风或疲劳就提前回住宿。',duration:'最多50分钟',navigationQuery:town,photo:'晚饭后的自由收尾，不保证晚霞，不在这里为了满足某个结束时刻硬等。',status:'可选',sourceKeys:['S46'],detail:true},
       {time:'19:50–20:05',title:'Wānaka 湖畔 → The Hayloft',description:'约15分钟，完成当天行程。晚间返程视线不佳时放慢，不再增加远处景点。'}
     ],
     '10/2':[
@@ -395,28 +396,29 @@ function applyWanakaUpdate(){
     Object.assign(trip.newZealand[date],{title:trip.days.find(d=>d.date===date).title,englishTitle:trip.days.find(d=>d.date===date).highlights,count:events.length,stops:stop});
   }
   Object.assign(trip.newZealand['10/1'],{
-    hard:'09:10 Mercure 出发 · 15:05 计划到民宿 · 晚餐后湖畔收尾，约20:05回住宿',
-    cut:'先删 The Neck 延伸，再缩短镇上自由活动；不删午餐、必要休息来赶表。没有晚霞或疲劳可提前回。',
+    hard:'09:10 Mercure出发 · 15:15从The Neck返程 · 16:05计划到民宿 · 约20:05回住宿',
+    cut:'天气/路况/精神正常推荐完整双湖线；低云、管制或疲劳才在Hāwea中段折返。晚间先缩短自由散步，不删必要休息赶表。',
     weather:'山口有冰雪、需装链、浓雾或驾乘不适：改经 Cromwell 转场，不重复今天老街。北线遇封闭提前折返，不等车队。',
-    parking:['Crown Range Summit, New Zealand','Cardrona Hotel, New Zealand',hawea,haweaLookout,hotel,tree,town],
-    intro:'主线看高处山谷、历史酒店、Hāwea近岸与长湖、孤独树；纯驾驶预算约3–3.5小时，表内转场另含停车余量。The Neck 不是必经点：约多30–40分钟驾驶、45–60分钟总时间，清晰标在可选分支。',
-    routeTitle:'Day 8｜舒适主线 + 一条可选延伸',
-    routeNote:'①②③是主线；④仅在天气通透、司机精神好且现场允许时打开。坐标是观景点附近定位，按正式停车入口驶入，不在路肩或弯道掉头。时间为估计，不是实时路况承诺。',
+    parking:['Crown Range Summit, New Zealand','Cardrona Hotel, New Zealand',hawea,haweaLookout,neckLookout,hotel,tree,town],
+    intro:'推荐完整线看高处山谷、历史酒店、Hāwea与Wānaka北部双湖、孤独树，纯驾驶预算约3.5–4小时，含皇后镇转场。相比中段折返，多约30–40分钟驾驶换另一组山湖视角，值得在正常天气与体力下保留；次日以近郊轻松节奏平衡。',
+    routeTitle:'Day 8｜推荐双湖完整线，另备疲劳短线',
+    routeNote:'①②③④为推荐顺序；⑤是天气、路况或疲劳时替换③的短线，不叠加执行。坐标是观景点附近定位，按正式停车入口驶入，不在路肩或弯道掉头。时刻为预算，不是实时交通承诺。',
     routeLinks:[
       {title:'① 上午｜Mercure → 皇冠山口 → Cardrona → Wānaka',url:directions('Mercure Queenstown Resort, New Zealand',town,['Crown Range Summit, New Zealand','Cardrona Hotel, New Zealand'])},
-      {title:'② 主线｜Wānaka → Hāwea镇湖岸 → 中段观景点 → 住宿',url:directions(town,hotel,[hawea,haweaLookout])},
-      {title:'③ 傍晚｜住宿 → 孤独树 → 镇湖畔',url:directions(hotel,town,[tree])},
-      {title:'④ 可选延伸｜中段观景点 → The Neck南侧 → 住宿',url:directions(haweaLookout,hotel,[neckLookout])}
+      {title:'② 湖岸｜Wānaka → Hāwea镇湖岸 → 中段观景点',url:directions(town,haweaLookout,[hawea])},
+      {title:'③ 推荐双湖｜中段观景点 → The Neck南侧 → 住宿',url:directions(haweaLookout,hotel,[neckLookout])},
+      {title:'④ 傍晚｜住宿 → 孤独树 → 镇湖畔',url:directions(hotel,town,[tree])},
+      {title:'⑤ 天气/疲劳短线｜中段观景点直接回住宿',url:directions(haweaLookout,hotel)}
     ],
     alternatives:[
-      ['The Neck：通透、不累才加；不是主线',neckLookout,'14:30在Hāwea中段看完后作决定。延伸到南侧 Lake Wānaka Lookout 就折返，约16:00到住宿；之后保留至少45分钟休息，孤独树及晚餐后移约30分钟。多30–40分钟驾驶、45–60分钟总时间；不继续Makarora或Blue Pools，不靠夜间开放来完成行程。'],
+      ['疲劳/低能见度短线：Hāwea中段折返',hotel,'14:30在Hāwea中段看完后，若低云遮挡、司机疲劳或现场管制，则跳过The Neck，约15:05回住宿，多留约1小时休息；入住仍以房东确认时刻为准。这是止损备选，不是因为怕开车就默认放弃双湖。'],
       ['Crown Range 不适合时：经 Cromwell 转场','Cromwell, New Zealand','删皇冠山与Cardrona，不折返。Day 7已游览Cromwell，今天只作转场与按需休息；接Wānaka午餐和Hāwea主线。']
     ],
     notes:[
-      '最后取舍：保留风景差异大的山口、历史建筑、Hāwea湖岸和孤独树；不加Kane Road—Red Bridge绕行，不把多个相似停车湾拆成必做景点。The Neck值得但不是不可替代的新增景观，因此从必跑降为条件延伸。[S39]',
-      '道路核对快照：NZTA目前可读的9/24更新写明，9/28起白天受限段缩至最北侧Lake Wānaka Lookout—Wharf Creek。工作日北行车队10:00、12:00、14:00，南行10:20、12:20、14:20。不要用普通导航车程推算跨工区往返。主线止于更南的Hāwea中段；可选The Neck也只到南侧坐标，地理判断不代替现场管制，出发前刷新。[S38][S36][S50]',
-      '点位去重：Lake Hāwea Lookout有同名点。主线中段约 -44.5085,169.2476；可选The Neck南侧Lake Wānaka Lookout约 -44.4308236,169.1827315。地图已分开，不能只凭名称一路向北。只在可安全、合法进出的正式停车区停靠，车位满或交通组织不允许就跳过。[S49][S50]',
-      '行李：默认下午完成北线后一次入住。房东若确认能提前寄存且你们确实顺路，可午间增加约20–30分钟；相应取消The Neck延伸，不为放行李额外来回跑。15:05仅为到达计划，入住时间与寄存权限以订单/房东为准。[S45]',
+      '最后取舍：不机械限制驾驶小时数，而看多开的路是否换来新景。The Neck额外约30–40分钟驾驶可换Wānaka北部山湖，正常条件下推荐保留；Kane Road—Red Bridge绕行、多个相似停车湾则不加。两天形成一日转场与双湖、一日近郊的节奏，不靠堆景点或缩短休息来尽兴。[S39]',
+      '道路核对快照：NZTA目前可读的9/24更新写明，9/28起白天受限段缩至最北侧Lake Wānaka Lookout—Wharf Creek。工作日北行车队10:00、12:00、14:00，南行10:20、12:20、14:20。不要用普通导航车程推算跨工区往返。推荐线只到The Neck南侧坐标折返，不去最北侧集合点；地理判断不代替现场管制，出发前刷新。[S38][S36][S50]',
+      '点位去重：Lake Hāwea Lookout有同名点。中段约 -44.5085,169.2476；The Neck南侧Lake Wānaka Lookout约 -44.4308236,169.1827315。地图已分开，不能只凭名称一路向北。只在可安全、合法进出的正式停车区停靠，车位满或交通组织不允许就跳过。[S49][S50]',
+      '行李：默认下午完成北线后一次入住。房东若确认能提前寄存且你们确实顺路，可午间增加约20–30分钟，后续相应顺延、缩短饭后自由活动；不为放行李额外来回跑。完整线16:05、短线15:05均仅为到达计划，入住/寄存以订单和房东为准。[S45]',
       '两天天气取舍：截至9/30晚，10/1雨的风险相对较低，10/2有阵雨预报。因此较远的北线先走，次日保留随时能回镇的西岸和近郊；预报可能改变，不承诺晴空、雪山全貌或晚霞。10/1日落参考约19:50。[S46]',
       'Omega与路面：景观主线走铺装公路，不进入滑雪场道路、私人农场和砂石山路；停车区或The Hayloft入口可能不是铺装面，仍须服从实际租约。铺装道路不等于保险没有除外。[S9][S16][S45]',
       '没有安排Blue Pools并非宣称景点关闭，而是不愿为了跨越恢复工区等待车队。也不为了看更多湖而重复Day7的Cromwell或提前用掉Day10的Pūkaki。[S38]'
@@ -449,15 +451,15 @@ function applyWanakaUpdate(){
     ]
   });
   for(const date of ['10/1','10/2'])Object.assign(trip.notes.find(n=>n.date===date),{title:trip.days.find(d=>d.date===date).title,text:trip.newZealand[date].intro,source:'用户景观/驾驶偏好与公开信息 · 2026-09-30'});
-  Object.assign(trip.checks.find(c=>c.id==='bike-v2'),{id:'wanaka-weather-v3',title:'10/1–10/2：山口、北线与雨天取舍',text:'出发前刷新Crown Range和SH6；The Neck不是必跑。10/2有雨删Diamond Lake，交通博物馆无需预约但为付费可选。',tag:'出发前',url:'https://www.journeys.nzta.govt.nz/highway-conditions'});
-  Object.assign(trip.checks.find(c=>c.id==='hayloft-times-v2'),{id:'hayloft-times-v3',title:'确认The Hayloft入住、寄存与退房时刻',text:'10/1主线约15:05到达；加The Neck约16:00。均为行程估计，不是房东承诺。提前寄存要先获准；10/3计划10:00离店，仍须核对退房时限及入口道路。',url:'https://www.thehayloft.co.nz/contact/'});
+  Object.assign(trip.checks.find(c=>c.id==='bike-v2'),{id:'wanaka-weather-v3',title:'10/1–10/2：山口、北线与雨天取舍',text:'出发前刷新Crown Range和SH6；正常条件推荐The Neck完整双湖线，不进入北侧管制段。疲劳/低云用中段折返短线。10/2有雨删Diamond Lake，博物馆仅作付费替代。',tag:'出发前',url:'https://www.journeys.nzta.govt.nz/highway-conditions'});
+  Object.assign(trip.checks.find(c=>c.id==='hayloft-times-v2'),{id:'hayloft-times-v3',title:'确认The Hayloft入住、寄存与退房时刻',text:'10/1完整双湖线约16:05到达；中段折返短线约15:05。均为行程估计，不是房东承诺。提前寄存要先获准；10/3计划10:00离店，仍须核对退房时限及入口道路。',url:'https://www.thehayloft.co.nz/contact/'});
   const crownFallback=trip.nzContingencies.find(x=>x[0].includes('皇冠山路'));
   if(crownFallback)crownFallback[1]='10/1改经Cromwell，删皇冠山观景与Cardrona。Day7已游览老街则只作转场，不重复停车；接Wānaka午餐与Hāwea主线。[S9][S37]';
   trip.nzContingencies.push(
     ['10/1北线能见度差、司机疲劳或道路管制','Hāwea镇湖岸/中段观景点结束后返住宿，不加The Neck，不为Makarora/Blue Pools等待车队。现场管制优先。[S38]'],
     ['10/2下雨或Diamond Lake步道湿滑','删小湖步道，Glendhu与近镇湖岸择雨隙短停；交通与玩具博物馆为无需预约的付费替代，不强制加进整天。[S42][S44]']
   );
-  trip.originalOverviewNote='悉尼沿用已确认四日攻略；新西兰以2026-09-22双语计划为基础，Day6–7按实际游览反馈修订，Day8–9于9/30晚按“景观丰富、减少驾驶疲劳”更新。可选延伸不计入必做主线；住宿与租车固定。';
+  trip.originalOverviewNote='悉尼沿用已确认四日攻略；新西兰以2026-09-22双语计划为基础，Day6–7按实际游览反馈修订。Day8–9于9/30晚按“值得的景色不漏、无效绕路不加”更新：推荐双湖完整线，另备天气/疲劳短线；住宿与租车固定。';
   trip.revised='2026-09-30';
 }
 applyWanakaUpdate();
