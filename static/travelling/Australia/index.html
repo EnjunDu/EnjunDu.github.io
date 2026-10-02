@@ -54,6 +54,8 @@ html{scroll-padding-top:139px}.date-jump-shell{position:sticky;top:56px;z-index:
 .date-chip span{white-space:nowrap}.date-chip[data-select-day="sydney"]{width:76px}.nz-stop .stop-maps a:last-child{border-color:var(--day-line);color:var(--day);font-weight:600}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
+
+.timetable-maps{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}.timetable-map{font-size:11px;line-height:1.8;overflow-wrap:anywhere}.map-context{font-size:11px;line-height:1.8;color:var(--muted);margin-top:8px}.place-map{overflow-wrap:anywhere}
 </style>
 </head>
 <body data-pagefind-ignore="all">
@@ -691,11 +693,73 @@ function applyDay10And11Update(){
   trip.originalOverviewNote+=' Day10–11 于10/2调整：两天09:00出发；10/3 Tekapo观星为天气条件项且夜间回Twizel，10/4以胡克谷为主、16:30左右回住宿；Day12保持确认版。';
 }
 applyDay10And11Update();
+function applyPlaceMaps(){
+  const stay=id=>trip.hotels.find(h=>h.id===id).navigationQuery;
+  const places={
+    mercure:['Mercure 酒店',stay('queenstown')],hayloft:['The Hayloft 住宿',stay('wanaka')],alps:['Alps Motel 住宿',stay('twizel')],observatory:['Observatory 酒店',stay('christchurch')],holiday:['Holiday Inn 机场酒店',stay('auckland')],
+    syd:['悉尼机场 T1','Sydney Airport International Terminal T1, Sydney, Australia'],zqn:['皇后镇机场','Queenstown Airport, New Zealand'],chc:['基督城机场国内航站区','Christchurch Airport Domestic Terminal, New Zealand'],aklDomestic:['奥克兰机场国内航站楼','Auckland Airport Domestic Terminal, New Zealand'],aklInternational:['奥克兰机场国际航站楼','Auckland Airport International Terminal, New Zealand'],bne:['布里斯班国际航站楼','Brisbane Airport International Terminal, Queensland, Australia'],pom:['莫尔兹比港国际机场','Jacksons International Airport, Port Moresby, Papua New Guinea'],hkg:['香港国际机场','Hong Kong International Airport, Hong Kong'],
+    omegaPickup:['Omega 皇后镇取车门店',trip.fixedRental.pickup.query],omegaDropoff:['Omega 基督城还车门店',trip.fixedRental.dropoff.query],
+    queenstown:['皇后镇中心餐饮（自选）','Restaurants, Queenstown Town Centre, New Zealand'],glenorchy:['Glenorchy 镇中心餐饮（自选）','Restaurants, Mull Street, Glenorchy, New Zealand'],glenorchyToilets:['Glenorchy 镇内卫生间搜索','Public toilets, Glenorchy, New Zealand'],
+    wanaka:['Wānaka 镇中心餐饮（自选）','Restaurants, Ardmore Street, Wanaka, New Zealand'],wanakaParking:['Wānaka 镇湖畔停车区搜索','Public car park, Ardmore Street, Wanaka, New Zealand'],treeParking:['孤独树附近停车入口','Wanaka Watersports Facility, Wanaka, New Zealand'],museum:['交通与玩具博物馆（可选）','National Transport and Toy Museum, Wanaka, New Zealand'],
+    tarras:['Tarras 短休息 / 卫生间','Public Toilets, Tarras, New Zealand'],rams:['The Wrinkly Rams 午餐','The Wrinkly Rams, 10 Twizel-Omarama Road, Omarama, New Zealand'],
+    supermarket:['Four Square 补给','Four Square Twizel, 20 Market Place, Twizel, New Zealand'],mobil:['Mobil Twizel 加油','Mobil Twizel, 50 Mackenzie Drive, Twizel, New Zealand'],twizelDinner:['Twizel 镇中心餐饮（自选）','Restaurants, Market Place, Twizel, New Zealand'],
+    footbridge:['Tekapo 步行桥 / 镇中心一侧','Lake Tekapo Footbridge, Lake Tekapo, New Zealand'],tekapoParking:['Tekapo 镇中心公共停车区搜索','Public car park, Lake Tekapo town centre, New Zealand'],church:['好牧羊人教堂位置（夜间围栏外）','Church of the Good Shepherd, Pioneer Drive, Lake Tekapo, New Zealand'],jackRabbit:['Jack Rabbit 晚餐','Jack Rabbit Cafe and Bar, Lake Tekapo, New Zealand'],
+    fairlie:['Fairlie Village Green 公厕','Fairlie Village Green Public Toilets, Main Street, Fairlie, New Zealand'],ashburton:['Ashburton East Street 公厕','-43.9044334,171.7474668'],bp:['BP Connect Russley 加油','BP Connect Russley Road, 661 Russley Road, Harewood, Christchurch, New Zealand'],
+    riverside:['Riverside Market 晚餐','Riverside Market, 96 Oxford Terrace, Christchurch, New Zealand'],oxford:['Oxford Terrace 沿河餐饮（备选）','Restaurants, Oxford Terrace, Christchurch, New Zealand'],avon:['埃文河市中心河岸','Avon River, Oxford Terrace, Christchurch, New Zealand'],aucklandCafe:['Wynyard Quarter 咖啡与补给搜索','Cafe, Wynyard Quarter, Auckland, New Zealand']
+  };
+  // The sequence matches the confirmed timetable. Empty entries retain a detailed stop's existing map.
+  // @ references reuse the exact destination of another event, including verified coordinates.
+  const byDate={
+    '9/28':['syd','syd','syd|zqn','zqn','omegaPickup','omegaPickup','mercure','mercure','queenstown','','queenstown','','mercure'],
+    '9/29':['mercure','@9-29-3','','@9-29-5','','glenorchy','glenorchy','','','glenorchyToilets','@9-29-12','','@9-29-14','','@9-29-16','','queenstown','mercure','queenstown'],
+    '9/30':['mercure','@9-30-3','','','@9-30-6','','@9-30-8','','@9-30-10','','@9-30-12','','@9-30-14','','@9-30-16','','queenstown','mercure'],
+    '10/1':['mercure','@10-1-3','','@10-1-5','','wanakaParking','wanaka','@10-1-9','','@10-1-11','','@10-1-13','','hayloft','hayloft','treeParking','','wanakaParking','wanaka','','hayloft'],
+    '10/2':['hayloft','@10-2-3','','','wanakaParking','wanaka','@10-2-8','','@10-2-10','','hayloft','hayloft|museum','wanaka','wanaka','hayloft'],
+    '10/3':['hayloft','hayloft','tarras','tarras','@10-3-6','','rams','rams','supermarket','supermarket|mobil|alps','alps','@10-3-13','','tekapoParking|footbridge','','jackRabbit','footbridge|church','jackRabbit|tekapoParking','footbridge|church','church|footbridge','alps'],
+    '10/4':['alps','alps','@10-4-5','@10-4-5','','','@10-4-5','@10-4-5','@10-4-10','','alps','alps','twizelDinner|alps','alps'],
+    '10/5':['@10-5-2','','alps','alps','fairlie','fairlie','@10-5-8','','ashburton','ashburton','observatory','observatory','bp|omegaDropoff','bp|omegaDropoff','omegaDropoff','omegaDropoff|@10-5-17','','','avon|@10-5-19','riverside|oxford','observatory'],
+    '10/6':['observatory','chc','chc','chc|aklDomestic','aklDomestic','holiday','holiday','@10-6-9','','','','','','aucklandCafe','holiday','holiday','holiday','holiday'],
+    '10/7':['holiday','aklInternational','aklInternational|bne','bne|pom','pom|hkg']
+  };
+  const canonical=e=>({label:/White Horse Hill Car Park/.test(e.navigationQuery)?'White Horse Hill 停车场（胡克谷入口）':e.chineseName||e.englishName||e.title,query:e.navigationQuery});
+  const resolve=key=>{
+    if(key.startsWith('@'))return canonical(trip.events.find(e=>e.id==='nz-'+key.slice(1)));
+    const [label,query]=places[key];return {label,query};
+  };
+  for(const e of trip.events){
+    const keys=byDate[e.date]?.[e.sequence-1];
+    e.mapLocations=keys?keys.split('|').map(resolve):e.navigationQuery?[canonical(e)]:[];
+    for(const p of e.mapLocations){
+      if(e.nz&&!/^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(p.query)&&!/(New Zealand|Australia|Papua New Guinea|Hong Kong)/i.test(p.query))p.query+=', New Zealand';
+    }
+  }
+  Object.assign(trip.nzSources,{
+    S67:{title:'Four Square 官方 · Twizel 20 Market Place',urls:['https://www.foursquare.co.nz/south-island/canterbury/twizel']},
+    S68:{title:'Mackenzie 官方旅游局 · Mobil Twizel 地址',urls:['https://www.mackenzienz.com/visit/mobil-twizel/']},
+    S69:{title:'Mackenzie District Council · Fairlie Village Green 等公共卫生间',urls:['https://www.mackenzie.govt.nz/services/public-toilets']},
+    S70:{title:'Ashburton District Council · East Street 公厕与官方地图',urls:['https://www.ashburtondc.govt.nz/community-facilities/public-conveniences']},
+    S71:{title:'BP 官方 · Russley Road 站点',urls:['https://map.bp.com/en-NZ/NZ/gas-station/christchurch/bp-connect-russley-road/0DJ91']}
+  });
+  const annotate=(id,note,sourceKeys=[])=>{const e=trip.events.find(e=>e.id===id);e.mapNote=note;e.sourceKeys=[...new Set([...(e.sourceKeys||[]),...sourceKeys])];};
+  annotate('nz-10-3-10','补给：20 Market Place；加油：50 Mackenzie Drive；办完再去 Alps。',['S67','S68']);
+  annotate('nz-10-3-14','停车链接用于查找镇中心公共车位；核对停车时限与夜间出口，再步行过桥。');
+  annotate('nz-10-3-20','地图用于定位教堂与步行桥。观星只在现场允许停留的围栏外公共区域，夜间不进教堂院落。');
+  annotate('nz-10-5-6','休息点定位到 Fairlie Village Green 公共卫生间。',['S69']);
+  annotate('nz-10-5-10','地图坐标来自市议会的 East Street 公厕链接；在附近合法车位停车。',['S70']);
+  annotate('nz-10-5-14','先到 661 Russley Road 加油，再去 158 Orchard Road 还车；15 分钟时段包含加油与到店衔接，按实时导航留余量。',['S71']);
+  annotate('nz-10-5-16','艺术中心是回城后游览目标；实际班车落客点以门店安排为准。');
+  for(const a of trip.attractions){const e=trip.events.find(e=>e.date===a.date&&(e.title===a.title||e.chineseName===a.title||e.activityText===a.title));if(e)a.mapLocations=e.mapLocations;}
+}
+applyPlaceMaps();
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeURL=value=>/^https?:\/\//i.test(value||'')?esc(value):'#';
 const link=(url,label,cls='')=>url?`<a href="${safeURL(url)}" target="_blank" rel="noopener noreferrer" class="${cls}">${esc(label)} <span aria-hidden="true">↗</span></a>`:'';
 const mapSearch=address=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(address);
+function placeMapLinks(item,compact=false){
+  return (item.mapLocations||[]).map(p=>link(mapSearch(p.query),'Google Maps · '+p.label,compact?'timetable-map':'place-map')).join('');
+}
+function placeMapNote(item){return item.mapNote?`<p class="map-context">${esc(item.mapNote)}</p>`:'';}
 const field=(title,value,full=false)=>`<div class="detail-field${full?' full':''}"><span>${esc(title)}</span><p>${esc(value||'原表未填写')}</p></div>`;
 const linkify=text=>String(text).split(/(https?:\/\/[^\s]+)/g).map(t=>/^https?:\/\//.test(t)?link(t,t):esc(t)).join('');
 const weekday=date=>['周日','周一','周二','周三','周四','周五','周六'][new Date(2026,...date.split('/').map((v,i)=>Number(v)-(i===0?1:0))).getDay()];
@@ -767,7 +831,7 @@ function setupLogistics(){
 function renderAttractions(printing=false){
   $('booking-filters').innerHTML=['全部','建议','待预约','可选','天气条件项'].map(x=>`<button type="button" class="filter ${x===bookingLevel?'active':''}" data-level="${x}" aria-pressed="${x===bookingLevel}">${x==='全部'?'全部景点':x}</button>`).join('');
   const list=trip.attractions.filter(a=>printing||bookingLevel==='全部'||a.level===bookingLevel);
-  $('attractions').innerHTML=list.map(a=>`<article class="attraction"><div class="attraction-top"><span>${esc(a.date)} · ${esc(a.region)}</span>${badge(a.level,['建议','条件'].includes(a.level)?'warn':a.level==='无需'?'neutral':'')}</div><h3>${esc(a.title)}</h3><p>${esc(a.description)}</p><p class="reminder">${esc(a.reminder)}</p><div class="activity-links">${link(a.official,'官方 / 预约')}<button class="copy-btn" type="button" data-day="${a.date}">查看当天行程 →</button><span style="margin-left:auto;font-size:10px;color:var(--muted)">停留 ${esc(a.duration)}</span></div></article>`).join('');
+  $('attractions').innerHTML=list.map(a=>`<article class="attraction"><div class="attraction-top"><span>${esc(a.date)} · ${esc(a.region)}</span>${badge(a.level,['建议','条件'].includes(a.level)?'warn':a.level==='无需'?'neutral':'')}</div><h3>${esc(a.title)}</h3><p>${esc(a.description)}</p><p class="reminder">${esc(a.reminder)}</p><div class="activity-links">${placeMapLinks(a)}${link(a.official,'官方 / 预约')}<button class="copy-btn" type="button" data-day="${a.date}">查看当天行程 →</button><span style="margin-left:auto;font-size:10px;color:var(--muted)">停留 ${esc(a.duration)}</span></div></article>`).join('');
   $('booking-count').textContent=`显示 ${list.length} / ${trip.attractions.length} 项。新西兰建议时段与状态来自最新双语计划；不代表已经订票。`;
 }
 function setupGallery(){
@@ -872,8 +936,8 @@ function nzRichText(text){return esc(text).replace(/\[(S\d+)\]/g,(_,k)=>{const s
 function nzMapLinks(query){return `${link(mapSearch(query),'Google Maps / Google 地图')}${link(appleMapSearch(query),'Apple Maps / Apple 地图')}`;}
 function nzEventHTML(e){
   const refs=nzRefs(e.sourceKeys),flag=e.prominent?`<div class="nz-important">${esc(e.prominent)}</div>`:'';
-  if(!e.detail)return `<article class="activity nz-transfer" id="${e.id}" data-sequence="${e.sequence}"><div class="activity-head"><time>${esc(e.time)}</time>${nzStatus(e)}</div><div class="nz-transfer-body"><h4>${esc(e.activityText)}</h4>${flag}<p>${esc(e.description)}</p>${refs?`<div class="stop-sources">${refs}</div>`:''}</div></article>`;
-  return `<article class="activity sydney-stop nz-stop" id="${e.id}" data-sequence="${e.sequence}"><div class="activity-head"><time>${esc(e.time)}</time><span class="duration">建议 ${esc(e.duration)}</span>${nzStatus(e)}</div><div class="activity-content"><div class="stop-top"><span class="stop-index">${String(e.stopNumber).padStart(2,'0')}</span><div class="stop-name"><h4>${esc(e.chineseName)}</h4><div class="english-name" lang="en">${esc(e.englishName)}</div><button type="button" class="copy-name" data-copy-nz="${e.id}">复制英文地点名</button></div></div>${flag}<p class="stop-main">${esc(e.description)}</p><div class="stop-details">${field('拍照与游览重点',e.photo)}${field('安排性质',e.status==='建议'?'按计划建议前往；时刻与停留为规划预算。':e.status==='待预约'?'尚未预约。先确认产品、实际班次与余位。':e.status==='可选'?'天气、体力和时间允许再保留；可以取消。':'按道路、天气、开放和体力决定是否保留。')}</div><div class="stop-maps">${nzMapLinks(e.navigationQuery)}</div><div class="map-keyword">导航搜索词：<span lang="en">${esc(e.navigationQuery)}</span><button class="copy-name" type="button" data-copy-nz-query="${e.id}">复制导航关键词</button></div>${refs?`<div class="stop-sources">计划来源：${refs}</div>`:''}<div class="next-stop"><div class="next-icon" aria-hidden="true">↓</div><div><h5>下一段 · 按计划衔接</h5><p>${nzRichText(e.nextText)}</p></div></div></div></article>`;
+  if(!e.detail)return `<article class="activity nz-transfer" id="${e.id}" data-sequence="${e.sequence}"><div class="activity-head"><time>${esc(e.time)}</time>${nzStatus(e)}</div><div class="nz-transfer-body"><h4>${esc(e.activityText)}</h4>${flag}<p>${esc(e.description)}</p><div class="stop-maps">${placeMapLinks(e)}</div>${placeMapNote(e)}${refs?`<div class="stop-sources">${refs}</div>`:''}</div></article>`;
+  return `<article class="activity sydney-stop nz-stop" id="${e.id}" data-sequence="${e.sequence}"><div class="activity-head"><time>${esc(e.time)}</time><span class="duration">建议 ${esc(e.duration)}</span>${nzStatus(e)}</div><div class="activity-content"><div class="stop-top"><span class="stop-index">${String(e.stopNumber).padStart(2,'0')}</span><div class="stop-name"><h4>${esc(e.chineseName)}</h4><div class="english-name" lang="en">${esc(e.englishName)}</div><button type="button" class="copy-name" data-copy-nz="${e.id}">复制英文地点名</button></div></div>${flag}<p class="stop-main">${esc(e.description)}</p><div class="stop-details">${field('拍照与游览重点',e.photo)}${field('安排性质',e.status==='建议'?'按计划建议前往；时刻与停留为规划预算。':e.status==='待预约'?'尚未预约。先确认产品、实际班次与余位。':e.status==='可选'?'天气、体力和时间允许再保留；可以取消。':'按道路、天气、开放和体力决定是否保留。')}</div><div class="stop-maps">${placeMapLinks(e)}${link(appleMapSearch(e.navigationQuery),'Apple Maps / Apple 地图')}</div>${placeMapNote(e)}<div class="map-keyword">导航搜索词：<span lang="en">${esc(e.navigationQuery)}</span><button class="copy-name" type="button" data-copy-nz-query="${e.id}">复制导航关键词</button></div>${refs?`<div class="stop-sources">计划来源：${refs}</div>`:''}<div class="next-stop"><div class="next-icon" aria-hidden="true">↓</div><div><h5>下一段 · 按计划衔接</h5><p>${nzRichText(e.nextText)}</p></div></div></div></article>`;
 }
 function nzDayHTML(day,events){
   const m=trip.newZealand[day.date],all=trip.events.filter(e=>e.date===day.date),stops=all.filter(e=>e.detail),visible=new Set(events.map(e=>e.id));
@@ -881,7 +945,7 @@ function nzDayHTML(day,events){
   const alternatives=m.alternatives||({'10/4':[['彼得观景台 · 返程可选短停',"Peter's Lookout, Mount Cook Road",'仅在回程时间充足时短停约10分钟；不在SH80车道上拍照。']]})[day.date]||[];
   const routeNote=m.routeNote||(day.date==='9/30'?'每段最多两个途经点；打开后核对站点顺序，按正式停车入口行驶。08:45为基准；09:00出发则箭镇少留15分钟。回皇后镇约18:30，Mercure约18:40。':'打开地图后核对顺序、正式停车入口与当日道路状态。');
   const routePanel=m.routeLinks?`<section class="nz-day-notes" aria-label="自驾路线与分段导航"><h4>${esc(m.routeTitle||'无需预约 · 自驾看景的一整天')}</h4><p>${esc(m.intro)}</p><div class="stop-maps">${m.routeLinks.map(r=>link(r.url,r.title)).join('')}</div><p>${esc(routeNote)}</p></section>`:'';
-  return `<article class="day-block nz-day ${m.accent}" id="day-${day.index}"><header class="sydney-banner nz-banner" data-number="${day.index}"><img src="${trip.photos[day.image].data}" alt="${esc(trip.photos[day.image].title)}" loading="lazy"><div class="sydney-date">${day.date}<small>DAY ${String(day.index).padStart(2,'0')} / ${weekday(day.date)}</small></div><div class="nz-banner-copy"><div class="eyebrow">NEW ZEALAND · 2026</div><h3>${esc(m.title)}</h3><div class="sydney-subtitle" lang="en">${esc(m.englishTitle)}</div><p class="sydney-intro">${esc(day.transport)} · ${m.stops} 处展开攻略 · ${m.count} 条时间安排</p></div></header><nav class="sydney-route" aria-label="${day.date} 路线">${route}</nav><div class="nz-day-callout"><span>当天关键时间</span><strong>${esc(m.hard)}</strong><small>${day.date==='10/7'?'起降均为各地当地时间；航班来自提供的确认邮件摘录。':'NZDT（UTC+13）；9/28 悉尼段单独标注当地时间。观光与车程为建议安排。'}</small></div>${dailyStayHTML(day)}${routePanel}<details class="nz-timetable"><summary>当天时刻总表 <span>${all.length} 项 · 展开快速扫读</span></summary><div class="table-scroll"><table><caption>${day.date} 完整时间表 · 建议时段，预订信息另标</caption><thead><tr><th>时间</th><th>安排</th><th>状态</th></tr></thead><tbody>${all.map(e=>`<tr><td>${esc(e.time)}</td><td>${visible.has(e.id)?`<a href="#${e.id}">${esc(e.activityText)}</a>`:esc(e.activityText)}</td><td>${nzStatus(e)}</td></tr>`).join('')}</tbody></table></div></details><div class="day-layout"><div class="timeline">${events.map(nzEventHTML).join('')}</div><aside class="day-aside nz-day-aside"><h4>DAY ${day.index} · 执行要点</h4>${mini('出发 / 起床参考',day.departure)}${mini('删减规则',m.cut)}${mini('天气与衔接备选',m.weather)}<details class="parking-details"><summary>停车 / 导航搜索词</summary>${m.parking.map(q=>`<div class="nz-parking"><p lang="en">${esc(q)}</p>${link(mapSearch(q),'Google')}${link(appleMapSearch(q),'Apple')}<button class="copy-btn" type="button" data-copy-keyword="${esc(q)}">复制</button></div>`).join('')}</details><p class="sydney-assumption">住宿与取还车固定。旅行体验依体力、天气和现场开放情况调整，不把建议时间当作已预约。</p></aside></div>${m.notes.length?`<div class="nz-day-notes"><h4>当天补充与替代方案</h4>${m.notes.map(n=>`<p>${nzRichText(n)}</p>`).join('')}</div>`:''}${alternatives.map(([title,q,note])=>`<article class="nz-alternative"><h4>${esc(title)}</h4><p lang="en">${esc(q)}</p><p>${esc(note)}</p><div class="activity-links">${nzMapLinks(q)}</div></article>`).join('')}<div class="day-end-nav"><button type="button" data-day="${trip.days[day.index-2]?.date||'9/24'}">← 前一天</button><a href="#top">回到页首</a>${day.index<14?`<button type="button" data-day="${trip.days[day.index].date}">后一天 →</button>`:'<a href="#checklist">行前清单 →</a>'}</div></article>`;
+  return `<article class="day-block nz-day ${m.accent}" id="day-${day.index}"><header class="sydney-banner nz-banner" data-number="${day.index}"><img src="${trip.photos[day.image].data}" alt="${esc(trip.photos[day.image].title)}" loading="lazy"><div class="sydney-date">${day.date}<small>DAY ${String(day.index).padStart(2,'0')} / ${weekday(day.date)}</small></div><div class="nz-banner-copy"><div class="eyebrow">NEW ZEALAND · 2026</div><h3>${esc(m.title)}</h3><div class="sydney-subtitle" lang="en">${esc(m.englishTitle)}</div><p class="sydney-intro">${esc(day.transport)} · ${m.stops} 处展开攻略 · ${m.count} 条时间安排</p></div></header><nav class="sydney-route" aria-label="${day.date} 路线">${route}</nav><div class="nz-day-callout"><span>当天关键时间</span><strong>${esc(m.hard)}</strong><small>${day.date==='10/7'?'起降均为各地当地时间；航班来自提供的确认邮件摘录。':'NZDT（UTC+13）；9/28 悉尼段单独标注当地时间。观光与车程为建议安排。'}</small></div>${dailyStayHTML(day)}${routePanel}<details class="nz-timetable"><summary>当天时刻总表 <span>${all.length} 项 · 展开快速扫读</span></summary><div class="table-scroll"><table><caption>${day.date} 完整时间表 · 建议时段，预订信息另标</caption><thead><tr><th>时间</th><th>安排</th><th>状态</th></tr></thead><tbody>${all.map(e=>`<tr><td>${esc(e.time)}</td><td>${visible.has(e.id)?`<a href="#${e.id}">${esc(e.activityText)}</a>`:esc(e.activityText)}<div class="timetable-maps">${placeMapLinks(e,true)}</div></td><td>${nzStatus(e)}</td></tr>`).join('')}</tbody></table></div></details><div class="day-layout"><div class="timeline">${events.map(nzEventHTML).join('')}</div><aside class="day-aside nz-day-aside"><h4>DAY ${day.index} · 执行要点</h4>${mini('出发 / 起床参考',day.departure)}${mini('删减规则',m.cut)}${mini('天气与衔接备选',m.weather)}<details class="parking-details"><summary>停车 / 导航搜索词</summary>${m.parking.map(q=>`<div class="nz-parking"><p lang="en">${esc(q)}</p>${link(mapSearch(q),'Google')}${link(appleMapSearch(q),'Apple')}<button class="copy-btn" type="button" data-copy-keyword="${esc(q)}">复制</button></div>`).join('')}</details><p class="sydney-assumption">住宿与取还车固定。旅行体验依体力、天气和现场开放情况调整，不把建议时间当作已预约。</p></aside></div>${m.notes.length?`<div class="nz-day-notes"><h4>当天补充与替代方案</h4>${m.notes.map(n=>`<p>${nzRichText(n)}</p>`).join('')}</div>`:''}${alternatives.map(([title,q,note])=>`<article class="nz-alternative"><h4>${esc(title)}</h4><p lang="en">${esc(q)}</p><p>${esc(note)}</p><div class="activity-links">${nzMapLinks(q)}</div></article>`).join('')}<div class="day-end-nav"><button type="button" data-day="${trip.days[day.index-2]?.date||'9/24'}">← 前一天</button><a href="#top">回到页首</a>${day.index<14?`<button type="button" data-day="${trip.days[day.index].date}">后一天 →</button>`:'<a href="#checklist">行前清单 →</a>'}</div></article>`;
 }
 function setupDateJump(){
   $('jump-date').innerHTML='<option value="9/28">选择日期 · 直达当天</option>'+trip.days.map(d=>`<option value="${d.date}">${d.date} ${weekday(d.date)} · ${esc(d.city)}${d.date==='10/7'?' / 返港':''}</option>`).join('')+'<option value="sydney">悉尼四日</option><option value="nz">新西兰十日</option><option value="all">全部 14 天</option>';
