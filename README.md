@@ -2,6 +2,24 @@
 
 I use [Hugo Academic CV Theme](https://github.com/HugoBlox/theme-academic-cv) as my personal homepage, and using [map](https://clustrmaps.com/) to record my visitors.
 
+## Travelling pages
+
+The unlisted travel directory lives at `/travelling/`. Its standalone pages are
+under `static/travelling/`: `Australia/` contains the existing travel handbook and
+`ToHKU/` contains the daily HKU commute. The directory and commute page share
+`static/travelling/travel.css`.
+
+When adding a handbook, add its card to `static/travelling/index.html`, update the
+entry count, and include a return link to `/travelling/`. Keep the `noindex,
+nofollow, noarchive` robots metadata and `data-pagefind-ignore="all"` attributes on
+both the HTML and body elements of every page. These static pages stay outside
+Hugo's sitemap, feeds, and public navigation. Do not disallow their crawling in
+robots.txt: search engines need to read the `noindex` directive.
+
+This is an unlisted section, not authenticated access: anyone with a URL can open
+it. Commute times and fares are reference values; official sources are linked on
+the page, and outbound/return B2P stops have separate map coordinates.
+
 ---
 
 ## How to Add New News Items
