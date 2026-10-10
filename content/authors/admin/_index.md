@@ -64,7 +64,7 @@ work:
     date_start: 2026-06-16
     date_end: 2027-06-30
     summary: |
-      In [LightSpeed](https://x.com/__lightspeed___?lang=en), supervised by [Jingyu Li](https://scholar.google.com/citations?user=yye11UQAAAAJ&hl=en).
+      In [LightSpeed](https://www.lightspeed-studios.com/), supervised by [Jingyu Li](https://scholar.google.com/citations?user=yye11UQAAAAJ&hl=en).
 
   - position: YuanBao Multimodal Algorithm Group @ Tencent Company        
     company_name: Research Intern    
