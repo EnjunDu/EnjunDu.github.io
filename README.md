@@ -18,7 +18,9 @@ robots.txt: search engines need to read the `noindex` directive.
 
 This is an unlisted section, not authenticated access: anyone with a URL can open
 it. Commute times and fares are reference values; official sources are linked on
-the page, and outbound/return B2P stops have separate map coordinates.
+the page. The outbound route uses B2P and MTR; the return route uses MTR to
+Sheung Wan, then 962X and B3X, with the applicable interchange conditions and
+direction-specific stop coordinates.
 
 ---
 
