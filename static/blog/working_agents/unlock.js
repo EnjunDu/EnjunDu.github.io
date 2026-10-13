@@ -64,7 +64,7 @@
     status.textContent = '';
     try {
       if (!encrypted) {
-        const response = await fetch('encrypted-survey.bin?v=1', { cache: 'no-store', credentials: 'omit', referrerPolicy: 'no-referrer' });
+        const response = await fetch('encrypted-survey.bin?v=2', { cache: 'no-store', credentials: 'omit', referrerPolicy: 'no-referrer' });
         if (!response.ok) throw new Error('unavailable');
         encrypted = new Uint8Array(await response.arrayBuffer());
       }
