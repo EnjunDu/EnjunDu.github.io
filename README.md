@@ -2,6 +2,21 @@
 
 I use [Hugo Academic CV Theme](https://github.com/HugoBlox/theme-academic-cv) as my personal homepage, and using [map](https://clustrmaps.com/) to record my visitors.
 
+## Private Working Agents preview
+
+`/blog/working_agents/` is an unlisted, encrypted static preview. Its public
+directory contains only the password screen, `unlock.js`, and an authenticated
+ciphertext bundle. The manuscript, figures, fonts, styles, and original page are
+inside the encrypted bundle; decrypted assets use browser-local Blob URLs.
+The page is excluded from indexing, and no password is stored by the page.
+
+Keep plaintext inputs and passwords outside this repository. To update the bundle,
+run `scripts/encrypt-private-preview.mjs` locally with `--html`, `--assets`, and
+`--output` paths. It generates a strong password unless `--password-stdin` is used.
+Never run the packager in public CI or commit its password output. After changing
+the bundle, increment the payload query version in `unlock.js` and the script query
+version in `index.html` to refresh CDN caches. This preview has no public blog entry.
+
 ## Travelling pages
 
 The unlisted travel directory lives at `/travelling/`. Its standalone pages are
