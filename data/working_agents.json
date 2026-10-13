@@ -1,0 +1,441 @@
+{
+  "title": "Working Agents: Systems, Capabilities, and Optimization",
+  "year": 2026,
+  "authors": [
+    {
+      "name": "Author One",
+      "affiliation": 1
+    },
+    {
+      "name": "Author Two",
+      "affiliation": 2
+    },
+    {
+      "name": "Author Three",
+      "affiliation": 3
+    },
+    {
+      "name": "Author Four",
+      "affiliation": 4
+    },
+    {
+      "name": "Author Five",
+      "affiliation": 5
+    },
+    {
+      "name": "Author Six",
+      "affiliation": 6
+    }
+  ],
+  "affiliations": [
+    "The University of Hong Kong",
+    "The Chinese University of Hong Kong",
+    "Hong Kong University of Science and Technology",
+    "Central South University",
+    "Tsinghua University",
+    "Shanghai Jiao Tong University"
+  ],
+  "abstract": "Working agents extend foundation models from generating responses to carrying out digital work: constructing artifacts, changing business state, coordinating applications and people, and maintaining obligations over time. We organize the field around two independent axes. Work persistence asks how long a delegated responsibility stays open, from work that closes with an immediate response to standing obligations maintained across a service interval. Work-world openness asks how far the task world can be enumerated before execution begins, from closed task environments to workspaces whose material, relations, interfaces, authority, and other actors must be established while the work proceeds. Separating them removes a recurring confusion: a bounded question can arise in a wholly open workspace, and a fully enumerated environment can carry a persistent duty. The first axis yields five work forms, from response-level to workspace-level work. The second yields the capabilities reliable work requires: workspace understanding, perception, reasoning and decision making, planning and coordination, execution and state management, and verification, recovery, and replanning. We then synthesize how experience, model learning, and harness design improve those capabilities, and classify what benchmarks, metrics, judging procedures, and execution environments can actually establish about them, separating requested work from properties checked. Neither axis is a ladder of intelligence or autonomy. A role-separated file-format audit illustrates the object perspective with an explicit statistical denominator. Open challenges concern evolving work environments, persistent responsibility, trustworthy verification, and work-centric systems for organizing and scaling accepted work. This is a structured narrative review with an explicit source ledger, not an exhaustive systematic census or a new agent-performance experiment.",
+  "forms": [
+    {
+      "name": "Response",
+      "number": "01",
+      "full": "Response-level work",
+      "short": "Produce an informational result.",
+      "heading": "An answer can be the work outcome.",
+      "description": "Interpret supplied text, documents, tables, or images and produce an answer, analysis, classification, or judgment. The work closes with an informational result, without directly changing external work objects.",
+      "example": "Analyze a financial report and answer a numerical question.",
+      "objects": "Supplied context → Answer or judgment",
+      "examples": "DocVQA · FinQA · LegalBench",
+      "section": 10
+    },
+    {
+      "name": "Atomic action",
+      "number": "02",
+      "full": "Atomic-action-level work",
+      "short": "Make a localized change.",
+      "heading": "One local objective, a concrete effect.",
+      "description": "Modify a specific cell, adjust a slide element, update a record, or perform a designated service operation. Atomic refers to the local objective; it can still require several mouse, keyboard, or API operations.",
+      "example": "Correct a formula in cell C7 and confirm the intended result.",
+      "objects": "Target object → Confirmed local change",
+      "examples": "SheetCopilot · InstructExcel · API-Bank",
+      "section": 11
+    },
+    {
+      "name": "Multi-step",
+      "number": "03",
+      "full": "Multi-step-level work",
+      "short": "Complete a coherent objective.",
+      "heading": "Coordinate actions toward a complete result.",
+      "description": "Read evidence, plan dependent actions, inspect intermediate results, and refine execution toward one objective. State and dependencies connect the actions that collectively produce the result.",
+      "example": "Diagnose a repository issue, edit code, run tests, and repair failures.",
+      "objects": "Related actions → Complete objective",
+      "examples": "SWE-bench · DABstep · ScienceAgentBench",
+      "section": 11
+    },
+    {
+      "name": "Workflow",
+      "number": "04",
+      "full": "Workflow-level work",
+      "short": "Carry an end-to-end process.",
+      "heading": "Keep stages, rules, and handoffs aligned.",
+      "description": "Connect functionally meaningful stages through data, prerequisites, business rules, approvals, and shared state. A stage can introduce branching, validation, human review, or a handoff to another participant.",
+      "example": "Collect reporting data, prepare artifacts, obtain approval, and publish.",
+      "objects": "Dependent stages → Completed process",
+      "examples": "OfficeBench · AppWorld · WorkArena++",
+      "section": 12
+    },
+    {
+      "name": "Workspace",
+      "number": "05",
+      "full": "Workspace-level work",
+      "short": "Work across distributed objects.",
+      "heading": "Discover the work world as work proceeds.",
+      "description": "Locate relevant files, records, versions, and dependencies in a heterogeneous workspace. Discovering authoritative sources and understanding their relationships becomes part of the delegated work itself.",
+      "example": "Trace a report to its source workbook and update dependent presentations.",
+      "objects": "Distributed objects → Consistent work outcomes",
+      "examples": "Workspace-Bench",
+      "section": 12
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "Workspace understanding",
+      "heading": "Establish the work world.",
+      "description": "Discover relevant objects, dependencies, versions, permissions, and authority. Maintain a current account of what matters to the task.",
+      "tags": "Objects · Relations · Authority"
+    },
+    {
+      "name": "Perception",
+      "heading": "Observe the native object.",
+      "description": "Read files, interfaces, and application state. Interpret formulas, layout, units, and active context beyond the visible text.",
+      "tags": "Files · Interfaces · Representations"
+    },
+    {
+      "name": "Reasoning & decision making",
+      "heading": "Make grounded decisions.",
+      "description": "Reconcile evidence with goals, professional knowledge, business rules, and constraints before choosing an action.",
+      "tags": "Evidence · Constraints · Judgment"
+    },
+    {
+      "name": "Planning & coordination",
+      "heading": "Organize dependent work.",
+      "description": "Decompose objectives, track prerequisites, coordinate stages and participants, and manage branches and handoffs.",
+      "tags": "Goals · Dependencies · Handoffs"
+    },
+    {
+      "name": "Execution & state management",
+      "heading": "Turn intent into effects.",
+      "description": "Act on the workspace, distinguish attempted actions from committed changes, and preserve consistency across objects and applications.",
+      "tags": "Actions · Effects · Shared state"
+    },
+    {
+      "name": "Verification & recovery",
+      "heading": "Establish and repair the result.",
+      "description": "Check outcomes against requirements, investigate uncertain effects, and recover or replan when assumptions fail.",
+      "tags": "Checks · Diagnosis · Replanning"
+    }
+  ],
+  "frontiers": [
+    {
+      "number": "01",
+      "name": "Environment",
+      "heading": "Generalization needs realistic work.",
+      "description": "Broaden domain, occupational, and workflow coverage. Preserve meaningful history, obsolete versions, conflicting sources, and decision-relevant noise.",
+      "evidence": "Held-out transfer · Source selection · Realistic curricula"
+    },
+    {
+      "number": "02",
+      "name": "Persistence",
+      "heading": "Responsibility outlasts one execution.",
+      "description": "Sustain obligations through events, waiting, interruptions, and capability updates. Reconcile delayed effects and preserve still-valid commitments.",
+      "evidence": "Fulfilled obligations · Duplicate effects · Continuity"
+    },
+    {
+      "number": "03",
+      "name": "Verification",
+      "heading": "Connect quality to value in use.",
+      "description": "Combine grounded checks with contextual and comparative judgment. Test criteria across occupations and connect deliverable quality to downstream usefulness.",
+      "evidence": "Expert agreement · Criterion transfer · Downstream use"
+    },
+    {
+      "number": "04",
+      "name": "Work-centric systems",
+      "heading": "Organize around durable work.",
+      "description": "Preserve work identity across decomposition, reassignment, and model changes. Study human–agent organization and the bottlenecks limiting net productivity.",
+      "evidence": "Accepted work · Human effort · Total resource cost"
+    }
+  ],
+  "benchmarks": [
+    {
+      "name": "Workspace-Bench",
+      "ref": 19,
+      "year": 2026,
+      "form": "Workspace",
+      "domain": "Professional",
+      "evidence": "Rubrics + file-dependency graph",
+      "url": "https://arxiv.org/abs/2605.03596"
+    },
+    {
+      "name": "OfficeBench",
+      "ref": 42,
+      "year": 2024,
+      "form": "Workflow",
+      "domain": "Office",
+      "evidence": "Office environment task completion",
+      "url": "https://arxiv.org/abs/2407.19056"
+    },
+    {
+      "name": "SWE-bench",
+      "ref": 33,
+      "year": 2023,
+      "form": "Multi-step",
+      "domain": "Software",
+      "evidence": "Required fixes + regression tests",
+      "url": "https://arxiv.org/abs/2310.06770"
+    },
+    {
+      "name": "OSWorld",
+      "ref": 4,
+      "year": 2024,
+      "form": "Multi-step",
+      "domain": "Computer use",
+      "evidence": "Task-specific execution checks",
+      "url": "https://arxiv.org/abs/2404.07972"
+    },
+    {
+      "name": "AppWorld",
+      "ref": 13,
+      "year": 2024,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "Goal state + collateral-state checks",
+      "url": "https://arxiv.org/abs/2407.18901"
+    },
+    {
+      "name": "GDPval",
+      "ref": 53,
+      "year": 2025,
+      "form": "Multi-step",
+      "domain": "Professional",
+      "evidence": "Blinded occupational-expert comparison",
+      "url": "https://cdn.openai.com/pdf/d5eb7428-c4e9-4a33-bd86-86dd4bcf12ce/GDPval.pdf"
+    },
+    {
+      "name": "PresentBench",
+      "ref": 38,
+      "year": 2026,
+      "form": "Multi-step",
+      "domain": "Office",
+      "evidence": "Model-judged binary checklist on rendered decks",
+      "url": "https://arxiv.org/abs/2603.07244"
+    },
+    {
+      "name": "τ-bench",
+      "ref": 15,
+      "year": 2024,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "Database goal-state comparison",
+      "url": "https://arxiv.org/abs/2406.12045"
+    },
+    {
+      "name": "τ²-bench",
+      "ref": 16,
+      "year": 2025,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "Shared-state and policy evaluation",
+      "url": "https://arxiv.org/abs/2506.07982"
+    },
+    {
+      "name": "TheAgentCompany",
+      "ref": 43,
+      "year": 2024,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "Intermediate checkpoints + final completion",
+      "url": "https://arxiv.org/abs/2412.14161"
+    },
+    {
+      "name": "WorkArena++",
+      "ref": 41,
+      "year": 2024,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "Enterprise application outcomes",
+      "url": "https://arxiv.org/abs/2407.05291"
+    },
+    {
+      "name": "CRMArena",
+      "ref": 44,
+      "year": 2024,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "Required business state or answer",
+      "url": "https://arxiv.org/abs/2411.02305"
+    },
+    {
+      "name": "CRMArena-Pro",
+      "ref": 45,
+      "year": 2025,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "State, dialogue, and confidentiality",
+      "url": "https://arxiv.org/abs/2505.18878"
+    },
+    {
+      "name": "SpreadsheetBench 2",
+      "ref": 46,
+      "year": 2026,
+      "form": "Workflow",
+      "domain": "Office",
+      "evidence": "End-to-end spreadsheet workflow assessment",
+      "url": "https://arxiv.org/abs/2606.29955"
+    },
+    {
+      "name": "EnterpriseOps-Gym",
+      "ref": 165,
+      "year": 2026,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "SQL outcome + integrity checks",
+      "url": "https://arxiv.org/abs/2603.13594"
+    },
+    {
+      "name": "StartupBench",
+      "ref": 161,
+      "year": 2026,
+      "form": "Workspace",
+      "domain": "Professional",
+      "evidence": "Weighted, tool-assisted rubric judgments",
+      "url": "https://arxiv.org/abs/2608.17800"
+    },
+    {
+      "name": "DABstep",
+      "ref": 31,
+      "year": 2025,
+      "form": "Multi-step",
+      "domain": "Professional",
+      "evidence": "Multi-step data analysis outcomes",
+      "url": "https://arxiv.org/abs/2506.23719"
+    },
+    {
+      "name": "DSBench",
+      "ref": 34,
+      "year": 2024,
+      "form": "Multi-step",
+      "domain": "Professional",
+      "evidence": "Data-analysis and modeling results",
+      "url": "https://arxiv.org/abs/2409.07703"
+    },
+    {
+      "name": "ScienceAgentBench",
+      "ref": 36,
+      "year": 2024,
+      "form": "Multi-step",
+      "domain": "Science",
+      "evidence": "Data-driven scientific task assessment",
+      "url": "https://arxiv.org/abs/2410.05080"
+    },
+    {
+      "name": "PaperBench",
+      "ref": 164,
+      "year": 2025,
+      "form": "Multi-step",
+      "domain": "Science",
+      "evidence": "Hierarchical research-replication rubric",
+      "url": "https://arxiv.org/abs/2504.01848"
+    },
+    {
+      "name": "WebArena",
+      "ref": 3,
+      "year": 2023,
+      "form": "Multi-step",
+      "domain": "Computer use",
+      "evidence": "Answer or required website state",
+      "url": "https://arxiv.org/abs/2307.13854"
+    },
+    {
+      "name": "SpreadsheetBench",
+      "ref": 64,
+      "year": 2024,
+      "form": "Multi-step",
+      "domain": "Office",
+      "evidence": "Target cells across workbook test cases",
+      "url": "https://arxiv.org/abs/2406.14991"
+    },
+    {
+      "name": "ToolSandbox",
+      "ref": 12,
+      "year": 2024,
+      "form": "Workflow",
+      "domain": "Enterprise",
+      "evidence": "State milestones + specified minefields",
+      "url": "https://arxiv.org/abs/2408.04682"
+    },
+    {
+      "name": "SheetCopilot",
+      "ref": 5,
+      "year": 2023,
+      "form": "Atomic action",
+      "domain": "Office",
+      "evidence": "Spreadsheet operations and task outcomes",
+      "url": "https://arxiv.org/abs/2305.19308"
+    },
+    {
+      "name": "InstructExcel",
+      "ref": 26,
+      "year": 2023,
+      "form": "Atomic action",
+      "domain": "Office",
+      "evidence": "Concrete Excel instruction execution",
+      "url": "https://aclanthology.org/2023.findings-emnlp.265/"
+    },
+    {
+      "name": "API-Bank",
+      "ref": 2,
+      "year": 2023,
+      "form": "Atomic action",
+      "domain": "Tool use",
+      "evidence": "API selection, arguments, and execution",
+      "url": "https://arxiv.org/abs/2304.08244"
+    },
+    {
+      "name": "ScreenSpot-Pro",
+      "ref": 29,
+      "year": 2025,
+      "form": "Atomic action",
+      "domain": "Computer use",
+      "evidence": "Localized interface target grounding",
+      "url": "https://arxiv.org/abs/2504.07981"
+    },
+    {
+      "name": "DocVQA",
+      "ref": 9,
+      "year": 2020,
+      "form": "Response",
+      "domain": "Professional",
+      "evidence": "ANLS against reference answers",
+      "url": "https://arxiv.org/abs/2007.00398"
+    },
+    {
+      "name": "FinQA",
+      "ref": 10,
+      "year": 2021,
+      "form": "Response",
+      "domain": "Professional",
+      "evidence": "Numerical result + program equivalence",
+      "url": "https://arxiv.org/abs/2109.00122"
+    },
+    {
+      "name": "LegalBench",
+      "ref": 23,
+      "year": 2023,
+      "form": "Response",
+      "domain": "Professional",
+      "evidence": "Expert-designed labels or references",
+      "url": "https://arxiv.org/abs/2308.11462"
+    }
+  ]
+}

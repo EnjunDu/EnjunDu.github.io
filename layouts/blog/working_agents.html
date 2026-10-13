@@ -1,0 +1,168 @@
+{{- $survey := .Site.Data.working_agents -}}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8faf8">
+  <meta name="description" content="{{ .Params.summary }}">
+  <title>{{ $survey.title }} · Survey</title>
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ $survey.title }}">
+  <meta property="og:description" content="{{ .Params.summary }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ "blog/working_agents/social-preview.png" | absURL }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $survey.title }}">
+  <meta name="twitter:description" content="{{ .Params.summary }}">
+  <meta name="twitter:image" content="{{ "blog/working_agents/social-preview.png" | absURL }}">
+  <link rel="icon" href="{{ "blog/working_agents/favicon.svg" | relURL }}" type="image/svg+xml">
+  <link rel="preload" href="{{ "blog/working_agents/fonts/newsreader-400-normal.ttf" | relURL }}" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="{{ "blog/working_agents/fonts.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "blog/working_agents/survey.css" | relURL }}">
+  <script src="{{ "blog/working_agents/survey.js" | relURL }}" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav-row">
+      <a class="brand" href="#top" aria-label="Working Agents, back to top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Working Agents<span class="brand-note">THE SURVEY</span></span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false"><span></span><span></span></button>
+      <nav id="navigation" aria-label="Survey sections">
+        <a href="#foundation">Foundation</a><a href="#work-forms">Work forms</a><a href="#capabilities">Capabilities</a><a href="#resources">Resources</a><a href="#frontiers">Frontiers</a>
+        <a class="nav-paper" href="{{ "blog/working_agents/working-agents-survey.pdf" | relURL }}" target="_blank" rel="noopener">Read paper <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="paper-title">
+      <div class="eyebrow hero-label"><span class="status-dot"></span>A survey of digital knowledge work <span class="label-year">2026</span></div>
+      <h1 id="paper-title">Working <span>Agents</span><span class="title-period">.</span></h1>
+      <p class="paper-subtitle">Systems, Capabilities, and Optimization</p>
+      <p class="hero-deck">From generating responses to <strong>carrying out digital work.</strong><br>How models and harnesses turn decisions into verifiable outcomes <br class="desktop-break">across artifacts, applications, and persistent responsibilities.</p>
+      <div class="author-list" aria-label="Provisional authors">{{ range $index, $author := $survey.authors }}{{ if $index }}<span class="author-separator" aria-hidden="true">·</span>{{ end }}<span>{{ $author.name }}<sup>{{ $author.affiliation }}</sup></span>{{ end }}</div>
+      <p class="author-note">Provisional author list</p>
+      <div class="affiliations">{{ range $index, $affiliation := $survey.affiliations }}<span><sup>{{ add $index 1 }}</sup>{{ $affiliation }}</span>{{ end }}</div>
+      <div class="hero-actions">
+        <a class="button primary" href="{{ "blog/working_agents/working-agents-survey.pdf" | relURL }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v5h4M10 12h5M10 16h5"/></svg>Read the paper<span aria-hidden="true">↗</span></a>
+        <a class="button secondary" href="#resources"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v6H4zM14 15h6v6h-6z"/></svg>Explore resources</a>
+        <a class="text-link" href="#citation">Cite this survey <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-meta"><span><b>2</b> independent dimensions</span><span><b>5</b> work forms</span><span><b>6</b> capability families</span></div>
+
+      <div class="system-preview" aria-label="A task guides a model and harness acting in a workspace to produce a work outcome, which verification checks against the requirements.">
+        <div class="preview-heading"><span class="eyebrow">A system view of work</span><span class="mini-mono">T · M · H · E · O · V</span></div>
+        <div class="preview-flow">
+          <div class="preview-task"><span class="node-letter coral">T</span><h3>The task</h3><p>Objective, constraints,<br>and completion criteria</p></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="preview-engine"><div class="engine-symbol" aria-hidden="true"><span>M</span><i>+</i><span>H</span></div><h3>Model + Harness</h3><p>Reason · Plan · Execute · Recover</p></div>
+          <span class="flow-arrow" aria-hidden="true">⇄</span>
+          <div class="preview-workspace"><span class="node-letter green">E</span><h3>The workspace</h3><div class="object-icons" aria-hidden="true"><svg viewBox="0 0 28 32"><path d="M5 2h12l6 6v22H5zM17 2v7h6M9 14h10M9 19h10M9 24h6"/></svg><svg viewBox="0 0 32 32"><rect x="3" y="4" width="26" height="24" rx="2"/><path d="M3 12h26M3 20h26M12 4v24M21 4v24"/></svg><svg viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="22" rx="2"/><path d="m12 12-5 4 5 4m8-8 5 4-5 4"/></svg></div><p>Files · Apps · Records · People</p></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="preview-outcome"><span class="node-letter purple">O</span><h3>Work outcome</h3><p>Artifacts, state changes,<br>and fulfilled obligations</p></div>
+        </div>
+        <div class="preview-verification"><span class="feedback-line" aria-hidden="true"></span><span class="verification-label"><span class="node-letter blue">V</span><b>Verification</b> checks outcomes against task requirements <span aria-hidden="true">↺</span></span><span class="feedback-line" aria-hidden="true"></span></div>
+      </div>
+      <p class="hero-footnote">Capability belongs to the <strong>working system</strong>: model, harness, workspace, and verification together.</p>
+    </section>
+
+    <section id="overview" class="section overview-section">
+      <div class="wrap overview-grid">
+        <div><span class="eyebrow">The central thesis</span><h2>From answers to<br><em>accepted work.</em></h2><p class="section-deck">The unit of progress is an outcome that meets its requirements and can be used downstream.</p><a class="text-link" href="{{ "blog/working_agents/working-agents-survey.pdf#page=4" | relURL }}" target="_blank" rel="noopener">Read the introduction <span aria-hidden="true">↗</span></a></div>
+        <div class="abstract-copy"><h3>Abstract</h3><p>{{ $survey.abstract }}</p><p class="source-note">Structured narrative review · Digital knowledge work · Model and harness</p></div>
+      </div>
+    </section>
+
+    <section id="foundation" class="section">
+      <div class="wrap">
+        <div class="section-heading"><div><span class="eyebrow">01 / Foundation</span><h2>Two dimensions.<br><em>Different questions.</em></h2></div><p class="section-deck">Persistence describes how long responsibility stays open. Openness describes how much of the work world must be established during execution.</p></div>
+        <div class="dimensions-grid">
+          <div class="dimension-copy">
+            <article class="dimension"><span class="dimension-symbol">↗</span><div><span class="mini-mono">TEMPORAL RESPONSIBILITY</span><h3>Work persistence</h3><p>From immediate closure to responsibilities that remain active across feedback, stages, external events, and time.</p><div class="dimension-range"><span>Immediate closure</span><span aria-hidden="true">⟶</span><span>Standing obligation</span></div></div></article>
+            <article class="dimension"><span class="dimension-symbol coral-text">↔</span><div><span class="mini-mono">THE TASK WORLD</span><h3>Work-world openness</h3><p>From enumerated materials and interfaces to a workspace whose objects, relations, authority, and actors must be discovered while working.</p><div class="dimension-range"><span>Predefined task world</span><span aria-hidden="true">⟶</span><span>Open workspace</span></div></div></article>
+            <p class="dimension-note">These axes describe working conditions. They are independent of intelligence and autonomy.</p>
+          </div>
+          <div class="axis-map" role="img" aria-label="Illustrative independent dimensions. A one-off source investigation has low persistence and high openness. A scheduled check in a fixed database has high persistence and low openness.">
+            <span class="axis-top">GREATER WORK-WORLD OPENNESS ↑</span><div class="quadrants"><div><span class="quadrant-dot coral-dot"></span><h4>Investigate an<br>unfamiliar workspace</h4><p>A bounded question,<br>an open work world</p></div><div><span class="quadrant-dot blue-dot"></span><h4>Maintain a<br>living business report</h4><p>Changing sources,<br>continuing responsibility</p></div><div><span class="quadrant-dot gray-dot"></span><h4>Answer from<br>a supplied document</h4><p>Immediate closure,<br>provided context</p></div><div><span class="quadrant-dot green-dot"></span><h4>Monitor a<br>fixed database</h4><p>An enumerated environment,<br>a standing obligation</p></div></div><span class="axis-bottom">GREATER WORK PERSISTENCE →</span><span class="axis-caption">Illustrative scenarios · Positions are conceptual</span>
+          </div>
+        </div>
+        <div class="formalization"><div><span class="eyebrow">Six elements, one working system</span><h3>Task → Execution → Outcome → Verification</h3><p>A foundation model supplies reasoning and decisions. A harness organizes context, tools, memory, and control. They act in a stateful workspace under task requirements.</p></div><div class="formal-equations"><span class="equation">(T, E₀) <span class="equation-arrow"><small>M, H</small>⟶</span> (τ, Eₜ, O)</span><span class="equation">V(T, E₀, τ, Eₜ, O) ⟶ S</span><p>Task & initial state → trajectory, resulting state & outcome → assessment</p></div></div>
+        <figure class="paper-figure"><a class="figure-expand" href="{{ "blog/working_agents/system-framework.webp" | relURL }}" target="_blank" rel="noopener" aria-label="Open the working-agent framework figure at full resolution"><img src="{{ "blog/working_agents/system-framework.webp" | relURL }}" alt="The manuscript's six-element framework: task requirements, model, harness, workspace, work outcomes, and verification." width="1448" height="1086" loading="lazy"></a><figcaption><span><b>Figure 1.</b> Formalizing working agents through Task, Model, Harness, Workspace, Work Outcome, and Verification.</span><span class="figure-hint">Original manuscript figure · Click to enlarge ↗</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section id="work-forms" class="section tinted-section">
+      <div class="wrap">
+        <div class="section-heading"><div><span class="eyebrow">02 / Work forms</span><h2>What work do<br><em>agents undertake?</em></h2></div><p class="section-deck">Five forms describe the scope and organization of delegated work. Scope concerns objectives, stages, objects, and dependencies.</p></div>
+        <div class="work-tabs" role="tablist" aria-label="Five work forms">{{ range $index, $form := $survey.forms }}<button class="work-tab{{ if eq $index 0 }} active{{ end }}" id="tab-{{ $index }}" type="button" role="tab" aria-selected="{{ if eq $index 0 }}true{{ else }}false{{ end }}" aria-controls="panel-{{ $index }}" tabindex="{{ if eq $index 0 }}0{{ else }}-1{{ end }}"><span class="tab-number">{{ $form.number }}</span><span class="tab-title">{{ $form.name }}</span><span class="tab-short">{{ $form.short }}</span><span class="tab-arrow" aria-hidden="true">↗</span></button>{{ end }}</div>
+        {{ range $index, $form := $survey.forms }}<div class="work-panel" id="panel-{{ $index }}" role="tabpanel" aria-labelledby="tab-{{ $index }}" tabindex="0"{{ if ne $index 0 }} hidden{{ end }}><div class="work-panel-copy"><span class="eyebrow">{{ $form.full }}</span><h3>{{ $form.heading }}</h3><p>{{ $form.description }}</p><a class="text-link" href="{{ "blog/working_agents/working-agents-survey.pdf" | relURL }}#page={{ $form.section }}" target="_blank" rel="noopener">Read in the survey <span aria-hidden="true">↗</span></a></div><div class="work-example"><span class="mini-mono">A WORK SCENARIO</span><p>{{ $form.example }}</p><div class="example-output">{{ $form.objects }}</div><div class="example-resources"><span>Representative resources</span><b>{{ $form.examples }}</b></div></div></div>{{ end }}
+        <noscript><p>The five work forms are response-level, atomic-action-level, multi-step-level, workflow-level, and workspace-level work. Read the full survey for every form.</p></noscript>
+        <details class="figure-details"><summary>See the complete work-forms map <span aria-hidden="true">+</span></summary><figure class="paper-figure"><a class="figure-expand" href="{{ "blog/working_agents/work-forms.webp" | relURL }}" target="_blank" rel="noopener"><img src="{{ "blog/working_agents/work-forms.webp" | relURL }}" alt="The manuscript's overview of five work forms with representative benchmarks." width="1672" height="941" loading="lazy"></a><figcaption><span><b>Figure 2.</b> An expansion from supplied context to distributed workspace objects and dependencies.</span><span class="figure-hint">Original manuscript figure</span></figcaption></figure></details>
+      </div>
+    </section>
+
+    <section id="capabilities" class="section">
+      <div class="wrap">
+        <div class="section-heading"><div><span class="eyebrow">03 / Capabilities</span><h2>What makes<br><em>work reliable?</em></h2></div><p class="section-deck">The workspace model, observations, decisions, committed state, and acceptance evidence must stay aligned throughout the execution loop.</p></div>
+        <div class="capability-grid">{{ range $index, $capability := $survey.capabilities }}<article class="capability"><span class="capability-index">{{ printf "%02d" (add $index 1) }}</span><h3>{{ $capability.name }}</h3><h4>{{ $capability.heading }}</h4><p>{{ $capability.description }}</p><span class="capability-tags">{{ $capability.tags }}</span></article>{{ end }}</div>
+        <p class="source-note">Workspace understanding and perception are presented separately here; Section 4 groups them as “Perception and Understanding.”</p>
+      </div>
+    </section>
+
+    <section id="optimization" class="section optimization-section">
+      <div class="wrap">
+        <div class="section-heading"><div><span class="eyebrow">04 / Optimization</span><h2>Experience becomes<br><em>system capability.</em></h2></div><p class="section-deck">Diagnose the failure before choosing what to update. The right intervention can reside in model parameters, external support, or their coupling.</p></div>
+        <div class="optimization-path"><span>Work execution</span><i aria-hidden="true">→</i><span>Observable experience</span><i aria-hidden="true">→</i><span>Diagnosis & feedback</span><i aria-hidden="true">→</i><span>System update <i aria-hidden="true">↺</i></span></div>
+        <div class="optimization-grid"><article><span class="optimization-symbol">M</span><span class="mini-mono">MODEL OPTIMIZATION</span><h3>Learn the<br>recurring capability.</h3><p>Internalize reusable interpretation and decision patterns in model parameters.</p><ul><li>Mid-training & supervised fine-tuning</li><li>Agentic reinforcement learning</li><li>On-policy distillation</li><li>Self-improving training</li></ul></article><article><span class="optimization-symbol">H</span><span class="mini-mono">HARNESS OPTIMIZATION</span><h3>Improve the<br>external support.</h3><p>Repair what the model can observe, invoke, remember, and verify during execution.</p><ul><li>Interfaces & tools</li><li>Prompts & workflows</li><li>Memory & reusable skills</li><li>Execution control & feedback</li></ul></article><article><span class="optimization-symbol">M + H</span><span class="mini-mono">COUPLING & JOINT OPTIMIZATION</span><h3>Adapt the<br>working pair.</h3><p>Account for the interaction between learned behavior and the harness supporting it.</p><ul><li>Harness-aware model training</li><li>Learned harness design</li><li>Joint model–harness optimization</li><li>Matched comparisons & retention</li></ul></article></div>
+        <div class="optimization-takeaway"><span aria-hidden="true">↳</span><p>Compare <b>(M₀, H₀), (M₁, H₀), (M₀, H₁), and (M₁, H₁)</b> on matched tasks, states, verifiers, and budgets to separate model gains, harness gains, and their interaction.</p></div>
+        <details class="figure-details"><summary>See the optimization loop from the paper <span aria-hidden="true">+</span></summary><figure class="paper-figure"><img src="{{ "blog/working_agents/optimization.webp" | relURL }}" alt="Execution provides work experience; diagnosis selects model, harness, or coupling updates, closing the optimization loop." width="1290" height="727" loading="lazy"><figcaption><span><b>Figure 3.</b> From work experience to system capability.</span><span class="figure-hint">Original manuscript figure</span></figcaption></figure></details>
+      </div>
+    </section>
+
+    <section id="evaluation" class="section">
+      <div class="wrap">
+        <div class="section-heading"><div><span class="eyebrow">05 / Evaluation</span><h2>What does the<br><em>evidence establish?</em></h2></div><p class="section-deck">A requested outcome and the properties an evaluator checks are different objects. Capability claims must stay within what the evidence can support.</p></div>
+        <div class="evidence-chain"><div><span>01</span><b>Requested work</b><small>Goals & constraints</small></div><i aria-hidden="true">→</i><div><span>02</span><b>Observed evidence</b><small>Answer, state, artifact, trace</small></div><i aria-hidden="true">→</i><div><span>03</span><b>Judging procedure</b><small>Rules, rubrics, models, experts</small></div><i aria-hidden="true">→</i><div><span>04</span><b>Reported metric</b><small>Success, quality, reliability, cost</small></div><i aria-hidden="true">→</i><div><span>05</span><b>Capability claim</b><small>Bounded by inspected properties</small></div></div>
+        <div class="evaluation-grid"><article><span class="evaluation-letter">A</span><h3>Answer</h3><p>Does the response satisfy the question and agree with its supporting evidence?</p><span>Reference answers · Source support</span></article><article><span class="evaluation-letter">S</span><h3>State</h3><p>Did the intended effect actually happen, with relevant constraints and other state preserved?</p><span>Tests · Database checks · Effects</span></article><article><span class="evaluation-letter">O</span><h3>Artifact</h3><p>Is the native deliverable correct, editable, source-consistent, and usable in its intended form?</p><span>Native objects · Rendered views</span></article><article><span class="evaluation-letter">W</span><h3>Workflow</h3><p>Were dependencies, prerequisites, approvals, and intermediate obligations respected?</p><span>Checkpoints · Traces · Handoffs</span></article></div>
+        <div class="evaluation-callout"><b>A workbook example</b><p>A task can request a correct, editable, source-consistent workbook while a verifier checks selected cells. Those checks establish correctness over the inspected cells; editability, provenance, and other structure need corresponding evidence.</p></div>
+      </div>
+    </section>
+
+    <section id="resources" class="section resources-section">
+      <div class="wrap">
+        <div class="section-heading"><div><span class="eyebrow">The reading room</span><h2>Explore the<br><em>research landscape.</em></h2></div><p class="section-deck">{{ len $survey.benchmarks }} representative benchmarks and systems drawn from the survey. Browse by work form, then compare the work domain and evidence each resource inspects.</p></div>
+        <div class="resource-controls"><label class="search-control"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">Search resource name, work form, domain, or evidence</span><input id="resource-search" type="search" placeholder="Search benchmarks, domains, or evidence…" autocomplete="off"></label><label class="domain-control"><span class="sr-only">Filter by domain</span><select id="domain-filter"><option value="all">All domains</option>{{ range (slice "Office" "Software" "Computer use" "Enterprise" "Professional" "Science" "Tool use") }}<option value="{{ . }}">{{ . }}</option>{{ end }}</select></label></div>
+        <div class="resource-filters" role="group" aria-label="Filter by work form"><button type="button" class="filter active" data-form="all" aria-pressed="true">All work forms</button>{{ range $survey.forms }}<button type="button" class="filter" data-form="{{ .name }}" aria-pressed="false">{{ .name }}</button>{{ end }}</div>
+        <div class="resource-results"><span id="resource-count" role="status" aria-live="polite">{{ len $survey.benchmarks }} resources</span><button id="reset-filters" class="text-link" type="button" hidden>Reset filters <span aria-hidden="true">↺</span></button></div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Representative resource table"><table class="resource-table"><thead><tr><th scope="col">Resource <span class="th-secondary">/ year</span></th><th scope="col">Work form</th><th scope="col">Domain</th><th scope="col">Assessment evidence</th><th scope="col"><span class="sr-only">Paper link</span></th></tr></thead><tbody>{{ range $survey.benchmarks }}<tr data-form="{{ .form }}" data-domain="{{ .domain }}" data-search="{{ printf "%s %d %s %s %s" .name .year .form .domain .evidence | lower }}"><td><a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a><span class="resource-year">{{ .year }} <span>·</span> Ref. {{ .ref }}</span></td><td><span class="form-tag" data-kind="{{ .form }}">{{ .form }}</span></td><td>{{ .domain }}</td><td>{{ .evidence }}</td><td><a class="resource-open" href="{{ .url }}" target="_blank" rel="noopener" aria-label="Read {{ .name }}">↗</a></td></tr>{{ end }}</tbody></table></div>
+        <div id="no-results" class="no-results" hidden><h3>No matching resources.</h3><p>Try another keyword, work form, or domain.</p><button class="button secondary" type="button" id="empty-reset">Clear filters</button></div>
+        <button class="show-more" id="show-all" type="button" hidden>Show all {{ len $survey.benchmarks }} resources <span aria-hidden="true">↓</span></button>
+        <p class="source-note">Representative placements are a reading aid; work forms can overlap. Reference numbers and years follow the supplied manuscript. Evidence descriptions summarize the stated configurations.</p>
+        <noscript><p>All resources are shown. Search and filters are available when JavaScript is enabled.</p></noscript>
+      </div>
+    </section>
+
+    <section id="frontiers" class="section">
+      <div class="wrap">
+        <div class="section-heading"><div><span class="eyebrow">06 / The path forward</span><h2>Beyond bounded tasks.<br><em>Toward dependable work.</em></h2></div><p class="section-deck">As execution improves, the bottleneck can move to environment coverage, continuity, acceptance, or coordination. Four frontiers frame the research agenda.</p></div>
+        <div class="frontier-list">{{ range $survey.frontiers }}<article class="frontier"><span class="frontier-number">{{ .number }}</span><div class="frontier-title"><span class="mini-mono">{{ .name }}</span><h3>{{ .heading }}</h3></div><div class="frontier-description"><p>{{ .description }}</p><span>{{ .evidence }}</span></div><span class="frontier-arrow" aria-hidden="true">↗</span></article>{{ end }}</div>
+        <div class="closing-thought"><span class="eyebrow">The measure of progress</span><p>Work <em>delivered</em>.<br>Outcomes <em>accepted</em>.</p><span>Useful, dependable, and accountable in practice.</span></div>
+      </div>
+    </section>
+
+    <section id="citation" class="section citation-section">
+      <div class="wrap citation-grid"><div><span class="eyebrow">Read, explore, reference</span><h2>Continue the<br><em>conversation.</em></h2><p class="section-deck">The full survey connects the foundations, capabilities, optimization methods, evaluation resources, and open challenges of working agents.</p><a class="button primary" href="{{ "blog/working_agents/working-agents-survey.pdf" | relURL }}" target="_blank" rel="noopener">Read the full survey <span aria-hidden="true">↗</span></a></div><div class="citation-card"><div class="citation-heading"><span>BibTeX <small>Provisional · author information forthcoming</small></span><button id="copy-citation" class="copy-button" type="button">Copy <span aria-hidden="true">⧉</span></button></div><pre id="bibtex"><code>@misc{workingagents2026,
+  title = {Working Agents: Systems, Capabilities,
+           and Optimization},
+  year = {2026},
+  howpublished = {Survey manuscript},
+  url = {https://enjundu.com/blog/working_agents/}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-main"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Working Agents<span class="brand-note">SYSTEMS. CAPABILITIES. OPTIMIZATION.</span></span></a><div><a href="/">Enjun Du's homepage ↗</a><a href="/blog/">All project pages</a><a href="#top">Back to top ↑</a></div></div><div class="wrap footer-bottom"><span>A survey of digital knowledge work · 2026</span><span>From responses to accepted work.</span></div></footer>
+</body>
+</html>

@@ -2,6 +2,15 @@
 
 I use [Hugo Academic CV Theme](https://github.com/HugoBlox/theme-academic-cv) as my personal homepage, and using [map](https://clustrmaps.com/) to record my visitors.
 
+## Working Agents survey
+
+The survey project page lives at `/blog/working_agents/`. Its dedicated Hugo
+template is `layouts/blog/working_agents.html`, with editable content and resource
+entries in `data/working_agents.json`. Page assets, the manuscript, and the
+self-hosted fonts live in `static/blog/working_agents/`; font licenses are included.
+The current author names and affiliation assignments are provisional placeholders.
+Replace them in the data file and add confirmed authors to the BibTeX in the template.
+
 ## Travelling pages
 
 The unlisted travel directory lives at `/travelling/`. Its standalone pages are
