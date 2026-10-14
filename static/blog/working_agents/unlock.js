@@ -269,9 +269,14 @@
     }
   });
 
-  if (urlPassword) {
-    input.value = urlPassword;
-    urlPassword = null;
+  function unlockFromPasswordLink(password) {
+    if (!password || button.disabled) return;
+    input.value = password;
     form.requestSubmit();
   }
+
+  // Pasting a fragment link into an already open lock screen does not reload it.
+  window.addEventListener('hashchange', () => unlockFromPasswordLink(takeUrlPassword()));
+  unlockFromPasswordLink(urlPassword);
+  urlPassword = null;
 })();
