@@ -1,5 +1,25 @@
 (() => {
   'use strict';
+
+  function takeUrlPassword() {
+    const url = new URL(window.location.href);
+    let password = url.searchParams.get('password');
+    let changed = url.searchParams.has('password');
+    url.searchParams.delete('password');
+
+    const fragment = new URLSearchParams(url.hash.slice(1));
+    if (fragment.has('password')) {
+      password = fragment.get('password');
+      fragment.delete('password');
+      url.hash = fragment.toString();
+      changed = true;
+    }
+
+    if (changed) history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+    return password;
+  }
+
+  let urlPassword = takeUrlPassword();
   const form = document.getElementById('unlock-form');
   const input = document.getElementById('password');
   const button = document.getElementById('unlock-button');
@@ -64,7 +84,7 @@
     status.textContent = '';
     try {
       if (!encrypted) {
-        const response = await fetch('encrypted-survey.bin?v=4', { cache: 'no-store', credentials: 'omit', referrerPolicy: 'no-referrer' });
+        const response = await fetch('encrypted-survey.bin?v=5', { cache: 'no-store', credentials: 'omit', referrerPolicy: 'no-referrer' });
         if (!response.ok) throw new Error('unavailable');
         encrypted = new Uint8Array(await response.arrayBuffer());
       }
@@ -80,4 +100,10 @@
       input.focus();
     }
   });
+
+  if (urlPassword) {
+    input.value = urlPassword;
+    urlPassword = null;
+    form.requestSubmit();
+  }
 })();
