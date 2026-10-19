@@ -144,6 +144,70 @@
     document.write(html);
     document.close();
     installDocuments(documents);
+    installImages(documents);
+  }
+
+  async function loadPrivateAsset(asset, report) {
+    const bytes = await download(new URL(asset.file, baseUrl), report, asset.bytes);
+    const assetMagic = new Uint8Array([87, 65, 70, 49]);
+    if (bytes.length < 32 || assetMagic.some((byte, i) => bytes[i] !== byte)) throw failure('asset');
+    const key = await crypto.subtle.importKey('raw', decodeAsset(asset.key), 'AES-GCM', false, ['decrypt']);
+    const plaintext = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.slice(4, 16), additionalData: assetMagic, tagLength: 128 }, key, bytes.slice(16));
+    return URL.createObjectURL(new Blob([plaintext], { type: asset.type }));
+  }
+
+  function installImages(assets) {
+    document.querySelectorAll('img[data-private-src]').forEach(img => {
+      const reference = img.getAttribute('data-private-src');
+      const match = reference.match(/^#private-document-(\d+)$/);
+      const asset = match && assets[Number(match[1])]?.[1];
+      if (!asset || !asset.type.startsWith('image/')) return;
+      const figure = img.closest('[data-private-figure]');
+      const status = figure.querySelector('[data-image-status]');
+      const progress = figure.querySelector('progress');
+      const retry = figure.querySelector('[data-image-retry]');
+      const links = [...figure.querySelectorAll('a')].filter(link => link.getAttribute('href') === reference);
+      let busy = false;
+      let loaded = false;
+      async function load() {
+        if (busy || loaded) return;
+        busy = true;
+        retry.hidden = true;
+        figure.setAttribute('aria-busy', 'true');
+        let url;
+        try {
+          url = await loadPrivateAsset(asset, (received, total, attempt) => {
+            status.textContent = (attempt ? 'Retrying cover… ' : 'Loading cover… ') + downloadLabel(received, total);
+            showProgress(progress, received, total);
+          });
+          img.src = url;
+          await img.decode();
+          links.forEach(link => { link.href = url; link.removeAttribute('aria-disabled'); });
+          loaded = true;
+          figure.classList.add('is-loaded');
+          figure.querySelector('[data-image-loading]').hidden = true;
+        } catch {
+          if (url) URL.revokeObjectURL(url);
+          img.removeAttribute('src');
+          status.textContent = 'The cover could not load. You can retry or keep reading.';
+          progress.hidden = true;
+          retry.hidden = false;
+        } finally {
+          busy = false;
+          figure.setAttribute('aria-busy', 'false');
+        }
+      }
+      links.forEach(link => link.addEventListener('click', event => {
+        if (!loaded) { event.preventDefault(); load(); }
+      }));
+      retry.addEventListener('click', load);
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); load(); }
+        }, { rootMargin: '400px' });
+        observer.observe(figure);
+      } else load();
+    });
   }
 
   function installDocuments(documents) {
@@ -175,6 +239,7 @@
       if (!match || !documents[Number(match[1])]) return;
       const index = Number(match[1]);
       const asset = documents[index][1];
+      if (asset.type !== 'application/pdf') return;
       const fragment = match[2] || '';
       const popup = window.open('about:blank', '_blank');
       if (popup) {
@@ -190,16 +255,11 @@
       link.setAttribute('aria-busy', 'true');
       try {
         if (!ready.has(index)) {
-          const bytes = await download(new URL(asset.file, baseUrl), (received, total, attempt) => {
+          ready.set(index, await loadPrivateAsset(asset, (received, total, attempt) => {
             const message = (attempt ? '正在重试加载论文 ' : '正在加载论文 ') + downloadLabel(received, total);
             notify(message, received, total);
             try { if (popup && !popup.closed) popup.document.body.textContent = message; } catch {}
-          }, asset.bytes);
-          const documentMagic = new Uint8Array([87, 65, 70, 49]);
-          if (bytes.length < 32 || documentMagic.some((byte, i) => bytes[i] !== byte)) throw failure('document');
-          const key = await crypto.subtle.importKey('raw', decodeAsset(asset.key), 'AES-GCM', false, ['decrypt']);
-          const plaintext = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.slice(4, 16), additionalData: documentMagic, tagLength: 128 }, key, bytes.slice(16));
-          ready.set(index, URL.createObjectURL(new Blob([plaintext], { type: asset.type })));
+          }));
         }
         const url = ready.get(index) + fragment;
         link.href = url;
@@ -235,7 +295,7 @@
     status.style.color = '#6b7d86';
     try {
       if (!encrypted) {
-        encrypted = await download(new URL('encrypted-preview.bin?v=11', baseUrl), (received, total, attempt) => {
+        encrypted = await download(new URL('encrypted-preview.bin?v=12', baseUrl), (received, total, attempt) => {
           button.textContent = (attempt ? '正在重试 ' : '正在加载预览 ') + downloadLabel(received, total);
           status.textContent = '首次打开需要下载加密页面，请稍候。';
           showProgress(progress, received, total);

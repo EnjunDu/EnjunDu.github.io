@@ -21,6 +21,7 @@ if (args.includes('--password-stdin')) {
 const types = { '.css': 'text/css', '.js': 'text/javascript', '.pdf': 'application/pdf', '.ttf': 'font/ttf', '.woff2': 'font/woff2', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.txt': 'text/plain' };
 const assets = {};
 const deferredAssets = {};
+const deferredNames = new Set(args.flatMap((arg, index) => arg === '--defer-asset' ? [args[index + 1]] : []));
 const sidecars = [];
 const outputPath = resolve(value('--output'));
 const root = resolve(value('--assets'));
@@ -32,9 +33,9 @@ async function collect(dir) {
       const name = relative(root, path).split('\\').join('/');
       const type = types[extname(path)] || 'application/octet-stream';
       const bytes = await readFile(path);
-      // Large documents are fetched only after an authenticated reader clicks them.
-      // The random document key is stored ONLY inside the password-encrypted bundle.
-      if (args.includes('--defer-pdf') && type === 'application/pdf') {
+      // Large assets load separately after unlock. Their random keys remain
+      // ONLY inside the password-encrypted bundle.
+      if ((args.includes('--defer-pdf') && type === 'application/pdf') || deferredNames.has(name)) {
         const rawKey = randomBytes(32);
         const key = await webcrypto.subtle.importKey('raw', rawKey, 'AES-GCM', false, ['encrypt', 'decrypt']);
         const magic = Buffer.from('WAF1');
@@ -44,7 +45,8 @@ async function collect(dir) {
         const recovered = await webcrypto.subtle.decrypt(algorithm, key, ciphertext);
         if (!Buffer.from(recovered).equals(bytes)) throw new Error('Document round-trip verification failed');
         const file = Buffer.concat([magic, iv, ciphertext]);
-        const filename = 'encrypted-document-' + createHash('sha256').update(file).digest('hex').slice(0, 20) + '.bin';
+        const prefix = type === 'application/pdf' ? 'encrypted-document-' : 'encrypted-media-';
+        const filename = prefix + createHash('sha256').update(file).digest('hex').slice(0, 20) + '.bin';
         sidecars.push({ filename, file });
         deferredAssets[name] = { type, file: filename, key: rawKey.toString('base64'), bytes: file.length };
       } else assets[name] = { type, data: bytes.toString('base64') };
