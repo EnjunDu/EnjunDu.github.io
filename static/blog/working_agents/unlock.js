@@ -295,7 +295,7 @@
     status.style.color = '#6b7d86';
     try {
       if (!encrypted) {
-        encrypted = await download(new URL('encrypted-preview.bin?v=12', baseUrl), (received, total, attempt) => {
+        encrypted = await download(new URL('encrypted-preview.bin?v=13', baseUrl), (received, total, attempt) => {
           button.textContent = (attempt ? '正在重试 ' : '正在加载预览 ') + downloadLabel(received, total);
           status.textContent = '首次打开需要下载加密页面，请稍候。';
           showProgress(progress, received, total);
