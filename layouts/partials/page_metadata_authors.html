@@ -5,6 +5,7 @@
   {{ range $index, $value := (.GetTerms $taxonomy) }}
     {{- /* Highlight the author's name? */ -}}
     {{- $highlight_name := .Page.Params.highlight_name | default false -}}
+    {{- $author_title := .LinkTitle -}}
 
     {{- if gt $index 0 }}, {{ end -}}
     <span {{ if $highlight_name }}class="font-bold"{{end}}>
@@ -19,6 +20,10 @@
       {{- with (index $.Params.author_notes $index) -}}
         {{- if eq . "Equal Contribution" -}}
           <sup class="author-contribution-marker" title="{{.}}" aria-label="{{.}}">†</sup>
+        {{- else if eq . "Corresponding Author" -}}
+          {{- if not (hasSuffix $author_title "*") -}}
+            <sup class="author-contribution-marker" title="{{.}}" aria-label="{{.}}">*</sup>
+          {{- end -}}
         {{- else -}}
           <i class="author-notes fas fa-info-circle" data-toggle="tooltip" title="{{.}}"></i>
         {{- end -}}

@@ -8,8 +8,8 @@
 
 {{/*
   Homepage visibility rule:
-  - featured: true is reserved for Enjun's first-author papers.
-  - Non-first-author papers belong under "Show more" (featured: false).
+  - featured: true is used for Enjun's first-author or corresponding-author papers.
+  - Papers where Enjun is neither first nor corresponding belong under "Show more".
   - Only user-approved exceptions may be featured; RED-GNN is currently such an exception.
 */}}
 {{ $pubs := where site.RegularPages "Section" "publication" }}
