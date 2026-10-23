@@ -15,12 +15,19 @@
 {{ $pubs := where site.RegularPages "Section" "publication" }}
 {{ $featured := where $pubs "Params.featured" "==" true }}
 {{ $rest := where $pubs "Params.featured" "!=" true }}
-{{ $featured = sort $featured "Date" "desc" }}
+{{ $featured_main := where $featured "Params.homepage_featured_last" "!=" true }}
+{{ $featured_last := where $featured "Params.homepage_featured_last" "==" true }}
+{{ $featured_main = sort $featured_main "Date" "desc" }}
+{{ $featured_last = sort $featured_last "Date" "desc" }}
 {{ $rest = sort $rest "Date" "desc" }}
-{{ $show_count := len $featured }}
+
+{{ $featured_ordered := slice }}
+{{ range $featured_main }}{{ $featured_ordered = $featured_ordered | append . }}{{ end }}
+{{ range $featured_last }}{{ $featured_ordered = $featured_ordered | append . }}{{ end }}
+{{ $show_count := len $featured_ordered }}
 
 {{ $all := slice }}
-{{ range $featured }}{{ $all = $all | append . }}{{ end }}
+{{ range $featured_ordered }}{{ $all = $all | append . }}{{ end }}
 {{ range $rest }}{{ $all = $all | append . }}{{ end }}
 
 {{ with $block.content.title }}

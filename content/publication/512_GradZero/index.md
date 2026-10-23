@@ -28,6 +28,8 @@ tags:
 
 # Homepage rule: first-author and corresponding-author papers may be shown directly.
 featured: true
+# Keep this visible card immediately above the "Show more" boundary.
+homepage_featured_last: true
 
 url_pdf: ''
 url_code: ''
