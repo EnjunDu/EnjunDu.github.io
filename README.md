@@ -28,7 +28,8 @@ and distinct network/password errors are shown on the password screen.
 
 The unlisted travel directory lives at `/travelling/`. Its standalone pages are
 under `static/travelling/`: `Australia/` contains the existing travel handbook and
-`ToHKU/` contains the daily HKU commute. The directory and commute page share
+`ToHKU/` contains the daily HKU commute, and `Hugury/` contains the Budapest–Vienna
+handbook for 24–29 October 2026 (the URL spelling is intentional). The directory and commute page share
 `static/travelling/travel.css`.
 
 When adding a handbook, add its card to `static/travelling/index.html`, update the
