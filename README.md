@@ -2,27 +2,16 @@
 
 I use [Hugo Academic CV Theme](https://github.com/HugoBlox/theme-academic-cv) as my personal homepage, and using [map](https://clustrmaps.com/) to record my visitors.
 
-## Private Working Agents preview
+## Work Agents project page
 
-`/blog/working_agents/` is an unlisted, encrypted static preview. Its public
-directory contains only the password screen, `unlock.js`, and authenticated
-ciphertext files. The figures, fonts, styles, and original page are inside the
-password-encrypted preview bundle; the manuscript is a separate encrypted file
-downloaded only when a reader opens a paper link. Its random decryption key is
-inside the password-encrypted bundle. Decrypted assets use browser-local Blob URLs.
-The previous monolithic bundle is retained for browsers with the older loader.
-The page is excluded from indexing, and no password is stored by the page.
+`/blog/working_agents/` is publicly accessible without a password. Its standalone
+HTML, styles, scripts, fonts, and figures live in `static/blog/working_agents/`.
+The final manuscript is `work-agents.pdf`; every paper link on the page points
+to this file. Keep its bytes identical to the approved manuscript when updating it.
 
-Keep plaintext inputs and passwords outside this repository. To update the bundle,
-run `scripts/encrypt-private-preview.mjs` locally with `--html`, `--assets`, and
-`--output static/blog/working_agents/encrypted-preview.bin`, plus `--defer-pdf`.
-Keep the generated `encrypted-document-*.bin` beside the preview bundle.
-It generates a strong password unless `--password-stdin` is used.
-Never run the packager in public CI or commit its password output. After changing
-the bundle, increment the payload query version in `unlock.js` and the script query
-version in `index.html` to refresh CDN caches. This preview has no public blog entry.
-Only encrypted files are cached. Download progress, stalled-download retries,
-and distinct network/password errors are shown on the password screen.
+Push changes to `main` to publish through the existing GitHub Pages workflow.
+The figure viewer, work-form tabs, and resource filters run directly on the public
+page. The previous encrypted preview and its password loader have been removed.
 
 ## Travelling pages
 
