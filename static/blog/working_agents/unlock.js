@@ -46,7 +46,7 @@
         clearTimeout(idleTimer);
         idleTimer = setTimeout(() => controller.abort(), 20000);
       };
-      const deadline = setTimeout(() => controller.abort(), 180000);
+      const deadline = setTimeout(() => controller.abort(), expectedBytes > 32 * 1024 * 1024 ? 600000 : 180000);
       try {
         report(0, expectedBytes || 0, attempt);
         resetIdle();
@@ -152,7 +152,7 @@
     const assetMagic = new Uint8Array([87, 65, 70, 49]);
     if (bytes.length < 32 || assetMagic.some((byte, i) => bytes[i] !== byte)) throw failure('asset');
     const key = await crypto.subtle.importKey('raw', decodeAsset(asset.key), 'AES-GCM', false, ['decrypt']);
-    const plaintext = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.slice(4, 16), additionalData: assetMagic, tagLength: 128 }, key, bytes.slice(16));
+    const plaintext = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.subarray(4, 16), additionalData: assetMagic, tagLength: 128 }, key, bytes.subarray(16));
     return URL.createObjectURL(new Blob([plaintext], { type: asset.type }));
   }
 
@@ -177,7 +177,7 @@
         let url;
         try {
           url = await loadPrivateAsset(asset, (received, total, attempt) => {
-            status.textContent = (attempt ? 'Retrying cover… ' : 'Loading cover… ') + downloadLabel(received, total);
+            status.textContent = (attempt ? 'Retrying figure… ' : 'Loading figure… ') + downloadLabel(received, total);
             showProgress(progress, received, total);
           });
           img.src = url;
@@ -189,7 +189,7 @@
         } catch {
           if (url) URL.revokeObjectURL(url);
           img.removeAttribute('src');
-          status.textContent = 'The cover could not load. You can retry or keep reading.';
+          status.textContent = 'The figure could not load. You can retry or keep reading.';
           progress.hidden = true;
           retry.hidden = false;
         } finally {
@@ -295,7 +295,7 @@
     status.style.color = '#6b7d86';
     try {
       if (!encrypted) {
-        encrypted = await download(new URL('encrypted-preview.bin?v=18', baseUrl), (received, total, attempt) => {
+        encrypted = await download(new URL('encrypted-preview.bin?v=19', baseUrl), (received, total, attempt) => {
           button.textContent = (attempt ? '正在重试 ' : '正在加载预览 ') + downloadLabel(received, total);
           status.textContent = '首次打开需要下载加密页面，请稍候。';
           showProgress(progress, received, total);
