@@ -61,7 +61,7 @@ links:
   - name: arXiv
     url: 'https://arxiv.org/abs/2610.35845'
 
-url_pdf: '/publication/513_workagents/work-agents.pdf'
+url_pdf: 'https://arxiv.org/pdf/2610.35845'
 url_code: ''
 url_dataset: ''
 url_poster: ''
