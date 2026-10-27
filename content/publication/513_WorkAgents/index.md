@@ -57,6 +57,10 @@ tags:
 # Enjun is a co-first author, so this paper is directly visible on the homepage.
 featured: true
 
+links:
+  - name: arXiv
+    url: 'https://arxiv.org/abs/2610.35845'
+
 url_pdf: '/publication/513_workagents/work-agents.pdf'
 url_code: ''
 url_dataset: ''
